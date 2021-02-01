@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Img from 'gatsby-image';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 import heroStyles from '../css/Hero.module.css';
 import RichText from '../components/RichText';

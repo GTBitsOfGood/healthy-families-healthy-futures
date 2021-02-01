@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import styles from '../css/Blog.module.css';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import ArticlePreview from '../components/ArticlePreview';
 
 interface Props extends PageProps {
