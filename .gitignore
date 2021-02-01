@@ -1,0 +1,29 @@
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dependencies
+node_modules/
+
+# optional npm cache directory
+.npm
+
+# optional eslint cache
+.eslintcache
+
+# build folder
+public
+
+# gatsby cache folder
+.cache
+
+# secrets
+.contentful.json
+.env*
+!.env.example
+
+# misc
+.DS_Store
