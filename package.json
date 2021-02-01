@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Bits of Good <hello@bitsofgood.org>",
   "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
+    "url": "https://github.com/GTBitsOfGood/healthy-families-healthy-futures/issues"
   },
   "dependencies": {
     "gatsby-image": "^2.3.4",
@@ -16,7 +16,6 @@
     "gatsby-transformer-remark": "^2.7.3",
     "gatsby-transformer-sharp": "^2.4.6",
     "html-react-parser": "^1.2.3",
-    "lodash": "^4.17.15",
     "query-string": "^6.13.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -54,7 +53,7 @@
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful-userland/gatsby-contentful-starter.git"
+    "url": "git+https://github.com/GTBitsOfGood/healthy-families-healthy-futures.git"
   },
   "scripts": {
     "build": "gatsby build",

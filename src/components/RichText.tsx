@@ -1,6 +1,8 @@
 import React from 'react';
 import queryString from 'query-string';
-import parse, { Element } from 'html-react-parser';
+import parse from 'html-react-parser';
+
+import { Element } from 'html-react-parser';
 
 interface Props {
   html?: string;
