@@ -1,21 +1,24 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import { get } from 'lodash';
+import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import Hero from '../components/hero';
+import Hero from '../components/Hero';
 import Layout from '../components/layout';
 import ArticlePreview from '../components/ArticlePreview';
 
-function RootIndex(props) {
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
-  const posts = get(props, 'data.allContentfulBlogPost.edges');
-  const [author] = get(props, 'data.allContentfulPerson.edges');
+interface Props extends PageProps {
+  data: GatsbyTypes.HomeQueryQuery;
+}
+
+function RootIndex(props: Props): JSX.Element {
+  const siteTitle = props.data.site?.siteMetadata?.title;
+  const posts = props.data.allContentfulBlogPost.edges;
+  const [author] = props.data.allContentfulPerson.nodes;
 
   return (
     <Layout location={props.location}>
       <div style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
-        <Hero data={author.node} />
+        <Hero data={author} />
         <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
           <ul className="article-list">
@@ -45,37 +48,13 @@ export const pageQuery = graphql`
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
+          ...ArticlePreview
         }
       }
     }
     allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(maxWidth: 1180, maxHeight: 480, resizingBehavior: PAD, background: "rgb:000000") {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
+      nodes {
+        ...Hero
       }
     }
   }

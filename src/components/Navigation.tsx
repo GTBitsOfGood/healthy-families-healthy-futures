@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styles from '../css/Navigation.module.css';
 
-function Navigation() {
+function Navigation(): JSX.Element {
   return (
     <nav role="navigation">
       <ul className={styles.navigation}>

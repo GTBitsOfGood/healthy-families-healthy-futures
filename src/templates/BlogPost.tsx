@@ -1,27 +1,37 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import { get } from 'lodash';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 
 import heroStyles from '../css/Hero.module.css';
 import RichText from '../components/RichText';
 
-function BlogPostTemplate(props) {
-  const post = get(props, 'data.contentfulBlogPost');
-  const siteTitle = get(props, 'data.site.siteMetadata.title');
-  console.log(post);
+interface Props extends PageProps {
+  data: GatsbyTypes.BlogPostBySlugQuery;
+}
+
+function BlogPostTemplate(props: Props): JSX.Element {
+  const post = props.data.contentfulBlogPost;
+  const siteTitle = props.data.site?.siteMetadata?.title;
+
+  if (post?.heroImage?.fluid == null) {
+    return <></>;
+  }
 
   return (
     <Layout location={props.location}>
       <div style={{ background: '#fff' }}>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
+        <Helmet title={`${post?.title} | ${siteTitle}`} />
         <div className={heroStyles.hero}>
-          <Img className={heroStyles.heroImage} alt={post.title} fluid={post.heroImage.fluid} />
+          <Img
+            className={heroStyles.heroImage}
+            alt={post?.title ?? ''}
+            fluid={post?.heroImage?.fluid}
+          />
         </div>
         <div className="wrapper">
-          <h1 className="section-headline">{post.title}</h1>
+          <h1 className="section-headline">{post?.title}</h1>
           <p
             style={{
               display: 'block',
@@ -29,7 +39,7 @@ function BlogPostTemplate(props) {
           >
             {post.publishDate}
           </p>
-          <RichText html={post.body.childMarkdownRemark.html} />
+          <RichText html={post.body?.childMarkdownRemark?.html} />
         </div>
       </div>
     </Layout>
