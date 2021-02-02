@@ -3,14 +3,14 @@ import React from 'react';
 import parse from 'html-react-parser';
 import { parseUrl } from 'query-string';
 interface Props {
-  html?: string;
+  data?: string;
 }
 
-function RichText({ html }: Props): JSX.Element {
-  if (html == null) {
+function RichText({ data }: Props): JSX.Element {
+  if (data == null) {
     return <></>;
   }
-  const replaceEmbed = parse(html, {
+  const replaceEmbed = parse(data, {
     replace: domNode => {
       if ('attribs' in domNode && domNode.attribs?.class === 'embedly-card') {
         const videoUrl = domNode.attribs.href;

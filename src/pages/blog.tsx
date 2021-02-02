@@ -26,7 +26,7 @@ function BlogIndex(props: Props): JSX.Element {
             {posts.map(node => {
               return (
                 <li key={node.slug}>
-                  <ArticlePreview article={node} />
+                  <ArticlePreview data={node} />
                 </li>
               );
             })}

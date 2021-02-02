@@ -6,35 +6,35 @@ import Img from 'gatsby-image';
 import styles from '../css/ArticlePreview.module.css';
 
 interface Props {
-  article: GatsbyTypes.ArticlePreviewFragment;
+  data: GatsbyTypes.ArticlePreviewFragment;
 }
 
-function ArticlePreview({ article }: Props): JSX.Element {
+function ArticlePreview({ data }: Props): JSX.Element {
   return (
     <div>
-      {article.heroImage?.fluid == null ? (
+      {data.heroImage?.fluid == null ? (
         <p>Image not found</p>
       ) : (
-        <Img alt="" fluid={article.heroImage?.fluid} />
+        <Img alt="" fluid={data.heroImage?.fluid} />
       )}
 
       <h3 className={styles.previewTitle}>
-        <Link to={`/blog/${article.slug ?? ''}`}>{article.title}</Link>
+        <Link to={`/blog/${data.slug ?? ''}`}>{data.title}</Link>
       </h3>
-      <small>{article.publishDate}</small>
+      <small>{data.publishDate}</small>
 
-      {article.description?.childMarkdownRemark?.html == null ? (
+      {data.description?.childMarkdownRemark?.html == null ? (
         <div>Content missing!</div>
       ) : (
         <div
           dangerouslySetInnerHTML={{
-            __html: article.description?.childMarkdownRemark?.html,
+            __html: data.description?.childMarkdownRemark?.html,
           }}
         />
       )}
 
-      {article.tags &&
-        article.tags.map(tag => (
+      {data.tags &&
+        data.tags.map(tag => (
           <p className={styles.tag} key={tag}>
             {tag}
           </p>

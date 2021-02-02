@@ -40,7 +40,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
           >
             {post.publishDate}
           </p>
-          <RichText html={post.body?.childMarkdownRemark?.html} />
+          <RichText data={post.body?.childMarkdownRemark?.html} />
         </div>
       </div>
     </Layout>
