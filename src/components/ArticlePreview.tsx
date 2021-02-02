@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -18,7 +19,7 @@ function ArticlePreview({ article }: Props): JSX.Element {
       )}
 
       <h3 className={styles.previewTitle}>
-        <Link to={`/blog/${article.slug}`}>{article.title}</Link>
+        <Link to={`/blog/${article.slug ?? ''}`}>{article.title}</Link>
       </h3>
       <small>{article.publishDate}</small>
 

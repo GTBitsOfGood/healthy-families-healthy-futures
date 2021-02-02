@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import styles from '../css/Blog.module.css';
-import Layout from '../components/Layout';
+
 import ArticlePreview from '../components/ArticlePreview';
+import Layout from '../components/Layout';
+import styles from '../css/Blog.module.css';
 
 interface Props extends PageProps {
   data: GatsbyTypes.BlogIndexQueryQuery;

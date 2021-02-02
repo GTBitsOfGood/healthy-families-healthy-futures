@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
+
+import ArticlePreview from '../components/ArticlePreview';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
-import ArticlePreview from '../components/ArticlePreview';
 
 interface Props extends PageProps {
   data: GatsbyTypes.HomeQueryQuery;

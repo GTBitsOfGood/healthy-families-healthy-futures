@@ -1,8 +1,9 @@
 import React from 'react';
+
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import styles from '../css/Hero.module.css';
-import { graphql } from 'gatsby';
 
 interface Props {
   data: GatsbyTypes.HeroFragment;

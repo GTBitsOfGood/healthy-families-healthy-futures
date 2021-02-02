@@ -1,6 +1,7 @@
 import React from 'react';
-import queryString from 'query-string';
+
 import parse from 'html-react-parser';
+import { parseUrl } from 'query-string';
 interface Props {
   html?: string;
 }
@@ -13,10 +14,14 @@ function RichText({ html }: Props): JSX.Element {
     replace: domNode => {
       if ('attribs' in domNode && domNode.attribs?.class === 'embedly-card') {
         const videoUrl = domNode.attribs.href;
-        const videoId = queryString.parseUrl(videoUrl).query.v;
+        const videoId = parseUrl(videoUrl).query.v;
+        if (typeof videoId !== 'string') {
+          return domNode;
+        }
         const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
         return (
           <iframe
+            title={`YouTube embed`}
             width="560"
             height="315"
             src={embedUrl}

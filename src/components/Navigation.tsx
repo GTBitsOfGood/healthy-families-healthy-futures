@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Link } from 'gatsby';
+
 import styles from '../css/Navigation.module.css';
 
 function Navigation(): JSX.Element {

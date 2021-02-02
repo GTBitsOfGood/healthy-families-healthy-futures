@@ -1,11 +1,12 @@
 import React from 'react';
-import { graphql, PageProps } from 'gatsby';
-import { Helmet } from 'react-helmet';
-import Img from 'gatsby-image';
-import Layout from '../components/Layout';
 
-import heroStyles from '../css/Hero.module.css';
+import { graphql, PageProps } from 'gatsby';
+import Img from 'gatsby-image';
+import { Helmet } from 'react-helmet';
+
+import Layout from '../components/Layout';
 import RichText from '../components/RichText';
+import heroStyles from '../css/Hero.module.css';
 
 interface Props extends PageProps {
   data: GatsbyTypes.BlogPostBySlugQuery;
@@ -22,7 +23,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
   return (
     <Layout location={props.location}>
       <div style={{ background: '#fff' }}>
-        <Helmet title={`${post?.title} | ${siteTitle}`} />
+        <Helmet title={`${post?.title ?? ''} | ${siteTitle ?? ''}`} />
         <div className={heroStyles.hero}>
           <Img
             className={heroStyles.heroImage}
