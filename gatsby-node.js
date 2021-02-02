@@ -1,5 +1,6 @@
-const Promise = require('bluebird');
 const path = require('path');
+
+const Promise = require('bluebird');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -22,6 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
         `,
       ).then(result => {
         if (result.errors) {
+          // eslint-disable-next-line no-console
           console.log(result.errors);
           reject(result.errors);
         }
