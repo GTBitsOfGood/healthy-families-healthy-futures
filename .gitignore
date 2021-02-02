@@ -17,8 +17,14 @@ node_modules/
 # build folder
 public
 
+# IDE settings
+.vscode/
+
 # gatsby cache folder
 .cache
+
+# graphql codegen
+src/__generated__
 
 # secrets
 .contentful.json
