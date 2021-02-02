@@ -10,6 +10,7 @@
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-react-helmet": "^3.2.4",
     "gatsby-plugin-sharp": "^2.5.6",
+    "gatsby-plugin-tsconfig-paths": "^1.0.2",
     "gatsby-plugin-typegen": "<2.2.2",
     "gatsby-plugin-typescript": "^2.11.0",
     "gatsby-source-contentful": "^4.5.1",

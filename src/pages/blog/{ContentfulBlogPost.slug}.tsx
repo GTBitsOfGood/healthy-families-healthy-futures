@@ -4,9 +4,9 @@ import { graphql, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
 import { Helmet } from 'react-helmet';
 
-import Layout from '../components/Layout';
-import RichText from '../components/RichText';
-import heroStyles from '../css/Hero.module.css';
+import Layout from '../../components/Layout';
+import RichText from '../../components/RichText';
+import heroStyles from '../../css/Hero.module.css';
 
 interface Props extends PageProps {
   data: GatsbyTypes.BlogPostBySlugQuery;
