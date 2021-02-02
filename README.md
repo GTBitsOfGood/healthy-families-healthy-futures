@@ -1,5 +1,7 @@
 # healthy-families-healthy-futures
 
+The repository for the Healthy Families Healthy Futures website
+
 ## Development
 
 ### Setup
