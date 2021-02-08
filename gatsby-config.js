@@ -33,6 +33,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-tsconfig-paths',
     {
+      resolve: '@chakra-ui/gatsby-plugin',
+      options: {
+        isResettingCSS: false,
+      },
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
