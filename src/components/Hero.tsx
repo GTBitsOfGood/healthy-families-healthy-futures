@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -11,18 +12,26 @@ interface Props {
 
 function Hero({ data }: Props): JSX.Element {
   return (
-    <div className={styles.hero}>
+    <Box pos="relative" textAlign="center">
       {data.image?.fluid == null ? (
         <p>Missing image!</p>
       ) : (
         <Img className={styles.heroImage} alt={data.name} fluid={data.image?.fluid} />
       )}
-      <div className={styles.heroDetails}>
-        <h3 className={styles.heroHeadline}>{data.name}</h3>
-        <p className={styles.heroTitle}>{data.title}</p>
-        <p>{data.shortBio?.shortBio}</p>
-      </div>
-    </div>
+      <Box
+        bg="rgba(0, 0, 0, 0.7)"
+        px="2"
+        pos="absolute"
+        left="50%"
+        bottom="0"
+        transform="translateX(-50%)"
+        color="white"
+      >
+        <Heading textStyle="h2">{data.name}</Heading>
+        <Text className={styles.heroTitle}>{data.title}</Text>
+        <Text>{data.shortBio?.shortBio}</Text>
+      </Box>
+    </Box>
   );
 }
 

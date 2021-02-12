@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Box, Container, Divider, Heading } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
@@ -18,11 +19,12 @@ function RootIndex(props: Props): JSX.Element {
 
   return (
     <Layout location={props.location}>
-      <div style={{ background: '#fff' }}>
+      <Container maxW="5xl" style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
         <Hero data={author} />
-        <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>
+        <Box py="10">
+          <Heading as="h3">Recent articles</Heading>
+          <Divider />
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (
@@ -32,8 +34,8 @@ function RootIndex(props: Props): JSX.Element {
               );
             })}
           </ul>
-        </div>
-      </div>
+        </Box>
+      </Container>
     </Layout>
   );
 }

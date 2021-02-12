@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Divider } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
@@ -22,6 +23,7 @@ function BlogIndex(props: Props): JSX.Element {
         <div className={styles.hero}>Blog</div>
         <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
+          <Divider />
           <ul className="article-list">
             {posts.map(node => {
               return (
