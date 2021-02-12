@@ -27,7 +27,9 @@ function RecipesIndex(props: Props): JSX.Element {
             {posts.map(({ node }) => {
               return (
                 <li key={node.id}>
-                  <h1>Hello</h1>
+                  <h1>{node.title}</h1>{' '}
+                  <h1>{`${String(node.prepTime)} ${node.prepTime === 1 ? 'min' : 'mins'}`}</h1>
+                  <h1>{`${String(node.totalTime)} ${node.totalTime === 1 ? 'min' : 'mins'}`}</h1>
                 </li>
               );
             })}
