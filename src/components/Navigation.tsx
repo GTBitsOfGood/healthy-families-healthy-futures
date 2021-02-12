@@ -14,6 +14,9 @@ function Navigation(): JSX.Element {
         <li className={styles.navigationItem}>
           <Link to="/blog/">Blog</Link>
         </li>
+        <li className={styles.navigationItem}>
+          <Link to="/donations/">Donate</Link>
+        </li>
       </ul>
     </nav>
   );
