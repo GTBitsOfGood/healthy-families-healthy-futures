@@ -3,6 +3,7 @@ import React from 'react';
 import { Divider } from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
+import slugify from 'react-slugify';
 import Layout from 'src/components/Layout';
 
 import styles from '../css/Blog.module.css';
@@ -27,7 +28,7 @@ function RecipesIndex(props: Props): JSX.Element {
             {recipes.map(node => {
               return (
                 <li key={node.id}>
-                  <Link to={`/recipes/${node.title ?? ''}`}>
+                  <Link to={`/recipes/${slugify(node.title) ?? ''}`}>
                     <h1>{node.title}</h1>{' '}
                   </Link>
                   <h1>{`${String(node.prepTime)} ${node.prepTime === 1 ? 'min' : 'mins'}`}</h1>
