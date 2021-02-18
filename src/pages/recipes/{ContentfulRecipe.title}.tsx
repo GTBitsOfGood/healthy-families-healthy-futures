@@ -4,8 +4,6 @@ import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import Layout from '../../components/Layout';
-import heroStyles from '../../css/Hero.module.css';
-import styles from '../css/Blog.module.css';
 
 interface Props extends PageProps {
   data: GatsbyTypes.RecipeByNameQuery;
@@ -27,17 +25,23 @@ function RecipeTemplate(props: Props): JSX.Element {
             style={{
               display: 'block',
             }}
-          >{recipe?.ingredients?.ingredients}</p>
+          >
+            {recipe?.ingredients?.ingredients}
+          </p>
           <p
             style={{
               display: 'block',
             }}
-          >{recipe?.prepDirections?.prepDirections}</p>
+          >
+            {recipe?.prepDirections?.prepDirections}
+          </p>
           <p
             style={{
               display: 'block',
             }}
-          >{recipe?.directions?.directions}</p>
+          >
+            {recipe?.directions?.directions}
+          </p>
         </div>
       </div>
     </Layout>
