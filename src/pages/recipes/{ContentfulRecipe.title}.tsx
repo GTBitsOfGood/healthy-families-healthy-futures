@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import Layout from '../../components/Layout';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.RecipeByNameQuery;
+  data: GatsbyTypes.RecipeByTitleQuery;
 }
 
 function RecipeTemplate(props: Props): JSX.Element {
@@ -51,7 +51,7 @@ function RecipeTemplate(props: Props): JSX.Element {
 export default RecipeTemplate;
 
 export const pageQuery = graphql`
-  query RecipeByName($title: String!) {
+  query RecipeByTitle($title: String!) {
     site {
       siteMetadata {
         title
