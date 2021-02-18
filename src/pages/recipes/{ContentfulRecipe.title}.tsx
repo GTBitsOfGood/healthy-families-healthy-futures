@@ -19,8 +19,19 @@ function RecipeTemplate(props: Props): JSX.Element {
         <Helmet title={`${recipe?.title ?? ''} | ${siteTitle ?? ''}`} />
         <div className="wrapper">
           <h1 className="section-headline">{recipe?.title}</h1>
-          <h2>{recipe?.totalTime}</h2>
-          <h2>{recipe?.prepTime}</h2>
+          <h2>
+            Total Time: {recipe?.totalTime} {recipe?.totalTime == 1 ? 'min' : 'mins'}
+          </h2>
+          <h2>
+            Preparation Time: {recipe?.prepTime} {recipe?.prepTime == 1 ? 'min' : 'mins'}
+          </h2>
+          <h2
+            style={{
+              fontWeight: 'bold',
+            }}
+          >
+            Ingredients
+          </h2>
           <p
             style={{
               display: 'block',
@@ -28,6 +39,13 @@ function RecipeTemplate(props: Props): JSX.Element {
           >
             {recipe?.ingredients?.ingredients}
           </p>
+          <h2
+            style={{
+              fontWeight: 'bold',
+            }}
+          >
+            Preparation Directions
+          </h2>
           <p
             style={{
               display: 'block',
@@ -35,6 +53,13 @@ function RecipeTemplate(props: Props): JSX.Element {
           >
             {recipe?.prepDirections?.prepDirections}
           </p>
+          <h2
+            style={{
+              fontWeight: 'bold',
+            }}
+          >
+            Cooking Directions
+          </h2>
           <p
             style={{
               display: 'block',
