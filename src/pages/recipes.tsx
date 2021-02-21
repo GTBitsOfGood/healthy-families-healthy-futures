@@ -6,6 +6,7 @@ import { graphql, Link, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 
+import RecipeCard from '../components/RecipeCard';
 import styles from '../css/Blog.module.css';
 
 interface Props extends PageProps {
@@ -29,10 +30,12 @@ function RecipesIndex(props: Props): JSX.Element {
               return (
                 <li key={node.id}>
                   <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
-                    <h1>{node.title}</h1>{' '}
+                    {/* <h1>{node.title}</h1>{' '} */}
+                    <RecipeCard data={node} /> {/* Need to query image somehow*/}
                   </Link>
-                  <h1>{`${String(node.prepTime)} ${node.prepTime == 1 ? 'min' : 'mins'}`}</h1>
-                  <h1>{`${String(node.totalTime)} ${node.totalTime == 1 ? 'min' : 'mins'}`}</h1>
+
+                  {/* <h1>{`${String(node.prepTime)} ${node.prepTime == 1 ? 'min' : 'mins'}`}</h1>
+                  <h1>{`${String(node.totalTime)} ${node.totalTime == 1 ? 'min' : 'mins'}`}</h1> */}
                 </li>
               );
             })}
@@ -59,6 +62,7 @@ export const pageQuery = graphql`
         title
         totalTime
         updatedAt
+        yield
       }
     }
   }
