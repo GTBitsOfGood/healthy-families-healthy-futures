@@ -21,7 +21,7 @@ function RecipesIndex(props: Props): JSX.Element {
       <div style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
 
-        <Grid spacing={10} templateColumns="200px 1fr" columnGap={5}>
+        <Grid templateColumns={{ base: '1fr', md: '250px 1fr' }} columnGap={5}>
           <GridItem>
             <RecipeSidebar location={props.location} />
           </GridItem>

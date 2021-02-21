@@ -14,33 +14,33 @@ import {
 
 interface Props {
   category: string;
-  filters: ReactText[];
-  selectedFilters: ReactText[];
-  onChange: (filters: ReactText[]) => void;
+  options: ReactText[];
+  selectedOptions: ReactText[];
+  onChange: (options: string[]) => void;
 }
 
-function FilterGroup({ category, filters, selectedFilters, onChange }: Props): JSX.Element {
+function FilterGroup({ category, options, selectedOptions, onChange }: Props): JSX.Element {
   return (
-    <Accordion allowToggle borderColor="white">
+    <Accordion allowToggle borderColor="white" defaultIndex={0}>
       <AccordionItem>
         <AccordionButton _hover={{ backgroundColor: 'white' }} padding={0}>
           <Box flex="1" textAlign="left" fontWeight="bold">
-            {category}
+            {category.toUpperCase()}
           </Box>
           <AccordionIcon />
         </AccordionButton>
         <AccordionPanel paddingBottom={4}>
-          <CheckboxGroup defaultValue={selectedFilters} onChange={onChange}>
+          <CheckboxGroup value={selectedOptions} onChange={onChange}>
             <VStack align="left">
-              {filters.map(filter => (
+              {options.map(option => (
                 <Checkbox
-                  key={filter}
-                  value={filter}
+                  key={option}
+                  value={option}
                   spacing={5}
                   borderColor="gray.400"
                   color="gray.700"
                 >
-                  {filter}
+                  {option}
                 </Checkbox>
               ))}
             </VStack>

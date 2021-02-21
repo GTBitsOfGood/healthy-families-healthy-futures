@@ -14,15 +14,27 @@ function RecipeSidebar({ location }: Props): JSX.Element {
   const defaultFilters = parse(location.search, { arrayFormat: 'comma' });
   const [selectedFilters, updateSelectedFilters] = useState(defaultFilters);
 
+  // TODO - Retrieve the filters dynamically
+  const filters = [
+    {
+      category: 'Food Type',
+      options: ['Vegan', 'Vegetarian', 'Breakfast', 'Lunch'],
+    },
+    {
+      category: 'Ingredients',
+      options: ['Beans', 'Fruit', 'Protein', 'Dairy'],
+    },
+    {
+      category: 'Time',
+      options: ['< 10 min', '15-30 min', '31-45 min'],
+    },
+  ];
+
   useEffect(() => {
     const newQueries = stringify(selectedFilters, { arrayFormat: 'comma' });
     const newUrl = `${location.pathname}?${newQueries}`;
     void navigate(newUrl);
   }, [location.pathname, selectedFilters]);
-
-  const clearFilters = () => {
-    updateSelectedFilters({});
-  };
 
   return (
     <div>
@@ -30,27 +42,42 @@ function RecipeSidebar({ location }: Props): JSX.Element {
         <Heading as="h1" size="md">
           Filters
         </Heading>
-        <Button variant="ghost" colorScheme="gray" onClick={clearFilters}>
+        <Button variant="ghost" colorScheme="gray" onClick={() => updateSelectedFilters({})}>
           Clear
         </Button>
       </Flex>
 
       <VStack align="stretch">
-        {Object.keys(selectedFilters).map(filter => {
+        {filters.map(filter => {
+          const { category, options } = filter;
+          let selectedOptions: string[] = [];
+
+          if (category in selectedFilters) {
+            if (typeof selectedFilters[category] === 'string') {
+              // If there is only one option selected, the query-string parse will read it as string
+              selectedOptions = [selectedFilters[category] as string];
+            } else if (Array.isArray(selectedFilters[category])) {
+              selectedOptions = selectedFilters[category] as string[];
+            }
+          }
+
+          const onOptionsChange = (options: string[]) => {
+            updateSelectedFilters({
+              ...selectedFilters,
+              [category]: options,
+            });
+          };
+
           return (
-            <div key={filter}>
-              <b>{filter}</b>
-              <p>{JSON.stringify(selectedFilters[filter])}</p>
-            </div>
+            <FilterGroup
+              category={category}
+              options={options}
+              selectedOptions={selectedOptions}
+              onChange={onOptionsChange}
+              key={filter.category}
+            />
           );
         })}
-
-        <FilterGroup // This is just an example of how to use this component, delete this
-          category="INGREDIENTS"
-          filters={['Tomato', 'Lettuce', 'Onion']}
-          selectedFilters={['Tomato']}
-          onChange={filters => console.log(filters)}
-        ></FilterGroup>
       </VStack>
     </div>
   );
