@@ -4,6 +4,8 @@ import { Heading, Flex, Button, VStack } from '@chakra-ui/react';
 import { navigate } from 'gatsby';
 import { parse, stringify } from 'query-string';
 
+import FilterGroup from './FilterGroup';
+
 interface Props {
   location: Location;
 }
@@ -42,6 +44,13 @@ function RecipeSidebar({ location }: Props): JSX.Element {
             </div>
           );
         })}
+
+        <FilterGroup // This is just an example of how to use this component, delete this
+          category="INGREDIENTS"
+          filters={['Tomato', 'Lettuce', 'Onion']}
+          selectedFilters={['Tomato']}
+          onChange={filters => console.log(filters)}
+        ></FilterGroup>
       </VStack>
     </div>
   );
