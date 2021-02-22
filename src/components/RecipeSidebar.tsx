@@ -12,6 +12,7 @@ interface Props {
 
 function RecipeSidebar({ location }: Props): JSX.Element {
   const defaultFilters = parse(location.search, { arrayFormat: 'comma' });
+  // Note: selectedFilters can include other query parameters that are not necessarily used for filtering
   const [selectedFilters, updateSelectedFilters] = useState(defaultFilters);
 
   // TODO - Retrieve the filters dynamically
@@ -36,13 +37,21 @@ function RecipeSidebar({ location }: Props): JSX.Element {
     void navigate(newUrl);
   }, [location.pathname, selectedFilters]);
 
+  // Check if the query string has any of the category as a selected filter
+  const hasActiveFilter = filters.map(x => x.category).some(x => x in selectedFilters);
+
   return (
     <div>
-      <Flex justify="space-between" align="center">
+      <Flex justify="space-between" align="center" mb={5}>
         <Heading as="h1" size="md">
           Filters
         </Heading>
-        <Button variant="ghost" colorScheme="gray" onClick={() => updateSelectedFilters({})}>
+        <Button
+          variant="ghost"
+          colorScheme="gray"
+          onClick={() => updateSelectedFilters({})}
+          hidden={!hasActiveFilter}
+        >
           Clear
         </Button>
       </Flex>
@@ -62,10 +71,18 @@ function RecipeSidebar({ location }: Props): JSX.Element {
           }
 
           const onOptionsChange = (options: string[]) => {
-            updateSelectedFilters({
-              ...selectedFilters,
-              [category]: options,
-            });
+            if (options.length > 0) {
+              updateSelectedFilters({
+                ...selectedFilters,
+                [category]: options,
+              });
+            } else {
+              // If there are no options, remove this category from selected filters.
+              // This helps to determine if there is any active filters
+              const newSelectedFilters = { ...selectedFilters };
+              delete newSelectedFilters[category];
+              updateSelectedFilters(newSelectedFilters);
+            }
           };
 
           return (
