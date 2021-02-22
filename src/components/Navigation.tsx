@@ -12,13 +12,22 @@ function Navigation(): JSX.Element {
           <Link to="/">Home</Link>
         </li>
         <li className={styles.navigationItem}>
-          <Link to="/blog/">Blog</Link>
+          <Link to="/about">About</Link>
         </li>
         <li className={styles.navigationItem}>
           <Link to="/recipes/">Recipes</Link>
         </li>
         <li className={styles.navigationItem}>
           <Link to="/donations/">Donate</Link>
+        </li>
+        <li className={styles.navigationItem}>
+          <Link to="/events-and-classes/">Events & Classes</Link>
+        </li>
+        <li className={styles.navigationItem}>
+          <Link to="/blog/">Blog</Link>
+        </li>
+        <li className={styles.navigationItem}>
+          <Link to="/resources/">Resources</Link>
         </li>
       </ul>
     </nav>

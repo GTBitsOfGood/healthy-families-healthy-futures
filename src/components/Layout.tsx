@@ -3,6 +3,7 @@ require('../css/base.css');
 import React from 'react';
 
 import Container from './Container';
+import Header from './Header';
 import Navigation from './Navigation';
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 function Layout({ children }: Props): JSX.Element {
   return (
     <Container>
+      <Header />
       <Navigation />
       {children}
     </Container>
