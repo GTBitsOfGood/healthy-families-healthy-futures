@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   list-style: none;
-  padding: 0;
+  padding: 100;
   margin: 0;
   height: 20vh;
   max-height: 100px;
@@ -10,11 +10,25 @@
 }
 
 .navigationItem {
-  display: inline-flex;
-  align-items: center;
-  margin: 0 1em;
+  width: 86px;
+  height: 51px;
+  left: 200px;
+  top: 104px;
+  padding-left: 100px;
+  font-family: Avenir;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  text-decoration: underline;
 }
 
-.navigationItem a {
-  color: currentColor;
+.navigationItem a:hover {
+  text-decoration: underline;
+}
+
+.navigationItem:hover {
+  text-decoration: underline;
+
 }

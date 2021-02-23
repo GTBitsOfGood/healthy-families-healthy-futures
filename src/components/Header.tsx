@@ -1,4 +1,5 @@
 import React from 'react';
+//import logo from "../../public/static/i"
 
 function Header(): JSX.Element {
   return (

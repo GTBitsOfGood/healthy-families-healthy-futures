@@ -9,25 +9,25 @@ function Navigation(): JSX.Element {
     <nav role="navigation">
       <ul className={styles.navigation}>
         <li className={styles.navigationItem}>
-          <Link to="/">Home</Link>
+          <Link to="/">HOME</Link>
         </li>
         <li className={styles.navigationItem}>
-          <Link to="/about">About</Link>
+          <Link to="/about">ABOUT</Link>
         </li>
         <li className={styles.navigationItem}>
-          <Link to="/recipes/">Recipes</Link>
+          <Link to="/recipes/">RECIPES</Link>
         </li>
         <li className={styles.navigationItem}>
-          <Link to="/donations/">Donate</Link>
+          <Link to="/donations/">DONATE</Link>
         </li>
         <li className={styles.navigationItem}>
-          <Link to="/events-and-classes/">Events & Classes</Link>
+          <Link to="/events-and-classes/">EVENTS & CLASSES</Link>
         </li>
         <li className={styles.navigationItem}>
-          <Link to="/blog/">Blog</Link>
+          <Link to="/blog/">BLOG</Link>
         </li>
         <li className={styles.navigationItem}>
-          <Link to="/resources/">Resources</Link>
+          <Link to="/resources/">RESOURCES</Link>
         </li>
       </ul>
     </nav>
