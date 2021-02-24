@@ -1,7 +1,41 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
+  colors: {
+    green: '#65BF73',
+    charcoal: '#404040',
+    gray: {
+      dark: '#404040',
+      mid: '#6C6C6C',
+      light: '#C4C4C4',
+    },
+  },
   textStyles: {
+    heading1: {
+      fontSize: 35,
+      fontWeight: 800,
+    },
+    heading2: {
+      fontSize: 28,
+      fontWeight: 800,
+    },
+    subheading1: {
+      fontSize: 16,
+      fontWeight: 800,
+    },
+    subheading2: {
+      fontSize: 14,
+      fontWeight: 800,
+    },
+    body1: {
+      fontSize: 18,
+    },
+    body2: {
+      fontSize: 16,
+    },
+    body3: {
+      fontSize: 14,
+    },
     h2: {
       fontSize: ['2em'],
       lineHeight: [1.65, 1.65, 1.65],
@@ -11,9 +45,29 @@ const theme = extendTheme({
       lineHeight: '110%',
     },
   },
+  components: {
+    Button: {
+      baseStyle: {
+        textStyle: 'body2',
+        textTransform: 'uppercase',
+      },
+      variants: {
+        primary: {
+          bg: 'green',
+          color: 'white',
+        },
+        secondary: {},
+      },
+    },
+  },
   fonts: {
     body: `Avenir`,
     heading: `Avenir`,
+  },
+  sizes: {
+    container: {
+      full: '100%',
+    },
   },
 });
 
