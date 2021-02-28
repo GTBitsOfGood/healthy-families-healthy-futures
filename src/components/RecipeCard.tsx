@@ -1,9 +1,10 @@
 import React from 'react';
 import { TimeIcon } from '@chakra-ui/icons';
 import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
 
 interface Props {
-  data: GatsbyTypes.RecipeQueryQuery;
+  data: GatsbyTypes.RecipeCardFragment;
 }
 
 function RecipeCard({ data }: Props): JSX.Element {
@@ -42,3 +43,18 @@ function RecipeCard({ data }: Props): JSX.Element {
 }
 
 export default RecipeCard;
+export const fragment = graphql`
+  fragment RecipeCard on ContentfulRecipe {
+    id
+    prepTime
+    title
+    totalTime
+    mainImage {
+      fluid(maxWidth: 339, maxHeight: 219, resizingBehavior: SCALE) {
+        ...GatsbyContentfulFluid
+      }
+    }
+    updatedAt
+    yield
+  }
+`;

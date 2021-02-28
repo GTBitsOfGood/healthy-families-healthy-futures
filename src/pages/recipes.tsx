@@ -61,17 +61,7 @@ export const pageQuery = graphql`
     }
     allContentfulRecipe {
       nodes {
-        id
-        prepTime
-        title
-        totalTime
-        mainImage {
-          fluid(maxWidth: 339, maxHeight: 219, resizingBehavior: SCALE) {
-            ...GatsbyContentfulFluid
-          }
-        }
-        updatedAt
-        yield
+        ...RecipeCard
       }
     }
   }
