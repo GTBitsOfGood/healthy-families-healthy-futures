@@ -19,36 +19,34 @@ function RecipesIndex(props: Props): JSX.Element {
 
   return (
     <Layout location={props.location}>
-      <div style={{ background: '#fff' }}>
-        <Helmet title={siteTitle} />
+      <Helmet title={siteTitle} />
 
-        <Grid templateColumns={{ base: '1fr', md: '250px 1fr' }} columnGap={5}>
-          <GridItem>
-            <RecipeSidebar location={props.location} />
-          </GridItem>
+      <Grid templateColumns={{ base: '1fr', md: '250px 1fr' }} columnGap={5}>
+        <GridItem>
+          <RecipeSidebar location={props.location} />
+        </GridItem>
 
-          <GridItem>
-            <div className={styles.hero}>Recipes</div>
-            <div className="wrapper">
-              <h2 className="section-headline">Wonderful Recipes</h2>
-              <Divider />
-              <ul className="article-list">
-                {recipes.map(node => {
-                  return (
-                    <li key={node.id}>
-                      <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
-                        <h1>{node.title}</h1>{' '}
-                      </Link>
-                      <h1>{`${String(node.prepTime)} ${node.prepTime == 1 ? 'min' : 'mins'}`}</h1>
-                      <h1>{`${String(node.totalTime)} ${node.totalTime == 1 ? 'min' : 'mins'}`}</h1>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </GridItem>
-        </Grid>
-      </div>
+        <GridItem>
+          <div className={styles.hero}>Recipes</div>
+          <div className="wrapper">
+            <h2 className="section-headline">Wonderful Recipes</h2>
+            <Divider />
+            <ul className="article-list">
+              {recipes.map(node => {
+                return (
+                  <li key={node.id}>
+                    <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
+                      <h1>{node.title}</h1>{' '}
+                    </Link>
+                    <h1>{`${String(node.prepTime)} ${node.prepTime == 1 ? 'min' : 'mins'}`}</h1>
+                    <h1>{`${String(node.totalTime)} ${node.totalTime == 1 ? 'min' : 'mins'}`}</h1>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </GridItem>
+      </Grid>
     </Layout>
   );
 }
