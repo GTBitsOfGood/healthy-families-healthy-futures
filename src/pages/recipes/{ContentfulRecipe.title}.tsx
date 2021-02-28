@@ -75,7 +75,7 @@ function RecipeTemplate(props: Props): JSX.Element {
         <Container>
           <Title align="center">{recipe?.title}</Title>
           <CenterImage
-            src=""
+            src={recipe?.mainImage?.file?.url}
             fallbackSrc="https://via.placeholder.com/150"
             alt="Recipe Image"
             boxSize="sm"
@@ -160,7 +160,7 @@ function RecipeTemplate(props: Props): JSX.Element {
               </HStack>
             </VStack>
             <Image
-              src=""
+              src={recipe?.mainImage?.file?.url}
               fallbackSrc="https://via.placeholder.com/150"
               alt="Recipe Image"
               boxSize="sm"
@@ -188,6 +188,11 @@ export const pageQuery = graphql`
   query RecipeByTitle($title: String!) {
     contentfulRecipe(title: { eq: $title }) {
       title
+      mainImage {
+        file {
+          url
+        }
+      }
       totalTime
       prepTime
       yield
