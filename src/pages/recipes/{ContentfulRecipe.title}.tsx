@@ -1,91 +1,119 @@
 import React from 'react';
-import styled from '@emotion/styled';
 
 import { ChevronLeftIcon } from '@chakra-ui/icons';
 import { Flex, Heading, IconButton, Text, Image, HStack, VStack, Box } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 import { graphql, Link, PageProps } from 'gatsby';
 import TitledList from 'src/components/TitledList';
 
 import Layout from '../../components/Layout';
-import { truncate } from 'fs/promises';
 
 interface Props extends PageProps {
   data: GatsbyTypes.RecipeByTitleQuery;
 }
 
+const CenterImage = styled(Image)`
+  width: 100%;
+`;
+const Container = styled(Box)`
+  padding: 0px 16px 20px 16px;
+`;
+const Ingred = styled(Text)`
+  padding: 30px 0px 10px 0px;
+  font-size: 18px;
+`;
+const Minutes = styled(Text)`
+  padding: 15px 0px 0px 0px;
+  font-size: 16px;
+`;
+const Title = styled(Heading)`
+  font-size: 18px;
+`;
+const Preparation = styled(Text)`
+  padding: 15px 0px 0px 0px;
+`;
 
-const CenterImage = styled(Image) `width: 100%`;
-const Container = styled(Box) `padding: 0px 16px 20px 16px`;  
-const Ingred = styled(Text) `padding: 30px 0px 10px 0px; font-size: 18px`;
-const Minutes = styled(Text) `padding: 15px 0px 0px 0px; font-size: 16px`;
-const Title = styled(Heading) `font-size: 18px`;
-const Preparation = styled(Text) `padding: 15px 0px 0px 0px`
 function RecipeTemplate(props: Props): JSX.Element {
   const recipe = props.data.contentfulRecipe;
-  const ingredients = recipe?.ingredients?.ingredients?.split('-').filter(x => x);
-  const prepDirections = recipe?.prepDirections?.prepDirections?.split('-').filter(x => x);
-  const instructions = recipe?.directions?.directions?.split('-').filter(x => x);
-  const notes = recipe?.notes?.notes?.split('-').filter(x => x);
-  console.log(props.data.contentfulRecipe);
+  const ingredients = recipe?.ingredients?.ingredients?.split('\n');
+  const prepDirections = recipe?.prepDirections?.prepDirections
+    ?.split('\n')
+    .map(prepDir => prepDir.slice(2));
+  const instructions = recipe?.directions?.directions
+    ?.split('\n')
+    .map(direction => direction.slice(2));
+  const notes = recipe?.notes?.notes?.split('\n').map(note => note.slice(2));
+  const ingredientGroups = [];
 
-  // How do I know when to consider ingredient optional information when I am given a string?
-  const ingredientPairs = ingredients?.reduce((pairs, _, index, ingredients) => {
-    if (index % 2 == 0) {
-      pairs.push(ingredients.slice(index, index + 2));
+  if (ingredients) {
+    let currentIndex = 0;
+
+    while (currentIndex < ingredients.length) {
+      const currentGroup = [];
+      const amountIndex = currentIndex + 1;
+      const notesIndex = currentIndex + 2;
+      currentGroup.push(ingredients[currentIndex].slice(2));
+      currentGroup.push(ingredients[amountIndex].slice(4));
+
+      const hasNotes = notesIndex < ingredients.length && ingredients[notesIndex][0] == ' ';
+
+      if (hasNotes) {
+        currentGroup.push(ingredients[notesIndex].slice(4));
+        currentIndex++;
+      }
+
+      ingredientGroups.push(currentGroup);
+      currentIndex += 2;
     }
+  }
 
-    return pairs;
-  }, []);
-
-  // Need to discuss how we are determining if browser is in mobile view
   const isMobile = false;
 
   return (
     <Layout location={props.location}>
       {isMobile ? (
         <Container>
-           <Title align = "center">{recipe?.title}</Title> 
-           <CenterImage 
-              src=""
-              fallbackSrc="https://via.placeholder.com/150"
-              alt="Recipe Image"
-              boxSize="sm"
-            ></CenterImage>
-            <HStack align="start" spacing={10}>
+          <Title align="center">{recipe?.title}</Title>
+          <CenterImage
+            src=""
+            fallbackSrc="https://via.placeholder.com/150"
+            alt="Recipe Image"
+            boxSize="sm"
+          ></CenterImage>
+          <HStack align="start" spacing={10}>
             <VStack align="start">
-                  <Minutes fontWeight="bold">Prep Time  </Minutes>
-                  <Text fontWeight="bold">Total Time </Text>
-                  <Text fontWeight="bold">Servings   </Text>
+              <Minutes fontWeight="bold">Prep Time </Minutes>
+              <Text fontWeight="bold">Total Time </Text>
+              <Text fontWeight="bold">Servings </Text>
             </VStack>
             <VStack align="start">
-                  <Minutes>{recipe?.prepTime} min</Minutes>
-                  <Text>{recipe?.totalTime} min</Text>
-                  <Text>{recipe?.yield}</Text>
+              <Minutes>{recipe?.prepTime} min</Minutes>
+              <Text>{recipe?.totalTime} min</Text>
+              <Text>{recipe?.yield}</Text>
             </VStack>
-            </HStack>
-            <Ingred fontWeight="bold">Ingredients</Ingred>
-            <VStack align="start">
-                    {ingredientPairs?.map(pair => (
-                      <HStack key={pair[0]}>
-                        <Text>{pair[0]}</Text>
-                      </HStack>
-                    ))}
-            </VStack>
-            <Preparation>
+          </HStack>
+          <Ingred fontWeight="bold">Ingredients</Ingred>
+          <VStack align="start">
+            {ingredientGroups?.map(pair => (
+              <HStack key={pair[0]}>
+                <Text>{pair[0]}</Text>
+              </HStack>
+            ))}
+          </VStack>
+          <Preparation>
             <TitledList title="Prep" listElements={prepDirections}></TitledList>
-            </Preparation>
+          </Preparation>
           <br></br>
           <TitledList title="Instructions" listElements={instructions}></TitledList>
-          {notes !== undefined && notes.length > 0 && (
+          {notes?.length > 0 && (
             <Box>
               <br></br>
               <TitledList title="Notes" listElements={notes}></TitledList>
             </Box>
           )}
         </Container>
-
       ) : (
-        <Box marginY={10}>
+        <Box margin={10}>
           <HStack align="center" spacing={2}>
             <Link to="/recipes">
               <IconButton
@@ -97,7 +125,7 @@ function RecipeTemplate(props: Props): JSX.Element {
             </Link>
             <Text>Back to Recipes</Text>
           </HStack>
-          <Flex justify="space-between" marginTop={5}>
+          <Flex justify="space-between" marginTop={10}>
             <VStack align="start" spacing={5}>
               <Heading>{recipe?.title}</Heading>
               <HStack align="start" spacing={10}>
@@ -111,11 +139,21 @@ function RecipeTemplate(props: Props): JSX.Element {
                   <Text>{recipe?.prepTime} min</Text>
                   <Text>{recipe?.totalTime} min</Text>
                   <Text>{recipe?.yield}</Text>
-                  <VStack align="start">
-                    {ingredientPairs?.map(pair => (
-                      <HStack key={pair[0]}>
-                        <Text>{pair[0]}</Text>
-                      </HStack>
+                  <VStack align="stretch">
+                    {ingredientGroups?.map(pair => (
+                      <Flex justify="space-between" key={pair[0]}>
+                        <Box flex={3}>
+                          <Text>{pair[0]}</Text>
+                          {pair[2] && (
+                            <Text as="span" color="gray">
+                              ({pair[2]})
+                            </Text>
+                          )}
+                        </Box>
+                        <Box flex={1} marginLeft={10}>
+                          <Text>{pair[1]}</Text>
+                        </Box>
+                      </Flex>
                     ))}
                   </VStack>
                 </VStack>
@@ -132,7 +170,7 @@ function RecipeTemplate(props: Props): JSX.Element {
           <TitledList title="Prep" listElements={prepDirections}></TitledList>
           <br></br>
           <TitledList title="Instructions" listElements={instructions}></TitledList>
-          {notes !== undefined && notes.length > 0 && (
+          {notes?.length > 0 && (
             <Box>
               <br></br>
               <TitledList title="Notes" listElements={notes}></TitledList>
