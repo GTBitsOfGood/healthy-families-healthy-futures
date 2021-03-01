@@ -29,7 +29,7 @@ const Preparation = styled(Text)`
   padding: 15px 0px 0px 0px;
 `;
 
-const ListOfIngreds = styled(Text) `
+const ListOfIngreds = styled(Text)`
   font-size: 16px;
 `;
 
@@ -74,7 +74,7 @@ function RecipeTemplate(props: Props): JSX.Element {
     }
   }
 
-  const isMobile = true;
+  const isMobile = false;
 
   return (
     <Layout location={props.location}>
@@ -89,10 +89,10 @@ function RecipeTemplate(props: Props): JSX.Element {
           ></CenterImage>
           <HStack align="start" spacing={10}>
             <VStack align="start">
-              <Text fontWeight="bold">Cook Time </Text>
-              <Text fontWeight="bold">Prep Time </Text>
-              <Text fontWeight="bold">Total Time </Text>
-              <Text fontWeight="bold">Servings </Text>
+              <Text fontWeight="bold">Cook Time</Text>
+              <Text fontWeight="bold">Prep Time</Text>
+              <Text fontWeight="bold">Total Time</Text>
+              <Text fontWeight="bold">Yield</Text>
             </VStack>
             <VStack align="start">
               <Text>{recipe?.totalTime} min</Text>
@@ -103,21 +103,22 @@ function RecipeTemplate(props: Props): JSX.Element {
           </HStack>
           <Ingred fontWeight="bold">Ingredients</Ingred>
           <ListOfIngreds>
-          <VStack align="stretch">
-                    {ingredientGroups?.map(pair => (
-                      <Flex justify="space-between" key={pair[0]}>
-                        <Box flex={3}>
-                        <Text>{pair[1]} {pair[0]} </Text>
-                          {pair[2] && (
-                            <Text as="span" color="gray">
-                              ({pair[2]})
-                            </Text>
-                          )}
-                        </Box>
-                      </Flex>
-                    ))}
-                  </VStack>
-
+            <VStack align="stretch">
+              {ingredientGroups?.map(group => (
+                <Flex justify="space-between" key={group[0]}>
+                  <Box flex={3}>
+                    <Text>
+                      {group[1]} {group[0]}{' '}
+                    </Text>
+                    {group[2] && (
+                      <Text as="span" color="gray">
+                        ({group[2]})
+                      </Text>
+                    )}
+                  </Box>
+                </Flex>
+              ))}
+            </VStack>
           </ListOfIngreds>
           <Preparation>
             <TitledList title="Prep" listElements={prepDirections}></TitledList>
@@ -145,7 +146,7 @@ function RecipeTemplate(props: Props): JSX.Element {
             <Text>Back to Recipes</Text>
           </HStack>
           <Flex justify="space-between" marginTop={10}>
-            <VStack align="start" spacing={5}>
+            <VStack align="start" spacing={5} marginRight={10}>
               <Heading>{recipe?.title}</Heading>
               <HStack align="start" spacing={10}>
                 <VStack align="start">
@@ -161,18 +162,18 @@ function RecipeTemplate(props: Props): JSX.Element {
                   <Text>{totalTime} min</Text>
                   <Text>{recipe?.yield}</Text>
                   <VStack align="stretch">
-                    {ingredientGroups?.map(pair => (
-                      <Flex justify="space-between" key={pair[0]}>
+                    {ingredientGroups?.map(group => (
+                      <Flex justify="space-between" key={group[0]}>
                         <Box flex={3}>
-                          <Text>{pair[0]}</Text>
-                          {pair[2] && (
+                          <Text>{group[0]}</Text>
+                          {group[2] && (
                             <Text as="span" color="gray">
-                              ({pair[2]})
+                              ({group[2]})
                             </Text>
                           )}
                         </Box>
                         <Box flex={1} marginLeft={10}>
-                          <Text>{pair[1]}</Text>
+                          <Text>{group[1]}</Text>
                         </Box>
                       </Flex>
                     ))}
@@ -184,10 +185,11 @@ function RecipeTemplate(props: Props): JSX.Element {
               src={recipe?.mainImage?.file?.url}
               fallbackSrc="https://via.placeholder.com/150"
               alt="Recipe Image"
-              boxSize="sm"
+              boxSize="md"
               objectFit="cover"
             ></Image>
           </Flex>
+          <br></br>
           <TitledList title="Prep" listElements={prepDirections}></TitledList>
           <br></br>
           <TitledList title="Instructions" listElements={instructions}></TitledList>
