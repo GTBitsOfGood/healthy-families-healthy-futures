@@ -25,7 +25,7 @@ function RecipeCard({ data }: Props): JSX.Element {
           style={{ marginTop: 3, color: '#65BF73', position: 'absolute', marginLeft: '28.5%' }}
         />
         <h1 style={{ fontSize: 14, fontWeight: 'bold', color: '#65BF73', textAlign: 'right' }}>
-          {data.totalTime + data.prepTime} min
+          {Number(data.totalTime) + Number(data.prepTime)} min
         </h1>
       </div>
 
