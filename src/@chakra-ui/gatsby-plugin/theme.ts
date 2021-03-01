@@ -21,19 +21,19 @@ const theme = extendTheme({
   },
   textStyles: {
     heading1: {
-      fontSize: 35,
+      fontSize: [35, 35, 35],
       fontWeight: 800,
     },
     heading2: {
-      fontSize: 28,
+      fontSize: [28, 28, 28],
       fontWeight: 800,
     },
     subheading1: {
-      fontSize: 16,
+      fontSize: [16, 16, 16],
       fontWeight: 800,
     },
     subheading2: {
-      fontSize: 14,
+      fontSize: [14, 14, 14],
       fontWeight: 800,
     },
     body1: {
@@ -59,13 +59,23 @@ const theme = extendTheme({
       baseStyle: {
         textStyle: 'body2',
         textTransform: 'uppercase',
+        borderRadius: 0,
       },
       variants: {
         primary: {
           bg: 'green',
           color: 'white',
+          px: 22,
+          py: 4,
+          _hover: {
+            bg: 'darkgreen',
+          },
         },
-        secondary: {},
+        secondary: {
+          _hover: {
+            color: 'tangerine',
+          },
+        },
       },
     },
   },

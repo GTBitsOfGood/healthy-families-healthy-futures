@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BackgroundProps, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
+import { BackgroundProps, Button, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import { PageProps } from 'gatsby';
 import Layout from 'src/components/Layout';
 
@@ -41,14 +41,44 @@ function DemoPage(props: Props): JSX.Element {
         <ColorTile hex="#6C6C6C" name="gray.mid" displayname="Mid Grey" />
         <ColorTile hex="#C4C4C4" name="gray.light" displayname="Light Grey" />
       </HStack>
-
-      <HStack spacing={0}>
-        <Flex h={20} w={60} p={3} bg="black">
-          <Text textStyle="subheading1" color="white">
+      <HStack spacing={0} mb={10}>
+        <Flex h={20} w={60} p={3} bg="black" dir="column">
+          <Text textStyle="subheading1" color="white" mt="auto">
             #000000
           </Text>
         </Flex>
-        <Flex></Flex>
+        <Flex h={20} w={60} p={3} bg="white" dir="column" border="1px solid black">
+          <Text textStyle="subheading1" mt="auto">
+            #FFFFFF
+          </Text>
+        </Flex>
+      </HStack>
+
+      <Heading textStyle="heading1" mb={5}>
+        Typography
+      </Heading>
+      <VStack>
+        <Heading textStyle="heading1">Heading 1 - Avenir Heavy 35 pt.</Heading>
+        <Heading textStyle="heading2">Heading 2 - Avenir Heavy 28 pt.</Heading>
+        <Heading textStyle="subheading1">Sub Heading 1 - Avenir Heavy 16 pt.</Heading>
+        <Heading textStyle="subheading2">Sub Heading 2 - Avenir Heavy 14 pt.</Heading>
+        <Text textStyle="body1">Body 1 - Avenir Medium 18 pt.</Text>
+        <Text textStyle="body2">Body 2 - Avenir Medium 16 pt.</Text>
+        <Text textStyle="body3">Body 3 - Avenir Medium 14 pt.</Text>
+      </VStack>
+
+      <Heading textStyle="heading1" my={5}>
+        Buttons / CTAs
+      </Heading>
+      <HStack mb={10}>
+        <VStack>
+          <Button variant="primary">Donate</Button>
+          <Text textStyle="body1">Primary</Text>
+        </VStack>
+        <VStack>
+          <Button variant="secondary">Get Involved</Button>
+          <Text textStyle="body1">Secondary</Text>
+        </VStack>
       </HStack>
     </Layout>
   );
