@@ -32,12 +32,12 @@ function RecipesIndex(props: Props): JSX.Element {
           <div className="wrapper">
             <h2 className="section-headline">Wonderful Recipes</h2>
             <Divider />
-            <ul className="article-list">
+            <ul>
               {recipes.map(node => {
                 return (
-                  <li key={node.id}>
+                  <li key={node.id} style={{display:'inline-block', position: 'relative', width: '50%', verticalAlign: 'top'}}>
                     <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
-                      <RecipeCard data={node} />
+                      <RecipeCard data={node}/>
                     </Link>
                   </li>
                 );

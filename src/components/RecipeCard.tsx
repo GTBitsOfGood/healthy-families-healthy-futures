@@ -9,8 +9,8 @@ interface Props {
 
 function RecipeCard({ data }: Props): JSX.Element {
   return (
-    <div>
-      <div style={{ marginBottom: '5%' }}>
+    <div style={{padding: '50px 10px 50px 10px', marginRight: '25px'}}>
+      <div style={{ marginBottom: '5%'}}>
         <h3
           style={{
             position: 'absolute',
@@ -22,9 +22,9 @@ function RecipeCard({ data }: Props): JSX.Element {
           {data.title}
         </h3>
         <TimeIcon
-          style={{ marginTop: 3, color: '#65BF73', position: 'absolute', marginLeft: '28.5%' }}
+          style={{ marginTop: 3, color: '#65BF73', position: 'absolute', marginLeft: '78%'}}
         />
-        <h1 style={{ fontSize: 14, fontWeight: 'bold', color: '#65BF73', textAlign: 'right' }}>
+        <h1 style={{ fontSize: 14, fontWeight: 'bold', color: '#65BF73', textAlign: 'right'}}>
           {Number(data.totalTime) + Number(data.prepTime)} min
         </h1>
       </div>
