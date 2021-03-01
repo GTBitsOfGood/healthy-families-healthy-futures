@@ -3,11 +3,20 @@ import { extendTheme } from '@chakra-ui/react';
 const theme = extendTheme({
   colors: {
     green: '#65BF73',
+    darkgreen: '#3A8245',
+    tangerine: '#FF9737',
     charcoal: '#404040',
     gray: {
       dark: '#404040',
       mid: '#6C6C6C',
       light: '#C4C4C4',
+    },
+  },
+  styles: {
+    global: {
+      body: {
+        color: 'black',
+      },
     },
   },
   textStyles: {
