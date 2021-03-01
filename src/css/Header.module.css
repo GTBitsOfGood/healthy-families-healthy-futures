@@ -1,0 +1,39 @@
+.logo {
+    width: 135px;
+    height: 49px;
+    left: 34px;
+    top: 3px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    padding: 100;
+    height: 20vh;
+    max-height: 100px;
+    flex-wrap: nowrap;
+}
+
+.search {
+    width: 312px;
+    height: 29px;
+    left: 190px;
+    top: 13px;
+    border: 1px solid #828282;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.getInvolved {
+    width: 155px;
+    height: 48px;
+    left: 1200px;
+    top: 16px;
+
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+}

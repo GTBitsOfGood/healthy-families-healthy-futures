@@ -13,7 +13,7 @@ function ArticlePreview({ data }: Props): JSX.Element {
   return (
     <div>
       {data.heroImage?.fluid == null ? (
-        <p>Image not found</p>
+        <p>IMAGE IS NOT HERE!</p>
       ) : (
         <Img alt="" fluid={data.heroImage?.fluid} />
       )}
