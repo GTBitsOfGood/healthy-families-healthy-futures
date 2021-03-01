@@ -14,10 +14,10 @@ function TitledList({ title, listElements }: Props): JSX.Element {
         <Text fontWeight="bold" fontSize="xl">
           {title}
         </Text>
-        <Divider width="full" borderColor="green.400" />
+        <Divider width="full" borderColor="green" />
       </HStack>
       <Box>
-        <OrderedList listStylePos="outside" color="green.400" spacing={2}>
+        <OrderedList listStylePos="outside" color="green" spacing={2}>
           {listElements?.map(element => (
             <ListItem key={element}>
               <Box marginLeft={5}>

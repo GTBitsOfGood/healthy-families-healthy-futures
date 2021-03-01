@@ -7,6 +7,7 @@ import { graphql, Link, PageProps } from 'gatsby';
 import TitledList from 'src/components/TitledList';
 
 import Layout from '../../components/Layout';
+import { parseRecipe } from '../../utils/parse';
 
 interface Props extends PageProps {
   data: GatsbyTypes.RecipeByTitleQuery;
@@ -34,45 +35,8 @@ const ListOfIngreds = styled(Text)`
 `;
 
 function RecipeTemplate(props: Props): JSX.Element {
-  const recipe = props.data.contentfulRecipe;
-
-  const totalTime =
-    recipe?.prepTime && recipe?.totalTime ? recipe?.prepTime + recipe?.totalTime : '';
-
-  const prepDirections = recipe?.prepDirections?.prepDirections
-    ?.split('\n')
-    .map(prepDir => prepDir.slice(2));
-
-  const instructions = recipe?.directions?.directions
-    ?.split('\n')
-    .map(direction => direction.slice(2));
-
-  const notes = recipe?.notes?.notes?.split('\n').map(note => note.slice(2));
-
-  const ingredients = recipe?.ingredients?.ingredients?.split('\n');
-  const ingredientGroups = [];
-
-  if (ingredients) {
-    let currentIndex = 0;
-
-    while (currentIndex < ingredients.length) {
-      const currentGroup = [];
-      const amountIndex = currentIndex + 1;
-      const notesIndex = currentIndex + 2;
-      currentGroup.push(ingredients[currentIndex].slice(2));
-      currentGroup.push(ingredients[amountIndex].slice(4));
-
-      const hasNotes = notesIndex < ingredients.length && ingredients[notesIndex][0] == ' ';
-
-      if (hasNotes) {
-        currentGroup.push(ingredients[notesIndex].slice(4));
-        currentIndex++;
-      }
-
-      ingredientGroups.push(currentGroup);
-      currentIndex += 2;
-    }
-  }
+  const contentfulRecipe = props.data.contentfulRecipe;
+  const recipe = parseRecipe(contentfulRecipe as GatsbyTypes.ContentfulRecipe);
 
   const isMobile = false;
 
@@ -80,9 +44,9 @@ function RecipeTemplate(props: Props): JSX.Element {
     <Layout location={props.location}>
       {isMobile ? (
         <Container>
-          <Title align="center">{recipe?.title}</Title>
+          <Title align="center">{recipe.title}</Title>
           <CenterImage
-            src={recipe?.mainImage?.file?.url}
+            src={recipe.image}
             fallbackSrc="https://via.placeholder.com/150"
             alt="Recipe Image"
             boxSize="sm"
@@ -95,16 +59,16 @@ function RecipeTemplate(props: Props): JSX.Element {
               <Text fontWeight="bold">Yield</Text>
             </VStack>
             <VStack align="start">
-              <Text>{recipe?.totalTime} min</Text>
-              <Text>{recipe?.prepTime} min</Text>
-              <Text>{totalTime} min</Text>
-              <Text>{recipe?.yield}</Text>
+              <Text>{recipe.cookTime} min</Text>
+              <Text>{recipe.prepTime} min</Text>
+              <Text>{recipe.totalTime} min</Text>
+              <Text>{recipe.yield}</Text>
             </VStack>
           </HStack>
           <Ingred fontWeight="bold">Ingredients</Ingred>
           <ListOfIngreds>
             <VStack align="stretch">
-              {ingredientGroups?.map(group => (
+              {recipe.ingredientGroups.map(group => (
                 <Flex justify="space-between" key={group[0]}>
                   <Box flex={3}>
                     <Text>
@@ -121,14 +85,14 @@ function RecipeTemplate(props: Props): JSX.Element {
             </VStack>
           </ListOfIngreds>
           <Preparation>
-            <TitledList title="Prep" listElements={prepDirections}></TitledList>
+            <TitledList title="Prep" listElements={recipe.prepDirections}></TitledList>
           </Preparation>
           <br></br>
-          <TitledList title="Instructions" listElements={instructions}></TitledList>
-          {notes?.length > 0 && (
+          <TitledList title="Instructions" listElements={recipe.instructions}></TitledList>
+          {recipe.notes?.length > 0 && (
             <Box>
               <br></br>
-              <TitledList title="Notes" listElements={notes}></TitledList>
+              <TitledList title="Notes" listElements={recipe.notes}></TitledList>
             </Box>
           )}
         </Container>
@@ -147,7 +111,7 @@ function RecipeTemplate(props: Props): JSX.Element {
           </HStack>
           <Flex justify="space-between" marginTop={10}>
             <VStack align="start" spacing={5} marginRight={10}>
-              <Heading>{recipe?.title}</Heading>
+              <Heading>{recipe.title}</Heading>
               <HStack align="start" spacing={10}>
                 <VStack align="start">
                   <Text fontWeight="bold">Cook Time</Text>
@@ -157,12 +121,12 @@ function RecipeTemplate(props: Props): JSX.Element {
                   <Text fontWeight="bold">Ingredients</Text>
                 </VStack>
                 <VStack align="start">
-                  <Text>{recipe?.totalTime} min</Text>
-                  <Text>{recipe?.prepTime} min</Text>
-                  <Text>{totalTime} min</Text>
-                  <Text>{recipe?.yield}</Text>
+                  <Text>{recipe.totalTime} min</Text>
+                  <Text>{recipe.prepTime} min</Text>
+                  <Text>{recipe.totalTime} min</Text>
+                  <Text>{recipe.yield}</Text>
                   <VStack align="stretch">
-                    {ingredientGroups?.map(group => (
+                    {recipe.ingredientGroups.map(group => (
                       <Flex justify="space-between" key={group[0]}>
                         <Box flex={3}>
                           <Text>{group[0]}</Text>
@@ -182,7 +146,7 @@ function RecipeTemplate(props: Props): JSX.Element {
               </HStack>
             </VStack>
             <Image
-              src={recipe?.mainImage?.file?.url}
+              src={recipe.image}
               fallbackSrc="https://via.placeholder.com/150"
               alt="Recipe Image"
               boxSize="md"
@@ -190,13 +154,13 @@ function RecipeTemplate(props: Props): JSX.Element {
             ></Image>
           </Flex>
           <br></br>
-          <TitledList title="Prep" listElements={prepDirections}></TitledList>
+          <TitledList title="Prep" listElements={recipe.prepDirections}></TitledList>
           <br></br>
-          <TitledList title="Instructions" listElements={instructions}></TitledList>
-          {notes?.length > 0 && (
+          <TitledList title="Instructions" listElements={recipe.instructions}></TitledList>
+          {recipe.notes?.length > 0 && (
             <Box>
               <br></br>
-              <TitledList title="Notes" listElements={notes}></TitledList>
+              <TitledList title="Notes" listElements={recipe.notes}></TitledList>
             </Box>
           )}
         </Box>
