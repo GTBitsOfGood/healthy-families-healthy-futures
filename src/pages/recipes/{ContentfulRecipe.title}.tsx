@@ -33,6 +33,10 @@ const Preparation = styled(Text)`
   padding: 15px 0px 0px 0px;
 `;
 
+const ListOfIngreds = styled(Text) `
+  font-size: 16px;
+`;
+
 function RecipeTemplate(props: Props): JSX.Element {
   const recipe = props.data.contentfulRecipe;
   const ingredients = recipe?.ingredients?.ingredients?.split('\n');
@@ -67,7 +71,7 @@ function RecipeTemplate(props: Props): JSX.Element {
     }
   }
 
-  const isMobile = false;
+  const isMobile = true;
 
   return (
     <Layout location={props.location}>
@@ -93,13 +97,23 @@ function RecipeTemplate(props: Props): JSX.Element {
             </VStack>
           </HStack>
           <Ingred fontWeight="bold">Ingredients</Ingred>
-          <VStack align="start">
-            {ingredientGroups?.map(pair => (
-              <HStack key={pair[0]}>
-                <Text>{pair[0]}</Text>
-              </HStack>
-            ))}
-          </VStack>
+          <ListOfIngreds>
+          <VStack align="stretch">
+                    {ingredientGroups?.map(pair => (
+                      <Flex justify="space-between" key={pair[0]}>
+                        <Box flex={3}>
+                        <Text>{pair[1]} {pair[0]} </Text>
+                          {pair[2] && (
+                            <Text as="span" color="gray">
+                              ({pair[2]})
+                            </Text>
+                          )}
+                        </Box>
+                      </Flex>
+                    ))}
+                  </VStack>
+
+          </ListOfIngreds>
           <Preparation>
             <TitledList title="Prep" listElements={prepDirections}></TitledList>
           </Preparation>
