@@ -22,10 +22,6 @@ const Ingred = styled(Text)`
   padding: 30px 0px 10px 0px;
   font-size: 18px;
 `;
-const Minutes = styled(Text)`
-  padding: 15px 0px 0px 0px;
-  font-size: 16px;
-`;
 const Title = styled(Heading)`
   font-size: 18px;
 `;
@@ -35,14 +31,21 @@ const Preparation = styled(Text)`
 
 function RecipeTemplate(props: Props): JSX.Element {
   const recipe = props.data.contentfulRecipe;
-  const ingredients = recipe?.ingredients?.ingredients?.split('\n');
+
+  const totalTime =
+    recipe?.prepTime && recipe?.totalTime ? recipe?.prepTime + recipe?.totalTime : '';
+
   const prepDirections = recipe?.prepDirections?.prepDirections
     ?.split('\n')
     .map(prepDir => prepDir.slice(2));
+
   const instructions = recipe?.directions?.directions
     ?.split('\n')
     .map(direction => direction.slice(2));
+
   const notes = recipe?.notes?.notes?.split('\n').map(note => note.slice(2));
+
+  const ingredients = recipe?.ingredients?.ingredients?.split('\n');
   const ingredientGroups = [];
 
   if (ingredients) {
@@ -82,13 +85,15 @@ function RecipeTemplate(props: Props): JSX.Element {
           ></CenterImage>
           <HStack align="start" spacing={10}>
             <VStack align="start">
-              <Minutes fontWeight="bold">Prep Time </Minutes>
+              <Text fontWeight="bold">Cook Time </Text>
+              <Text fontWeight="bold">Prep Time </Text>
               <Text fontWeight="bold">Total Time </Text>
               <Text fontWeight="bold">Servings </Text>
             </VStack>
             <VStack align="start">
-              <Minutes>{recipe?.prepTime} min</Minutes>
               <Text>{recipe?.totalTime} min</Text>
+              <Text>{recipe?.prepTime} min</Text>
+              <Text>{totalTime} min</Text>
               <Text>{recipe?.yield}</Text>
             </VStack>
           </HStack>
@@ -130,14 +135,16 @@ function RecipeTemplate(props: Props): JSX.Element {
               <Heading>{recipe?.title}</Heading>
               <HStack align="start" spacing={10}>
                 <VStack align="start">
+                  <Text fontWeight="bold">Cook Time</Text>
                   <Text fontWeight="bold">Prep Time</Text>
                   <Text fontWeight="bold">Total Time</Text>
                   <Text fontWeight="bold">Yield</Text>
                   <Text fontWeight="bold">Ingredients</Text>
                 </VStack>
                 <VStack align="start">
-                  <Text>{recipe?.prepTime} min</Text>
                   <Text>{recipe?.totalTime} min</Text>
+                  <Text>{recipe?.prepTime} min</Text>
+                  <Text>{totalTime} min</Text>
                   <Text>{recipe?.yield}</Text>
                   <VStack align="stretch">
                     {ingredientGroups?.map(pair => (
