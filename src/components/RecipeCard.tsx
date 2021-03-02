@@ -34,7 +34,10 @@ function RecipeCard({ data }: Props): JSX.Element {
       {data.mainImage?.fluid == null ? (
         <div style={{ width: 400, height: 260, backgroundColor: 'lightgray' }}> </div>
       ) : (
-        <Img alt="" fluid={data.mainImage?.fluid} />
+        <div>
+          <Img alt="" fluid={data.mainImage?.fluid} />
+          <Text> {data.mainImage.description} </Text>
+        </div>
       )}
 
       <Text>
@@ -56,6 +59,7 @@ export const fragment = graphql`
       fluid(maxWidth: 339, maxHeight: 219, resizingBehavior: SCALE) {
         ...GatsbyContentfulFluid
       }
+      description
     }
     updatedAt
     yield
