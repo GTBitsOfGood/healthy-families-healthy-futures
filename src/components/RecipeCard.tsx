@@ -1,5 +1,6 @@
 import React from 'react';
 import { TimeIcon } from '@chakra-ui/icons';
+import { Text, Flex, Spacer } from '@chakra-ui/react';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 
@@ -9,35 +10,37 @@ interface Props {
 
 function RecipeCard({ data }: Props): JSX.Element {
   return (
-    <div style={{padding: '50px 10px 50px 10px', marginRight: '25px'}}>
-      <div style={{ marginBottom: '5%'}}>
+    <div style={{ marginRight: '10%', marginBottom: '10%' }}>
+      <Flex>
         <h3
           style={{
-            position: 'absolute',
             fontWeight: 850,
-            textAlign: 'left',
+            float: 'left',
             fontSize: 14,
+            marginBottom: 20,
           }}
         >
           {data.title}
         </h3>
-        <TimeIcon
-          style={{ marginTop: 3, color: '#65BF73', position: 'absolute', marginLeft: '78%'}}
-        />
-        <h1 style={{ fontSize: 14, fontWeight: 'bold', color: '#65BF73', textAlign: 'right'}}>
-          {Number(data.totalTime) + Number(data.prepTime)} min
-        </h1>
-      </div>
+        <Spacer />
+        <div style={{ float: 'right', display: 'flex' }}>
+          <TimeIcon style={{ marginTop: 3 }} color="green" />
+          <Text style={{ marginLeft: 10, fontSize: 14, fontWeight: 'bold' }} color="green">
+            {Number(data.totalTime) + Number(data.prepTime)} min
+          </Text>
+        </div>
+      </Flex>
 
       {data.mainImage?.fluid == null ? (
-        <p> Image not found</p>
+        <div style={{ width: 400, height: 260, backgroundColor: 'lightgray' }}> </div>
       ) : (
         <Img alt="" fluid={data.mainImage?.fluid} />
       )}
-      <h3>
+
+      <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore
-      </h3>
+      </Text>
     </div>
   );
 }
