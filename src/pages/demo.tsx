@@ -1,7 +1,20 @@
 import React from 'react';
 
-import { BackgroundProps, Button, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
+import {
+  BackgroundProps,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  HStack,
+  Icon,
+  Text,
+  VStack,
+  Wrap,
+  WrapItem,
+} from '@chakra-ui/react';
 import { PageProps } from 'gatsby';
+import { MdChevronLeft } from 'react-icons/md';
 import Layout from 'src/components/Layout';
 
 type Props = PageProps;
@@ -10,20 +23,26 @@ function ColorTile({
   hex,
   name,
   displayname,
+  light,
 }: {
   hex: string;
   name: BackgroundProps['bg'];
   displayname: string;
+  light?: boolean;
 }): JSX.Element {
   return (
-    <VStack>
-      <Flex bg={name} h={44} w={32} p={3} dir="column">
-        <Text textStyle="subheading1" color="white" mt="auto">
-          {hex}
+    <WrapItem>
+      <VStack w={32}>
+        <Flex bg={name} h={44} w={32} p={3} dir="column" border={light ? `1px solid black` : ''}>
+          <Text textStyle="subheading1" color={light ? 'black' : 'white'} mt="auto">
+            {hex}
+          </Text>
+        </Flex>
+        <Text textStyle="subheading1" textAlign="center">
+          {displayname}
         </Text>
-      </Flex>
-      <Text textStyle="subheading1">{displayname}</Text>
-    </VStack>
+      </VStack>
+    </WrapItem>
   );
 }
 
@@ -33,31 +52,24 @@ function DemoPage(props: Props): JSX.Element {
       <Heading textStyle="heading1" mb={5}>
         Colors
       </Heading>
-      <HStack spacing={0} mb={5}>
-        <ColorTile hex="#3A8245" name="darkgreen" displayname="Dark Green" />
-        <ColorTile hex="#65BF73" name="green" displayname="HF-HF Green" />
-        <ColorTile hex="#FF9737" name="tangerine" displayname="Tangerine" />
+      <Wrap spacing={0} mb={5}>
+        <ColorTile hex="#23512A" name="green.700" displayname="Darkest Green" />
+        <ColorTile hex="#3A8245" name="green.600" displayname="Dark Green" />
+        <ColorTile hex="#65BF73" name="green.500" displayname="HF-HF Green" />
+        <ColorTile hex="#BA5F0C" name="tangerine.700" displayname="Darkest Tangerine" />
+        <ColorTile hex="#E57A16" name="tangerine.600" displayname="Darker Tangerine" />
+        <ColorTile hex="#FF9737" name="tangerine.500" displayname="Tangerine" />
         <ColorTile hex="#404040" name="charcoal" displayname="Charcoal Black" />
         <ColorTile hex="#6C6C6C" name="gray.mid" displayname="Mid Grey" />
         <ColorTile hex="#C4C4C4" name="gray.light" displayname="Light Grey" />
-      </HStack>
-      <HStack spacing={0} mb={10}>
-        <Flex h={20} w={60} p={3} bg="black" dir="column">
-          <Text textStyle="subheading1" color="white" mt="auto">
-            #000000
-          </Text>
-        </Flex>
-        <Flex h={20} w={60} p={3} bg="white" dir="column" border="1px solid black">
-          <Text textStyle="subheading1" mt="auto">
-            #FFFFFF
-          </Text>
-        </Flex>
-      </HStack>
+        <ColorTile hex="#000000" name="black" displayname="Black" />
+        <ColorTile hex="#FFFFFF" name="white" displayname="White" light />
+      </Wrap>
 
       <Heading textStyle="heading1" mb={5}>
         Typography
       </Heading>
-      <VStack>
+      <VStack spacing={0}>
         <Heading textStyle="heading1">Heading 1 - Avenir Heavy 35 pt.</Heading>
         <Heading textStyle="heading2">Heading 2 - Avenir Heavy 28 pt.</Heading>
         <Heading textStyle="subheading1">Sub Heading 1 - Avenir Heavy 16 pt.</Heading>
@@ -76,10 +88,32 @@ function DemoPage(props: Props): JSX.Element {
           <Text textStyle="body1">Primary</Text>
         </VStack>
         <VStack>
+          <Button variant="neutral">Subscribe</Button>
+          <Text textStyle="body1">Neutral</Text>
+        </VStack>
+        <VStack>
           <Button variant="secondary">Get Involved</Button>
           <Text textStyle="body1">Secondary</Text>
         </VStack>
+        <VStack>
+          <Button variant="ghost" leftIcon={<Icon as={MdChevronLeft} />}>
+            Back to Recipes
+          </Button>
+          <Text textStyle="body1">Page Redirection</Text>
+        </VStack>
       </HStack>
+
+      <Heading textStyle="heading1" mb={5}>
+        Responsiveness
+      </Heading>
+      <Center w="full" h={32} bg={['green.500', null, 'green.700']} transition="250ms all" mb={5}>
+        <Text textStyle="heading2" color="white" display={['none', null, 'block']}>
+          the screen is at least 40em wide
+        </Text>
+        <Text textStyle="heading2" color="white" display={['block', null, 'none']}>
+          the screen is less than 40em wide
+        </Text>
+      </Center>
     </Layout>
   );
 }
