@@ -13,6 +13,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@sindresorhus/slugify": "^1.1.0",
+    "focus-visible": "^5.2.0",
     "framer-motion": "^3.3.0",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-react-helmet": "^3.2.4",
@@ -28,6 +29,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
+    "react-icons": "^4.2.0",
     "sharp": "^0.25.2"
   },
   "devDependencies": {
