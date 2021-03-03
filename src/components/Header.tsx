@@ -1,16 +1,30 @@
 import React from 'react';
 
-import { Button, ButtonGroup } from '@chakra-ui/react';
-import { Link } from 'gatsby';
+import { Box, Button } from '@chakra-ui/react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 import styles from '../css/Header.module.css';
-// import logo from '../img/logo.png';
 
 function Header(): JSX.Element {
+  const data: GatsbyTypes.HeaderQueryQuery = useStaticQuery<GatsbyTypes.HeaderQueryQuery>(graphql`
+    query HeaderQuery {
+      contentfulAsset(title: { eq: "Logo" }) {
+        fluid(quality: 100) {
+          ...GatsbyContentfulFluid
+        }
+        description
+      }
+    }
+  `);
+
   return (
     <div className={styles.navigation}>
-      {/* <img className={styles.logo} src={logo} alt="Healthy Families Healthy Futures Logo" /> */}
+      <Box w="150px">
+        {data.contentfulAsset?.fluid != null ? (
+          <Img fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description} />
+        ) : null}
+      </Box>
       <input
         className={styles.search}
         type="text"
@@ -19,9 +33,7 @@ function Header(): JSX.Element {
         name="s"
       />
       <p className={styles.getInvolved}>GET INVOLVED</p>
-      <Button className={styles.donateButton} colorScheme="green">
-        DONATE
-      </Button>
+      <Button variant="primary">Donate</Button>
     </div>
   );
 }
