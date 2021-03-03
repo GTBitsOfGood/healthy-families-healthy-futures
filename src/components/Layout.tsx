@@ -1,4 +1,5 @@
 require('../css/base.css');
+import 'focus-visible/dist/focus-visible';
 import React from 'react';
 
 import { Container } from '@chakra-ui/react';
