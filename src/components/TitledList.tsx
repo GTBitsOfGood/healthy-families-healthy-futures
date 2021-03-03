@@ -4,7 +4,7 @@ import { Text, HStack, VStack, Divider, OrderedList, ListItem, Box } from '@chak
 
 interface Props {
   title: string;
-  listElements: string[] | undefined;
+  listElements: string[];
 }
 
 function TitledList({ title, listElements }: Props): JSX.Element {
@@ -14,11 +14,11 @@ function TitledList({ title, listElements }: Props): JSX.Element {
         <Text fontWeight="bold" fontSize="xl">
           {title}
         </Text>
-        <Divider width="full" borderColor="green" />
+        <Divider width="full" borderColor="green.500" />
       </HStack>
       <Box>
-        <OrderedList listStylePos="outside" color="green" spacing={2}>
-          {listElements?.map(element => (
+        <OrderedList listStylePos="outside" color="green.500" spacing={2}>
+          {listElements.map(element => (
             <ListItem key={element}>
               <Box marginLeft={5}>
                 <Text as="span" color="black">

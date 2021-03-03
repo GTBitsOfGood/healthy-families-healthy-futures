@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Flex, Heading, IconButton, Text, Image, HStack, VStack, Box } from '@chakra-ui/react';
+import { Flex, Heading, Text, Image, HStack, VStack, Box, Button } from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
 import TitledList from 'src/components/TitledList';
 
@@ -19,17 +19,16 @@ function RecipeTemplate(props: Props): JSX.Element {
   return (
     <Layout location={props.location}>
       <Box margin={{ base: 5, md: 10 }}>
-        <HStack display={{ base: 'none', md: 'flex' }} align="center" spacing={2} marginBottom={10}>
-          <Link to="/recipes">
-            <IconButton
-              aria-label="Back button"
-              icon={<ChevronLeftIcon w={7} h={7} />}
-              size="sm"
-              backgroundColor="white"
-            ></IconButton>
-          </Link>
-          <Text>Back to Recipes</Text>
-        </HStack>
+        <Link to="/recipes">
+          <Button
+            display={{ base: 'none', md: 'flex' }}
+            variant="ghost"
+            leftIcon={<ChevronLeftIcon />}
+            marginBottom={10}
+          >
+            Back to Recipes
+          </Button>
+        </Link>
         <Heading
           fontSize={{ base: 'xl', md: '3xl' }}
           textAlign={{ base: 'center', md: 'start' }}

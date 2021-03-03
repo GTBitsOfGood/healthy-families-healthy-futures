@@ -2,15 +2,13 @@ export function parseRecipe(recipe: GatsbyTypes.ContentfulRecipe) {
   const totalTime =
     recipe?.prepTime && recipe?.totalTime ? recipe?.prepTime + recipe?.totalTime : '';
 
-  const prepDirections = recipe?.prepDirections?.prepDirections
-    ?.split('\n')
-    .map(prepDir => prepDir.slice(2));
+  const prepDirections =
+    recipe?.prepDirections?.prepDirections?.split('\n').map(prepDir => prepDir.slice(2)) ?? [];
 
-  const instructions = recipe?.directions?.directions
-    ?.split('\n')
-    .map(direction => direction.slice(2));
+  const instructions =
+    recipe?.directions?.directions?.split('\n').map(direction => direction.slice(2)) ?? [];
 
-  const notes = recipe?.notes?.notes?.split('\n').map(note => note.slice(2));
+  const notes = recipe?.notes?.notes?.split('\n').map(note => note.slice(2)) ?? [];
 
   const ingredients = recipe?.ingredients?.ingredients?.split('\n');
   const ingredientGroups = [];
