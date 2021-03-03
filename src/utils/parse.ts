@@ -37,7 +37,7 @@ export function parseRecipe(recipe: GatsbyTypes.ContentfulRecipe) {
 
   return {
     title: recipe?.title,
-    image: recipe?.mainImage?.file?.url,
+    imageFluid: recipe?.mainImage?.fluid,
     cookTime: recipe?.totalTime,
     prepTime: recipe?.prepTime,
     totalTime: totalTime,

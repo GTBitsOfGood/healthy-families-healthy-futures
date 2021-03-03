@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Flex, Heading, Text, Image, HStack, VStack, Box, Button } from '@chakra-ui/react';
+import { Flex, Heading, Text, HStack, VStack, Box, Button } from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
+import Img from 'gatsby-image';
 import TitledList from 'src/components/TitledList';
 
 import Layout from '../../components/Layout';
@@ -81,12 +82,13 @@ function RecipeTemplate(props: Props): JSX.Element {
               </VStack>
             </HStack>
           </VStack>
-          <Image
-            src={recipe.image}
-            alt="Recipe Image"
-            boxSize={{ base: 'auto', md: 'md' }}
-            objectFit="cover"
-          ></Image>
+          <Box w={{ base: 'full', md: '600px' }} h={{ base: 'fit-content', md: '400px' }}>
+            {recipe.imageFluid == null ? (
+              <Box w="full" h="full" bg="gray.light" />
+            ) : (
+              <Img fluid={recipe.imageFluid} alt="Recipe Image" imgStyle={{ objectFit: 'cover' }} />
+            )}
+          </Box>
         </Flex>
         <br></br>
         <TitledList title="Prep" listElements={recipe.prepDirections}></TitledList>
@@ -110,8 +112,8 @@ export const pageQuery = graphql`
     contentfulRecipe(title: { eq: $title }) {
       title
       mainImage {
-        file {
-          url
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       totalTime
