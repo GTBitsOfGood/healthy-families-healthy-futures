@@ -35,9 +35,18 @@ function RecipesIndex(props: Props): JSX.Element {
             <ul>
               {recipes.map(node => {
                 return (
-                  <li key={node.id} style={{display:'inline-block', position: 'relative', width: '50%', verticalAlign: 'top'}}>
+                  <li
+                    key={node.id}
+                    style={{
+                      display: 'inline-block',
+                      position: 'relative',
+                      verticalAlign: 'top',
+                      marginRight: 50,
+                      marginBottom: 70,
+                    }}
+                  >
                     <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
-                      <RecipeCard data={node}/>
+                      <RecipeCard data={node} />
                     </Link>
                   </li>
                 );
