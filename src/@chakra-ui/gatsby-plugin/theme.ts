@@ -67,6 +67,11 @@ const theme = extendTheme({
         py: '4px',
         height: 'min',
       },
+      sizes: {
+        md: {
+          h: 'min',
+        },
+      },
       variants: {
         defaultProps: {
           variant: 'primary',
