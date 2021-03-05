@@ -60,13 +60,22 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         textStyle: 'body2',
+        fontWeight: '500',
         textTransform: 'uppercase',
         borderRadius: 0,
-        height: `fit-content`,
         px: '22px',
         py: '4px',
+        height: 'min',
+      },
+      sizes: {
+        md: {
+          h: 'min',
+        },
       },
       variants: {
+        defaultProps: {
+          variant: 'primary',
+        },
         primary: {
           bg: 'green.500',
           color: 'white',
@@ -103,6 +112,28 @@ const theme = extendTheme({
           },
           _active: {
             bg: 'gray.mid',
+          },
+        },
+      },
+    },
+    Input: {
+      defaultProps: {
+        size: 'sm',
+        variant: 'default',
+      },
+      variants: {
+        default: {
+          field: {
+            borderWidth: `1px`,
+            borderColor: 'gray.light',
+            borderRadius: `15px`,
+            color: 'black',
+            _focus: {
+              borderColor: 'black',
+            },
+            _placeholder: {
+              color: 'gray.light',
+            },
           },
         },
       },

@@ -8,13 +8,16 @@ import {
   Heading,
   HStack,
   Icon,
+  Input,
+  InputGroup,
+  InputLeftElement,
   Text,
   VStack,
   Wrap,
   WrapItem,
 } from '@chakra-ui/react';
 import { PageProps } from 'gatsby';
-import { MdChevronLeft } from 'react-icons/md';
+import { MdChevronLeft, MdSearch } from 'react-icons/md';
 import Layout from 'src/components/Layout';
 
 type Props = PageProps;
@@ -34,11 +37,11 @@ function ColorTile({
     <WrapItem>
       <VStack w={32}>
         <Flex bg={name} h={44} w={32} p={3} dir="column" border={light ? `1px solid black` : ''}>
-          <Text textStyle="subheading1" color={light ? 'black' : 'white'} mt="auto">
+          <Text textStyle="body1" color={light ? 'black' : 'white'} mt="auto">
             {hex}
           </Text>
         </Flex>
-        <Text textStyle="subheading1" textAlign="center">
+        <Text textStyle="body1" textAlign="center">
           {displayname}
         </Text>
       </VStack>
@@ -102,6 +105,16 @@ function DemoPage(props: Props): JSX.Element {
           <Text textStyle="body1">Page Redirection</Text>
         </VStack>
       </HStack>
+
+      <Heading textStyle="heading1" my={5}>
+        Search Bar
+      </Heading>
+      <InputGroup>
+        <InputLeftElement pointerEvents="none">
+          <Icon as={MdSearch} color="black" />
+        </InputLeftElement>
+        <Input placeholder="Search" />
+      </InputGroup>
 
       <Heading textStyle="heading1" mb={5}>
         Responsiveness
