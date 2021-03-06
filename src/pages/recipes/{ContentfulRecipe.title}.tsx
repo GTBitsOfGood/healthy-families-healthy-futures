@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Flex, Heading, Text, HStack, VStack, Box, Button } from '@chakra-ui/react';
+import { Flex, Heading, Text, HStack, VStack, Box, Button, Grid } from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
 import TitledList from 'src/components/TitledList';
@@ -63,36 +63,32 @@ function RecipeTemplate(props: Props): JSX.Element {
                 <Text textStyle="body1">{recipe.prepTime} min</Text>
                 <Text textStyle="body1">{recipe.totalTime} min</Text>
                 <Text textStyle="body1">{recipe.yield}</Text>
-                <VStack align="stretch">
+                <Grid templateColumns="repeat(2, 1fr)" rowGap={2}>
                   {recipe.ingredientGroups.map(group => (
-                    <Flex justify="space-between" key={group[0]}>
-                      <Box flex={2}>
-                        <Text
-                          as="span"
-                          textStyle="body1"
-                          display={{ base: 'inline-block', md: 'none' }}
-                        >
+                    <>
+                      <Box>
+                        <Text textStyle="body1" display={{ base: 'inline-block', md: 'none' }}>
                           {group[1]}
                         </Text>{' '}
-                        <Text
-                          as="span"
-                          textStyle="body1"
-                          textTransform={{ base: 'lowercase', md: 'none' }}
-                        >
+                        <Text textStyle="body1" textTransform={{ base: 'lowercase', md: 'none' }}>
                           {group[0]}
                         </Text>{' '}
                         {group[2] && (
-                          <Text as="span" textStyle="body1" color="gray">
+                          <Text textStyle="body1" color="gray">
                             ({group[2]})
                           </Text>
                         )}
                       </Box>
-                      <Box display={{ base: 'none', md: 'block' }} flex={1} marginLeft={10}>
+                      <Box
+                        display={{ base: 'none', md: 'block' }}
+                        textTransform="lowercase"
+                        marginLeft={10}
+                      >
                         <Text textStyle="body1">{group[1]}</Text>
                       </Box>
-                    </Flex>
+                    </>
                   ))}
-                </VStack>
+                </Grid>
               </VStack>
             </HStack>
           </VStack>
