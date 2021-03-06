@@ -30,11 +30,7 @@ function RecipeTemplate(props: Props): JSX.Element {
             Back to Recipes
           </Button>
         </Link>
-        <Heading
-          fontSize={{ base: 'xl', md: '3xl' }}
-          textAlign={{ base: 'center', md: 'start' }}
-          marginBottom={5}
-        >
+        <Heading textStyle="heading1" textAlign={{ base: 'center', md: 'start' }} marginBottom={5}>
           {recipe.title}
         </Heading>
         <Flex direction={{ base: 'column-reverse', md: 'row' }} justify="space-between">
@@ -46,35 +42,53 @@ function RecipeTemplate(props: Props): JSX.Element {
           >
             <HStack align="start" spacing={10}>
               <VStack align="start">
-                <Text fontWeight="bold">Cook Time</Text>
-                <Text fontWeight="bold">Prep Time</Text>
-                <Text fontWeight="bold">Total Time</Text>
-                <Text fontWeight="bold">Yield</Text>
-                <Text fontWeight="bold">Ingredients</Text>
+                <Text textStyle="body1" fontWeight="bold">
+                  Cook Time
+                </Text>
+                <Text textStyle="body1" fontWeight="bold">
+                  Prep Time
+                </Text>
+                <Text textStyle="body1" fontWeight="bold">
+                  Total Time
+                </Text>
+                <Text textStyle="body1" fontWeight="bold">
+                  Yield
+                </Text>
+                <Text textStyle="body1" fontWeight="bold">
+                  Ingredients
+                </Text>
               </VStack>
               <VStack align="start">
-                <Text>{recipe.cookTime} min</Text>
-                <Text>{recipe.prepTime} min</Text>
-                <Text>{recipe.totalTime} min</Text>
-                <Text>{recipe.yield}</Text>
+                <Text textStyle="body1">{recipe.cookTime} min</Text>
+                <Text textStyle="body1">{recipe.prepTime} min</Text>
+                <Text textStyle="body1">{recipe.totalTime} min</Text>
+                <Text textStyle="body1">{recipe.yield}</Text>
                 <VStack align="stretch">
                   {recipe.ingredientGroups.map(group => (
                     <Flex justify="space-between" key={group[0]}>
                       <Box flex={2}>
-                        <Text as="span" display={{ base: 'inline-block', md: 'none' }}>
+                        <Text
+                          as="span"
+                          textStyle="body1"
+                          display={{ base: 'inline-block', md: 'none' }}
+                        >
                           {group[1]}
                         </Text>{' '}
-                        <Text as="span" textTransform={{ base: 'lowercase', md: 'none' }}>
+                        <Text
+                          as="span"
+                          textStyle="body1"
+                          textTransform={{ base: 'lowercase', md: 'none' }}
+                        >
                           {group[0]}
                         </Text>{' '}
                         {group[2] && (
-                          <Text as="span" color="gray">
+                          <Text as="span" textStyle="body1" color="gray">
                             ({group[2]})
                           </Text>
                         )}
                       </Box>
                       <Box display={{ base: 'none', md: 'block' }} flex={1} marginLeft={10}>
-                        <Text>{group[1]}</Text>
+                        <Text textStyle="body1">{group[1]}</Text>
                       </Box>
                     </Flex>
                   ))}

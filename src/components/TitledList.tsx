@@ -11,9 +11,7 @@ function TitledList({ title, listElements }: Props): JSX.Element {
   return (
     <VStack align="stretch" spacing={4}>
       <HStack align="center" spacing={4}>
-        <Text fontWeight="bold" fontSize="xl">
-          {title}
-        </Text>
+        <Text textStyle="heading2">{title}</Text>
         <Divider width="full" borderColor="green.500" />
       </HStack>
       <Box>
@@ -21,7 +19,7 @@ function TitledList({ title, listElements }: Props): JSX.Element {
           {listElements.map(element => (
             <ListItem key={element}>
               <Box marginLeft={5}>
-                <Text as="span" color="black">
+                <Text as="span" textStyle="body1" color="black">
                   {element}
                 </Text>
               </Box>
