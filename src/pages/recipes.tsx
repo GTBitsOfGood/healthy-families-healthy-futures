@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 import RecipeSidebar from 'src/components/RecipeSidebar';
 
+import RecipeCard from '../components/RecipeCard';
 import styles from '../css/Blog.module.css';
 
 interface Props extends PageProps {
@@ -31,15 +32,22 @@ function RecipesIndex(props: Props): JSX.Element {
           <div className="wrapper">
             <h2 className="section-headline">Wonderful Recipes</h2>
             <Divider />
-            <ul className="article-list">
+            <ul>
               {recipes.map(node => {
                 return (
-                  <li key={node.id}>
+                  <li
+                    key={node.id}
+                    style={{
+                      display: 'inline-block',
+                      position: 'relative',
+                      verticalAlign: 'top',
+                      marginRight: 50,
+                      marginBottom: 70,
+                    }}
+                  >
                     <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
-                      <h1>{node.title}</h1>{' '}
+                      <RecipeCard data={node} />
                     </Link>
-                    <h1>{`${String(node.prepTime)} ${node.prepTime == 1 ? 'min' : 'mins'}`}</h1>
-                    <h1>{`${String(node.totalTime)} ${node.totalTime == 1 ? 'min' : 'mins'}`}</h1>
                   </li>
                 );
               })}
@@ -62,11 +70,7 @@ export const pageQuery = graphql`
     }
     allContentfulRecipe {
       nodes {
-        id
-        prepTime
-        title
-        totalTime
-        updatedAt
+        ...RecipeCard
       }
     }
   }
