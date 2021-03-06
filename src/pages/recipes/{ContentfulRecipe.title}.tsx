@@ -23,7 +23,7 @@ function RecipeTemplate(props: Props): JSX.Element {
         <Link to="/recipes">
           <Button
             display={{ base: 'none', md: 'flex' }}
-            variant="ghost"
+            variant="back"
             leftIcon={<ChevronLeftIcon />}
             marginBottom={10}
           >

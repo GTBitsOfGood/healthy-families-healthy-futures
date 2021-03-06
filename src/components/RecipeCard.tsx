@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { TimeIcon } from '@chakra-ui/icons';
 import { Box, Heading, Text, Flex, Spacer } from '@chakra-ui/react';
-import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 interface Props {
   data: GatsbyTypes.RecipeCardFragment;

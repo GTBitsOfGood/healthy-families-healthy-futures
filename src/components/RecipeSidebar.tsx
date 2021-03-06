@@ -47,7 +47,7 @@ function RecipeSidebar({ location }: Props): JSX.Element {
           Filters
         </Heading>
         <Button
-          variant="ghost"
+          variant="back"
           colorScheme="gray"
           onClick={() => updateSelectedFilters({})}
           hidden={!hasActiveFilter}
