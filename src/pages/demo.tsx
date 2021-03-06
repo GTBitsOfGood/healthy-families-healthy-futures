@@ -99,7 +99,7 @@ function DemoPage(props: Props): JSX.Element {
           <Text textStyle="body1">Secondary</Text>
         </VStack>
         <VStack>
-          <Button variant="ghost" leftIcon={<Icon as={MdChevronLeft} />}>
+          <Button variant="back" leftIcon={<Icon as={MdChevronLeft} />}>
             Back to Recipes
           </Button>
           <Text textStyle="body1">Page Redirection</Text>

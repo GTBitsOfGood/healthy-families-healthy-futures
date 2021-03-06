@@ -104,14 +104,15 @@ const theme = extendTheme({
             bg: 'tangerine.700',
           },
         },
-        ghost: {
+        back: {
           fontSize: 14,
+          px: 0,
           textTransform: 'none',
           _hover: {
-            bg: 'gray.light',
+            color: 'tangerine.500',
           },
           _active: {
-            bg: 'gray.mid',
+            color: 'tangerine.600',
           },
         },
       },
