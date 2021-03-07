@@ -11,7 +11,7 @@ interface Props {
 
 function RecipeCard({ data }: Props): JSX.Element {
   return (
-    <Box maxW="339px" maxH="301px">
+    <Box w="340px">
       <Flex mb={5}>
         <Heading textStyle="subheading2">{data.title}</Heading>
         <Spacer />
