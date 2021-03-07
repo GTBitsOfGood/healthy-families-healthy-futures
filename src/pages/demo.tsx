@@ -73,13 +73,13 @@ function DemoPage(props: Props): JSX.Element {
         Typography
       </Heading>
       <VStack spacing={0}>
-        <Heading textStyle="heading1">Heading 1 - Avenir Heavy 35 pt.</Heading>
-        <Heading textStyle="heading2">Heading 2 - Avenir Heavy 28 pt.</Heading>
-        <Heading textStyle="subheading1">Sub Heading 1 - Avenir Heavy 16 pt.</Heading>
-        <Heading textStyle="subheading2">Sub Heading 2 - Avenir Heavy 14 pt.</Heading>
-        <Text textStyle="body1">Body 1 - Avenir Medium 18 pt.</Text>
-        <Text textStyle="body2">Body 2 - Avenir Medium 16 pt.</Text>
-        <Text textStyle="body3">Body 3 - Avenir Medium 14 pt.</Text>
+        <Heading textStyle="heading1">Heading 1</Heading>
+        <Heading textStyle="heading2">Heading 2</Heading>
+        <Heading textStyle="subheading1">Sub Heading 1</Heading>
+        <Heading textStyle="subheading2">Sub Heading 2</Heading>
+        <Text textStyle="body1">Body 1</Text>
+        <Text textStyle="body2">Body 2</Text>
+        <Text textStyle="body3">Body 3</Text>
       </VStack>
 
       <Heading textStyle="heading1" my={5}>
@@ -120,12 +120,12 @@ function DemoPage(props: Props): JSX.Element {
         Responsiveness
       </Heading>
       <Center w="full" h={32} bg={['green.500', null, 'green.700']} transition="250ms all" mb={5}>
-        <Text textStyle="heading2" color="white" display={['none', null, 'block']}>
-          the screen is at least 40em wide
-        </Text>
-        <Text textStyle="heading2" color="white" display={['block', null, 'none']}>
-          the screen is less than 40em wide
-        </Text>
+        <Heading textStyle="heading2" color="white" display={['none', null, 'block']}>
+          the screen is at least 48em wide
+        </Heading>
+        <Heading textStyle="heading2" color="white" display={['block', null, 'none']}>
+          the screen is less than 48em wide
+        </Heading>
       </Center>
     </Layout>
   );
