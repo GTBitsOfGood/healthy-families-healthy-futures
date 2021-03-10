@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, Input, Spacer, Flex } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-
-import styles from '../css/Header.module.css';
 
 function Header(): JSX.Element {
   const data: GatsbyTypes.HeaderQueryQuery = useStaticQuery<GatsbyTypes.HeaderQueryQuery>(graphql`
@@ -19,22 +17,37 @@ function Header(): JSX.Element {
   `);
 
   return (
-    <div className={styles.navigation}>
-      <Box w="150px">
-        {data.contentfulAsset?.fluid != null ? (
-          <Img fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description} />
-        ) : null}
-      </Box>
-      <input
-        className={styles.search}
-        type="text"
-        id="header-search"
-        placeholder="search website"
-        name="s"
-      />
-      <p className={styles.getInvolved}>GET INVOLVED</p>
-      <Button variant="primary">Donate</Button>
-    </div>
+    <Flex h="20vh" maxH="100px" wrap="nowrap" py="10px" px="40px" flexDir="row">
+      <Flex align="center" flexDir="row">
+        <Box w="150px" paddingRight="20px">
+          {data.contentfulAsset?.fluid != null ? (
+            <Img fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description} />
+          ) : null}
+        </Box>
+        <Spacer />
+        <Input
+          type="text"
+          id="header-search"
+          placeholder="search website"
+          name="s"
+          variant="outline"
+          w="300px"
+          size="sm"
+          borderRadius="30px"
+        />
+      </Flex>
+
+      <Spacer />
+      <Flex align="center" flexDir="row">
+        <Button variant="secondary" fontSize="16px" _hover={{ color: '#65BF73' }}>
+          Get Involved
+        </Button>
+        <Spacer />
+        <Button variant="primary" fontSize="16px">
+          Donate
+        </Button>
+      </Flex>
+    </Flex>
   );
 }
 
