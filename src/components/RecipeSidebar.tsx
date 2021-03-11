@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Heading, Flex, Button, VStack } from '@chakra-ui/react';
+import { Heading, Flex, Button, VStack, Box } from '@chakra-ui/react';
 import { navigate } from 'gatsby';
 import { parse, stringify } from 'query-string';
 
@@ -41,13 +41,13 @@ function RecipeSidebar({ location }: Props): JSX.Element {
   const hasActiveFilter = filters.map(x => x.category).some(x => x in selectedFilters);
 
   return (
-    <div>
+    <Box px={6}>
       <Flex justify="space-between" align="center" mb={5}>
         <Heading as="h1" size="md">
           Filters
         </Heading>
         <Button
-          variant="ghost"
+          variant="back"
           colorScheme="gray"
           onClick={() => updateSelectedFilters({})}
           hidden={!hasActiveFilter}
@@ -96,7 +96,7 @@ function RecipeSidebar({ location }: Props): JSX.Element {
           );
         })}
       </VStack>
-    </div>
+    </Box>
   );
 }
 

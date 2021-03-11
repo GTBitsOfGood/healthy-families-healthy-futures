@@ -14,7 +14,7 @@ interface Props {
 
 function Layout({ children }: Props): JSX.Element {
   return (
-    <Container size="full" maxW="none">
+    <Container size="full" maxW="none" mb={40} p={0}>
       <Header />
       <Navigation />
       {children}
