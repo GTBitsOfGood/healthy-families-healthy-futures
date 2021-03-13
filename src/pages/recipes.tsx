@@ -9,7 +9,6 @@ import Layout from 'src/components/Layout';
 import RecipeSidebar from 'src/components/RecipeSidebar';
 
 import RecipeCard from '../components/RecipeCard';
-import styles from '../css/Blog.module.css';
 
 interface Props extends PageProps {
   data: GatsbyTypes.RecipeQueryQuery;
@@ -51,37 +50,28 @@ function RecipesIndex(props: Props): JSX.Element {
     <Layout location={props.location}>
       <Helmet title={siteTitle} />
 
-      <Grid templateColumns={{ base: '1fr', md: '250px 1fr' }} columnGap={5}>
+      <Grid templateColumns={{ base: '1fr', md: '250px 1px 1fr' }}>
         <GridItem>
           <RecipeSidebar location={props.location} filters={filter} onChange={handleFilterChange} />
         </GridItem>
-
+        <Divider orientation="vertical" />
         <GridItem>
-          <div className={styles.hero}>Recipes</div>
-          <div className="wrapper">
-            <h2 className="section-headline">Wonderful Recipes</h2>
-            <Divider />
-            <ul>
-              {recipes.map(node => {
-                return (
-                  <li
-                    key={node.id}
-                    style={{
-                      display: 'inline-block',
-                      position: 'relative',
-                      verticalAlign: 'top',
-                      marginRight: 50,
-                      marginBottom: 70,
-                    }}
-                  >
-                    <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
-                      <RecipeCard data={node} />
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <Grid
+            templateColumns={{ base: 'repeat(auto-fit, 350px)', xl: 'repeat(3, 350px)' }}
+            justifyItems="center"
+            justifyContent="space-evenly"
+            rowGap="35px"
+          >
+            {recipes.map(node => {
+              return (
+                <GridItem key={node.id}>
+                  <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
+                    <RecipeCard data={node} />
+                  </Link>
+                </GridItem>
+              );
+            })}
+          </Grid>
         </GridItem>
       </Grid>
     </Layout>

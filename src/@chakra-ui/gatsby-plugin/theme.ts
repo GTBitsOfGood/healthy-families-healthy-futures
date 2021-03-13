@@ -24,28 +24,28 @@ const theme = extendTheme({
   },
   textStyles: {
     heading1: {
-      fontSize: [35, null, 35],
-      lineHeight: ['55px', null, '55px'],
+      fontSize: [20, null, 35],
+      lineHeight: ['31px', null, '55px'],
       fontWeight: 800,
     },
     heading2: {
-      fontSize: [28, null, 28],
-      lineHeight: ['44px', null, '44px'],
+      fontSize: [18, null, 28],
+      lineHeight: ['28px', null, '44px'],
       fontWeight: 800,
     },
     subheading1: {
-      fontSize: [16, null, 16],
-      lineHeight: ['25px', null, '25px'],
+      fontSize: [18, null, 16],
+      lineHeight: ['28px', null, '25px'],
       fontWeight: 800,
     },
     subheading2: {
-      fontSize: [14, null, 14],
-      lineHeight: ['22px', null, '22px'],
+      fontSize: [16, null, 14],
+      lineHeight: ['25px', null, '22px'],
       fontWeight: 800,
     },
     body1: {
-      fontSize: [18, null, 18],
-      lineHeight: ['28px', null, '28px'],
+      fontSize: [16, null, 18],
+      lineHeight: ['25px', null, '28px'],
     },
     body2: {
       fontSize: [16, null, 16],
@@ -60,13 +60,22 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         textStyle: 'body2',
+        fontWeight: '500',
         textTransform: 'uppercase',
         borderRadius: 0,
-        height: `fit-content`,
         px: '22px',
         py: '4px',
+        height: 'min',
+      },
+      sizes: {
+        md: {
+          h: 'min',
+        },
       },
       variants: {
+        defaultProps: {
+          variant: 'primary',
+        },
         primary: {
           bg: 'green.500',
           color: 'white',
@@ -95,14 +104,37 @@ const theme = extendTheme({
             bg: 'tangerine.700',
           },
         },
-        ghost: {
+        back: {
           fontSize: 14,
+          px: 0,
           textTransform: 'none',
           _hover: {
-            bg: 'gray.light',
+            color: 'tangerine.500',
           },
           _active: {
-            bg: 'gray.mid',
+            color: 'tangerine.600',
+          },
+        },
+      },
+    },
+    Input: {
+      defaultProps: {
+        size: 'sm',
+        variant: 'default',
+      },
+      variants: {
+        default: {
+          field: {
+            borderWidth: `1px`,
+            borderColor: 'gray.light',
+            borderRadius: `15px`,
+            color: 'black',
+            _focus: {
+              borderColor: 'black',
+            },
+            _placeholder: {
+              color: 'gray.light',
+            },
           },
         },
       },

@@ -23,15 +23,26 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Healthy Families Healthy Futures',
   },
-  pathPrefix: '/gatsby-contentful-starter',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-tsconfig-paths',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Healthy Families Healthy Futures`,
+        short_name: `HF-HF`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#65BF73`,
+        display: `standalone`,
+        icon: `static/square-logo.png`,
+      },
+    },
     {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {

@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { TimeIcon } from '@chakra-ui/icons';
 import { Box, Heading, Text, Flex, Spacer } from '@chakra-ui/react';
-import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 interface Props {
   data: GatsbyTypes.RecipeCardFragment;
@@ -10,7 +11,7 @@ interface Props {
 
 function RecipeCard({ data }: Props): JSX.Element {
   return (
-    <Box maxW="339px" maxH="301px">
+    <Box w="340px">
       <Flex mb={5}>
         <Heading textStyle="subheading2">{data.title}</Heading>
         <Spacer />
