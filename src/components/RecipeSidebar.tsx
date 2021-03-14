@@ -145,7 +145,11 @@ function RecipeSidebar({ location }: Props): JSX.Element {
           </Heading>
           {clearButton}
         </Flex>
-        {tags.length > 0 && <Wrap spacing="10px" mb="5">{tags}</Wrap>}
+        {tags.length > 0 && (
+          <Wrap spacing="10px" mb="5">
+            {tags}
+          </Wrap>
+        )}
         {filtersDisplay}
       </Box>
 
@@ -159,7 +163,11 @@ function RecipeSidebar({ location }: Props): JSX.Element {
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel paddingBottom={4}>
-            {tags.length > 0 && <Wrap spacing="10px" mb="10">{tags}</Wrap>}
+            {tags.length > 0 && (
+              <Wrap spacing="10px" mb="10">
+                {tags}
+              </Wrap>
+            )}
             {filtersDisplay}
             {clearButton}
           </AccordionPanel>
