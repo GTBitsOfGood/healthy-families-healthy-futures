@@ -58,7 +58,7 @@ function RecipeSidebar({ location }: Props): JSX.Element {
   const hasActiveFilter = filters.map(x => x.category).some(x => x in selectedFilters);
 
   let filterCount = 0;
-  let rawFilterTags: string[] = [];
+  let tags: JSX.Element[] = [];
 
   const filtersDisplay = (
     <SimpleGrid columns={[2, null, 1]} spacing={10}>
@@ -76,7 +76,21 @@ function RecipeSidebar({ location }: Props): JSX.Element {
         }
 
         filterCount += selectedOptions.length;
-        rawFilterTags = rawFilterTags.concat(selectedOptions);
+        selectedOptions.forEach(option => {
+          tags.push(
+            <WrapItem key={`${category} ${option}`}>
+              <Tag size="md" colorScheme="green" variant="solid" borderRadius="full">
+                <TagLabel>{option}</TagLabel>
+                <TagCloseButton onClick={() => {
+                  updateSelectedFilters({
+                    ...selectedFilters,
+                    [category]: selectedOptions.filter(x => x !== option),
+                  });
+                }} />
+              </Tag>
+            </WrapItem>
+          );
+        });
 
         const onOptionsChange = (options: string[]) => {
           if (options.length > 0) {
@@ -120,16 +134,6 @@ function RecipeSidebar({ location }: Props): JSX.Element {
     </Button>
   );
 
-  const tags = rawFilterTags.map(tag => {
-    return (
-      <WrapItem key={tag}>
-        <Tag size="md" colorScheme="green" variant="solid" borderRadius="full">
-          <TagLabel>{tag}</TagLabel>
-          <TagCloseButton />
-        </Tag>
-      </WrapItem>
-    );
-  });
 
   return (
     <>
