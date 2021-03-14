@@ -9,7 +9,7 @@ import FilterGroup from './FilterGroup';
 interface Props {
   filters: { category: string; options: string[] }[];
   location: Location;
-  onChange(newFilter: { [x: string]: string | string[] | null }): void;
+  onChange(newFilter: { [x: string]: string[] }): void;
 }
 
 function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
@@ -17,21 +17,9 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
   // Note: selectedFilters can include other query parameters that are not necessarily used for filtering
   const [selectedFilters, updateSelectedFilters] = useState(defaultFilters);
 
-  // // TODO - Retrieve the filters dynamically
-  // const filters = [
-  //   {
-  //     category: 'Food Type',
-  //     options: ['Vegan', 'Vegetarian', 'Breakfast', 'Lunch'],
-  //   },
-  //   {
-  //     category: 'Ingredients',
-  //     options: ['Beans', 'Fruit', 'Protein', 'Dairy'],
-  //   },
-  //   {
-  //     category: 'Time',
-  //     options: ['< 10 min', '15-30 min', '31-45 min'],
-  //   },
-  // ];
+  useEffect(() => {
+    onChange(selectedFilters);
+  }, []);
 
   useEffect(() => {
     const newQueries = stringify(selectedFilters, { arrayFormat: 'comma' });

@@ -1,9 +1,8 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Divider, Grid, GridItem } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
 import { graphql, Link, PageProps } from 'gatsby';
-import { ParsedQuery } from 'query-string';
 import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 import RecipeSidebar from 'src/components/RecipeSidebar';
@@ -19,15 +18,15 @@ type IFilter = typeof filters;
 const filters = [
   {
     category: 'Food Type',
-    options: ['Vegan', 'Vegetarian', 'Breakfast', 'Lunch'],
+    options: [],
   },
   {
     category: 'Ingredients',
-    options: ['Beans', 'Fruit', 'Protein', 'Dairy'],
+    options: [],
   },
   {
     category: 'Time',
-    options: ['< 10 min', '15-30 min', '31-45 min'],
+    options: ['< 15 min', '15-30 min', '31-45 min', '> 45 min'],
   },
 ];
 
@@ -35,11 +34,104 @@ function RecipesIndex(props: Props): JSX.Element {
   const siteTitle = props.data.site?.siteMetadata?.title;
   const recipes = props.data?.allContentfulRecipe?.nodes;
 
-  const [filter, setFilter] = useState<IFilter>(filters);
+  const [filter, setFilter] = useState<IFilter>();
   const [currentFilter, setCurrentFilter] = useState<{ [x: string]: string | string[] | null }>();
+  const [filteredData, setFilteredData] = useState(recipes);
 
-  const handleFilterChange = (newFilter: { [x: string]: string | string[] | null }): void => {
+  useEffect(() => {
+    setFilter(filters);
+    generateFilters();
+  }, []);
+
+  // Generates filters based on all tags from Contentful
+  const generateFilters = () => {
+    recipes.map((recipe): void => {
+      if (recipe.foodTypeTags) {
+        recipe.foodTypeTags.forEach((foodType: string): void => {
+          if (!filters[0]['options'].includes(foodType)) {
+            filters[0]['options'].push(foodType);
+          }
+        });
+      }
+
+      if (recipe.ingredientTags) {
+        recipe.ingredientTags.forEach((ingredient: string): void => {
+          if (!filters[1]['options'].includes(ingredient)) {
+            filters[1]['options'].push(ingredient);
+          }
+        });
+      }
+    });
+  };
+
+  const handleFilterChange = (newFilter: { [x: string]: string[] }): void => {
+    const newFilteredData = recipes.filter(recipe => {
+      const {
+        foodTypeTags,
+        ingredientTags,
+        totalTime,
+        prepTime,
+      }: {
+        foodTypeTags: string[];
+        ingredientTags: string[];
+        totalTime: number;
+        prepTime: number;
+      } = recipe;
+
+      let fitsIngredients = true;
+      let fitsFoodType = true;
+      let fitsTime = true;
+      const time: number = totalTime + prepTime;
+
+      if (newFilter['Ingredients']) {
+        if (typeof newFilter['Ingredients'] === 'string') {
+          fitsIngredients = ingredientTags?.includes(newFilter['Ingredients']);
+        } else if (ingredientTags) {
+          if (newFilter['Ingredients']?.some(tag => !ingredientTags.includes(tag))) {
+            fitsIngredients = false;
+          } else {
+            fitsIngredients = true;
+          }
+        } else {
+          fitsIngredients = false;
+        }
+      }
+
+      if (newFilter['Food Type']) {
+        if (typeof newFilter['Food Type'] === 'string') {
+          fitsFoodType = foodTypeTags?.includes(newFilter['Food Type']);
+        } else if (foodTypeTags) {
+          fitsFoodType = !newFilter['Food Type']?.some(tag => !foodTypeTags.includes(tag));
+        } else {
+          fitsFoodType = false;
+        }
+      }
+
+      if (newFilter['Time']) {
+        if (typeof newFilter['Time'] === 'string' || newFilter['Time'].length === 1) {
+          let timeRange = newFilter['Time'];
+          if (newFilter['Time'].length === 1) {
+            timeRange = newFilter['Time'][0];
+          }
+          if (timeRange === '< 15 min') {
+            fitsTime = time < 15;
+          } else if (timeRange === '15-30 min') {
+            fitsTime = time >= 15 && time <= 30;
+          } else if (timeRange === '31-45 min') {
+            fitsTime = time >= 31 && time <= 45;
+          } else {
+            fitsTime = time > 45;
+          }
+        } else {
+          fitsTime = false;
+        }
+      }
+
+      return fitsFoodType && fitsIngredients && fitsTime;
+    });
+
     setCurrentFilter(newFilter);
+    setFilteredData(newFilteredData);
   };
 
   useEffect(() => {
@@ -62,7 +154,7 @@ function RecipesIndex(props: Props): JSX.Element {
             justifyContent="space-evenly"
             rowGap="35px"
           >
-            {recipes.map(node => {
+            {filteredData.map(node => {
               return (
                 <GridItem key={node.id}>
                   <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
