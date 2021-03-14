@@ -35,7 +35,6 @@ function RecipesIndex(props: Props): JSX.Element {
   const recipes = props.data?.allContentfulRecipe?.nodes;
 
   const [filter, setFilter] = useState<IFilter>(filters);
-  const [currentFilter, setCurrentFilter] = useState<{ [x: string]: string | string[] | null }>();
   const [filteredData, setFilteredData] = useState(recipes);
 
   useEffect(() => {
@@ -129,7 +128,6 @@ function RecipesIndex(props: Props): JSX.Element {
       return fitsFoodType && fitsIngredients && fitsTime;
     });
 
-    setCurrentFilter(newFilter);
     setFilteredData(newFilteredData);
   };
 
