@@ -58,7 +58,7 @@ function RecipeSidebar({ location }: Props): JSX.Element {
   const hasActiveFilter = filters.map(x => x.category).some(x => x in selectedFilters);
 
   let filterCount = 0;
-  let tags: JSX.Element[] = [];
+  const tags: JSX.Element[] = [];
 
   const filtersDisplay = (
     <SimpleGrid columns={[2, null, 1]} spacing={10}>
@@ -81,14 +81,16 @@ function RecipeSidebar({ location }: Props): JSX.Element {
             <WrapItem key={`${category} ${option}`}>
               <Tag size="md" colorScheme="green" variant="solid" borderRadius="full">
                 <TagLabel>{option}</TagLabel>
-                <TagCloseButton onClick={() => {
-                  updateSelectedFilters({
-                    ...selectedFilters,
-                    [category]: selectedOptions.filter(x => x !== option),
-                  });
-                }} />
+                <TagCloseButton
+                  onClick={() => {
+                    updateSelectedFilters({
+                      ...selectedFilters,
+                      [category]: selectedOptions.filter(x => x !== option),
+                    });
+                  }}
+                />
               </Tag>
-            </WrapItem>
+            </WrapItem>,
           );
         });
 
@@ -134,7 +136,6 @@ function RecipeSidebar({ location }: Props): JSX.Element {
     </Button>
   );
 
-
   return (
     <>
       <Box px={6} display={['none', null, 'block']}>
@@ -144,7 +145,7 @@ function RecipeSidebar({ location }: Props): JSX.Element {
           </Heading>
           {clearButton}
         </Flex>
-        {tags.length > 0 && <Wrap spacing="10px">{tags}</Wrap>}
+        {tags.length > 0 && <Wrap spacing="10px" mb="5">{tags}</Wrap>}
         {filtersDisplay}
       </Box>
 
@@ -158,7 +159,7 @@ function RecipeSidebar({ location }: Props): JSX.Element {
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel paddingBottom={4}>
-            {tags.length > 0 && <Wrap spacing="10px">{tags}</Wrap>}
+            {tags.length > 0 && <Wrap spacing="10px" mb="10">{tags}</Wrap>}
             {filtersDisplay}
             {clearButton}
           </AccordionPanel>
