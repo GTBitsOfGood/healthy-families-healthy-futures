@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Box, Button, Input, Spacer, Flex } from '@chakra-ui/react';
+import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 function Header(): JSX.Element {
-  const data: GatsbyTypes.HeaderQueryQuery = useStaticQuery<GatsbyTypes.HeaderQueryQuery>(graphql`
-    query HeaderQuery {
+  const data: GatsbyTypes.HeaderQuery = useStaticQuery<GatsbyTypes.HeaderQuery>(graphql`
+    query Header {
       contentfulAsset(title: { eq: "Logo" }) {
         fluid(quality: 100) {
           ...GatsbyContentfulFluid
@@ -17,15 +17,19 @@ function Header(): JSX.Element {
   `);
 
   return (
-    <Flex h="20vh" maxH="100px" wrap="nowrap" py="10px" px="40px" flexDir="row">
+    <Flex h="55px" w="full" px="40px" wrap="nowrap" flexDir="row">
       <Flex align="center" flexDir="row">
-        <Box w="150px" paddingRight="20px">
+        <Box w="135px" maxH="50px" mr="20px">
           {data.contentfulAsset?.fluid != null ? (
-            <Img fluid={data.contentfulAsset.fluid} alt={data.contentfulAsset.description} />
+            <Img
+              fluid={data.contentfulAsset.fluid}
+              alt={data.contentfulAsset.description}
+              imgStyle={{ objectFit: 'contain' }}
+              style={{ maxHeight: `50px` }}
+            />
           ) : null}
         </Box>
-        <Spacer />
-        <Input
+        {/* <Input
           type="text"
           id="header-search"
           placeholder="search website"
@@ -34,7 +38,7 @@ function Header(): JSX.Element {
           w="300px"
           size="sm"
           borderRadius="30px"
-        />
+        /> */}
       </Flex>
 
       <Spacer />

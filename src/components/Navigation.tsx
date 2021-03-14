@@ -1,19 +1,18 @@
 import React from 'react';
 
-import { Flex, Spacer, Link } from '@chakra-ui/react';
+import { Flex, Link } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 
 function Navigation(): JSX.Element {
   return (
     <Flex
-      h="20vh"
-      maxH="100px"
+      h="55px"
       wrap="nowrap"
-      py="10px"
-      px="40px"
+      mx="auto"
       flexDir="row"
-      paddingRight="131px"
-      paddingLeft="131px"
+      w="full"
+      justifyContent="space-evenly"
+      alignItems="center"
     >
       <Link
         _hover={{
@@ -29,7 +28,7 @@ function Navigation(): JSX.Element {
       >
         HOME
       </Link>
-      <Spacer />
+
       <Link
         _hover={{
           textDecoration: 'underline',
@@ -44,7 +43,7 @@ function Navigation(): JSX.Element {
       >
         ABOUT
       </Link>
-      <Spacer />
+
       <Link
         _hover={{
           textDecoration: 'underline',
@@ -59,7 +58,7 @@ function Navigation(): JSX.Element {
       >
         RECIPES
       </Link>
-      <Spacer />
+
       <Link
         _hover={{
           textDecoration: 'underline',
@@ -74,7 +73,7 @@ function Navigation(): JSX.Element {
       >
         EVENTS & CLASSES
       </Link>
-      <Spacer />
+
       <Link
         _hover={{
           textDecoration: 'underline',
@@ -89,7 +88,7 @@ function Navigation(): JSX.Element {
       >
         BLOG
       </Link>
-      <Spacer />
+
       <Link
         _hover={{
           textDecoration: 'underline',
