@@ -34,13 +34,13 @@ function RecipesIndex(props: Props): JSX.Element {
   const siteTitle = props.data.site?.siteMetadata?.title;
   const recipes = props.data?.allContentfulRecipe?.nodes;
 
-  const [filter, setFilter] = useState<IFilter>();
+  const [filter, setFilter] = useState<IFilter>(filters);
   const [currentFilter, setCurrentFilter] = useState<{ [x: string]: string | string[] | null }>();
   const [filteredData, setFilteredData] = useState(recipes);
 
   useEffect(() => {
-    setFilter(filters);
     generateFilters();
+    setFilter(filters);
   }, []);
 
   // Generates filters based on all tags from Contentful
@@ -109,7 +109,7 @@ function RecipesIndex(props: Props): JSX.Element {
 
       if (newFilter['Time']) {
         if (typeof newFilter['Time'] === 'string' || newFilter['Time'].length === 1) {
-          let timeRange = newFilter['Time'];
+          let timeRange: string | string[] = newFilter['Time'];
           if (newFilter['Time'].length === 1) {
             timeRange = newFilter['Time'][0];
           }
