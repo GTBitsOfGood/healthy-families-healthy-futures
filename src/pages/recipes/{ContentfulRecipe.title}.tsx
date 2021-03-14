@@ -19,7 +19,7 @@ function RecipeTemplate(props: Props): JSX.Element {
 
   return (
     <Layout location={props.location}>
-      <Box margin={{ base: 5, md: 10 }}>
+      <Box w={{ base: '89%', md: 'none' }} margin={{ base: 5, md: 10 }}>
         <Link to="/recipes">
           <Button
             display={{ base: 'none', md: 'flex' }}
@@ -30,7 +30,11 @@ function RecipeTemplate(props: Props): JSX.Element {
             Back to Recipes
           </Button>
         </Link>
-        <Heading textStyle="heading1" textAlign={{ base: 'center', md: 'start' }} marginBottom={5}>
+        <Heading
+          textStyle={{ base: 'subheading1', md: 'heading1' }}
+          textAlign={{ base: 'center', md: 'start' }}
+          marginBottom={5}
+        >
           {recipe.title}
         </Heading>
         <Flex direction={{ base: 'column-reverse', md: 'row' }} justify="space-between">
@@ -54,16 +58,17 @@ function RecipeTemplate(props: Props): JSX.Element {
                 <Text textStyle="body1" fontWeight="bold">
                   Yield
                 </Text>
-                <Text textStyle="body1" fontWeight="bold">
+                <Text display={{ base: 'none', md: 'flex' }} textStyle="body1" fontWeight="bold">
                   Ingredients
                 </Text>
               </VStack>
+
               <VStack align="start">
                 <Text textStyle="body1">{recipe.cookTime} min</Text>
                 <Text textStyle="body1">{recipe.prepTime} min</Text>
                 <Text textStyle="body1">{recipe.totalTime} min</Text>
                 <Text textStyle="body1">{recipe.yield}</Text>
-                <Grid templateColumns="repeat(2, 1fr)" rowGap={2}>
+                <Grid display={['none', 'grid']} templateColumns="repeat(2, 1fr)" rowGap={2}>
                   {recipe.ingredientGroups.map(group => (
                     <>
                       <Box>
@@ -92,14 +97,43 @@ function RecipeTemplate(props: Props): JSX.Element {
               </VStack>
             </HStack>
           </VStack>
+
           <Box w={{ base: 'full', md: '600px' }} h={{ base: 'fit-content', md: '400px' }}>
             {recipe.imageFluid == null ? (
-              <Box w="full" h="full" bg="gray.light" />
+              <Box w="full" h={{ base: '222px', md: 'full' }} bg="gray.light" />
             ) : (
               <Img fluid={recipe.imageFluid} alt="Recipe Image" imgStyle={{ objectFit: 'cover' }} />
             )}
           </Box>
         </Flex>
+
+        <Box display={{ md: 'none' }}>
+          <Text mt="30px" textStyle="body1" fontWeight="bold">
+            Ingredients
+          </Text>
+          {recipe.ingredientGroups.map((group, key) => (
+            <Flex key={key}>
+              <Text mr={1} flex="none" textStyle="body3" display={{ md: 'none' }}>
+                {group[1]}
+              </Text>
+
+              <Text
+                mr={1}
+                flex="none"
+                textStyle="body3"
+                textTransform={{ base: 'lowercase', md: 'none' }}
+              >
+                {group[0]}
+              </Text>
+              {group[2] && (
+                <Text overflowWrap="break-word" textStyle="body3" color="gray">
+                  ({group[2]})
+                </Text>
+              )}
+            </Flex>
+          ))}
+        </Box>
+
         <br></br>
         <TitledList title="Prep" listElements={recipe.prepDirections}></TitledList>
         <br></br>
