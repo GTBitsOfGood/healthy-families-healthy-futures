@@ -39,30 +39,29 @@ function RecipesIndex(props: Props): JSX.Element {
   const [filteredData, setFilteredData] = useState(recipes);
 
   useEffect(() => {
+    // Generates filters based on all tags from Contentful
+    const generateFilters = () => {
+      recipes.map((recipe): void => {
+        if (recipe.foodTypeTags) {
+          recipe.foodTypeTags.forEach((foodType: string): void => {
+            if (!filters[0]['options'].includes(foodType)) {
+              filters[0]['options'].push(foodType);
+            }
+          });
+        }
+
+        if (recipe.ingredientTags) {
+          recipe.ingredientTags.forEach((ingredient: string): void => {
+            if (!filters[1]['options'].includes(ingredient)) {
+              filters[1]['options'].push(ingredient);
+            }
+          });
+        }
+      });
+    };
     generateFilters();
     setFilter(filters);
-  }, []);
-
-  // Generates filters based on all tags from Contentful
-  const generateFilters = () => {
-    recipes.map((recipe): void => {
-      if (recipe.foodTypeTags) {
-        recipe.foodTypeTags.forEach((foodType: string): void => {
-          if (!filters[0]['options'].includes(foodType)) {
-            filters[0]['options'].push(foodType);
-          }
-        });
-      }
-
-      if (recipe.ingredientTags) {
-        recipe.ingredientTags.forEach((ingredient: string): void => {
-          if (!filters[1]['options'].includes(ingredient)) {
-            filters[1]['options'].push(ingredient);
-          }
-        });
-      }
-    });
-  };
+  }, [recipes]);
 
   const handleFilterChange = (newFilter: { [x: string]: string[] }): void => {
     const newFilteredData = recipes.filter(recipe => {
@@ -133,10 +132,6 @@ function RecipesIndex(props: Props): JSX.Element {
     setCurrentFilter(newFilter);
     setFilteredData(newFilteredData);
   };
-
-  useEffect(() => {
-    console.log(currentFilter);
-  }, [currentFilter]);
 
   return (
     <Layout location={props.location}>

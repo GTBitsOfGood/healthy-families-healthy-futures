@@ -19,6 +19,7 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
 
   useEffect(() => {
     onChange(selectedFilters);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
