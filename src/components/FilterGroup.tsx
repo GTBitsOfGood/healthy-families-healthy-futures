@@ -39,6 +39,7 @@ function FilterGroup({ category, options, selectedOptions, onChange }: Props): J
                   spacing={5}
                   borderColor="gray.400"
                   color="gray.700"
+                  colorScheme="green"
                 >
                   {option}
                 </Checkbox>
