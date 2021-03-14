@@ -126,7 +126,7 @@ function RecipeTemplate(props: Props): JSX.Element {
                 {group[0]}
               </Text>
               {group[2] && (
-                <Text overflowWrap="break-word" textStyle="body3" color="gray">
+                <Text flex="none" textStyle="body3" color="gray">
                   ({group[2]})
                 </Text>
               )}
