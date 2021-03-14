@@ -58,7 +58,7 @@ function RecipeTemplate(props: Props): JSX.Element {
                 <Text textStyle="body1" fontWeight="bold">
                   Yield
                 </Text>
-                <Text mt="10" textStyle="body1" fontWeight="bold">
+                <Text display={{ base: 'none', md: 'flex' }} textStyle="body1" fontWeight="bold">
                   Ingredients
                 </Text>
               </VStack>
@@ -106,9 +106,13 @@ function RecipeTemplate(props: Props): JSX.Element {
             )}
           </Box>
         </Flex>
-        <Box display={[null, 'none']}>
+
+        <Box display={{ md: 'none' }}>
+          <Text mt="30px" textStyle="body1" fontWeight="bold">
+            Ingredients
+          </Text>
           {recipe.ingredientGroups.map((group, key) => (
-            <Box key={key} display="flex" spacing={1}>
+            <Flex key={key}>
               <Text mr={1} flex="none" textStyle="body3" display={{ md: 'none' }}>
                 {group[1]}
               </Text>
@@ -121,15 +125,15 @@ function RecipeTemplate(props: Props): JSX.Element {
               >
                 {group[0]}
               </Text>
-
               {group[2] && (
-                <Text w="full" wordBreak="break-word" textStyle="body3" color="gray">
+                <Text overflowWrap="break-word" textStyle="body3" color="gray">
                   ({group[2]})
                 </Text>
               )}
-            </Box>
+            </Flex>
           ))}
         </Box>
+
         <br></br>
         <TitledList title="Prep" listElements={recipe.prepDirections}></TitledList>
         <br></br>
