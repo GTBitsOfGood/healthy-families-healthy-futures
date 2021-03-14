@@ -16,42 +16,10 @@ interface Props extends PageProps {
 function RecipeTemplate(props: Props): JSX.Element {
   const contentfulRecipe = props.data.contentfulRecipe;
   const recipe = parseRecipe(contentfulRecipe as GatsbyTypes.ContentfulRecipe);
-  function renderIngredients(sm, md) {
-    return (
-      <Grid display={[sm, md]} templateColumns="repeat(2, 1fr)" rowGap={2}>
-        {recipe.ingredientGroups.map(group => (
-          <>
-            <Box display={['none', 'flex']}>
-              <Text textStyle="body1" display={{ base: 'inline-block', md: 'none' }}>
-                {group[1]}
-              </Text>{' '}
-              <Text textStyle="body1" textTransform={{ base: 'lowercase', md: 'none' }}>
-                {group[0]}
-              </Text>{' '}
-              {group[2] && (
-                <Text textStyle="body1" color="gray">
-                  ({group[2]})
-                </Text>
-              )}
-            </Box>
 
-            <VStack display={{ md: 'none' }}>
-              <Text textStyle="body1" display={{ md: 'none' }}>
-                {group[1]}
-              </Text>{' '}
-            </VStack>
-
-            <Box display={{ base: 'none', md: 'block' }} textTransform="lowercase" marginLeft={10}>
-              <Text textStyle="body1">{group[1]}</Text>
-            </Box>
-          </>
-        ))}
-      </Grid>
-    );
-  }
   return (
     <Layout location={props.location}>
-      <Box w={{ base: '89%', md: 'full' }} margin={{ base: 5, md: 10 }}>
+      <Box w={{ base: '89%', md: 'none' }} margin={{ base: 5, md: 10 }}>
         <Link to="/recipes">
           <Button
             display={{ base: 'none', md: 'flex' }}
@@ -90,20 +58,46 @@ function RecipeTemplate(props: Props): JSX.Element {
                 <Text textStyle="body1" fontWeight="bold">
                   Yield
                 </Text>
-                <Text textStyle="body1" fontWeight="bold">
+                <Text mt="10" textStyle="body1" fontWeight="bold">
                   Ingredients
                 </Text>
-                {renderIngredients('grid', 'none')}
               </VStack>
+
               <VStack align="start">
                 <Text textStyle="body1">{recipe.cookTime} min</Text>
                 <Text textStyle="body1">{recipe.prepTime} min</Text>
                 <Text textStyle="body1">{recipe.totalTime} min</Text>
                 <Text textStyle="body1">{recipe.yield}</Text>
-                {renderIngredients('none', 'grid')}
+                <Grid display={['none', 'grid']} templateColumns="repeat(2, 1fr)" rowGap={2}>
+                  {recipe.ingredientGroups.map(group => (
+                    <>
+                      <Box>
+                        <Text textStyle="body1" display={{ base: 'inline-block', md: 'none' }}>
+                          {group[1]}
+                        </Text>{' '}
+                        <Text textStyle="body1" textTransform={{ base: 'lowercase', md: 'none' }}>
+                          {group[0]}
+                        </Text>{' '}
+                        {group[2] && (
+                          <Text textStyle="body1" color="gray">
+                            ({group[2]})
+                          </Text>
+                        )}
+                      </Box>
+                      <Box
+                        display={{ base: 'none', md: 'block' }}
+                        textTransform="lowercase"
+                        marginLeft={10}
+                      >
+                        <Text textStyle="body1">{group[1]}</Text>
+                      </Box>
+                    </>
+                  ))}
+                </Grid>
               </VStack>
             </HStack>
           </VStack>
+
           <Box w={{ base: 'full', md: '600px' }} h={{ base: 'fit-content', md: '400px' }}>
             {recipe.imageFluid == null ? (
               <Box w="full" h={{ base: '222px', md: 'full' }} bg="gray.light" />
@@ -112,6 +106,30 @@ function RecipeTemplate(props: Props): JSX.Element {
             )}
           </Box>
         </Flex>
+        <Box display={[null, 'none']}>
+          {recipe.ingredientGroups.map((group, key) => (
+            <Box key={key} display="flex" spacing={1}>
+              <Text mr={1} flex="none" textStyle="body3" display={{ md: 'none' }}>
+                {group[1]}
+              </Text>
+
+              <Text
+                mr={1}
+                flex="none"
+                textStyle="body3"
+                textTransform={{ base: 'lowercase', md: 'none' }}
+              >
+                {group[0]}
+              </Text>
+
+              {group[2] && (
+                <Text w="full" wordBreak="break-word" textStyle="body3" color="gray">
+                  ({group[2]})
+                </Text>
+              )}
+            </Box>
+          ))}
+        </Box>
         <br></br>
         <TitledList title="Prep" listElements={recipe.prepDirections}></TitledList>
         <br></br>
