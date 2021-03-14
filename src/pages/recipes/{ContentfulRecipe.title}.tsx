@@ -16,10 +16,42 @@ interface Props extends PageProps {
 function RecipeTemplate(props: Props): JSX.Element {
   const contentfulRecipe = props.data.contentfulRecipe;
   const recipe = parseRecipe(contentfulRecipe as GatsbyTypes.ContentfulRecipe);
+  function renderIngredients(sm, md) {
+    return (
+      <Grid display={[sm, md]} templateColumns="repeat(2, 1fr)" rowGap={2}>
+        {recipe.ingredientGroups.map(group => (
+          <>
+            <Box display={['none', 'flex']}>
+              <Text textStyle="body1" display={{ base: 'inline-block', md: 'none' }}>
+                {group[1]}
+              </Text>{' '}
+              <Text textStyle="body1" textTransform={{ base: 'lowercase', md: 'none' }}>
+                {group[0]}
+              </Text>{' '}
+              {group[2] && (
+                <Text textStyle="body1" color="gray">
+                  ({group[2]})
+                </Text>
+              )}
+            </Box>
 
+            <VStack display={{ md: 'none' }}>
+              <Text textStyle="body1" display={{ md: 'none' }}>
+                {group[1]}
+              </Text>{' '}
+            </VStack>
+
+            <Box display={{ base: 'none', md: 'block' }} textTransform="lowercase" marginLeft={10}>
+              <Text textStyle="body1">{group[1]}</Text>
+            </Box>
+          </>
+        ))}
+      </Grid>
+    );
+  }
   return (
     <Layout location={props.location}>
-      <Box margin={{ base: 5, md: 10 }}>
+      <Box w={{ base: '89%', md: 'full' }} margin={{ base: 5, md: 10 }}>
         <Link to="/recipes">
           <Button
             display={{ base: 'none', md: 'flex' }}
@@ -30,7 +62,11 @@ function RecipeTemplate(props: Props): JSX.Element {
             Back to Recipes
           </Button>
         </Link>
-        <Heading textStyle="heading1" textAlign={{ base: 'center', md: 'start' }} marginBottom={5}>
+        <Heading
+          textStyle={{ base: 'subheading1', md: 'heading1' }}
+          textAlign={{ base: 'center', md: 'start' }}
+          marginBottom={5}
+        >
           {recipe.title}
         </Heading>
         <Flex direction={{ base: 'column-reverse', md: 'row' }} justify="space-between">
@@ -57,44 +93,20 @@ function RecipeTemplate(props: Props): JSX.Element {
                 <Text textStyle="body1" fontWeight="bold">
                   Ingredients
                 </Text>
+                {renderIngredients('grid', 'none')}
               </VStack>
               <VStack align="start">
                 <Text textStyle="body1">{recipe.cookTime} min</Text>
                 <Text textStyle="body1">{recipe.prepTime} min</Text>
                 <Text textStyle="body1">{recipe.totalTime} min</Text>
                 <Text textStyle="body1">{recipe.yield}</Text>
-                <Grid templateColumns="repeat(2, 1fr)" rowGap={2}>
-                  {recipe.ingredientGroups.map(group => (
-                    <>
-                      <Box>
-                        <Text textStyle="body1" display={{ base: 'inline-block', md: 'none' }}>
-                          {group[1]}
-                        </Text>{' '}
-                        <Text textStyle="body1" textTransform={{ base: 'lowercase', md: 'none' }}>
-                          {group[0]}
-                        </Text>{' '}
-                        {group[2] && (
-                          <Text textStyle="body1" color="gray">
-                            ({group[2]})
-                          </Text>
-                        )}
-                      </Box>
-                      <Box
-                        display={{ base: 'none', md: 'block' }}
-                        textTransform="lowercase"
-                        marginLeft={10}
-                      >
-                        <Text textStyle="body1">{group[1]}</Text>
-                      </Box>
-                    </>
-                  ))}
-                </Grid>
+                {renderIngredients('none', 'grid')}
               </VStack>
             </HStack>
           </VStack>
           <Box w={{ base: 'full', md: '600px' }} h={{ base: 'fit-content', md: '400px' }}>
             {recipe.imageFluid == null ? (
-              <Box w="full" h="full" bg="gray.light" />
+              <Box w="full" h={{ base: '222px', md: 'full' }} bg="gray.light" />
             ) : (
               <Img fluid={recipe.imageFluid} alt="Recipe Image" imgStyle={{ objectFit: 'cover' }} />
             )}
