@@ -67,7 +67,8 @@ function RecipesIndex(props: Props): JSX.Element {
     };
     generateFilters();
     setFilter(filters);
-  }, [recipes]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleFilterChange = (newFilter: { [x: string]: string[] }): void => {
     const newFilteredRecipes = recipes.filter(recipe => {
