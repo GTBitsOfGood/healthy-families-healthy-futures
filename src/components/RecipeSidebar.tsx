@@ -33,7 +33,7 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
 
   return (
     <Box px={6}>
-      <Flex justify="space-between" align="center" mb={5}>
+      <Flex justify="space-between" align="center" mb={5} h={10}>
         <Heading as="h1" size="md">
           Filters
         </Heading>
