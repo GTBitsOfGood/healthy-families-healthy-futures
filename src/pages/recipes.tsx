@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { Divider, Grid, GridItem } from '@chakra-ui/react';
+import { Divider, Flex, Grid, GridItem } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
 import { graphql, Link, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
+import Pagination from 'src/components/Pagination';
 import RecipeSidebar from 'src/components/RecipeSidebar';
 
 import RecipeCard from '../components/RecipeCard';
@@ -35,7 +36,13 @@ function RecipesIndex(props: Props): JSX.Element {
   const recipes = props.data?.allContentfulRecipe?.nodes;
 
   const [filter, setFilter] = useState<IFilter>(filters);
-  const [filteredData, setFilteredData] = useState(recipes);
+  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const recipesPerPage = 6;
+  const recipeStart = currentPage * recipesPerPage;
+  const recipeEnd = recipeStart + recipesPerPage;
+  const pageCount = Math.ceil(filteredRecipes.length / recipesPerPage);
 
   useEffect(() => {
     // Generates filters based on all tags from Contentful
@@ -63,7 +70,7 @@ function RecipesIndex(props: Props): JSX.Element {
   }, [recipes]);
 
   const handleFilterChange = (newFilter: { [x: string]: string[] }): void => {
-    const newFilteredData = recipes.filter(recipe => {
+    const newFilteredRecipes = recipes.filter(recipe => {
       const {
         foodTypeTags,
         ingredientTags,
@@ -128,7 +135,8 @@ function RecipesIndex(props: Props): JSX.Element {
       return fitsFoodType && fitsIngredients && fitsTime;
     });
 
-    setFilteredData(newFilteredData);
+    setFilteredRecipes(newFilteredRecipes);
+    setCurrentPage(0);
   };
 
   return (
@@ -146,8 +154,9 @@ function RecipesIndex(props: Props): JSX.Element {
             justifyItems="center"
             justifyContent="space-evenly"
             rowGap="35px"
+            marginBottom={5}
           >
-            {filteredData.map(node => {
+            {filteredRecipes.slice(recipeStart, recipeEnd).map(node => {
               return (
                 <GridItem key={node.id}>
                   <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
@@ -157,6 +166,13 @@ function RecipesIndex(props: Props): JSX.Element {
               );
             })}
           </Grid>
+          <Flex justify="center">
+            <Pagination
+              currentPage={currentPage}
+              pageCount={pageCount}
+              onChange={pageNum => setCurrentPage(pageNum)}
+            />
+          </Flex>
         </GridItem>
       </Grid>
     </Layout>
