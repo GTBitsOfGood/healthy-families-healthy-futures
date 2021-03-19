@@ -25,7 +25,12 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
   useEffect(() => {
     const newQueries = stringify(selectedFilters, { arrayFormat: 'comma' });
     const newUrl = `${location.pathname}?${newQueries}`;
-    void navigate(newUrl);
+    void navigate(newUrl, {
+      state: {
+        disableScrollUpdate: true,
+      },
+      replace: true,
+    });
   }, [location.pathname, selectedFilters]);
 
   // Check if the query string has any of the category as a selected filter
