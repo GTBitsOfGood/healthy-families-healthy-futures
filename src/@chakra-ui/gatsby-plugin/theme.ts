@@ -139,6 +139,12 @@ const theme = extendTheme({
         },
       },
     },
+    Drawer: {
+      baseStyle: {
+        bg: '#404040',
+        color: '#fff',
+      },
+    },
   },
   fonts: {
     body: `Avenir`,
