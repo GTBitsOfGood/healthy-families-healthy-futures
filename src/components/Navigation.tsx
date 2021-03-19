@@ -56,7 +56,7 @@ function MobileNavLink({ link, text, onClick }: NavLinkProps): JSX.Element {
       as={GatsbyLink}
       to={link}
       borderBottom="1px"
-      borderBottomColor="gray.400"
+      borderBottomColor="white"
       onClick={onClick}
       py={3}
     >
@@ -108,9 +108,15 @@ function Navigation({ data }: NavigationProps): JSX.Element {
       >
         <Drawer placement="left" onClose={onClose} isOpen={isOpen} size="xs">
           <DrawerOverlay>
-            <DrawerContent>
+            <DrawerContent background="#404040" color="white">
               <DrawerHeader>
-                <CloseIcon w={4} h={4} float="right" onClick={onClose} />
+                <CloseIcon
+                  w={4}
+                  h={4}
+                  float="right"
+                  onClick={onClose}
+                  _hover={{ cursor: 'pointer' }}
+                />
               </DrawerHeader>
               <DrawerBody>
                 <Flex direction="column">
