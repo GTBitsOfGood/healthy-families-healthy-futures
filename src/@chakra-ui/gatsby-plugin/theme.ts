@@ -14,6 +14,7 @@ const theme = extendTheme({
       mid: '#6C6C6C',
       light: '#C4C4C4',
     },
+    creamsicle: '#FF9C59',
   },
   styles: {
     global: {
