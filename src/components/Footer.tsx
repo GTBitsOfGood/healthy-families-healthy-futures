@@ -27,10 +27,11 @@ function Footer(): JSX.Element {
       wrap="nowrap"
       flexDir="row"
       justifyContent="space-evenly"
-      alignItems="center"
+      alignItems="flex-start"
+      p="98px"
     >
       <Flex align="center" flexDir="row">
-        <Box w="170px" maxH="158px">
+        <Box m="22px" w="170px" maxH="158px">
           {data.contentfulAsset?.fluid != null ? (
             <Img
               fluid={data.contentfulAsset.fluid}
@@ -42,7 +43,7 @@ function Footer(): JSX.Element {
         </Box>
       </Flex>
 
-      <Flex flexDir="row" justifyContent="space-between" alignItems="flex-start">
+      <Flex flexDir="row" justifyContent="space-evenly" alignItems="flex-start">
         <VStack m="22px" spacing="22px">
           <VStack alignItems="flex-start" spacing="15px">
             <Heading color="creamsicle" textStyle="subheading1">
@@ -96,7 +97,9 @@ function Footer(): JSX.Element {
             </Link>
           </VStack>
         </VStack>
+      </Flex>
 
+      <Flex justifyContent="space-between" alignItems="flex-start">
         <VStack m="22px" alignItems="flex-start">
           <Heading color="creamsicle" textStyle="subheading1">
             Stay Connected
