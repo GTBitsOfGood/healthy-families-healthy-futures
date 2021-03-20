@@ -4,7 +4,6 @@ import {
   Heading,
   Flex,
   Button,
-  Tag,
   Box,
   SimpleGrid,
   Text,
@@ -13,10 +12,6 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
-  TagLabel,
-  TagCloseButton,
-  Wrap,
-  WrapItem,
 } from '@chakra-ui/react';
 import { navigate } from 'gatsby';
 import { parse, stringify } from 'query-string';
@@ -57,9 +52,6 @@ function RecipeSidebar({ location }: Props): JSX.Element {
   // Check if the query string has any of the category as a selected filter
   const hasActiveFilter = filters.map(x => x.category).some(x => x in selectedFilters);
 
-  let filterCount = 0;
-  const tags: JSX.Element[] = [];
-
   const filtersDisplay = (
     <SimpleGrid columns={[2, null, 1]} spacing={10}>
       {filters.map(filter => {
@@ -74,25 +66,6 @@ function RecipeSidebar({ location }: Props): JSX.Element {
             selectedOptions = selectedFilters[category] as string[];
           }
         }
-
-        filterCount += selectedOptions.length;
-        selectedOptions.forEach(option => {
-          tags.push(
-            <WrapItem key={`${category} ${option}`}>
-              <Tag size="md" colorScheme="green" variant="solid" borderRadius="full">
-                <TagLabel>{option}</TagLabel>
-                <TagCloseButton
-                  onClick={() => {
-                    updateSelectedFilters({
-                      ...selectedFilters,
-                      [category]: selectedOptions.filter(x => x !== option),
-                    });
-                  }}
-                />
-              </Tag>
-            </WrapItem>,
-          );
-        });
 
         const onOptionsChange = (options: string[]) => {
           if (options.length > 0) {
@@ -131,7 +104,7 @@ function RecipeSidebar({ location }: Props): JSX.Element {
       margin={['auto', null, '-0']}
     >
       <Text textStyle="heading3" color="green.500">
-        CLEAR ({filterCount})
+        CLEAR
       </Text>
     </Button>
   );
@@ -145,11 +118,6 @@ function RecipeSidebar({ location }: Props): JSX.Element {
           </Heading>
           {clearButton}
         </Flex>
-        {tags.length > 0 && (
-          <Wrap spacing="10px" mb="5">
-            {tags}
-          </Wrap>
-        )}
         {filtersDisplay}
       </Box>
 
@@ -163,11 +131,6 @@ function RecipeSidebar({ location }: Props): JSX.Element {
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel paddingBottom={4}>
-            {tags.length > 0 && (
-              <Wrap spacing="10px" mb="10">
-                {tags}
-              </Wrap>
-            )}
             {filtersDisplay}
             {clearButton}
           </AccordionPanel>
