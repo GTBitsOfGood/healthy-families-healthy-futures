@@ -4,6 +4,7 @@ import React from 'react';
 
 import { Container } from '@chakra-ui/react';
 
+import Footer from './Footer';
 import Header from './Header';
 import Navigation from './Navigation';
 
@@ -14,10 +15,11 @@ interface Props {
 
 function Layout({ children }: Props): JSX.Element {
   return (
-    <Container size="full" maxW="none" mb={40} p={0}>
+    <Container size="full" maxW="none" p={0}>
       <Header />
       <Navigation />
       {children}
+      <Footer />
     </Container>
   );
 }
