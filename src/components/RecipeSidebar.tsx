@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {
-  Heading,
-  Flex,
-  Button,
-  Box,
-  SimpleGrid,
-  Text,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionIcon,
-  AccordionPanel,
-} from '@chakra-ui/react';
+import { Heading, Flex, Button, VStack, Box } from '@chakra-ui/react';
 import { navigate } from 'gatsby';
 import { parse, stringify } from 'query-string';
 
@@ -52,91 +40,63 @@ function RecipeSidebar({ location }: Props): JSX.Element {
   // Check if the query string has any of the category as a selected filter
   const hasActiveFilter = filters.map(x => x.category).some(x => x in selectedFilters);
 
-  const filtersDisplay = (
-    <SimpleGrid columns={[2, null, 1]} spacing={10}>
-      {filters.map(filter => {
-        const { category, options } = filter;
-        let selectedOptions: string[] = [];
-
-        if (category in selectedFilters) {
-          if (typeof selectedFilters[category] === 'string') {
-            // If there is only one option selected, the query-string parse will read it as string
-            selectedOptions = [selectedFilters[category] as string];
-          } else if (Array.isArray(selectedFilters[category])) {
-            selectedOptions = selectedFilters[category] as string[];
-          }
-        }
-
-        const onOptionsChange = (options: string[]) => {
-          if (options.length > 0) {
-            updateSelectedFilters({
-              ...selectedFilters,
-              [category]: options,
-            });
-          } else {
-            // If there are no options, remove this category from selected filters.
-            // This helps to determine if there is any active filters
-            const newSelectedFilters = { ...selectedFilters };
-            delete newSelectedFilters[category];
-            updateSelectedFilters(newSelectedFilters);
-          }
-        };
-
-        return (
-          <FilterGroup
-            category={category}
-            options={options}
-            selectedOptions={selectedOptions}
-            onChange={onOptionsChange}
-            key={filter.category}
-          />
-        );
-      })}
-    </SimpleGrid>
-  );
-
-  const clearButton = (
-    <Button
-      variant="back"
-      onClick={() => updateSelectedFilters({})}
-      hidden={!hasActiveFilter}
-      display="block"
-      margin={['auto', null, '-0']}
-    >
-      <Text textStyle="heading3" color="green.500">
-        CLEAR
-      </Text>
-    </Button>
-  );
-
   return (
-    <>
-      <Box px={6} display={['none', null, 'block']}>
-        <Flex justify="space-between" align="center" mb={5}>
-          <Heading as="h1" size="md">
-            Filters
-          </Heading>
-          {clearButton}
-        </Flex>
-        {filtersDisplay}
-      </Box>
+    <Box px={6}>
+      <Flex justify="space-between" align="center" mb={5}>
+        <Heading as="h1" size="md">
+          Filters
+        </Heading>
+        <Button
+          variant="back"
+          colorScheme="gray"
+          onClick={() => updateSelectedFilters({})}
+          hidden={!hasActiveFilter}
+        >
+          Clear
+        </Button>
+      </Flex>
 
-      {/* Display filters as accordion for mobile view*/}
-      <Accordion mb={10} display={['block', null, 'none']} allowToggle defaultIndex={0}>
-        <AccordionItem>
-          <AccordionButton _hover={{ backgroundColor: 'white' }} px={5}>
-            <Heading as="h1" size="md">
-              Filters
-            </Heading>
-            <AccordionIcon />
-          </AccordionButton>
-          <AccordionPanel paddingBottom={4}>
-            {filtersDisplay}
-            {clearButton}
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-    </>
+      <VStack align="stretch">
+        {filters.map(filter => {
+          const { category, options } = filter;
+          let selectedOptions: string[] = [];
+
+          if (category in selectedFilters) {
+            if (typeof selectedFilters[category] === 'string') {
+              // If there is only one option selected, the query-string parse will read it as string
+              selectedOptions = [selectedFilters[category] as string];
+            } else if (Array.isArray(selectedFilters[category])) {
+              selectedOptions = selectedFilters[category] as string[];
+            }
+          }
+
+          const onOptionsChange = (options: string[]) => {
+            if (options.length > 0) {
+              updateSelectedFilters({
+                ...selectedFilters,
+                [category]: options,
+              });
+            } else {
+              // If there are no options, remove this category from selected filters.
+              // This helps to determine if there is any active filters
+              const newSelectedFilters = { ...selectedFilters };
+              delete newSelectedFilters[category];
+              updateSelectedFilters(newSelectedFilters);
+            }
+          };
+
+          return (
+            <FilterGroup
+              category={category}
+              options={options}
+              selectedOptions={selectedOptions}
+              onChange={onOptionsChange}
+              key={filter.category}
+            />
+          );
+        })}
+      </VStack>
+    </Box>
   );
 }
 
