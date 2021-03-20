@@ -139,6 +139,15 @@ const theme = extendTheme({
         },
       },
     },
+    Link: {
+      variants: {
+        'nav-link': {
+          textTransform: 'uppercase',
+          fontWeight: '800',
+          fontSize: '16px',
+        },
+      },
+    },
   },
   fonts: {
     body: `Avenir`,

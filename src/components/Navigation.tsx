@@ -33,11 +33,9 @@ function NavLink({ link, text }: NavLinkProps): JSX.Element {
         textDecorationColor: '#65BF73',
         textDecorationThickness: '3px',
       }}
-      fontFamily="Avenir"
-      fontWeight="850"
-      fontSize="16px"
       as={GatsbyLink}
       to={link}
+      variant="nav-link"
     >
       {text}
     </Link>
@@ -50,14 +48,11 @@ function MobileNavLink({ link, text, onClick }: NavLinkProps): JSX.Element {
       _hover={{
         textDecoration: 'none',
       }}
-      fontFamily="Avenir"
-      fontWeight="850"
-      fontSize="16px"
       as={GatsbyLink}
       to={link}
-      borderBottom="1px"
-      borderBottomColor="white"
       onClick={onClick}
+      variant="nav-link"
+      borderBottom="1px solid #FFFFFF"
       py={3}
     >
       {text}
@@ -67,12 +62,12 @@ function MobileNavLink({ link, text, onClick }: NavLinkProps): JSX.Element {
 
 function Navigation({ data }: NavigationProps): JSX.Element {
   const navigationItems: { [link: string]: string } = {
-    '/': 'HOME',
-    '/about': 'ABOUT',
-    '/recipes': 'RECIPES',
-    '/events-and-classes': 'EVENTS & CLASSES',
-    '/blog': 'BLOG',
-    '/resources': 'RESOURCES',
+    '/': 'Home',
+    '/about': 'About',
+    '/recipes': 'Recipes',
+    '/events-and-classes': 'Events & Classes',
+    '/blog': 'Blog',
+    '/resources': 'Resources',
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
