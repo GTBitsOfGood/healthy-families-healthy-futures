@@ -2,7 +2,7 @@ require('../css/base.css');
 import 'focus-visible/dist/focus-visible';
 import React from 'react';
 
-import { Container } from '@chakra-ui/react';
+import { Container, useDisclosure } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import Header from './Header';
@@ -25,10 +25,13 @@ function Layout({ children }: Props): JSX.Element {
     }
   `);
 
+  // Hook to manage side-navigation drawer
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Container size="full" maxW="none" mb={40} p={0}>
-      <Header data={data} />
-      <Navigation data={data} />
+      <Header data={data} onHamburgerClick={onOpen} />
+      <Navigation isDrawerOpen={isOpen} onDrawerClose={onClose} />
       {children}
     </Container>
   );

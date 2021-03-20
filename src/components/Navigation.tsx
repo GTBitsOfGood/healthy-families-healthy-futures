@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { CloseIcon } from '@chakra-ui/icons';
 import {
-  Box,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -10,11 +9,9 @@ import {
   DrawerOverlay,
   Flex,
   Link,
-  useDisclosure,
   useStyleConfig,
 } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
-import Img from 'gatsby-image';
 
 interface NavLinkProps {
   link: string;
@@ -24,7 +21,8 @@ interface NavLinkProps {
 }
 
 interface NavigationProps {
-  data: GatsbyTypes.LayoutQuery;
+  isDrawerOpen: boolean;
+  onDrawerClose: () => void;
 }
 
 function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Element {
@@ -37,7 +35,7 @@ function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Element {
   );
 }
 
-function Navigation({ data }: NavigationProps): JSX.Element {
+function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Element {
   const navigationItems: { [link: string]: string } = {
     '/': 'Home',
     '/about': 'About',
@@ -46,8 +44,6 @@ function Navigation({ data }: NavigationProps): JSX.Element {
     '/blog': 'Blog',
     '/resources': 'Resources',
   };
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -66,54 +62,37 @@ function Navigation({ data }: NavigationProps): JSX.Element {
         })}
       </Flex>
 
-      <Flex
-        wrap="nowrap"
-        mx="auto"
-        flexDir="row"
-        w="full"
-        alignItems="center"
-        display={['flex', null, 'none']}
-        px={6}
-        my={3}
-        borderTop="1px"
-        borderTopColor="gray.400"
-      >
-        <Drawer placement="left" onClose={onClose} isOpen={isOpen} size="xs">
-          <DrawerOverlay>
-            <DrawerContent background="#404040" color="white">
-              <DrawerHeader>
-                <CloseIcon
-                  w={4}
-                  h={4}
-                  float="right"
-                  onClick={onClose}
-                  _hover={{ cursor: 'pointer' }}
-                />
-              </DrawerHeader>
-              <DrawerBody>
-                <Flex direction="column">
-                  {Object.keys(navigationItems).map(link => {
-                    return (
-                      <NavLink link={link} text={navigationItems[link]} key={link} size="sm" />
-                    );
-                  })}
-                </Flex>
-              </DrawerBody>
-            </DrawerContent>
-          </DrawerOverlay>
-        </Drawer>
-
-        <HamburgerIcon h={6} w={6} color="gray.700" onClick={onOpen} />
-        <Box w="178px" display={['block', null, 'none']} margin="auto">
-          {data.contentfulAsset?.fluid != null ? (
-            <Img
-              fluid={data.contentfulAsset.fluid}
-              alt={data.contentfulAsset.description}
-              imgStyle={{ objectFit: 'contain' }}
-            />
-          ) : null}
-        </Box>
-      </Flex>
+      <Drawer placement="left" onClose={onDrawerClose} isOpen={isDrawerOpen} size="xs">
+        <DrawerOverlay>
+          <DrawerContent background="#404040" color="white">
+            <DrawerHeader>
+              <CloseIcon
+                w={4}
+                h={4}
+                float="right"
+                onClick={onDrawerClose}
+                _hover={{ cursor: 'pointer' }}
+              />
+            </DrawerHeader>
+            <DrawerBody>
+              <Flex direction="column">
+                {Object.keys(navigationItems).map(link => {
+                  return (
+                    <NavLink
+                      link={link}
+                      text={navigationItems[link]}
+                      key={link}
+                      size="sm"
+                      // Close drawer if the user clicks the same link that they are currently in
+                      onClick={onDrawerClose}
+                    />
+                  );
+                })}
+              </Flex>
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
     </>
   );
 }
