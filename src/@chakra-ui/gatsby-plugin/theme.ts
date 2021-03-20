@@ -139,12 +139,24 @@ const theme = extendTheme({
         },
       },
     },
-    Link: {
-      variants: {
-        'nav-link': {
-          textTransform: 'uppercase',
-          fontWeight: '800',
-          fontSize: '16px',
+    NavLink: {
+      baseStyle: {
+        textTransform: 'uppercase',
+        fontWeight: '800',
+        fontSize: '16px',
+        _hover: {
+          textDecoration: 'underline',
+          textDecorationColor: '#65BF73',
+          textDecorationThickness: '3px',
+        },
+      },
+      sizes: {
+        sm: {
+          borderBottom: '1px solid #FFFFFF',
+          py: '3',
+          _hover: {
+            textDecoration: 'none',
+          },
         },
       },
     },

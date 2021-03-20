@@ -11,6 +11,7 @@ import {
   Flex,
   Link,
   useDisclosure,
+  useStyleConfig,
 } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 import Img from 'gatsby-image';
@@ -18,6 +19,7 @@ import Img from 'gatsby-image';
 interface NavLinkProps {
   link: string;
   text: string;
+  size?: 'sm';
   onClick?: () => void;
 }
 
@@ -25,36 +27,11 @@ interface NavigationProps {
   data: GatsbyTypes.LayoutQuery;
 }
 
-function NavLink({ link, text }: NavLinkProps): JSX.Element {
-  return (
-    <Link
-      _hover={{
-        textDecoration: 'underline',
-        textDecorationColor: '#65BF73',
-        textDecorationThickness: '3px',
-      }}
-      as={GatsbyLink}
-      to={link}
-      variant="nav-link"
-    >
-      {text}
-    </Link>
-  );
-}
+function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Element {
+  const styles = useStyleConfig('NavLink', { size });
 
-function MobileNavLink({ link, text, onClick }: NavLinkProps): JSX.Element {
   return (
-    <Link
-      _hover={{
-        textDecoration: 'none',
-      }}
-      as={GatsbyLink}
-      to={link}
-      onClick={onClick}
-      variant="nav-link"
-      borderBottom="1px solid #FFFFFF"
-      py={3}
-    >
+    <Link as={GatsbyLink} to={link} onClick={onClick} sx={styles}>
       {text}
     </Link>
   );
@@ -117,12 +94,7 @@ function Navigation({ data }: NavigationProps): JSX.Element {
                 <Flex direction="column">
                   {Object.keys(navigationItems).map(link => {
                     return (
-                      <MobileNavLink
-                        link={link}
-                        text={navigationItems[link]}
-                        key={link}
-                        onClick={onClose}
-                      />
+                      <NavLink link={link} text={navigationItems[link]} key={link} size="sm" />
                     );
                   })}
                 </Flex>
