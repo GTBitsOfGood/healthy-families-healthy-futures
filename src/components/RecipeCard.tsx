@@ -55,8 +55,14 @@ export const fragment = graphql`
       }
       description
     }
-    foodTypeTags
-    ingredientTags
+    foodTypeTags2 {
+      key
+      tagName
+    }
+    ingredientTags2 {
+      key
+      tagName
+    }
     updatedAt
     yield
   }

@@ -80,37 +80,42 @@ export function filterRecipes(
   return filteredRecipes;
 }
 
-function checkIngredients(recipe: GatsbyTypes.ContentfulRecipe, ingredients: string[]) {
+function checkIngredients(recipe: GatsbyTypes.ContentfulRecipe, ingredients: string | string[]) {
   if (!ingredients) {
     return true;
-  } else if (!recipe.ingredientTags) {
+  } else if (!recipe.ingredientTags2) {
     return false;
+  } else if (typeof ingredients === 'string') {
+    return recipe.ingredientTags2?.some(tag => {
+      return tag?.tagName === ingredients;
+    });
   }
 
-  return ingredients.every(ingredient => recipe.ingredientTags.includes(ingredient));
+  return recipe.ingredientTags2.some(ingredient => ingredients.includes(ingredient.tagName));
 }
 
-function checkFoodTypes(recipe: GatsbyTypes.ContentfulRecipe, foodTypes: string[]) {
+function checkFoodTypes(recipe: GatsbyTypes.ContentfulRecipe, foodTypes: string | string[]) {
   if (!foodTypes) {
     return true;
-  } else if (!recipe.foodTypeTags) {
+  } else if (!recipe.foodTypeTags2) {
     return false;
+  } else if (typeof foodTypes === 'string') {
+    return recipe.foodTypeTags2?.some(tag => {
+      return tag?.tagName === foodTypes;
+    });
   }
 
-  return foodTypes.every(foodType => recipe.foodTypeTags.includes(foodType));
+  return recipe.foodTypeTags2.some(foodType => foodTypes.includes(foodType.tagName));
 }
 
 function checkTime(recipe: GatsbyTypes.ContentfulRecipe, times: string[]) {
   if (!times) {
     return true;
-  } else if (times.length > 1) {
-    return false;
   }
 
-  const timeRange = times[0];
-  const time = recipe.totalTime && recipe.prepTime ? recipe.totalTime + recipe.prepTime : 0;
+  const recipeTime = recipe.totalTime && recipe.prepTime ? recipe.totalTime + recipe.prepTime : 0;
 
-  return isInRange(time, timeRange);
+  return times.some(time => isInRange(recipeTime, time));
 }
 
 function isInRange(time: number, timeRange: string) {
