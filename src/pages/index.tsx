@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Container, Divider, Heading, Text, Button, HStack, VStack, Image, Stack} from '@chakra-ui/react';
+import { Box, Container, Divider, Heading, Text, Button, HStack, VStack, Image, Stack, Input} from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
@@ -14,6 +14,8 @@ interface Props extends PageProps {
 }
 
 function RootIndex(props: Props): JSX.Element {
+  const [value, setValue] = React.useState("")
+
   const siteTitle = props.data.site?.siteMetadata?.title;
   const posts = props.data.allContentfulBlogPost.edges;
   const [author] = props.data.allContentfulPerson.nodes;
@@ -79,7 +81,6 @@ function RootIndex(props: Props): JSX.Element {
       </HStack>
       </Box>
 
-  
 
       <HStack marginBottom = {170}>
         <Box bg = "tangerine.500" w = "100%" p = {8}></Box>
@@ -87,6 +88,24 @@ function RootIndex(props: Props): JSX.Element {
         <Text textAlign = {'center'} textStyle="heading1">FEATURED RECIPES</Text> 
         </Box>
       </HStack>
+
+      <Box h = {75} bg = "gray.light"></Box>
+      <Box h = {200} bg = "gray.light">
+        <Text color = "charcoal" textAlign = {'center'} textStyle="heading2">Sign up for our newsletter!</Text>
+        <HStack marginLeft = {513} marginRight = {493} marginTop = {30}>
+          <Input 
+             borderColor = "black"
+             borderRadius = "none"
+             marginRight = {3}
+             value = {value}
+           />
+          <Button  variant="neutral" fontSize="16px">
+          Subscribe
+        </Button>
+        </HStack>
+
+      </Box>
+
 
 
 
