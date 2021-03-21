@@ -4,12 +4,13 @@ import { Heading, Flex, Button, VStack, Box } from '@chakra-ui/react';
 import { navigate } from 'gatsby';
 import { parse, stringify } from 'query-string';
 
+import { RecipeFilters, SelectedRecipeFilters } from '../utils/types';
 import FilterGroup from './FilterGroup';
 
 interface Props {
-  filters: { category: string; options: string[] }[];
+  filters: RecipeFilters;
   location: Location;
-  onChange(newFilter: { [x: string]: string[] }): void;
+  onChange(newFilter: SelectedRecipeFilters): void;
 }
 
 function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {

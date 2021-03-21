@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Divider, Flex, Grid, GridItem } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
@@ -7,35 +7,22 @@ import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 import Pagination from 'src/components/Pagination';
 import RecipeSidebar from 'src/components/RecipeSidebar';
+import { RecipeFilters, SelectedRecipeFilters } from 'src/utils/types';
 
 import RecipeCard from '../components/RecipeCard';
+import { initRecipeFilters, filterRecipes } from '../utils/filter';
 
 interface Props extends PageProps {
   data: GatsbyTypes.RecipeQueryQuery;
 }
 
-type IFilter = typeof filters;
-
-const filters = [
-  {
-    category: 'Food Type',
-    options: [],
-  },
-  {
-    category: 'Ingredients',
-    options: [],
-  },
-  {
-    category: 'Time',
-    options: ['< 15 min', '15-30 min', '31-45 min', '> 45 min'],
-  },
-];
-
 function RecipesIndex(props: Props): JSX.Element {
   const siteTitle = props.data.site?.siteMetadata?.title;
   const recipes = props.data?.allContentfulRecipe?.nodes;
-
-  const [filter, setFilter] = useState<IFilter>(filters);
+  const foodTypeTags = props.data?.allContentfulFoodTypeTag?.nodes;
+  const ingredientTags = props.data?.allContentfulIngredientTag?.nodes;
+  const timeListStr = props.data?.allContentfulTimeList?.nodes[0]['timeList'];
+  const [recipeFilters, setRecipeFilters] = useState<RecipeFilters>([]);
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -45,98 +32,11 @@ function RecipesIndex(props: Props): JSX.Element {
   const pageCount = Math.ceil(filteredRecipes.length / recipesPerPage);
 
   useEffect(() => {
-    // Generates filters based on all tags from Contentful
-    const generateFilters = () => {
-      recipes.map((recipe): void => {
-        if (recipe.foodTypeTags) {
-          recipe.foodTypeTags.forEach((foodType: string): void => {
-            if (!filters[0]['options'].includes(foodType)) {
-              filters[0]['options'].push(foodType);
-            }
-          });
-        }
+    setRecipeFilters(initRecipeFilters(foodTypeTags, ingredientTags, timeListStr));
+  }, [foodTypeTags, ingredientTags, timeListStr]);
 
-        if (recipe.ingredientTags) {
-          recipe.ingredientTags.forEach((ingredient: string): void => {
-            if (!filters[1]['options'].includes(ingredient)) {
-              filters[1]['options'].push(ingredient);
-            }
-          });
-        }
-      });
-    };
-    generateFilters();
-    setFilter(filters);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleFilterChange = (newFilter: { [x: string]: string[] }): void => {
-    const newFilteredRecipes = recipes.filter(recipe => {
-      const {
-        foodTypeTags,
-        ingredientTags,
-        totalTime,
-        prepTime,
-      }: {
-        foodTypeTags: string[];
-        ingredientTags: string[];
-        totalTime: number;
-        prepTime: number;
-      } = recipe;
-
-      let fitsIngredients = true;
-      let fitsFoodType = true;
-      let fitsTime = true;
-      const time: number = totalTime + prepTime;
-
-      if (newFilter['Ingredients']) {
-        if (typeof newFilter['Ingredients'] === 'string') {
-          fitsIngredients = ingredientTags?.includes(newFilter['Ingredients']);
-        } else if (ingredientTags) {
-          if (newFilter['Ingredients']?.some(tag => !ingredientTags.includes(tag))) {
-            fitsIngredients = false;
-          } else {
-            fitsIngredients = true;
-          }
-        } else {
-          fitsIngredients = false;
-        }
-      }
-
-      if (newFilter['Food Type']) {
-        if (typeof newFilter['Food Type'] === 'string') {
-          fitsFoodType = foodTypeTags?.includes(newFilter['Food Type']);
-        } else if (foodTypeTags) {
-          fitsFoodType = !newFilter['Food Type']?.some(tag => !foodTypeTags.includes(tag));
-        } else {
-          fitsFoodType = false;
-        }
-      }
-
-      if (newFilter['Time']) {
-        if (typeof newFilter['Time'] === 'string' || newFilter['Time'].length === 1) {
-          let timeRange: string | string[] = newFilter['Time'];
-          if (newFilter['Time'].length === 1) {
-            timeRange = newFilter['Time'][0];
-          }
-          if (timeRange === '< 15 min') {
-            fitsTime = time < 15;
-          } else if (timeRange === '15-30 min') {
-            fitsTime = time >= 15 && time <= 30;
-          } else if (timeRange === '31-45 min') {
-            fitsTime = time >= 31 && time <= 45;
-          } else {
-            fitsTime = time > 45;
-          }
-        } else {
-          fitsTime = false;
-        }
-      }
-
-      return fitsFoodType && fitsIngredients && fitsTime;
-    });
-
-    setFilteredRecipes(newFilteredRecipes);
+  const handleFilterChange = (currentFilters: SelectedRecipeFilters): void => {
+    setFilteredRecipes(filterRecipes(recipes, currentFilters));
     setCurrentPage(0);
   };
 
@@ -146,7 +46,11 @@ function RecipesIndex(props: Props): JSX.Element {
 
       <Grid templateColumns={{ base: '1fr', md: '250px 1px 1fr' }}>
         <GridItem>
-          <RecipeSidebar location={props.location} filters={filter} onChange={handleFilterChange} />
+          <RecipeSidebar
+            location={props.location}
+            filters={recipeFilters}
+            onChange={handleFilterChange}
+          />
         </GridItem>
         <Divider orientation="vertical" />
         <GridItem>
@@ -192,6 +96,27 @@ export const pageQuery = graphql`
     allContentfulRecipe {
       nodes {
         ...RecipeCard
+      }
+    }
+    allContentfulIngredientTag {
+      nodes {
+        tagName
+        recipe {
+          id
+        }
+      }
+    }
+    allContentfulFoodTypeTag {
+      nodes {
+        tagName
+        recipe {
+          id
+        }
+      }
+    }
+    allContentfulTimeList {
+      nodes {
+        timeList
       }
     }
   }
