@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Container, Divider, Heading, Text, Button, HStack} from '@chakra-ui/react';
+import { Box, Container, Divider, Heading, Text, Button, HStack, VStack, Image} from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
@@ -22,10 +22,10 @@ function RootIndex(props: Props): JSX.Element {
       <Box margin={{ base: 10, md: 220 }}>
       <Heading textStyle="heading1" color = "tangerine.500">Promoting Healthy Futures,</Heading>
       <Heading textStyle="heading1" color = "tangerine.500">One Meal At a Time</Heading>
-      <Heading textStyle="subheading1">Healthy Families - Healthy futures is dedicated to empowering teachers,</Heading>
-      <Heading textStyle="subheading1">school staff, and families of young children to embrace healthy eating habits</Heading>
-      <Heading textStyle="subheading1">by equipping them with the tools and educated support system they need to</Heading>
-      <Heading textStyle="subheading1">make healthy food choices.</Heading>
+      <Heading fontWeight = "light" textStyle="subheading1" fontSize = "16px">Healthy Families - Healthy futures is dedicated to empowering teachers,</Heading>
+      <Heading fontWeight = "light" textStyle="subheading1" fontSize = "16px">school staff, and families of young children to embrace healthy eating habits</Heading>
+      <Heading fontWeight = "light" textStyle="subheading1" fontSize = "16px">by equipping them with the tools and educated support system they need to</Heading>
+      <Heading fontWeight = "light" textStyle="subheading1" fontSize = "16px">make healthy food choices.</Heading>
       <Box marginTop = {31}>
       <Button variant="neutral" fontSize="16px">
           Learn More
@@ -33,11 +33,52 @@ function RootIndex(props: Props): JSX.Element {
         </Box>
       </Box>
 
-
-      <HStack align="center" spacing={10}>
-        <Text textStyle="heading2">OUR WORK</Text>
-        <Divider borderColor="tangerine.500" />
+      <Box h = {840} bg = "gray.light">
+      <HStack marginBottom = {170}>
+        <Box w = {500}>
+        <Text textAlign = {'center'} textStyle="heading1">OUR WORK</Text> 
+        </Box>
+        <Box bg = "tangerine.500" w = "100%" p = {8}></Box>
       </HStack>
+
+      <HStack marginLeft = {157} marginRight = {158}>
+        <Box boxShadow = "base" w = {499} h = {468} marginRight = {127} bg = "white"> 
+        <VStack> 
+          <Box w = {312} h = {246}>
+          <img src = "Chef.png"></img>
+          </Box>
+          <Text fontWeight = "light" color = "charcoal" textAlign = {'center'} textStyle="heading2">CLASSES & EVENTS</Text>
+          <Box w = {365}>
+            <Text textAlign = {'center'} textStyle = "subheading1" fontSize = "18px">HF-HF provides classes and workshops to help promote healthy eating habits and activities, run by our volunteers.</Text>
+          </Box>
+        </VStack>
+        </Box>
+        <Box  boxShadow = "base"  w = {499} h = {468} bg = "white"> 
+        <VStack> 
+        <Box w = {312} h = {246}>
+         <img src = "Card_Image.png" ></img>
+         </Box>
+          <Text color = "charcoal" textAlign = {'center'} textStyle="heading2">NUTRITIONAL RESOURCES</Text>
+          <Box w = {365}>
+            <Text textAlign = {'center'} textStyle = "subheading1" fontSize = "18px">Aside from recipes, HF-HF provides assortment of useful links and resources to help promote healthy eating and activities.</Text>
+          </Box>
+          </VStack>
+        </Box>
+
+      </HStack>
+      </Box>
+
+  
+
+      <HStack marginBottom = {170}>
+        <Box bg = "tangerine.500" w = "100%" p = {8}></Box>
+        <Box w = {640}>
+        <Text textAlign = {'center'} textStyle="heading1">FEATURED RECIPES</Text> 
+        </Box>
+      </HStack>
+
+
+
 
 
 
