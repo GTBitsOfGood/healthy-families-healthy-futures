@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { Box, Container, Divider, Heading, Text, Button, HStack, VStack, Image} from '@chakra-ui/react';
+import { Box, Container, Divider, Heading, Text, Button, HStack, VStack, Image, Stack} from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import ArticlePreview from '../components/ArticlePreview';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 interface Props extends PageProps {
   data: GatsbyTypes.HomeQueryQuery;
@@ -42,7 +43,7 @@ function RootIndex(props: Props): JSX.Element {
       </HStack>
 
       <HStack marginLeft = {157} marginRight = {158}>
-        <Box boxShadow = "base" w = {499} h = {468} marginRight = {127} bg = "white"> 
+        <Box boxShadow = "lg" w = {499} h = {468} marginRight = {127} bg = "white"> 
         <VStack> 
           <Box w = {312} h = {246}>
           <img src = "Chef.png"></img>
@@ -52,8 +53,13 @@ function RootIndex(props: Props): JSX.Element {
             <Text textAlign = {'center'} textStyle = "subheading1" fontSize = "18px">HF-HF provides classes and workshops to help promote healthy eating habits and activities, run by our volunteers.</Text>
           </Box>
         </VStack>
+        <Box marginTop = {33} marginLeft = {298}>
+          <Button rightIcon = {<ArrowForwardIcon />}variant="secondary" fontSize="16px">
+          LEARN MORE
+        </Button>
         </Box>
-        <Box  boxShadow = "base"  w = {499} h = {468} bg = "white"> 
+        </Box>
+        <Box  boxShadow = "lg"  w = {499} h = {468} bg = "white"> 
         <VStack> 
         <Box w = {312} h = {246}>
          <img src = "Card_Image.png" ></img>
@@ -63,6 +69,11 @@ function RootIndex(props: Props): JSX.Element {
             <Text textAlign = {'center'} textStyle = "subheading1" fontSize = "18px">Aside from recipes, HF-HF provides assortment of useful links and resources to help promote healthy eating and activities.</Text>
           </Box>
           </VStack>
+          <Box marginTop = {33} marginLeft = {298}>
+          <Button rightIcon = {<ArrowForwardIcon />}variant="secondary" fontSize="16px">
+          LEARN MORE
+        </Button>
+        </Box>
         </Box>
 
       </HStack>

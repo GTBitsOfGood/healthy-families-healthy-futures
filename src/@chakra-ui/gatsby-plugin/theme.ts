@@ -12,7 +12,7 @@ const theme = extendTheme({
     gray: {
       dark: '#404040',
       mid: '#6C6C6C',
-      light: '#C4C4C4',
+      light: '#f6f6f6',
     },
   },
   styles: {
