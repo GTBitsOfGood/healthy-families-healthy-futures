@@ -24,7 +24,7 @@ public
 .cache
 
 # graphql codegen
-src/__generated__
+# src/__generated__
 
 # secrets
 .contentful.json

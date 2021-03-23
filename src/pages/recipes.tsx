@@ -55,7 +55,7 @@ function RecipesIndex(props: Props): JSX.Element {
         <Divider orientation="vertical" />
         <GridItem>
           <Grid
-            templateColumns={{ base: 'repeat(auto-fit, 350px)', xl: 'repeat(3, 350px)' }}
+            templateColumns={{ base: 'repeat(2, 183px)', md: 'repeat(3, 350px)' }}
             justifyItems="center"
             justifyContent="space-evenly"
             rowGap="35px"

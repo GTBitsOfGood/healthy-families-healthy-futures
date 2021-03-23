@@ -11,8 +11,8 @@ interface Props {
 
 function RecipeCard({ data }: Props): JSX.Element {
   return (
-    <Box w="340px">
-      <Flex mb={5}>
+    <Box w={{ base: '183px', md: '340px' }}>
+      <Flex display={{ base: 'none', md: 'flex' }} mb={5}>
         <Heading textStyle="subheading2">{data.title}</Heading>
         <Spacer />
         <Flex float="right">
@@ -23,12 +23,23 @@ function RecipeCard({ data }: Props): JSX.Element {
         </Flex>
       </Flex>
 
-      <Box h="219px" mb={3}>
+      <Box h={{ base: '179px', md: '219px' }} mb={3}>
         {data.mainImage?.fluid == null ? (
           <Box w="full" h="full" bg="lightgray"></Box>
         ) : (
           <Img alt="" fluid={data.mainImage?.fluid} />
         )}
+      </Box>
+
+      <Box display={{ base: 'inline', md: 'none' }} mb={5}>
+        <Heading textStyle="subheading2">{data.title}</Heading>
+        <Spacer />
+        <Flex>
+          <TimeIcon mt="2px" color="green.500" />
+          <Text ml={2} textStyle="subheading2" color="green.500">
+            {Number(data.totalTime) + Number(data.prepTime)} min
+          </Text>
+        </Flex>
       </Box>
 
       <Text textStyle="body3" fontWeight="semibold">

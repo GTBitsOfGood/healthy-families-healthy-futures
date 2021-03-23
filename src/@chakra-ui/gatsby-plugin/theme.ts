@@ -14,6 +14,7 @@ const theme = extendTheme({
       mid: '#6C6C6C',
       light: '#C4C4C4',
     },
+    creamsicle: '#FF9C59',
   },
   styles: {
     global: {
@@ -135,6 +136,27 @@ const theme = extendTheme({
             _placeholder: {
               color: 'gray.light',
             },
+          },
+        },
+      },
+    },
+    NavLink: {
+      baseStyle: {
+        textTransform: 'uppercase',
+        fontWeight: '800',
+        fontSize: '16px',
+        _hover: {
+          textDecoration: 'underline',
+          textDecorationColor: '#65BF73',
+          textDecorationThickness: '3px',
+        },
+      },
+      sizes: {
+        sm: {
+          borderBottom: '1px solid #FFFFFF',
+          py: '3',
+          _hover: {
+            textDecoration: 'none',
           },
         },
       },
