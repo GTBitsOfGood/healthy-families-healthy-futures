@@ -21,7 +21,7 @@ function RecipesIndex(props: Props): JSX.Element {
   const recipes = props.data?.allContentfulRecipe?.nodes;
   const foodTypeTags = props.data?.allContentfulFoodTypeTag?.nodes;
   const ingredientTags = props.data?.allContentfulIngredientTag?.nodes;
-  const timeListStr = props.data?.allContentfulTimeList?.nodes[0]['timeList'];
+  const timeListStr = props.data?.contentfulTimeList?.timeList;
   const [recipeFilters, setRecipeFilters] = useState<RecipeFilters>([]);
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const [currentPage, setCurrentPage] = useState(0);
@@ -114,10 +114,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulTimeList {
-      nodes {
-        timeList
-      }
+    contentfulTimeList {
+      timeList
     }
   }
 `;

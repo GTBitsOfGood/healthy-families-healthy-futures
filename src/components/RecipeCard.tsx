@@ -66,11 +66,11 @@ export const fragment = graphql`
       }
       description
     }
-    foodTypeTags2 {
+    foodTypeTags {
       key
       tagName
     }
-    ingredientTags2 {
+    ingredientTags {
       key
       tagName
     }

@@ -1,5 +1,6 @@
-import { RecipeFilter, RecipeFilters, SelectedRecipeFilters } from './types';
+import { RecipeFilter, Categories, RecipeFilters, SelectedRecipeFilters } from './types';
 
+// Initializes tags in sidebar based on all Contentful tags of each category
 export function initRecipeFilters(
   foodTypeTags: GatsbyTypes.ContentfulFoodTypeTag[],
   ingredientTags: GatsbyTypes.ContentfulIngredientTag[],
@@ -12,13 +13,14 @@ export function initRecipeFilters(
   return recipeFilters;
 }
 
+// Initializes all food type tags with a RecipeFilter object that has options and category title
 function initFoodTypes(foodTypeTags: GatsbyTypes.ContentfulFoodTypeTag[]) {
   const foodTypeFilter: RecipeFilter = {
-    category: 'Food Type',
+    category: Categories.FOOD_TYPE,
     options: [],
   };
 
-  foodTypeTags.forEach(tag => {
+  foodTypeTags.map(tag => {
     if (tag.recipe) {
       foodTypeFilter['options'].push(tag.tagName as string);
     }
@@ -27,9 +29,10 @@ function initFoodTypes(foodTypeTags: GatsbyTypes.ContentfulFoodTypeTag[]) {
   return foodTypeFilter;
 }
 
+// Initializes all ingredients tags with a RecipeFilter object that has options and category title
 function initIngredients(ingredientTags: GatsbyTypes.ContentfulIngredientTag[]) {
   const ingredientFilter: RecipeFilter = {
-    category: 'Ingredients',
+    category: Categories.INGREDIENTS,
     options: [],
   };
 
@@ -42,9 +45,10 @@ function initIngredients(ingredientTags: GatsbyTypes.ContentfulIngredientTag[]) 
   return ingredientFilter;
 }
 
+// Initializes all time tags with a RecipeFilter object that has options and category title
 function initTimes(timeListStr: string) {
   const timeFilter: RecipeFilter = {
-    category: 'Time',
+    category: Categories.TIME,
     options: [],
   };
 
@@ -65,14 +69,15 @@ function initTimes(timeListStr: string) {
   return timeFilter;
 }
 
+// Filters all recipes given the selected filters
 export function filterRecipes(
   recipes: GatsbyTypes.ContentfulRecipe[],
   selectedFilters: SelectedRecipeFilters,
 ) {
   const filteredRecipes = recipes.filter(recipe => {
-    const hasIngredients = checkIngredients(recipe, selectedFilters['Ingredients']);
-    const hasFoodTypes = checkFoodTypes(recipe, selectedFilters['Food Type']);
-    const hasTime = checkTime(recipe, selectedFilters['Time']);
+    const hasIngredients = checkIngredients(recipe, selectedFilters[Categories.INGREDIENTS]);
+    const hasFoodTypes = checkFoodTypes(recipe, selectedFilters[Categories.FOOD_TYPE]);
+    const hasTime = checkTime(recipe, selectedFilters[Categories.TIME]);
 
     return hasIngredients && hasFoodTypes && hasTime;
   });
@@ -80,34 +85,37 @@ export function filterRecipes(
   return filteredRecipes;
 }
 
+// Returns a boolean based on whether recipe matches the critera of the ingredients filter
 function checkIngredients(recipe: GatsbyTypes.ContentfulRecipe, ingredients: string | string[]) {
   if (!ingredients) {
     return true;
-  } else if (!recipe.ingredientTags2) {
+  } else if (!recipe.ingredientTags) {
     return false;
   } else if (typeof ingredients === 'string') {
-    return recipe.ingredientTags2?.some(tag => {
+    return recipe.ingredientTags?.some(tag => {
       return tag?.tagName === ingredients;
     });
   }
 
-  return recipe.ingredientTags2.some(ingredient => ingredients.includes(ingredient.tagName));
+  return recipe.ingredientTags.some(ingredient => ingredients.includes(ingredient.tagName));
 }
 
+// Returns a boolean based on whether recipe matches the critera of the food types filter
 function checkFoodTypes(recipe: GatsbyTypes.ContentfulRecipe, foodTypes: string | string[]) {
   if (!foodTypes) {
     return true;
-  } else if (!recipe.foodTypeTags2) {
+  } else if (!recipe.foodTypeTags) {
     return false;
   } else if (typeof foodTypes === 'string') {
-    return recipe.foodTypeTags2?.some(tag => {
+    return recipe.foodTypeTags?.some(tag => {
       return tag?.tagName === foodTypes;
     });
   }
 
-  return recipe.foodTypeTags2.some(foodType => foodTypes.includes(foodType.tagName));
+  return recipe.foodTypeTags.some(foodType => foodTypes.includes(foodType.tagName));
 }
 
+// Returns a boolean based on whether recipe matches the critera of the times filter
 function checkTime(recipe: GatsbyTypes.ContentfulRecipe, times: string[]) {
   if (!times) {
     return true;
@@ -118,6 +126,7 @@ function checkTime(recipe: GatsbyTypes.ContentfulRecipe, times: string[]) {
   return times.some(time => isInRange(recipeTime, time));
 }
 
+// Helper function to ensure the time given is within the time range in the form of a strings
 function isInRange(time: number, timeRange: string) {
   if (timeRange[0] == '<') {
     return time < parseInt(timeRange.slice(2));
