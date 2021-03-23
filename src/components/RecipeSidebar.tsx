@@ -20,8 +20,7 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
 
   useEffect(() => {
     onChange(selectedFilters);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [onChange, selectedFilters]);
 
   useEffect(() => {
     const newQueries = stringify(selectedFilters, { arrayFormat: 'comma' });
