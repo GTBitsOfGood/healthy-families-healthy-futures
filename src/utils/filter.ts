@@ -1,83 +1,73 @@
-import { RecipeFilter, Categories, RecipeFilters, SelectedRecipeFilters } from './types';
+import { Category, RecipeFilters, SelectedRecipeFilters } from './types';
+import { removeNulls } from './util';
+
+type RecipeQuery = GatsbyTypes.RecipeQueryQuery;
 
 // Initializes tags in sidebar based on all Contentful tags of each category
 export function initRecipeFilters(
-  foodTypeTags: GatsbyTypes.ContentfulFoodTypeTag[],
-  ingredientTags: GatsbyTypes.ContentfulIngredientTag[],
-  timeListStr: string,
-) {
-  const recipeFilters: RecipeFilters = [];
-  recipeFilters.push(initFoodTypes(foodTypeTags));
-  recipeFilters.push(initIngredients(ingredientTags));
-  recipeFilters.push(initTimes(timeListStr));
-  return recipeFilters;
+  foodTypeTags: RecipeQuery['allContentfulFoodTypeTag']['nodes'],
+  ingredientTags: RecipeQuery['allContentfulIngredientTag']['nodes'],
+  timeListStr: string | undefined,
+): RecipeFilters {
+  return {
+    'Food Type': initFoodTypes(foodTypeTags),
+    Ingredients: initIngredients(ingredientTags),
+    Time: initTimes(timeListStr),
+  };
 }
 
 // Initializes all food type tags with a RecipeFilter object that has options and category title
-function initFoodTypes(foodTypeTags: GatsbyTypes.ContentfulFoodTypeTag[]) {
-  const foodTypeFilter: RecipeFilter = {
-    category: Categories.FOOD_TYPE,
-    options: [],
-  };
-
-  foodTypeTags.map(tag => {
-    if (tag.recipe) {
-      foodTypeFilter['options'].push(tag.tagName as string);
-    }
-  });
-
-  return foodTypeFilter;
+function initFoodTypes(foodTypeTags: RecipeQuery['allContentfulFoodTypeTag']['nodes']) {
+  return removeNulls(
+    foodTypeTags.map(tag => {
+      if (tag.recipe && tag.tagName) {
+        return tag.tagName;
+      }
+    }),
+  );
 }
 
 // Initializes all ingredients tags with a RecipeFilter object that has options and category title
-function initIngredients(ingredientTags: GatsbyTypes.ContentfulIngredientTag[]) {
-  const ingredientFilter: RecipeFilter = {
-    category: Categories.INGREDIENTS,
-    options: [],
-  };
-
-  ingredientTags.forEach(tag => {
-    if (tag.recipe) {
-      ingredientFilter['options'].push(tag.tagName as string);
-    }
-  });
-
-  return ingredientFilter;
+function initIngredients(ingredientTags: RecipeQuery['allContentfulIngredientTag']['nodes']) {
+  return removeNulls(
+    ingredientTags.map(tag => {
+      if (tag.recipe && tag.tagName) {
+        return tag.tagName;
+      }
+    }),
+  );
 }
 
 // Initializes all time tags with a RecipeFilter object that has options and category title
-function initTimes(timeListStr: string) {
-  const timeFilter: RecipeFilter = {
-    category: Categories.TIME,
-    options: [],
-  };
+function initTimes(timeListStr: string | undefined) {
+  if (timeListStr == null) {
+    return [];
+  }
 
   const timeList: string[] = timeListStr.split(',');
 
-  for (let i = 0; i < timeList.length; i++) {
-    if (i == 0) {
-      timeFilter['options'].push(`< ${timeList[i]} min`);
-    } else {
-      timeFilter['options'].push(`${timeList[i - 1]} - ${timeList[i]} min`);
-    }
-
-    if (i == timeList.length - 1) {
-      timeFilter['options'].push(`> ${timeList[i]} min`);
-    }
-  }
-
-  return timeFilter;
+  return [
+    `< ${timeList[0]} min`,
+    ...removeNulls(
+      timeList.map((time, i) => {
+        if (i !== 0) {
+          return `${timeList[i - 1]} - ${time} min`;
+        }
+      }),
+    ),
+    `> ${timeList[timeList.length - 1]} min`,
+  ];
 }
 
 // Filters all recipes given the selected filters
 export function filterRecipes(
-  recipes: GatsbyTypes.ContentfulRecipe[],
+  recipes: RecipeQuery['allContentfulRecipe']['nodes'],
   selectedFilters: SelectedRecipeFilters,
 ) {
   const filteredRecipes = recipes.filter(recipe => {
-    const hasIngredients = checkIngredients(recipe, selectedFilters[Categories.INGREDIENTS]);
-    const hasFoodTypes = checkFoodTypes(recipe, selectedFilters[Categories.FOOD_TYPE]);
-    const hasTime = checkTime(recipe, selectedFilters[Categories.TIME]);
+    const hasIngredients = checkIngredients(recipe, selectedFilters[Category.INGREDIENTS]);
+    const hasFoodTypes = checkFoodTypes(recipe, selectedFilters[Category.FOOD_TYPE]);
+    const hasTime = checkTime(recipe, selectedFilters[Category.TIME]);
 
     return hasIngredients && hasFoodTypes && hasTime;
   });
@@ -86,7 +76,10 @@ export function filterRecipes(
 }
 
 // Returns a boolean based on whether recipe matches the critera of the ingredients filter
-function checkIngredients(recipe: GatsbyTypes.ContentfulRecipe, ingredients: string | string[]) {
+function checkIngredients(
+  recipe: RecipeQuery['allContentfulRecipe']['nodes'][0],
+  ingredients?: string | string[],
+) {
   if (!ingredients) {
     return true;
   } else if (!recipe.ingredientTags) {
@@ -97,11 +90,16 @@ function checkIngredients(recipe: GatsbyTypes.ContentfulRecipe, ingredients: str
     });
   }
 
-  return recipe.ingredientTags.some(ingredient => ingredients.includes(ingredient.tagName));
+  return recipe.ingredientTags.some(
+    ingredient => ingredient?.tagName && ingredients.includes(ingredient.tagName),
+  );
 }
 
 // Returns a boolean based on whether recipe matches the critera of the food types filter
-function checkFoodTypes(recipe: GatsbyTypes.ContentfulRecipe, foodTypes: string | string[]) {
+function checkFoodTypes(
+  recipe: RecipeQuery['allContentfulRecipe']['nodes'][0],
+  foodTypes?: string | string[],
+) {
   if (!foodTypes) {
     return true;
   } else if (!recipe.foodTypeTags) {
@@ -112,11 +110,13 @@ function checkFoodTypes(recipe: GatsbyTypes.ContentfulRecipe, foodTypes: string 
     });
   }
 
-  return recipe.foodTypeTags.some(foodType => foodTypes.includes(foodType.tagName));
+  return recipe.foodTypeTags.some(
+    foodType => foodType?.tagName && foodTypes.includes(foodType.tagName),
+  );
 }
 
 // Returns a boolean based on whether recipe matches the critera of the times filter
-function checkTime(recipe: GatsbyTypes.ContentfulRecipe, times: string[]) {
+function checkTime(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], times?: string[]) {
   if (!times) {
     return true;
   }

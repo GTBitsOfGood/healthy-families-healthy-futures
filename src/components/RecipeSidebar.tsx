@@ -3,20 +3,27 @@ import React, { useState, useEffect } from 'react';
 import { Heading, Flex, Button, VStack, Box } from '@chakra-ui/react';
 import { navigate } from 'gatsby';
 import { parse, stringify } from 'query-string';
+import { entries, removeNulls } from 'src/utils/util';
 
-import { RecipeFilters, SelectedRecipeFilters } from '../utils/types';
+import { SelectedRecipeFilters } from '../utils/types';
 import FilterGroup from './FilterGroup';
 
 interface Props {
-  filters: RecipeFilters;
+  filters: SelectedRecipeFilters;
   location: Location;
   onChange(newFilter: SelectedRecipeFilters): void;
 }
 
 function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
-  const defaultFilters = parse(location.search, { arrayFormat: 'comma' });
+  const defaultFilters = Object.fromEntries(
+    entries(parse(location.search, { arrayFormat: 'comma' })).map(([category, value]) => [
+      category,
+      typeof value === 'string' ? [value] : value,
+    ]),
+  );
+
   // Note: selectedFilters can include other query parameters that are not necessarily used for filtering
-  const [selectedFilters, updateSelectedFilters] = useState(defaultFilters);
+  const [selectedFilters, updateSelectedFilters] = useState<SelectedRecipeFilters>(defaultFilters);
 
   useEffect(() => {
     onChange(selectedFilters);
@@ -34,7 +41,7 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
   }, [location.pathname, selectedFilters]);
 
   // Check if the query string has any of the category as a selected filter
-  const hasActiveFilter = filters.map(x => x.category).some(x => x in selectedFilters);
+  const hasActiveFilter = entries(filters).some(x => x != null && x[0] in selectedFilters);
 
   return (
     <Box px={6}>
@@ -56,17 +63,11 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
       </Flex>
 
       <VStack align="stretch">
-        {filters.map(filter => {
-          const { category, options } = filter;
+        {removeNulls(entries(filters)).map(([category, options]) => {
           let selectedOptions: string[] = [];
 
           if (category in selectedFilters) {
-            if (typeof selectedFilters[category] === 'string') {
-              // If there is only one option selected, the query-string parse will read it as string
-              selectedOptions = [selectedFilters[category] as string];
-            } else if (Array.isArray(selectedFilters[category])) {
-              selectedOptions = selectedFilters[category] as string[];
-            }
+            selectedOptions = selectedFilters[category] as string[];
           }
 
           const onOptionsChange = (options: string[]) => {
@@ -87,10 +88,10 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
           return (
             <FilterGroup
               category={category}
-              options={options}
+              options={options ?? []}
               selectedOptions={selectedOptions}
               onChange={onOptionsChange}
-              key={filter.category}
+              key={category}
             />
           );
         })}

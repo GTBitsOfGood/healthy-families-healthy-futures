@@ -1,17 +1,12 @@
-export type RecipeFilters = RecipeFilter[];
-
-export enum Categories {
+export enum Category {
   FOOD_TYPE = 'Food Type',
   INGREDIENTS = 'Ingredients',
   TIME = 'Time',
 }
 
-export type RecipeFilter = {
-  category: Categories;
-  options: string[];
-};
+export type RecipeFilters = Record<Category, string[]>;
+export type SelectedRecipeFilters = Partial<RecipeFilters>;
 
-// Not sure why we have different formats for total and selected filters
-export type SelectedRecipeFilters = {
-  [x: string]: Categories[];
-};
+export type Entries<T> = {
+  [K in keyof T]: [K, T[K]];
+}[keyof T][];

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { Divider, Flex, Grid, GridItem } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 import Pagination from 'src/components/Pagination';
 import RecipeSidebar from 'src/components/RecipeSidebar';
-import { RecipeFilters, SelectedRecipeFilters } from 'src/utils/types';
+import { SelectedRecipeFilters } from 'src/utils/types';
 
 import RecipeCard from '../components/RecipeCard';
 import { initRecipeFilters, filterRecipes } from '../utils/filter';
@@ -22,7 +22,7 @@ function RecipesIndex(props: Props): JSX.Element {
   const foodTypeTags = props.data?.allContentfulFoodTypeTag?.nodes;
   const ingredientTags = props.data?.allContentfulIngredientTag?.nodes;
   const timeListStr = props.data?.contentfulTimeList?.timeList;
-  const [recipeFilters, setRecipeFilters] = useState<RecipeFilters>([]);
+  const [recipeFilters, setRecipeFilters] = useState<SelectedRecipeFilters>({});
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -35,10 +35,13 @@ function RecipesIndex(props: Props): JSX.Element {
     setRecipeFilters(initRecipeFilters(foodTypeTags, ingredientTags, timeListStr));
   }, [foodTypeTags, ingredientTags, timeListStr]);
 
-  const handleFilterChange = (currentFilters: SelectedRecipeFilters): void => {
-    setFilteredRecipes(filterRecipes(recipes, currentFilters));
-    setCurrentPage(0);
-  };
+  const handleFilterChange = useCallback(
+    (currentFilters: SelectedRecipeFilters): void => {
+      setFilteredRecipes(filterRecipes(recipes, currentFilters));
+      setCurrentPage(0);
+    },
+    [recipes],
+  );
 
   return (
     <Layout location={props.location}>
