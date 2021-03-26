@@ -4,6 +4,9 @@ import { Box, Heading, Text, HStack, Stack } from '@chakra-ui/react';
 import { PageProps } from 'gatsby';
 
 import Layout from '../components/Layout';
+import Newsletter from '../components/Newsletter';
+import DonateSection from 'src/components/DonateSection';
+import OurWork from 'src/components/OurWork';
 
 type Props = PageProps;
 
@@ -14,8 +17,8 @@ function AboutPage(props: Props): JSX.Element {
         <Box w="40%" h={480} marginRight={0}>
           <img src="about-group-photo.png" alt=""></img>
         </Box>
-        <Box w="60%" h={500} bg="tangerine.500" marginLeft={0}>
-          <Box h={155} bg="tangerine.500"></Box>
+        <Box w="60%" h={500} bg="creamsicle" marginLeft={0}>
+          <Box h={155} bg="creamsicle"></Box>
           <Stack direction="column">
             <Box marginLeft={350} marginTop={-20} w={183} h={158}>
               <img src="HF-HF-logo-white.png" alt=""></img>
@@ -38,7 +41,7 @@ function AboutPage(props: Props): JSX.Element {
       </HStack>
 
       <HStack marginBottom={170} marginTop="151px">
-        <Box bg="tangerine.500" w="100%" p={8}></Box>
+        <Box bg="creamsicle" w="100%" p={8}></Box>
         <Box w={640}>
           <Text textAlign={'center'} textStyle="heading1">
             OUR STORY
@@ -46,19 +49,10 @@ function AboutPage(props: Props): JSX.Element {
         </Box>
       </HStack>
 
-      <Box h={900} bg="gray.light">
-        <HStack marginBottom={170}>
-          <Box w={500}>
-            <Text textAlign={'center'} textStyle="heading1">
-              OUR WORK
-            </Text>
-          </Box>
-          <Box bg="tangerine.500" w="100%" p={8}></Box>
-        </HStack>
-      </Box>
+      <OurWork />
 
-      <HStack marginBottom={170} marginTop="151px">
-        <Box bg="tangerine.500" w="100%" p={8}></Box>
+      <HStack marginBottom={170}>
+        <Box bg="creamsicle" w="100%" p={8}></Box>
         <Box w={640}>
           <Text textAlign={'center'} textStyle="heading1">
             OUR FOUNDER
@@ -72,8 +66,11 @@ function AboutPage(props: Props): JSX.Element {
             OUR SPONSERS AND PARTNERS
           </Text>
         </Box>
-        <Box bg="tangerine.500" w="80%" p={8}></Box>
+        <Box bg="creamsicle" w="80%" p={8}></Box>
       </HStack>
+
+      <DonateSection />
+      <Newsletter />
     </Layout>
   );
 }

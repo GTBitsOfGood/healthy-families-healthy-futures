@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -16,13 +15,15 @@ import {
 import { graphql, PageProps } from 'gatsby';
 
 import Layout from '../components/Layout';
+import Newsletter from '../components/Newsletter';
+import DonateSection from 'src/components/DonateSection';
+import OurWork from 'src/components/OurWork';
 
 interface Props extends PageProps {
   data: GatsbyTypes.HomeQueryQuery;
 }
 
 function RootIndex(props: Props): JSX.Element {
-  const value = React.useState('');
   const recipes = props.data?.allContentfulRecipe?.nodes;
   console.log(recipes);
 
@@ -51,61 +52,7 @@ function RootIndex(props: Props): JSX.Element {
         </Box>
       </Box>
 
-      <Box h={900} bg="gray.light">
-        <HStack marginBottom={170}>
-          <Box w={500}>
-            <Text textAlign={'center'} textStyle="heading1">
-              OUR WORK
-            </Text>
-          </Box>
-          <Box bg="creamsicle" w="100%" p={8}></Box>
-        </HStack>
-
-        <HStack marginLeft="10%" marginRight="10%">
-          <Box boxShadow="lg" w={499} h={468} marginRight={127} bg="white">
-            <VStack>
-              <Box w={312} h={246}>
-                <img src="Chef.png" alt=""></img>
-              </Box>
-              <Text fontWeight="light" color="charcoal" textAlign={'center'} textStyle="heading2">
-                CLASSES & EVENTS
-              </Text>
-              <Box w={365}>
-                <Text textAlign={'center'} textStyle="subheading1" fontSize="18px">
-                  HF-HF provides classes and workshops to help promote healthy eating habits and
-                  activities, run by our volunteers.
-                </Text>
-              </Box>
-            </VStack>
-            <Box marginTop={33} marginLeft={298}>
-              <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
-                LEARN MORE
-              </Button>
-            </Box>
-          </Box>
-          <Box boxShadow="lg" w={499} h={468} bg="white">
-            <VStack>
-              <Box w={312} h={246}>
-                <img src="Card_Image.png" alt=""></img>
-              </Box>
-              <Text color="charcoal" textAlign={'center'} textStyle="heading2">
-                NUTRITIONAL RESOURCES
-              </Text>
-              <Box w={365}>
-                <Text textAlign={'center'} textStyle="subheading1" fontSize="18px">
-                  Aside from recipes, HF-HF provides assortment of useful links and resources to
-                  help promote healthy eating and activities.
-                </Text>
-              </Box>
-            </VStack>
-            <Box marginTop={33} marginLeft={298}>
-              <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
-                LEARN MORE
-              </Button>
-            </Box>
-          </Box>
-        </HStack>
-      </Box>
+      <OurWork />
 
       <HStack marginBottom={170}>
         <Box bg="creamsicle" w="100%" p={8}></Box>
@@ -176,50 +123,9 @@ function RootIndex(props: Props): JSX.Element {
         </Button>
       </Box>
 
-      <HStack spacing={0}>
-        <Box h={480}>
-          <Image boxSize="480px" objectFit="cover" src="donationBanner.png" alt="donation_banner" />
-        </Box>
-        <Box w="70%" h={480} bg="creamsicle">
-          <Box h={155} bg="creamsicle"></Box>
-          <Stack direction="row">
-            <Box marginLeft={170} w={183} h={158}>
-              <img src="whiteLogo.png" alt=""></img>
-            </Box>
-            <Stack direction="column">
-              <Box w={320} marginLeft={55}>
-                <Heading textAlign="left" textStyle="heading1" color="charcoal">
-                  Help Us Grow
-                </Heading>
-                <Text textAlign="left" textStyle="body1">
-                  Even small contributions can help us continue our work to provide nutritional
-                  education
-                </Text>
-                <Box marginTop={5}>
-                  <Button align="left" variant="primary" fontSize="16px">
-                    DONATE
-                  </Button>
-                </Box>
-              </Box>
-            </Stack>
-          </Stack>
-        </Box>
-      </HStack>
+      <DonateSection />
 
-      <Box h={75} bg="gray.light"></Box>
-      <Box h={200} bg="gray.light">
-        <Text color="charcoal" textAlign={'center'} textStyle="heading2">
-          Sign up for our newsletter!
-        </Text>
-        <Stack direction="row" marginLeft="40%" marginTop={30}>
-          <Center>
-            <Input borderColor="black" borderRadius="none" marginRight={3} value={value} />
-            <Button variant="neutral" fontSize="16px">
-              Subscribe
-            </Button>
-          </Center>
-        </Stack>
-      </Box>
+      <Newsletter />
     </Layout>
   );
 }
