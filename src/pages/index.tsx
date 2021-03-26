@@ -65,7 +65,7 @@ function RootIndex(props: Props): JSX.Element {
           <Box boxShadow="lg" w={499} h={468} marginRight={127} bg="white">
             <VStack>
               <Box w={312} h={246}>
-                <img src="Chef.png"></img>
+                <img src="Chef.png" alt=""></img>
               </Box>
               <Text fontWeight="light" color="charcoal" textAlign={'center'} textStyle="heading2">
                 CLASSES & EVENTS
@@ -86,7 +86,7 @@ function RootIndex(props: Props): JSX.Element {
           <Box boxShadow="lg" w={499} h={468} bg="white">
             <VStack>
               <Box w={312} h={246}>
-                <img src="Card_Image.png"></img>
+                <img src="Card_Image.png" alt=""></img>
               </Box>
               <Text color="charcoal" textAlign={'center'} textStyle="heading2">
                 NUTRITIONAL RESOURCES
@@ -123,7 +123,7 @@ function RootIndex(props: Props): JSX.Element {
               Food Title 1
             </Text>
             <Box w={312} h={246}>
-              <img src="download.png"></img>
+              <img src="download.png" alt=""></img>
             </Box>
             <Text textAlign={'left'} textStyle="body2">
               Food Desciription 1
@@ -140,7 +140,7 @@ function RootIndex(props: Props): JSX.Element {
               Food Title 2
             </Text>
             <Box w={312} h={246}>
-              <img src="download.png"></img>
+              <img src="download.png" alt=""></img>
             </Box>
             <Text textAlign={'left'} textStyle="body2">
               Food Desciription 2
@@ -157,7 +157,7 @@ function RootIndex(props: Props): JSX.Element {
               Food Title 3
             </Text>
             <Box w={312} h={246}>
-              <img src="download.png"></img>
+              <img src="download.png" alt=""></img>
             </Box>
             <Text textAlign={'left'} textStyle="body2">
               Food Desciription 3
@@ -184,7 +184,7 @@ function RootIndex(props: Props): JSX.Element {
           <Box h={155} bg="creamsicle"></Box>
           <Stack direction="row">
             <Box marginLeft={170} w={183} h={158}>
-              <img src="whiteLogo.png"></img>
+              <img src="whiteLogo.png" alt=""></img>
             </Box>
             <Stack direction="column">
               <Box w={320} marginLeft={55}>
