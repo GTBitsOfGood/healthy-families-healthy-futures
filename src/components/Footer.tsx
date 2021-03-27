@@ -21,16 +21,55 @@ function Footer(): JSX.Element {
   return (
     <Flex
       bgColor="charcoal"
-      h="384px"
+      h={{ base: '443px', md: '384px' }}
       w="full"
       mt={40}
       wrap="nowrap"
       flexDir="row"
       justifyContent="space-evenly"
       alignItems="flex-start"
-      p="98px"
+      p={{ base: '47px', md: '98px' }}
     >
-      <Flex align="center" flexDir="row">
+      <VStack display={{ base: 'flex', md: 'none' }}>
+        <Flex align="center" flexDir="row">
+          <Box w="150px" maxH="158px">
+            {data.contentfulAsset?.fluid != null ? (
+              <Img
+                fluid={data.contentfulAsset.fluid}
+                alt={data.contentfulAsset.description}
+                imgStyle={{ objectFit: 'contain' }}
+                style={{ maxHeight: `158px` }}
+              />
+            ) : null}
+          </Box>
+        </Flex>
+
+        <VStack>
+          <Heading color="creamsicle" textStyle="heading1">
+            About Us +
+          </Heading>
+          <Heading color="creamsicle" textStyle="heading1">
+            Get Involved +
+          </Heading>
+          <Heading color="creamsicle" textStyle="heading1">
+            Resources and Blog +
+          </Heading>
+        </VStack>
+
+        <HStack spacing={5} paddingTop="44px">
+          <Link href="https://www.facebook.com/healthyfamilieshealthyfutures/" isExternal>
+            <FacebookIcon w="40px" h="40px" />
+          </Link>
+          <Link href="https://www.instagram.com/healthy_futures/" isExternal>
+            <InstagramIcon w="40px" h="40px" />
+          </Link>
+          <Link href="mailto:jrlatour37@gmail.com" isExternal>
+            <EmailIcon w="40px" h="40px" />
+          </Link>
+        </HStack>
+      </VStack>
+
+      <Flex display={{ base: 'none', md: 'flex' }} align="center" flexDir="row">
         <Box m="22px" w="170px" maxH="158px">
           {data.contentfulAsset?.fluid != null ? (
             <Img
@@ -43,7 +82,12 @@ function Footer(): JSX.Element {
         </Box>
       </Flex>
 
-      <Flex flexDir="row" justifyContent="space-evenly" alignItems="flex-start">
+      <Flex
+        display={{ base: 'none', md: 'flex' }}
+        flexDir="row"
+        justifyContent="space-evenly"
+        alignItems="flex-start"
+      >
         <VStack m="22px" spacing="22px">
           <VStack alignItems="flex-start" spacing="15px">
             <Heading color="creamsicle" textStyle="subheading1">
@@ -99,7 +143,11 @@ function Footer(): JSX.Element {
         </VStack>
       </Flex>
 
-      <Flex justifyContent="space-between" alignItems="flex-start">
+      <Flex
+        display={{ base: 'none', md: 'flex' }}
+        justifyContent="space-between"
+        alignItems="flex-start"
+      >
         <VStack m="22px" alignItems="flex-start">
           <Heading color="creamsicle" textStyle="subheading1">
             Stay Connected
