@@ -10,7 +10,7 @@ interface Props {
   data: GatsbyTypes.OurWorkSectionFragment;
 }
 
-function OurWork({ data }: Props): JSX.Element {
+function OurWorkSection({ data }: Props): JSX.Element {
   const cards = data.allContentfulOurWorkCard.nodes;
   const sortedCards = [...cards].sort((a, b) => (a.displayIndex ?? 0) - (b.displayIndex ?? 0));
 
@@ -28,7 +28,7 @@ function OurWork({ data }: Props): JSX.Element {
   );
 }
 
-export default OurWork;
+export default OurWorkSection;
 
 export const fragment = graphql`
   fragment OurWorkSection on Query {

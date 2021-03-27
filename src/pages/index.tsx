@@ -4,10 +4,10 @@ import { Box, Heading, Button } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import DonateSection from 'src/components/DonateSection';
 import FeaturedRecipesSection from 'src/components/FeaturedRecipesSection';
-import OurWork from 'src/components/OurWork';
+import OurWorkSection from 'src/components/OurWorkSection';
 
 import Layout from '../components/Layout';
-import Newsletter from '../components/Newsletter';
+import NewsletterSection from '../components/NewsletterSection';
 
 interface Props extends PageProps {
   data: GatsbyTypes.HomeQueryQuery;
@@ -35,11 +35,11 @@ function RootIndex(props: Props): JSX.Element {
         </Box>
       </Box>
 
-      <OurWork data={props.data} />
+      <OurWorkSection data={props.data} />
       <FeaturedRecipesSection data={props.data} />
       <DonateSection />
 
-      <Newsletter />
+      <NewsletterSection />
     </Layout>
   );
 }

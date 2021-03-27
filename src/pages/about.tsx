@@ -1,15 +1,16 @@
 import React from 'react';
 
 import { Box, Heading, Text, HStack, VStack, Image, Grid } from '@chakra-ui/react';
-import { PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import DonateSection from 'src/components/DonateSection';
-import OurWork from 'src/components/OurWork';
+import OurWorkSection from 'src/components/OurWorkSection';
 
 import Layout from '../components/Layout';
-import Newsletter from '../components/Newsletter';
+import NewsletterSection from '../components/NewsletterSection';
 
-type Props = PageProps;
-
+interface Props extends PageProps {
+  data: GatsbyTypes.AboutQueryQuery;
+}
 function AboutPage(props: Props): JSX.Element {
   //   const sponsors = [
   //     'download.png',
@@ -84,7 +85,7 @@ function AboutPage(props: Props): JSX.Element {
         </Box>
       </HStack>
 
-      <OurWork />
+      <OurWorkSection data={props.data} />
 
       <HStack marginBottom={170}>
         <Box bg="creamsicle" w="100%" p={8}></Box>
@@ -153,9 +154,20 @@ function AboutPage(props: Props): JSX.Element {
       </Grid>
 
       <DonateSection />
-      <Newsletter />
+      <NewsletterSection />
     </Layout>
   );
 }
 
 export default AboutPage;
+
+export const pageQuery = graphql`
+  query AboutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    ...OurWorkSection
+  }
+`;

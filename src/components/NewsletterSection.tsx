@@ -9,14 +9,18 @@ function Newsletter(): JSX.Element {
       <Text color="charcoal" textAlign={'center'} textStyle="heading2">
         Sign up for our newsletter!
       </Text>
-      <Stack direction="row" marginLeft="40%" marginTop={30}>
-        <Center>
-          <Input borderColor="black" borderRadius="none" marginRight={3} value={value} />
-          <Button variant="neutral" fontSize="16px">
-            Subscribe
-          </Button>
-        </Center>
-      </Stack>
+      <Center>
+        <Stack direction="row" spacing={4} marginTop={30}>
+          <Input
+            h="40px"
+            borderColor="black"
+            borderRadius="none"
+            onChange={e => setValue(e.target.value)}
+            value={value}
+          />
+          <Button variant="neutral">Subscribe</Button>
+        </Stack>
+      </Center>
     </Box>
   );
 }
