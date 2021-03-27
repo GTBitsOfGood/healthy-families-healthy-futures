@@ -1,22 +1,7 @@
-import {
-  Box,
-  VStack,
-  Heading,
-  Flex,
-  Link,
-  HStack,
-  Text,
-  Stack,
-  Center,
-  Input,
-  Button,
-} from '@chakra-ui/react';
-import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
-import Img from 'gatsby-image';
 import React from 'react';
 
-import { FacebookIcon, InstagramIcon, EmailIcon } from './Icons';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { Box, VStack, HStack, Text, Button } from '@chakra-ui/react';
 
 function OurWork(): JSX.Element {
   return (
@@ -35,7 +20,7 @@ function OurWork(): JSX.Element {
           <Box boxShadow="lg" w={499} h={468} marginRight={127} bg="white">
             <VStack>
               <Box w={312} h={246}>
-                <img src="Chef.png" alt=""></img>
+                <img src="Chef.png" alt="chef"></img>
               </Box>
               <Text fontWeight="light" color="charcoal" textAlign={'center'} textStyle="heading2">
                 CLASSES & EVENTS
@@ -56,7 +41,7 @@ function OurWork(): JSX.Element {
           <Box boxShadow="lg" w={499} h={468} bg="white">
             <VStack>
               <Box w={312} h={246}>
-                <img src="Card_Image.png" alt=""></img>
+                <img src="Card_Image.png" alt="card"></img>
               </Box>
               <Text color="charcoal" textAlign={'center'} textStyle="heading2">
                 NUTRITIONAL RESOURCES

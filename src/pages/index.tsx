@@ -1,23 +1,15 @@
 import React from 'react';
+
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import {
-  Box,
-  Heading,
-  Text,
-  Button,
-  HStack,
-  VStack,
-  Image,
-  Stack,
-  Input,
-  Center,
-} from '@chakra-ui/react';
+import { Box, Heading, Text, Button, HStack, Center, GridItem, Grid, Link } from '@chakra-ui/react';
+import slugify from '@sindresorhus/slugify';
 import { graphql, PageProps } from 'gatsby';
+import DonateSection from 'src/components/DonateSection';
+import Featured from 'src/components/Featured';
+import OurWork from 'src/components/OurWork';
 
 import Layout from '../components/Layout';
 import Newsletter from '../components/Newsletter';
-import DonateSection from 'src/components/DonateSection';
-import OurWork from 'src/components/OurWork';
 
 interface Props extends PageProps {
   data: GatsbyTypes.HomeQueryQuery;
@@ -25,11 +17,7 @@ interface Props extends PageProps {
 
 function RootIndex(props: Props): JSX.Element {
   const recipes = props.data?.allContentfulRecipe?.nodes;
-  console.log(recipes);
-
-  // const siteTitle = props.data.site?.siteMetadata?.title;
-  // const posts = props.data.allContentfulBlogPost.edges;
-  // const [author] = props.data.allContentfulPerson.nodes;
+  // console.log(recipes);
 
   return (
     <Layout location={props.location}>
@@ -65,59 +53,27 @@ function RootIndex(props: Props): JSX.Element {
 
       <HStack marginLeft="10%" marginRight="10%">
         <Center>
-          <Box>
-            <Text textAlign={'left'} textStyle="subheading1">
-              Food Title 1
-            </Text>
-            <Box w={312} h={246}>
-              <img src="download.png" alt=""></img>
-            </Box>
-            <Text textAlign={'left'} textStyle="body2">
-              Food Desciription 1
-            </Text>
-            <Box marginTop={33} marginLeft={220}>
-              <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
-                MORE
-              </Button>
-            </Box>
-          </Box>
-
-          <Box marginLeft={20}>
-            <Text textAlign={'left'} textStyle="subheading1">
-              Food Title 2
-            </Text>
-            <Box w={312} h={246}>
-              <img src="download.png" alt=""></img>
-            </Box>
-            <Text textAlign={'left'} textStyle="body2">
-              Food Desciription 2
-            </Text>
-            <Box marginTop={33} marginLeft={220}>
-              <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
-                MORE
-              </Button>
-            </Box>
-          </Box>
-
-          <Box marginLeft={20}>
-            <Text textAlign={'left'} textStyle="subheading1">
-              Food Title 3
-            </Text>
-            <Box w={312} h={246}>
-              <img src="download.png" alt=""></img>
-            </Box>
-            <Text textAlign={'left'} textStyle="body2">
-              Food Desciription 3
-            </Text>
-            <Box marginTop={33} marginLeft={220}>
-              <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
-                MORE
-              </Button>
-            </Box>
-          </Box>
+          <GridItem>
+            <Grid
+              templateColumns={{ base: 'repeat(2, 183px)', md: 'repeat(3, 400px)' }}
+              justifyItems="center"
+              justifyContent="space-evenly"
+              rowGap="35px"
+            >
+              {recipes.map(node => {
+                return (
+                  <GridItem key={node.id}>
+                    <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
+                      <Featured data={node} />
+                    </Link>
+                  </GridItem>
+                );
+              })}
+            </Grid>
+          </GridItem>
         </Center>
       </HStack>
-      <Box marginTop={82} marginLeft="75%" marginBottom={155}>
+      <Box marginTop={82} marginLeft="78%" marginBottom={155}>
         <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
           VIEW ALL RECIPES
         </Button>
@@ -166,3 +122,60 @@ export const pageQuery = graphql`
 </Box>
 </Container>
 */
+
+// const siteTitle = props.data.site?.siteMetadata?.title;
+// const posts = props.data.allContentfulBlogPost.edges;
+// const [author] = props.data.allContentfulPerson.nodes;
+
+{
+  /* <Box>
+            <Text textAlign={'left'} textStyle="subheading1">
+              Food Title 1
+            </Text>
+            <Box w={312} h={246}>
+              <img src="download.png" alt=""></img>
+            </Box>
+            <Text textAlign={'left'} textStyle="body2">
+              Food Desciription 1
+            </Text>
+            <Box marginTop={33} marginLeft={220}>
+              <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
+                MORE
+              </Button>
+            </Box>
+          </Box>
+
+          <Box marginLeft={20}>
+            <Text textAlign={'left'} textStyle="subheading1">
+              Food Title 2
+            </Text>
+            <Box w={312} h={246}>
+              <img src="download.png" alt=""></img>
+            </Box>
+            <Text textAlign={'left'} textStyle="body2">
+              Food Desciription 2
+            </Text>
+            <Box marginTop={33} marginLeft={220}>
+              <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
+                MORE
+              </Button>
+            </Box>
+          </Box>
+
+          <Box marginLeft={20}>
+            <Text textAlign={'left'} textStyle="subheading1">
+              Food Title 3
+            </Text>
+            <Box w={312} h={246}>
+              <img src="download.png" alt=""></img>
+            </Box>
+            <Text textAlign={'left'} textStyle="body2">
+              Food Desciription 3
+            </Text>
+            <Box marginTop={33} marginLeft={220}>
+              <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
+                MORE
+              </Button>
+            </Box>
+          </Box> */
+}

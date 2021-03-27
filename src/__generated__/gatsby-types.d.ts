@@ -3548,9 +3548,14 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___id = 'recipe.id',
   recipe___node_locale = 'recipe.node_locale',
   recipe___title = 'recipe.title',
-  recipe___yield = 'recipe.yield',
   recipe___prepTime = 'recipe.prepTime',
   recipe___totalTime = 'recipe.totalTime',
+  recipe___spaceId = 'recipe.spaceId',
+  recipe___createdAt = 'recipe.createdAt',
+  recipe___updatedAt = 'recipe.updatedAt',
+  recipe___sys___type = 'recipe.sys.type',
+  recipe___sys___revision = 'recipe.sys.revision',
+  recipe___yield = 'recipe.yield',
   recipe___featured = 'recipe.featured',
   recipe___ingredientTags = 'recipe.ingredientTags',
   recipe___ingredientTags___contentful_id = 'recipe.ingredientTags.contentful_id',
@@ -3563,15 +3568,15 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___ingredientTags___recipe___id = 'recipe.ingredientTags.recipe.id',
   recipe___ingredientTags___recipe___node_locale = 'recipe.ingredientTags.recipe.node_locale',
   recipe___ingredientTags___recipe___title = 'recipe.ingredientTags.recipe.title',
-  recipe___ingredientTags___recipe___yield = 'recipe.ingredientTags.recipe.yield',
   recipe___ingredientTags___recipe___prepTime = 'recipe.ingredientTags.recipe.prepTime',
   recipe___ingredientTags___recipe___totalTime = 'recipe.ingredientTags.recipe.totalTime',
-  recipe___ingredientTags___recipe___featured = 'recipe.ingredientTags.recipe.featured',
-  recipe___ingredientTags___recipe___ingredientTags = 'recipe.ingredientTags.recipe.ingredientTags',
-  recipe___ingredientTags___recipe___foodTypeTags = 'recipe.ingredientTags.recipe.foodTypeTags',
   recipe___ingredientTags___recipe___spaceId = 'recipe.ingredientTags.recipe.spaceId',
   recipe___ingredientTags___recipe___createdAt = 'recipe.ingredientTags.recipe.createdAt',
   recipe___ingredientTags___recipe___updatedAt = 'recipe.ingredientTags.recipe.updatedAt',
+  recipe___ingredientTags___recipe___yield = 'recipe.ingredientTags.recipe.yield',
+  recipe___ingredientTags___recipe___featured = 'recipe.ingredientTags.recipe.featured',
+  recipe___ingredientTags___recipe___ingredientTags = 'recipe.ingredientTags.recipe.ingredientTags',
+  recipe___ingredientTags___recipe___foodTypeTags = 'recipe.ingredientTags.recipe.foodTypeTags',
   recipe___ingredientTags___recipe___gatsbyPath = 'recipe.ingredientTags.recipe.gatsbyPath',
   recipe___ingredientTags___recipe___childrenContentfulRecipeNotesTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeNotesTextNode',
   recipe___ingredientTags___recipe___childrenContentfulRecipeDirectionsTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeDirectionsTextNode',
@@ -3607,15 +3612,15 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___foodTypeTags___recipe___id = 'recipe.foodTypeTags.recipe.id',
   recipe___foodTypeTags___recipe___node_locale = 'recipe.foodTypeTags.recipe.node_locale',
   recipe___foodTypeTags___recipe___title = 'recipe.foodTypeTags.recipe.title',
-  recipe___foodTypeTags___recipe___yield = 'recipe.foodTypeTags.recipe.yield',
   recipe___foodTypeTags___recipe___prepTime = 'recipe.foodTypeTags.recipe.prepTime',
   recipe___foodTypeTags___recipe___totalTime = 'recipe.foodTypeTags.recipe.totalTime',
-  recipe___foodTypeTags___recipe___featured = 'recipe.foodTypeTags.recipe.featured',
-  recipe___foodTypeTags___recipe___ingredientTags = 'recipe.foodTypeTags.recipe.ingredientTags',
-  recipe___foodTypeTags___recipe___foodTypeTags = 'recipe.foodTypeTags.recipe.foodTypeTags',
   recipe___foodTypeTags___recipe___spaceId = 'recipe.foodTypeTags.recipe.spaceId',
   recipe___foodTypeTags___recipe___createdAt = 'recipe.foodTypeTags.recipe.createdAt',
   recipe___foodTypeTags___recipe___updatedAt = 'recipe.foodTypeTags.recipe.updatedAt',
+  recipe___foodTypeTags___recipe___yield = 'recipe.foodTypeTags.recipe.yield',
+  recipe___foodTypeTags___recipe___featured = 'recipe.foodTypeTags.recipe.featured',
+  recipe___foodTypeTags___recipe___ingredientTags = 'recipe.foodTypeTags.recipe.ingredientTags',
+  recipe___foodTypeTags___recipe___foodTypeTags = 'recipe.foodTypeTags.recipe.foodTypeTags',
   recipe___foodTypeTags___recipe___gatsbyPath = 'recipe.foodTypeTags.recipe.gatsbyPath',
   recipe___foodTypeTags___recipe___childrenContentfulRecipeNotesTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeNotesTextNode',
   recipe___foodTypeTags___recipe___childrenContentfulRecipeDirectionsTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeDirectionsTextNode',
@@ -3751,11 +3756,6 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___directions___childMarkdownRemark___timeToRead = 'recipe.directions.childMarkdownRemark.timeToRead',
   recipe___directions___childMarkdownRemark___tableOfContents = 'recipe.directions.childMarkdownRemark.tableOfContents',
   recipe___directions___childMarkdownRemark___children = 'recipe.directions.childMarkdownRemark.children',
-  recipe___spaceId = 'recipe.spaceId',
-  recipe___createdAt = 'recipe.createdAt',
-  recipe___updatedAt = 'recipe.updatedAt',
-  recipe___sys___type = 'recipe.sys.type',
-  recipe___sys___revision = 'recipe.sys.revision',
   recipe___notes___id = 'recipe.notes.id',
   recipe___notes___parent___id = 'recipe.notes.parent.id',
   recipe___notes___parent___children = 'recipe.notes.parent.children',
@@ -5256,9 +5256,14 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___id = 'recipe.id',
   recipe___node_locale = 'recipe.node_locale',
   recipe___title = 'recipe.title',
-  recipe___yield = 'recipe.yield',
   recipe___prepTime = 'recipe.prepTime',
   recipe___totalTime = 'recipe.totalTime',
+  recipe___spaceId = 'recipe.spaceId',
+  recipe___createdAt = 'recipe.createdAt',
+  recipe___updatedAt = 'recipe.updatedAt',
+  recipe___sys___type = 'recipe.sys.type',
+  recipe___sys___revision = 'recipe.sys.revision',
+  recipe___yield = 'recipe.yield',
   recipe___featured = 'recipe.featured',
   recipe___ingredientTags = 'recipe.ingredientTags',
   recipe___ingredientTags___contentful_id = 'recipe.ingredientTags.contentful_id',
@@ -5271,15 +5276,15 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___ingredientTags___recipe___id = 'recipe.ingredientTags.recipe.id',
   recipe___ingredientTags___recipe___node_locale = 'recipe.ingredientTags.recipe.node_locale',
   recipe___ingredientTags___recipe___title = 'recipe.ingredientTags.recipe.title',
-  recipe___ingredientTags___recipe___yield = 'recipe.ingredientTags.recipe.yield',
   recipe___ingredientTags___recipe___prepTime = 'recipe.ingredientTags.recipe.prepTime',
   recipe___ingredientTags___recipe___totalTime = 'recipe.ingredientTags.recipe.totalTime',
-  recipe___ingredientTags___recipe___featured = 'recipe.ingredientTags.recipe.featured',
-  recipe___ingredientTags___recipe___ingredientTags = 'recipe.ingredientTags.recipe.ingredientTags',
-  recipe___ingredientTags___recipe___foodTypeTags = 'recipe.ingredientTags.recipe.foodTypeTags',
   recipe___ingredientTags___recipe___spaceId = 'recipe.ingredientTags.recipe.spaceId',
   recipe___ingredientTags___recipe___createdAt = 'recipe.ingredientTags.recipe.createdAt',
   recipe___ingredientTags___recipe___updatedAt = 'recipe.ingredientTags.recipe.updatedAt',
+  recipe___ingredientTags___recipe___yield = 'recipe.ingredientTags.recipe.yield',
+  recipe___ingredientTags___recipe___featured = 'recipe.ingredientTags.recipe.featured',
+  recipe___ingredientTags___recipe___ingredientTags = 'recipe.ingredientTags.recipe.ingredientTags',
+  recipe___ingredientTags___recipe___foodTypeTags = 'recipe.ingredientTags.recipe.foodTypeTags',
   recipe___ingredientTags___recipe___gatsbyPath = 'recipe.ingredientTags.recipe.gatsbyPath',
   recipe___ingredientTags___recipe___childrenContentfulRecipeNotesTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeNotesTextNode',
   recipe___ingredientTags___recipe___childrenContentfulRecipeDirectionsTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeDirectionsTextNode',
@@ -5315,15 +5320,15 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___foodTypeTags___recipe___id = 'recipe.foodTypeTags.recipe.id',
   recipe___foodTypeTags___recipe___node_locale = 'recipe.foodTypeTags.recipe.node_locale',
   recipe___foodTypeTags___recipe___title = 'recipe.foodTypeTags.recipe.title',
-  recipe___foodTypeTags___recipe___yield = 'recipe.foodTypeTags.recipe.yield',
   recipe___foodTypeTags___recipe___prepTime = 'recipe.foodTypeTags.recipe.prepTime',
   recipe___foodTypeTags___recipe___totalTime = 'recipe.foodTypeTags.recipe.totalTime',
-  recipe___foodTypeTags___recipe___featured = 'recipe.foodTypeTags.recipe.featured',
-  recipe___foodTypeTags___recipe___ingredientTags = 'recipe.foodTypeTags.recipe.ingredientTags',
-  recipe___foodTypeTags___recipe___foodTypeTags = 'recipe.foodTypeTags.recipe.foodTypeTags',
   recipe___foodTypeTags___recipe___spaceId = 'recipe.foodTypeTags.recipe.spaceId',
   recipe___foodTypeTags___recipe___createdAt = 'recipe.foodTypeTags.recipe.createdAt',
   recipe___foodTypeTags___recipe___updatedAt = 'recipe.foodTypeTags.recipe.updatedAt',
+  recipe___foodTypeTags___recipe___yield = 'recipe.foodTypeTags.recipe.yield',
+  recipe___foodTypeTags___recipe___featured = 'recipe.foodTypeTags.recipe.featured',
+  recipe___foodTypeTags___recipe___ingredientTags = 'recipe.foodTypeTags.recipe.ingredientTags',
+  recipe___foodTypeTags___recipe___foodTypeTags = 'recipe.foodTypeTags.recipe.foodTypeTags',
   recipe___foodTypeTags___recipe___gatsbyPath = 'recipe.foodTypeTags.recipe.gatsbyPath',
   recipe___foodTypeTags___recipe___childrenContentfulRecipeNotesTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeNotesTextNode',
   recipe___foodTypeTags___recipe___childrenContentfulRecipeDirectionsTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeDirectionsTextNode',
@@ -5459,11 +5464,6 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___directions___childMarkdownRemark___timeToRead = 'recipe.directions.childMarkdownRemark.timeToRead',
   recipe___directions___childMarkdownRemark___tableOfContents = 'recipe.directions.childMarkdownRemark.tableOfContents',
   recipe___directions___childMarkdownRemark___children = 'recipe.directions.childMarkdownRemark.children',
-  recipe___spaceId = 'recipe.spaceId',
-  recipe___createdAt = 'recipe.createdAt',
-  recipe___updatedAt = 'recipe.updatedAt',
-  recipe___sys___type = 'recipe.sys.type',
-  recipe___sys___revision = 'recipe.sys.revision',
   recipe___notes___id = 'recipe.notes.id',
   recipe___notes___parent___id = 'recipe.notes.parent.id',
   recipe___notes___parent___children = 'recipe.notes.parent.children',
@@ -9217,19 +9217,19 @@ type ContentfulRecipe = ContentfulReference & ContentfulEntry & Node & {
   readonly id: Scalars['ID'];
   readonly node_locale: Scalars['String'];
   readonly title: Maybe<Scalars['String']>;
-  readonly yield: Maybe<Scalars['String']>;
   readonly prepTime: Maybe<Scalars['Int']>;
   readonly totalTime: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly sys: Maybe<ContentfulRecipeSys>;
+  readonly yield: Maybe<Scalars['String']>;
   readonly featured: Maybe<Scalars['Boolean']>;
   readonly ingredientTags: Maybe<ReadonlyArray<Maybe<ContentfulIngredientTag>>>;
   readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<ContentfulFoodTypeTag>>>;
   readonly ingredients: Maybe<contentfulRecipeIngredientsTextNode>;
   readonly prepDirections: Maybe<contentfulRecipePrepDirectionsTextNode>;
   readonly directions: Maybe<contentfulRecipeDirectionsTextNode>;
-  readonly spaceId: Maybe<Scalars['String']>;
-  readonly createdAt: Maybe<Scalars['Date']>;
-  readonly updatedAt: Maybe<Scalars['Date']>;
-  readonly sys: Maybe<ContentfulRecipeSys>;
   readonly notes: Maybe<contentfulRecipeNotesTextNode>;
   readonly mainImage: Maybe<ContentfulAsset>;
   readonly gatsbyPath: Maybe<Scalars['String']>;
@@ -9594,9 +9594,17 @@ enum ContentfulRecipeFieldsEnum {
   id = 'id',
   node_locale = 'node_locale',
   title = 'title',
-  yield = 'yield',
   prepTime = 'prepTime',
   totalTime = 'totalTime',
+  spaceId = 'spaceId',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys.type',
+  sys___revision = 'sys.revision',
+  sys___contentType___sys___type = 'sys.contentType.sys.type',
+  sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
+  sys___contentType___sys___id = 'sys.contentType.sys.id',
+  yield = 'yield',
   featured = 'featured',
   ingredientTags = 'ingredientTags',
   ingredientTags___contentful_id = 'ingredientTags.contentful_id',
@@ -9609,9 +9617,14 @@ enum ContentfulRecipeFieldsEnum {
   ingredientTags___recipe___id = 'ingredientTags.recipe.id',
   ingredientTags___recipe___node_locale = 'ingredientTags.recipe.node_locale',
   ingredientTags___recipe___title = 'ingredientTags.recipe.title',
-  ingredientTags___recipe___yield = 'ingredientTags.recipe.yield',
   ingredientTags___recipe___prepTime = 'ingredientTags.recipe.prepTime',
   ingredientTags___recipe___totalTime = 'ingredientTags.recipe.totalTime',
+  ingredientTags___recipe___spaceId = 'ingredientTags.recipe.spaceId',
+  ingredientTags___recipe___createdAt = 'ingredientTags.recipe.createdAt',
+  ingredientTags___recipe___updatedAt = 'ingredientTags.recipe.updatedAt',
+  ingredientTags___recipe___sys___type = 'ingredientTags.recipe.sys.type',
+  ingredientTags___recipe___sys___revision = 'ingredientTags.recipe.sys.revision',
+  ingredientTags___recipe___yield = 'ingredientTags.recipe.yield',
   ingredientTags___recipe___featured = 'ingredientTags.recipe.featured',
   ingredientTags___recipe___ingredientTags = 'ingredientTags.recipe.ingredientTags',
   ingredientTags___recipe___ingredientTags___contentful_id = 'ingredientTags.recipe.ingredientTags.contentful_id',
@@ -9647,11 +9660,6 @@ enum ContentfulRecipeFieldsEnum {
   ingredientTags___recipe___directions___children = 'ingredientTags.recipe.directions.children',
   ingredientTags___recipe___directions___directions = 'ingredientTags.recipe.directions.directions',
   ingredientTags___recipe___directions___childrenMarkdownRemark = 'ingredientTags.recipe.directions.childrenMarkdownRemark',
-  ingredientTags___recipe___spaceId = 'ingredientTags.recipe.spaceId',
-  ingredientTags___recipe___createdAt = 'ingredientTags.recipe.createdAt',
-  ingredientTags___recipe___updatedAt = 'ingredientTags.recipe.updatedAt',
-  ingredientTags___recipe___sys___type = 'ingredientTags.recipe.sys.type',
-  ingredientTags___recipe___sys___revision = 'ingredientTags.recipe.sys.revision',
   ingredientTags___recipe___notes___id = 'ingredientTags.recipe.notes.id',
   ingredientTags___recipe___notes___children = 'ingredientTags.recipe.notes.children',
   ingredientTags___recipe___notes___notes = 'ingredientTags.recipe.notes.notes',
@@ -9768,9 +9776,14 @@ enum ContentfulRecipeFieldsEnum {
   foodTypeTags___recipe___id = 'foodTypeTags.recipe.id',
   foodTypeTags___recipe___node_locale = 'foodTypeTags.recipe.node_locale',
   foodTypeTags___recipe___title = 'foodTypeTags.recipe.title',
-  foodTypeTags___recipe___yield = 'foodTypeTags.recipe.yield',
   foodTypeTags___recipe___prepTime = 'foodTypeTags.recipe.prepTime',
   foodTypeTags___recipe___totalTime = 'foodTypeTags.recipe.totalTime',
+  foodTypeTags___recipe___spaceId = 'foodTypeTags.recipe.spaceId',
+  foodTypeTags___recipe___createdAt = 'foodTypeTags.recipe.createdAt',
+  foodTypeTags___recipe___updatedAt = 'foodTypeTags.recipe.updatedAt',
+  foodTypeTags___recipe___sys___type = 'foodTypeTags.recipe.sys.type',
+  foodTypeTags___recipe___sys___revision = 'foodTypeTags.recipe.sys.revision',
+  foodTypeTags___recipe___yield = 'foodTypeTags.recipe.yield',
   foodTypeTags___recipe___featured = 'foodTypeTags.recipe.featured',
   foodTypeTags___recipe___ingredientTags = 'foodTypeTags.recipe.ingredientTags',
   foodTypeTags___recipe___ingredientTags___contentful_id = 'foodTypeTags.recipe.ingredientTags.contentful_id',
@@ -9806,11 +9819,6 @@ enum ContentfulRecipeFieldsEnum {
   foodTypeTags___recipe___directions___children = 'foodTypeTags.recipe.directions.children',
   foodTypeTags___recipe___directions___directions = 'foodTypeTags.recipe.directions.directions',
   foodTypeTags___recipe___directions___childrenMarkdownRemark = 'foodTypeTags.recipe.directions.childrenMarkdownRemark',
-  foodTypeTags___recipe___spaceId = 'foodTypeTags.recipe.spaceId',
-  foodTypeTags___recipe___createdAt = 'foodTypeTags.recipe.createdAt',
-  foodTypeTags___recipe___updatedAt = 'foodTypeTags.recipe.updatedAt',
-  foodTypeTags___recipe___sys___type = 'foodTypeTags.recipe.sys.type',
-  foodTypeTags___recipe___sys___revision = 'foodTypeTags.recipe.sys.revision',
   foodTypeTags___recipe___notes___id = 'foodTypeTags.recipe.notes.id',
   foodTypeTags___recipe___notes___children = 'foodTypeTags.recipe.notes.children',
   foodTypeTags___recipe___notes___notes = 'foodTypeTags.recipe.notes.notes',
@@ -10213,14 +10221,6 @@ enum ContentfulRecipeFieldsEnum {
   directions___childMarkdownRemark___internal___mediaType = 'directions.childMarkdownRemark.internal.mediaType',
   directions___childMarkdownRemark___internal___owner = 'directions.childMarkdownRemark.internal.owner',
   directions___childMarkdownRemark___internal___type = 'directions.childMarkdownRemark.internal.type',
-  spaceId = 'spaceId',
-  createdAt = 'createdAt',
-  updatedAt = 'updatedAt',
-  sys___type = 'sys.type',
-  sys___revision = 'sys.revision',
-  sys___contentType___sys___type = 'sys.contentType.sys.type',
-  sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
-  sys___contentType___sys___id = 'sys.contentType.sys.id',
   notes___id = 'notes.id',
   notes___parent___id = 'notes.parent.id',
   notes___parent___parent___id = 'notes.parent.parent.id',
@@ -11300,19 +11300,19 @@ type ContentfulRecipeFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly node_locale: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
-  readonly yield: Maybe<StringQueryOperatorInput>;
   readonly prepTime: Maybe<IntQueryOperatorInput>;
   readonly totalTime: Maybe<IntQueryOperatorInput>;
+  readonly spaceId: Maybe<StringQueryOperatorInput>;
+  readonly createdAt: Maybe<DateQueryOperatorInput>;
+  readonly updatedAt: Maybe<DateQueryOperatorInput>;
+  readonly sys: Maybe<ContentfulRecipeSysFilterInput>;
+  readonly yield: Maybe<StringQueryOperatorInput>;
   readonly featured: Maybe<BooleanQueryOperatorInput>;
   readonly ingredientTags: Maybe<ContentfulIngredientTagFilterListInput>;
   readonly foodTypeTags: Maybe<ContentfulFoodTypeTagFilterListInput>;
   readonly ingredients: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
   readonly prepDirections: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
   readonly directions: Maybe<contentfulRecipeDirectionsTextNodeFilterInput>;
-  readonly spaceId: Maybe<StringQueryOperatorInput>;
-  readonly createdAt: Maybe<DateQueryOperatorInput>;
-  readonly updatedAt: Maybe<DateQueryOperatorInput>;
-  readonly sys: Maybe<ContentfulRecipeSysFilterInput>;
   readonly notes: Maybe<contentfulRecipeNotesTextNodeFilterInput>;
   readonly mainImage: Maybe<ContentfulAssetFilterInput>;
   readonly gatsbyPath: Maybe<StringQueryOperatorInput>;
@@ -14762,19 +14762,19 @@ type Query_contentfulRecipeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
-  yield: Maybe<StringQueryOperatorInput>;
   prepTime: Maybe<IntQueryOperatorInput>;
   totalTime: Maybe<IntQueryOperatorInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulRecipeSysFilterInput>;
+  yield: Maybe<StringQueryOperatorInput>;
   featured: Maybe<BooleanQueryOperatorInput>;
   ingredientTags: Maybe<ContentfulIngredientTagFilterListInput>;
   foodTypeTags: Maybe<ContentfulFoodTypeTagFilterListInput>;
   ingredients: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
   prepDirections: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
   directions: Maybe<contentfulRecipeDirectionsTextNodeFilterInput>;
-  spaceId: Maybe<StringQueryOperatorInput>;
-  createdAt: Maybe<DateQueryOperatorInput>;
-  updatedAt: Maybe<DateQueryOperatorInput>;
-  sys: Maybe<ContentfulRecipeSysFilterInput>;
   notes: Maybe<contentfulRecipeNotesTextNodeFilterInput>;
   mainImage: Maybe<ContentfulAssetFilterInput>;
   gatsbyPath: Maybe<StringQueryOperatorInput>;

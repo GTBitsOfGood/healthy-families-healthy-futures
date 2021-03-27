@@ -1,21 +1,6 @@
-import {
-  Box,
-  VStack,
-  Heading,
-  Flex,
-  Link,
-  HStack,
-  Text,
-  Stack,
-  Center,
-  Input,
-  Button,
-} from '@chakra-ui/react';
-import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
 import React from 'react';
 
-import { FacebookIcon, InstagramIcon, EmailIcon } from './Icons';
+import { Box, Text, Stack, Center, Input, Button } from '@chakra-ui/react';
 
 function Newsletter(): JSX.Element {
   const [value, setValue] = React.useState('');
