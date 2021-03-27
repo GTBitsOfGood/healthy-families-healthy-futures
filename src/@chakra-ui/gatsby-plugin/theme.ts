@@ -12,7 +12,8 @@ const theme = extendTheme({
     gray: {
       dark: '#404040',
       mid: '#6C6C6C',
-      light: '#f6f6f6',
+      light: '#C4C4C4',
+      extralight: 'rgba(196, 196, 196, 0.1)',
     },
     creamsicle: '#FF9C59',
   },
@@ -71,6 +72,7 @@ const theme = extendTheme({
       sizes: {
         md: {
           h: 'min',
+          minW: 'none',
         },
       },
       variants: {
@@ -98,6 +100,8 @@ const theme = extendTheme({
         neutral: {
           bg: 'tangerine.500',
           textTransform: 'none',
+          px: '19px',
+          py: '8px',
           _hover: {
             bg: 'tangerine.600',
           },
