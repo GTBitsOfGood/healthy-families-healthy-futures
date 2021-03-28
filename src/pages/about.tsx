@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { Box, Heading, Text, HStack, VStack, Image, Grid } from '@chakra-ui/react';
+import { Box, Text, HStack, VStack, Image, Grid } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
+import AboutBanner from 'src/components/AboutBanner';
 import DonateSection from 'src/components/DonateSection';
+import OurStorySection from 'src/components/OurStorySection';
 import OurWorkSection from 'src/components/OurWorkSection';
 
 import Layout from '../components/Layout';
@@ -11,79 +13,13 @@ import NewsletterSection from '../components/NewsletterSection';
 interface Props extends PageProps {
   data: GatsbyTypes.AboutQueryQuery;
 }
+
 function AboutPage(props: Props): JSX.Element {
-  //   const sponsors = [
-  //     'download.png',
-  //     'download.png',
-  //     'download.png',
-  //     'download.png',
-  //     'download.png',
-  //     'download.png',
-  //     'download.png',
-  //     'download.png',
-  //   ];
   return (
     <Layout location={props.location}>
-      <HStack spacing={0}>
-        <Box w="50%" h={631} marginRight={0}>
-          <img src="missionBanner.png" alt=""></img>
-        </Box>
-        <Box w="50%" h={631} bg="creamsicle" marginLeft={0}>
-          <Box h={155} bg="creamsicle"></Box>
-          <VStack>
-            <Box w={183} h={158}>
-              <img src="whiteLogo.png" alt=""></img>
-            </Box>
-            <VStack>
-              <Box w={500}>
-                <Heading textAlign="center" textStyle="heading1" color="charcoal">
-                  OUR MISSION
-                </Heading>
-                <Text textAlign="center" textStyle="body1">
-                  Healthy Families-Healthy Futures is dedicated to empowering teachers, school
-                  staff, and families of young children to embrace healthy eating habits by
-                  equipping them with the tools and educated support system they need to make
-                  healthy food choices.
-                </Text>
-              </Box>
-            </VStack>
-          </VStack>
-        </Box>
-      </HStack>
+      <AboutBanner data={props.data} />
 
-      <HStack marginBottom={170} marginTop="170px">
-        <Box bg="creamsicle" w="100%" p={8}></Box>
-        <Box w={640}>
-          <Text textAlign={'center'} textStyle="heading1">
-            OUR STORY
-          </Text>
-        </Box>
-      </HStack>
-
-      <HStack spacing={0}>
-        <Box w="40%" h={631}>
-          <Box w="50%" h={631} marginLeft="35%" marginTop={10}>
-            <img src="download.png" alt=""></img>
-          </Box>
-        </Box>
-        <Box w="60%" h={631}>
-          <VStack>
-            <Box w={529}>
-              <Text textAlign="left" textStyle="body1">
-                Eating habits are learned behaviors; they are not intuitive. What children learn to
-                eat at home early in life will stick with them well into adulthood. Involving the
-                whole family is the best way to promote better eating habits and healthy activities
-                for your kids. Healthy Families – Healthy Futures was established to empower and
-                support families, schools, and childcare centers with the knowledge and skills to
-                make healthy food and beverage choices. Providing opportunities for nutrition
-                education in schools, childcare centers, and in the family home is a vital part of
-                uplifting the health of those that participate in the program. Healthy Families –
-                Healthy Futures strives to promote a healthy future, one nutritious meal at a time.
-              </Text>
-            </Box>
-          </VStack>
-        </Box>
-      </HStack>
+      <OurStorySection data={props.data} />
 
       <OurWorkSection data={props.data} />
 
@@ -168,6 +104,8 @@ export const pageQuery = graphql`
         title
       }
     }
+    ...AboutBanner
     ...OurWorkSection
+    ...OurStorySection
   }
 `;
