@@ -3,53 +3,59 @@ import React, { useState, useEffect } from 'react';
 import { Heading, Flex, Button, VStack, Box } from '@chakra-ui/react';
 import { navigate } from 'gatsby';
 import { parse, stringify } from 'query-string';
+import { entries, removeNulls } from 'src/utils/util';
 
+import { SelectedRecipeFilters } from '../utils/types';
 import FilterGroup from './FilterGroup';
 
 interface Props {
+  filters: SelectedRecipeFilters;
   location: Location;
+  onChange(newFilter: SelectedRecipeFilters): void;
 }
 
-function RecipeSidebar({ location }: Props): JSX.Element {
-  const defaultFilters = parse(location.search, { arrayFormat: 'comma' });
-  // Note: selectedFilters can include other query parameters that are not necessarily used for filtering
-  const [selectedFilters, updateSelectedFilters] = useState(defaultFilters);
+function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
+  const defaultFilters = Object.fromEntries(
+    entries(parse(location.search, { arrayFormat: 'comma' })).map(([category, value]) => [
+      category,
+      typeof value === 'string' ? [value] : value,
+    ]),
+  );
 
-  // TODO - Retrieve the filters dynamically
-  const filters = [
-    {
-      category: 'Food Type',
-      options: ['Vegan', 'Vegetarian', 'Breakfast', 'Lunch'],
-    },
-    {
-      category: 'Ingredients',
-      options: ['Beans', 'Fruit', 'Protein', 'Dairy'],
-    },
-    {
-      category: 'Time',
-      options: ['< 10 min', '15-30 min', '31-45 min'],
-    },
-  ];
+  // Note: selectedFilters can include other query parameters that are not necessarily used for filtering
+  const [selectedFilters, updateSelectedFilters] = useState<SelectedRecipeFilters>(defaultFilters);
+
+  useEffect(() => {
+    onChange(selectedFilters);
+  }, [onChange, selectedFilters]);
 
   useEffect(() => {
     const newQueries = stringify(selectedFilters, { arrayFormat: 'comma' });
     const newUrl = `${location.pathname}?${newQueries}`;
-    void navigate(newUrl);
+    void navigate(newUrl, {
+      state: {
+        disableScrollUpdate: true,
+      },
+      replace: true,
+    });
   }, [location.pathname, selectedFilters]);
 
   // Check if the query string has any of the category as a selected filter
-  const hasActiveFilter = filters.map(x => x.category).some(x => x in selectedFilters);
+  const hasActiveFilter = entries(filters).some(x => x != null && x[0] in selectedFilters);
 
   return (
     <Box px={6}>
-      <Flex justify="space-between" align="center" mb={5}>
+      <Flex justify="space-between" align="center" mb={5} h={10}>
         <Heading as="h1" size="md">
           Filters
         </Heading>
         <Button
           variant="back"
           colorScheme="gray"
-          onClick={() => updateSelectedFilters({})}
+          onClick={() => {
+            onChange({});
+            updateSelectedFilters({});
+          }}
           hidden={!hasActiveFilter}
         >
           Clear
@@ -57,41 +63,35 @@ function RecipeSidebar({ location }: Props): JSX.Element {
       </Flex>
 
       <VStack align="stretch">
-        {filters.map(filter => {
-          const { category, options } = filter;
+        {removeNulls(entries(filters)).map(([category, options]) => {
           let selectedOptions: string[] = [];
 
           if (category in selectedFilters) {
-            if (typeof selectedFilters[category] === 'string') {
-              // If there is only one option selected, the query-string parse will read it as string
-              selectedOptions = [selectedFilters[category] as string];
-            } else if (Array.isArray(selectedFilters[category])) {
-              selectedOptions = selectedFilters[category] as string[];
-            }
+            selectedOptions = selectedFilters[category] as string[];
           }
 
           const onOptionsChange = (options: string[]) => {
             if (options.length > 0) {
-              updateSelectedFilters({
-                ...selectedFilters,
-                [category]: options,
-              });
+              const filters = { ...selectedFilters, [category]: options };
+              updateSelectedFilters(filters);
+              onChange(filters);
             } else {
               // If there are no options, remove this category from selected filters.
               // This helps to determine if there is any active filters
               const newSelectedFilters = { ...selectedFilters };
               delete newSelectedFilters[category];
               updateSelectedFilters(newSelectedFilters);
+              onChange(newSelectedFilters);
             }
           };
 
           return (
             <FilterGroup
               category={category}
-              options={options}
+              options={options ?? []}
               selectedOptions={selectedOptions}
               onChange={onOptionsChange}
-              key={filter.category}
+              key={category}
             />
           );
         })}

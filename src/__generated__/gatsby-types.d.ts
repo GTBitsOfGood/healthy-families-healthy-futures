@@ -10264,6 +10264,40 @@ enum ContentfulOurSponsorFieldsEnum {
   sponsors___image___internal___mediaType = 'sponsors.image.internal.mediaType',
   sponsors___image___internal___owner = 'sponsors.image.internal.owner',
   sponsors___image___internal___type = 'sponsors.image.internal.type',
+  sponsors___our_sponsor = 'sponsors.our_sponsor',
+  sponsors___our_sponsor___contentful_id = 'sponsors.our_sponsor.contentful_id',
+  sponsors___our_sponsor___id = 'sponsors.our_sponsor.id',
+  sponsors___our_sponsor___node_locale = 'sponsors.our_sponsor.node_locale',
+  sponsors___our_sponsor___title = 'sponsors.our_sponsor.title',
+  sponsors___our_sponsor___sponsors = 'sponsors.our_sponsor.sponsors',
+  sponsors___our_sponsor___sponsors___contentful_id = 'sponsors.our_sponsor.sponsors.contentful_id',
+  sponsors___our_sponsor___sponsors___id = 'sponsors.our_sponsor.sponsors.id',
+  sponsors___our_sponsor___sponsors___node_locale = 'sponsors.our_sponsor.sponsors.node_locale',
+  sponsors___our_sponsor___sponsors___name = 'sponsors.our_sponsor.sponsors.name',
+  sponsors___our_sponsor___sponsors___link = 'sponsors.our_sponsor.sponsors.link',
+  sponsors___our_sponsor___sponsors___our_sponsor = 'sponsors.our_sponsor.sponsors.our_sponsor',
+  sponsors___our_sponsor___sponsors___spaceId = 'sponsors.our_sponsor.sponsors.spaceId',
+  sponsors___our_sponsor___sponsors___createdAt = 'sponsors.our_sponsor.sponsors.createdAt',
+  sponsors___our_sponsor___sponsors___updatedAt = 'sponsors.our_sponsor.sponsors.updatedAt',
+  sponsors___our_sponsor___sponsors___children = 'sponsors.our_sponsor.sponsors.children',
+  sponsors___our_sponsor___spaceId = 'sponsors.our_sponsor.spaceId',
+  sponsors___our_sponsor___createdAt = 'sponsors.our_sponsor.createdAt',
+  sponsors___our_sponsor___updatedAt = 'sponsors.our_sponsor.updatedAt',
+  sponsors___our_sponsor___sys___type = 'sponsors.our_sponsor.sys.type',
+  sponsors___our_sponsor___sys___revision = 'sponsors.our_sponsor.sys.revision',
+  sponsors___our_sponsor___parent___id = 'sponsors.our_sponsor.parent.id',
+  sponsors___our_sponsor___parent___children = 'sponsors.our_sponsor.parent.children',
+  sponsors___our_sponsor___children = 'sponsors.our_sponsor.children',
+  sponsors___our_sponsor___children___id = 'sponsors.our_sponsor.children.id',
+  sponsors___our_sponsor___children___children = 'sponsors.our_sponsor.children.children',
+  sponsors___our_sponsor___internal___content = 'sponsors.our_sponsor.internal.content',
+  sponsors___our_sponsor___internal___contentDigest = 'sponsors.our_sponsor.internal.contentDigest',
+  sponsors___our_sponsor___internal___description = 'sponsors.our_sponsor.internal.description',
+  sponsors___our_sponsor___internal___fieldOwners = 'sponsors.our_sponsor.internal.fieldOwners',
+  sponsors___our_sponsor___internal___ignoreType = 'sponsors.our_sponsor.internal.ignoreType',
+  sponsors___our_sponsor___internal___mediaType = 'sponsors.our_sponsor.internal.mediaType',
+  sponsors___our_sponsor___internal___owner = 'sponsors.our_sponsor.internal.owner',
+  sponsors___our_sponsor___internal___type = 'sponsors.our_sponsor.internal.type',
   sponsors___spaceId = 'sponsors.spaceId',
   sponsors___createdAt = 'sponsors.createdAt',
   sponsors___updatedAt = 'sponsors.updatedAt',
@@ -10414,6 +10448,10 @@ type ContentfulOurSponsorFilterInput = {
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
+};
+
+type ContentfulOurSponsorFilterListInput = {
+  readonly elemMatch: Maybe<ContentfulOurSponsorFilterInput>;
 };
 
 type ContentfulOurSponsorGroupConnection = {
@@ -16651,6 +16689,7 @@ type ContentfulSponsorPartner = ContentfulReference & ContentfulEntry & Node & {
   readonly name: Maybe<Scalars['String']>;
   readonly link: Maybe<Scalars['String']>;
   readonly image: Maybe<ContentfulAsset>;
+  readonly our_sponsor: Maybe<ReadonlyArray<Maybe<ContentfulOurSponsor>>>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -16800,6 +16839,96 @@ enum ContentfulSponsorPartnerFieldsEnum {
   image___internal___mediaType = 'image.internal.mediaType',
   image___internal___owner = 'image.internal.owner',
   image___internal___type = 'image.internal.type',
+  our_sponsor = 'our_sponsor',
+  our_sponsor___contentful_id = 'our_sponsor.contentful_id',
+  our_sponsor___id = 'our_sponsor.id',
+  our_sponsor___node_locale = 'our_sponsor.node_locale',
+  our_sponsor___title = 'our_sponsor.title',
+  our_sponsor___sponsors = 'our_sponsor.sponsors',
+  our_sponsor___sponsors___contentful_id = 'our_sponsor.sponsors.contentful_id',
+  our_sponsor___sponsors___id = 'our_sponsor.sponsors.id',
+  our_sponsor___sponsors___node_locale = 'our_sponsor.sponsors.node_locale',
+  our_sponsor___sponsors___name = 'our_sponsor.sponsors.name',
+  our_sponsor___sponsors___link = 'our_sponsor.sponsors.link',
+  our_sponsor___sponsors___image___contentful_id = 'our_sponsor.sponsors.image.contentful_id',
+  our_sponsor___sponsors___image___id = 'our_sponsor.sponsors.image.id',
+  our_sponsor___sponsors___image___spaceId = 'our_sponsor.sponsors.image.spaceId',
+  our_sponsor___sponsors___image___createdAt = 'our_sponsor.sponsors.image.createdAt',
+  our_sponsor___sponsors___image___updatedAt = 'our_sponsor.sponsors.image.updatedAt',
+  our_sponsor___sponsors___image___title = 'our_sponsor.sponsors.image.title',
+  our_sponsor___sponsors___image___description = 'our_sponsor.sponsors.image.description',
+  our_sponsor___sponsors___image___node_locale = 'our_sponsor.sponsors.image.node_locale',
+  our_sponsor___sponsors___image___children = 'our_sponsor.sponsors.image.children',
+  our_sponsor___sponsors___our_sponsor = 'our_sponsor.sponsors.our_sponsor',
+  our_sponsor___sponsors___our_sponsor___contentful_id = 'our_sponsor.sponsors.our_sponsor.contentful_id',
+  our_sponsor___sponsors___our_sponsor___id = 'our_sponsor.sponsors.our_sponsor.id',
+  our_sponsor___sponsors___our_sponsor___node_locale = 'our_sponsor.sponsors.our_sponsor.node_locale',
+  our_sponsor___sponsors___our_sponsor___title = 'our_sponsor.sponsors.our_sponsor.title',
+  our_sponsor___sponsors___our_sponsor___sponsors = 'our_sponsor.sponsors.our_sponsor.sponsors',
+  our_sponsor___sponsors___our_sponsor___spaceId = 'our_sponsor.sponsors.our_sponsor.spaceId',
+  our_sponsor___sponsors___our_sponsor___createdAt = 'our_sponsor.sponsors.our_sponsor.createdAt',
+  our_sponsor___sponsors___our_sponsor___updatedAt = 'our_sponsor.sponsors.our_sponsor.updatedAt',
+  our_sponsor___sponsors___our_sponsor___children = 'our_sponsor.sponsors.our_sponsor.children',
+  our_sponsor___sponsors___spaceId = 'our_sponsor.sponsors.spaceId',
+  our_sponsor___sponsors___createdAt = 'our_sponsor.sponsors.createdAt',
+  our_sponsor___sponsors___updatedAt = 'our_sponsor.sponsors.updatedAt',
+  our_sponsor___sponsors___sys___type = 'our_sponsor.sponsors.sys.type',
+  our_sponsor___sponsors___sys___revision = 'our_sponsor.sponsors.sys.revision',
+  our_sponsor___sponsors___parent___id = 'our_sponsor.sponsors.parent.id',
+  our_sponsor___sponsors___parent___children = 'our_sponsor.sponsors.parent.children',
+  our_sponsor___sponsors___children = 'our_sponsor.sponsors.children',
+  our_sponsor___sponsors___children___id = 'our_sponsor.sponsors.children.id',
+  our_sponsor___sponsors___children___children = 'our_sponsor.sponsors.children.children',
+  our_sponsor___sponsors___internal___content = 'our_sponsor.sponsors.internal.content',
+  our_sponsor___sponsors___internal___contentDigest = 'our_sponsor.sponsors.internal.contentDigest',
+  our_sponsor___sponsors___internal___description = 'our_sponsor.sponsors.internal.description',
+  our_sponsor___sponsors___internal___fieldOwners = 'our_sponsor.sponsors.internal.fieldOwners',
+  our_sponsor___sponsors___internal___ignoreType = 'our_sponsor.sponsors.internal.ignoreType',
+  our_sponsor___sponsors___internal___mediaType = 'our_sponsor.sponsors.internal.mediaType',
+  our_sponsor___sponsors___internal___owner = 'our_sponsor.sponsors.internal.owner',
+  our_sponsor___sponsors___internal___type = 'our_sponsor.sponsors.internal.type',
+  our_sponsor___spaceId = 'our_sponsor.spaceId',
+  our_sponsor___createdAt = 'our_sponsor.createdAt',
+  our_sponsor___updatedAt = 'our_sponsor.updatedAt',
+  our_sponsor___sys___type = 'our_sponsor.sys.type',
+  our_sponsor___sys___revision = 'our_sponsor.sys.revision',
+  our_sponsor___parent___id = 'our_sponsor.parent.id',
+  our_sponsor___parent___parent___id = 'our_sponsor.parent.parent.id',
+  our_sponsor___parent___parent___children = 'our_sponsor.parent.parent.children',
+  our_sponsor___parent___children = 'our_sponsor.parent.children',
+  our_sponsor___parent___children___id = 'our_sponsor.parent.children.id',
+  our_sponsor___parent___children___children = 'our_sponsor.parent.children.children',
+  our_sponsor___parent___internal___content = 'our_sponsor.parent.internal.content',
+  our_sponsor___parent___internal___contentDigest = 'our_sponsor.parent.internal.contentDigest',
+  our_sponsor___parent___internal___description = 'our_sponsor.parent.internal.description',
+  our_sponsor___parent___internal___fieldOwners = 'our_sponsor.parent.internal.fieldOwners',
+  our_sponsor___parent___internal___ignoreType = 'our_sponsor.parent.internal.ignoreType',
+  our_sponsor___parent___internal___mediaType = 'our_sponsor.parent.internal.mediaType',
+  our_sponsor___parent___internal___owner = 'our_sponsor.parent.internal.owner',
+  our_sponsor___parent___internal___type = 'our_sponsor.parent.internal.type',
+  our_sponsor___children = 'our_sponsor.children',
+  our_sponsor___children___id = 'our_sponsor.children.id',
+  our_sponsor___children___parent___id = 'our_sponsor.children.parent.id',
+  our_sponsor___children___parent___children = 'our_sponsor.children.parent.children',
+  our_sponsor___children___children = 'our_sponsor.children.children',
+  our_sponsor___children___children___id = 'our_sponsor.children.children.id',
+  our_sponsor___children___children___children = 'our_sponsor.children.children.children',
+  our_sponsor___children___internal___content = 'our_sponsor.children.internal.content',
+  our_sponsor___children___internal___contentDigest = 'our_sponsor.children.internal.contentDigest',
+  our_sponsor___children___internal___description = 'our_sponsor.children.internal.description',
+  our_sponsor___children___internal___fieldOwners = 'our_sponsor.children.internal.fieldOwners',
+  our_sponsor___children___internal___ignoreType = 'our_sponsor.children.internal.ignoreType',
+  our_sponsor___children___internal___mediaType = 'our_sponsor.children.internal.mediaType',
+  our_sponsor___children___internal___owner = 'our_sponsor.children.internal.owner',
+  our_sponsor___children___internal___type = 'our_sponsor.children.internal.type',
+  our_sponsor___internal___content = 'our_sponsor.internal.content',
+  our_sponsor___internal___contentDigest = 'our_sponsor.internal.contentDigest',
+  our_sponsor___internal___description = 'our_sponsor.internal.description',
+  our_sponsor___internal___fieldOwners = 'our_sponsor.internal.fieldOwners',
+  our_sponsor___internal___ignoreType = 'our_sponsor.internal.ignoreType',
+  our_sponsor___internal___mediaType = 'our_sponsor.internal.mediaType',
+  our_sponsor___internal___owner = 'our_sponsor.internal.owner',
+  our_sponsor___internal___type = 'our_sponsor.internal.type',
   spaceId = 'spaceId',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
@@ -16902,6 +17031,7 @@ type ContentfulSponsorPartnerFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly link: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<ContentfulAssetFilterInput>;
+  readonly our_sponsor: Maybe<ContentfulOurSponsorFilterListInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
   readonly updatedAt: Maybe<DateQueryOperatorInput>;
@@ -18970,16 +19100,16 @@ type Query = {
   readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
   readonly contentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNode>;
   readonly allContentfulDonateSectionBodyTextNode: contentfulDonateSectionBodyTextNodeConnection;
+  readonly contentfulAboutBannerBodyTextNode: Maybe<contentfulAboutBannerBodyTextNode>;
+  readonly allContentfulAboutBannerBodyTextNode: contentfulAboutBannerBodyTextNodeConnection;
+  readonly contentfulHomePageDescriptionTextNode: Maybe<contentfulHomePageDescriptionTextNode>;
+  readonly allContentfulHomePageDescriptionTextNode: contentfulHomePageDescriptionTextNodeConnection;
   readonly contentfulOurFounderDescriptionTextNode: Maybe<contentfulOurFounderDescriptionTextNode>;
   readonly allContentfulOurFounderDescriptionTextNode: contentfulOurFounderDescriptionTextNodeConnection;
   readonly contentfulOurStoryBodyTextNode: Maybe<contentfulOurStoryBodyTextNode>;
   readonly allContentfulOurStoryBodyTextNode: contentfulOurStoryBodyTextNodeConnection;
-  readonly contentfulAboutBannerBodyTextNode: Maybe<contentfulAboutBannerBodyTextNode>;
-  readonly allContentfulAboutBannerBodyTextNode: contentfulAboutBannerBodyTextNodeConnection;
   readonly contentfulOurWorkCardDescriptionTextNode: Maybe<contentfulOurWorkCardDescriptionTextNode>;
   readonly allContentfulOurWorkCardDescriptionTextNode: contentfulOurWorkCardDescriptionTextNodeConnection;
-  readonly contentfulHomePageDescriptionTextNode: Maybe<contentfulHomePageDescriptionTextNode>;
-  readonly allContentfulHomePageDescriptionTextNode: contentfulHomePageDescriptionTextNodeConnection;
   readonly contentfulAboutUsBannerDescriptionTextNode: Maybe<contentfulAboutUsBannerDescriptionTextNode>;
   readonly allContentfulAboutUsBannerDescriptionTextNode: contentfulAboutUsBannerDescriptionTextNodeConnection;
   readonly contentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNode>;
@@ -19119,8 +19249,6 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -19479,6 +19607,7 @@ type Query_contentfulSponsorPartnerArgs = {
   name: Maybe<StringQueryOperatorInput>;
   link: Maybe<StringQueryOperatorInput>;
   image: Maybe<ContentfulAssetFilterInput>;
+  our_sponsor: Maybe<ContentfulOurSponsorFilterListInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
@@ -19792,6 +19921,46 @@ type Query_allContentfulDonateSectionBodyTextNodeArgs = {
 };
 
 
+type Query_contentfulAboutBannerBodyTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  body: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulAboutBannerBodyTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulAboutBannerBodyTextNodeArgs = {
+  filter: Maybe<contentfulAboutBannerBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulAboutBannerBodyTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulHomePageDescriptionTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  description: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulHomePageDescriptionTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulHomePageDescriptionTextNodeArgs = {
+  filter: Maybe<contentfulHomePageDescriptionTextNodeFilterInput>;
+  sort: Maybe<contentfulHomePageDescriptionTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
 type Query_contentfulOurFounderDescriptionTextNodeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -19832,26 +20001,6 @@ type Query_allContentfulOurStoryBodyTextNodeArgs = {
 };
 
 
-type Query_contentfulAboutBannerBodyTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  body: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulAboutBannerBodyTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulAboutBannerBodyTextNodeArgs = {
-  filter: Maybe<contentfulAboutBannerBodyTextNodeFilterInput>;
-  sort: Maybe<contentfulAboutBannerBodyTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
 type Query_contentfulOurWorkCardDescriptionTextNodeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -19867,26 +20016,6 @@ type Query_contentfulOurWorkCardDescriptionTextNodeArgs = {
 type Query_allContentfulOurWorkCardDescriptionTextNodeArgs = {
   filter: Maybe<contentfulOurWorkCardDescriptionTextNodeFilterInput>;
   sort: Maybe<contentfulOurWorkCardDescriptionTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulHomePageDescriptionTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  description: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulHomePageDescriptionTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulHomePageDescriptionTextNodeArgs = {
-  filter: Maybe<contentfulHomePageDescriptionTextNodeFilterInput>;
-  sort: Maybe<contentfulHomePageDescriptionTextNodeSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -20116,8 +20245,6 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -20320,8 +20447,6 @@ enum SiteFieldsEnum {
   buildTime = 'buildTime',
   siteMetadata___title = 'siteMetadata.title',
   siteMetadata___description = 'siteMetadata.description',
-  port = 'port',
-  host = 'host',
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -20415,8 +20540,6 @@ enum SiteFieldsEnum {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -21136,7 +21259,68 @@ type AboutBannerFragment = { readonly contentfulAboutBanner: Maybe<(
     )> }
   )> };
 
-type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<RecipeCardFragment> } };
+
+type ArticlePreviewFragment = (
+  Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
+  & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+);
+
+type DonateSectionFragment = { readonly contentfulDonateSection: Maybe<(
+    Pick<ContentfulDonateSection, 'ctaLink' | 'ctaText' | 'title'>
+    & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+      Pick<ContentfulAsset, 'description'>
+      & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+    )>, readonly logo: Maybe<(
+      Pick<ContentfulAsset, 'description'>
+      & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+    )> }
+  )> };
+
+type HomeBannerFragment = { readonly contentfulHomeBanner: Maybe<(
+    Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText'>
+    & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
+  )> };
+
+type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+
+type OurFounderSectionFragment = { readonly contentfulOurFounder: Maybe<(
+    Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText'>
+    & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+      Pick<ContentfulAsset, 'description'>
+      & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+    )> }
+  )> };
+
+type HeroFragment = (
+  Pick<ContentfulPerson, 'name' | 'title'>
+  & { readonly shortBio: Maybe<Pick<contentfulPersonShortBioTextNode, 'shortBio'>>, readonly image: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
+);
+
+type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HeaderQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+
+type OurSponsorSectionFragment = { readonly contentfulOurSponsor: Maybe<(
+    Pick<ContentfulOurSponsor, 'title'>
+    & { readonly sponsors: Maybe<ReadonlyArray<Maybe<(
+      Pick<ContentfulSponsorPartner, 'id' | 'link' | 'name'>
+      & { readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )>>> }
+  )> };
 
 type OurWorkSectionFragment = { readonly allContentfulOurWorkCard: { readonly nodes: ReadonlyArray<OurWorkCardFragment> } };
 
@@ -21156,36 +21340,6 @@ type OurStorySectionFragment = { readonly contentfulOurStory: Maybe<(
     )> }
   )> };
 
-type OurFounderSectionFragment = { readonly contentfulOurFounder: Maybe<(
-    Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText'>
-    & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-      Pick<ContentfulAsset, 'description'>
-      & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-    )> }
-  )> };
-
-type OurSponsorSectionFragment = { readonly contentfulOurSponsor: Maybe<(
-    Pick<ContentfulOurSponsor, 'title'>
-    & { readonly sponsors: Maybe<ReadonlyArray<Maybe<(
-      Pick<ContentfulSponsorPartner, 'id' | 'link' | 'name'>
-      & { readonly image: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )> }
-    )>>> }
-  )> };
-
-type DonateSectionFragment = { readonly contentfulDonateSection: Maybe<(
-    Pick<ContentfulDonateSection, 'ctaLink' | 'ctaText' | 'title'>
-    & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-      Pick<ContentfulAsset, 'description'>
-      & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-    )>, readonly logo: Maybe<(
-      Pick<ContentfulAsset, 'description'>
-      & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-    )> }
-  )> };
-
 type AboutQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -21199,35 +21353,18 @@ type AboutQueryQuery = (
   & DonateSectionFragment
 );
 
-type ArticlePreviewFragment = (
-  Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
-  & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+type RecipeCardFragment = (
+  Pick<ContentfulRecipe, 'id' | 'prepTime' | 'title' | 'totalTime' | 'updatedAt' | 'yield'>
+  & { readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly mainImage: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )>, readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulFoodTypeTag, 'key' | 'tagName'>>>>, readonly ingredientTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulIngredientTag, 'key' | 'tagName'>>>> }
 );
 
 type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type BlogIndexQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<ArticlePreviewFragment> } };
-
-type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
-
-type HomeBannerFragment = { readonly contentfulHomeBanner: Maybe<(
-    Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText'>
-    & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
-  )> };
-
-type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<RecipeCardFragment> } };
-
-type RecipeCardFragment = (
-  Pick<ContentfulRecipe, 'id' | 'prepTime' | 'title' | 'totalTime' | 'updatedAt' | 'yield'>
-  & { readonly mainImage: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> }
-);
 
 type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -21240,11 +21377,6 @@ type HomeQueryQuery = (
   & DonateSectionFragment
 );
 
-type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<RecipeCardFragment> } };
-
 type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -21254,6 +21386,22 @@ type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe
     Pick<ContentfulBlogPost, 'title' | 'publishDate'>
     & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
   )> };
+
+type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<RecipeCardFragment> }, readonly allContentfulIngredientTag: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulIngredientTag, 'tagName'>
+      & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
+    )> }, readonly allContentfulFoodTypeTag: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulFoodTypeTag, 'tagName'>
+      & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
+    )> }, readonly contentfulTimeList: Maybe<Pick<ContentfulTimeList, 'timeList'>> };
+
+type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 type RecipeByTitleQueryVariables = Exact<{
   title: Scalars['String'];
@@ -21265,9 +21413,94 @@ type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
     & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
   )> };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
+type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
 
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpResolutionsFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpResolutions_tracedSVGFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpResolutions_withWebpFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpResolutions_withWebp_tracedSVGFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpResolutions_noBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpResolutions_withWebp_noBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpSizesFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpSizes_tracedSVGFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpSizes_withWebpFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebpFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulResolutionsFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_tracedSVGFragment = Pick<ContentfulResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_withWebpFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulResolutions_withWebp_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulSizesFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_tracedSVGFragment = Pick<ContentfulSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 }

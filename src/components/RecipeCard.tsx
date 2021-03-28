@@ -57,11 +57,22 @@ export const fragment = graphql`
     prepTime
     title
     totalTime
+    ingredients {
+      ingredients
+    }
     mainImage {
       fluid(maxWidth: 339, maxHeight: 219, resizingBehavior: SCALE) {
         ...GatsbyContentfulFluid
       }
       description
+    }
+    foodTypeTags {
+      key
+      tagName
+    }
+    ingredientTags {
+      key
+      tagName
     }
     updatedAt
     yield
