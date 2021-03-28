@@ -20,7 +20,7 @@ const OurWorkCard = ({ data }: Props) => {
     ) : null;
 
   return (
-    <Box boxShadow="lg" w={499} h={468} bg="white">
+    <Box boxShadow="card" w={499} h={468} bg="white">
       <Flex direction="column" align="center">
         <Box w={312} h={246}>
           {imageEl}

@@ -17,6 +17,9 @@ const theme = extendTheme({
     },
     creamsicle: '#FF9C59',
   },
+  shadows: {
+    card: '0px 3px 14px rgba(0, 0, 0, 0.25)',
+  },
   styles: {
     global: {
       body: {
