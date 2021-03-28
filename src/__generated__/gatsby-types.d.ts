@@ -8326,6 +8326,339 @@ type ContentfulOurMissionSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type ContentfulOurSponsor = ContentfulReference & ContentfulEntry & Node & {
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly node_locale: Scalars['String'];
+  readonly title: Maybe<Scalars['String']>;
+  readonly sponsors: Maybe<ReadonlyArray<Maybe<ContentfulSponsorPartner>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly sys: Maybe<ContentfulOurSponsorSys>;
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+
+type ContentfulOurSponsor_createdAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type ContentfulOurSponsor_updatedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+type ContentfulOurSponsorConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulOurSponsorEdge>;
+  readonly nodes: ReadonlyArray<ContentfulOurSponsor>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulOurSponsorGroupConnection>;
+};
+
+
+type ContentfulOurSponsorConnection_distinctArgs = {
+  field: ContentfulOurSponsorFieldsEnum;
+};
+
+
+type ContentfulOurSponsorConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: ContentfulOurSponsorFieldsEnum;
+};
+
+type ContentfulOurSponsorEdge = {
+  readonly next: Maybe<ContentfulOurSponsor>;
+  readonly node: ContentfulOurSponsor;
+  readonly previous: Maybe<ContentfulOurSponsor>;
+};
+
+enum ContentfulOurSponsorFieldsEnum {
+  contentful_id = 'contentful_id',
+  id = 'id',
+  node_locale = 'node_locale',
+  title = 'title',
+  sponsors = 'sponsors',
+  sponsors___contentful_id = 'sponsors.contentful_id',
+  sponsors___id = 'sponsors.id',
+  sponsors___node_locale = 'sponsors.node_locale',
+  sponsors___name = 'sponsors.name',
+  sponsors___link = 'sponsors.link',
+  sponsors___image___contentful_id = 'sponsors.image.contentful_id',
+  sponsors___image___id = 'sponsors.image.id',
+  sponsors___image___spaceId = 'sponsors.image.spaceId',
+  sponsors___image___createdAt = 'sponsors.image.createdAt',
+  sponsors___image___updatedAt = 'sponsors.image.updatedAt',
+  sponsors___image___file___url = 'sponsors.image.file.url',
+  sponsors___image___file___fileName = 'sponsors.image.file.fileName',
+  sponsors___image___file___contentType = 'sponsors.image.file.contentType',
+  sponsors___image___title = 'sponsors.image.title',
+  sponsors___image___description = 'sponsors.image.description',
+  sponsors___image___node_locale = 'sponsors.image.node_locale',
+  sponsors___image___sys___type = 'sponsors.image.sys.type',
+  sponsors___image___sys___revision = 'sponsors.image.sys.revision',
+  sponsors___image___fixed___base64 = 'sponsors.image.fixed.base64',
+  sponsors___image___fixed___tracedSVG = 'sponsors.image.fixed.tracedSVG',
+  sponsors___image___fixed___aspectRatio = 'sponsors.image.fixed.aspectRatio',
+  sponsors___image___fixed___width = 'sponsors.image.fixed.width',
+  sponsors___image___fixed___height = 'sponsors.image.fixed.height',
+  sponsors___image___fixed___src = 'sponsors.image.fixed.src',
+  sponsors___image___fixed___srcSet = 'sponsors.image.fixed.srcSet',
+  sponsors___image___fixed___srcWebp = 'sponsors.image.fixed.srcWebp',
+  sponsors___image___fixed___srcSetWebp = 'sponsors.image.fixed.srcSetWebp',
+  sponsors___image___resolutions___base64 = 'sponsors.image.resolutions.base64',
+  sponsors___image___resolutions___tracedSVG = 'sponsors.image.resolutions.tracedSVG',
+  sponsors___image___resolutions___aspectRatio = 'sponsors.image.resolutions.aspectRatio',
+  sponsors___image___resolutions___width = 'sponsors.image.resolutions.width',
+  sponsors___image___resolutions___height = 'sponsors.image.resolutions.height',
+  sponsors___image___resolutions___src = 'sponsors.image.resolutions.src',
+  sponsors___image___resolutions___srcSet = 'sponsors.image.resolutions.srcSet',
+  sponsors___image___resolutions___srcWebp = 'sponsors.image.resolutions.srcWebp',
+  sponsors___image___resolutions___srcSetWebp = 'sponsors.image.resolutions.srcSetWebp',
+  sponsors___image___fluid___base64 = 'sponsors.image.fluid.base64',
+  sponsors___image___fluid___tracedSVG = 'sponsors.image.fluid.tracedSVG',
+  sponsors___image___fluid___aspectRatio = 'sponsors.image.fluid.aspectRatio',
+  sponsors___image___fluid___src = 'sponsors.image.fluid.src',
+  sponsors___image___fluid___srcSet = 'sponsors.image.fluid.srcSet',
+  sponsors___image___fluid___srcWebp = 'sponsors.image.fluid.srcWebp',
+  sponsors___image___fluid___srcSetWebp = 'sponsors.image.fluid.srcSetWebp',
+  sponsors___image___fluid___sizes = 'sponsors.image.fluid.sizes',
+  sponsors___image___sizes___base64 = 'sponsors.image.sizes.base64',
+  sponsors___image___sizes___tracedSVG = 'sponsors.image.sizes.tracedSVG',
+  sponsors___image___sizes___aspectRatio = 'sponsors.image.sizes.aspectRatio',
+  sponsors___image___sizes___src = 'sponsors.image.sizes.src',
+  sponsors___image___sizes___srcSet = 'sponsors.image.sizes.srcSet',
+  sponsors___image___sizes___srcWebp = 'sponsors.image.sizes.srcWebp',
+  sponsors___image___sizes___srcSetWebp = 'sponsors.image.sizes.srcSetWebp',
+  sponsors___image___sizes___sizes = 'sponsors.image.sizes.sizes',
+  sponsors___image___resize___base64 = 'sponsors.image.resize.base64',
+  sponsors___image___resize___tracedSVG = 'sponsors.image.resize.tracedSVG',
+  sponsors___image___resize___src = 'sponsors.image.resize.src',
+  sponsors___image___resize___width = 'sponsors.image.resize.width',
+  sponsors___image___resize___height = 'sponsors.image.resize.height',
+  sponsors___image___resize___aspectRatio = 'sponsors.image.resize.aspectRatio',
+  sponsors___image___parent___id = 'sponsors.image.parent.id',
+  sponsors___image___parent___children = 'sponsors.image.parent.children',
+  sponsors___image___children = 'sponsors.image.children',
+  sponsors___image___children___id = 'sponsors.image.children.id',
+  sponsors___image___children___children = 'sponsors.image.children.children',
+  sponsors___image___internal___content = 'sponsors.image.internal.content',
+  sponsors___image___internal___contentDigest = 'sponsors.image.internal.contentDigest',
+  sponsors___image___internal___description = 'sponsors.image.internal.description',
+  sponsors___image___internal___fieldOwners = 'sponsors.image.internal.fieldOwners',
+  sponsors___image___internal___ignoreType = 'sponsors.image.internal.ignoreType',
+  sponsors___image___internal___mediaType = 'sponsors.image.internal.mediaType',
+  sponsors___image___internal___owner = 'sponsors.image.internal.owner',
+  sponsors___image___internal___type = 'sponsors.image.internal.type',
+  sponsors___spaceId = 'sponsors.spaceId',
+  sponsors___createdAt = 'sponsors.createdAt',
+  sponsors___updatedAt = 'sponsors.updatedAt',
+  sponsors___sys___type = 'sponsors.sys.type',
+  sponsors___sys___revision = 'sponsors.sys.revision',
+  sponsors___parent___id = 'sponsors.parent.id',
+  sponsors___parent___parent___id = 'sponsors.parent.parent.id',
+  sponsors___parent___parent___children = 'sponsors.parent.parent.children',
+  sponsors___parent___children = 'sponsors.parent.children',
+  sponsors___parent___children___id = 'sponsors.parent.children.id',
+  sponsors___parent___children___children = 'sponsors.parent.children.children',
+  sponsors___parent___internal___content = 'sponsors.parent.internal.content',
+  sponsors___parent___internal___contentDigest = 'sponsors.parent.internal.contentDigest',
+  sponsors___parent___internal___description = 'sponsors.parent.internal.description',
+  sponsors___parent___internal___fieldOwners = 'sponsors.parent.internal.fieldOwners',
+  sponsors___parent___internal___ignoreType = 'sponsors.parent.internal.ignoreType',
+  sponsors___parent___internal___mediaType = 'sponsors.parent.internal.mediaType',
+  sponsors___parent___internal___owner = 'sponsors.parent.internal.owner',
+  sponsors___parent___internal___type = 'sponsors.parent.internal.type',
+  sponsors___children = 'sponsors.children',
+  sponsors___children___id = 'sponsors.children.id',
+  sponsors___children___parent___id = 'sponsors.children.parent.id',
+  sponsors___children___parent___children = 'sponsors.children.parent.children',
+  sponsors___children___children = 'sponsors.children.children',
+  sponsors___children___children___id = 'sponsors.children.children.id',
+  sponsors___children___children___children = 'sponsors.children.children.children',
+  sponsors___children___internal___content = 'sponsors.children.internal.content',
+  sponsors___children___internal___contentDigest = 'sponsors.children.internal.contentDigest',
+  sponsors___children___internal___description = 'sponsors.children.internal.description',
+  sponsors___children___internal___fieldOwners = 'sponsors.children.internal.fieldOwners',
+  sponsors___children___internal___ignoreType = 'sponsors.children.internal.ignoreType',
+  sponsors___children___internal___mediaType = 'sponsors.children.internal.mediaType',
+  sponsors___children___internal___owner = 'sponsors.children.internal.owner',
+  sponsors___children___internal___type = 'sponsors.children.internal.type',
+  sponsors___internal___content = 'sponsors.internal.content',
+  sponsors___internal___contentDigest = 'sponsors.internal.contentDigest',
+  sponsors___internal___description = 'sponsors.internal.description',
+  sponsors___internal___fieldOwners = 'sponsors.internal.fieldOwners',
+  sponsors___internal___ignoreType = 'sponsors.internal.ignoreType',
+  sponsors___internal___mediaType = 'sponsors.internal.mediaType',
+  sponsors___internal___owner = 'sponsors.internal.owner',
+  sponsors___internal___type = 'sponsors.internal.type',
+  spaceId = 'spaceId',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys.type',
+  sys___revision = 'sys.revision',
+  sys___contentType___sys___type = 'sys.contentType.sys.type',
+  sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
+  sys___contentType___sys___id = 'sys.contentType.sys.id',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type'
+}
+
+type ContentfulOurSponsorFilterInput = {
+  readonly contentful_id: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly node_locale: Maybe<StringQueryOperatorInput>;
+  readonly title: Maybe<StringQueryOperatorInput>;
+  readonly sponsors: Maybe<ContentfulSponsorPartnerFilterListInput>;
+  readonly spaceId: Maybe<StringQueryOperatorInput>;
+  readonly createdAt: Maybe<DateQueryOperatorInput>;
+  readonly updatedAt: Maybe<DateQueryOperatorInput>;
+  readonly sys: Maybe<ContentfulOurSponsorSysFilterInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type ContentfulOurSponsorGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulOurSponsorEdge>;
+  readonly nodes: ReadonlyArray<ContentfulOurSponsor>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type ContentfulOurSponsorSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulOurSponsorFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type ContentfulOurSponsorSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly contentType: Maybe<ContentfulOurSponsorSysContentType>;
+};
+
+type ContentfulOurSponsorSysContentType = {
+  readonly sys: Maybe<ContentfulOurSponsorSysContentTypeSys>;
+};
+
+type ContentfulOurSponsorSysContentTypeFilterInput = {
+  readonly sys: Maybe<ContentfulOurSponsorSysContentTypeSysFilterInput>;
+};
+
+type ContentfulOurSponsorSysContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+};
+
+type ContentfulOurSponsorSysContentTypeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly linkType: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulOurSponsorSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulOurSponsorSysContentTypeFilterInput>;
+};
+
 type ContentfulOurStory = ContentfulReference & ContentfulEntry & Node & {
   readonly contentful_id: Scalars['String'];
   readonly id: Scalars['ID'];
@@ -14512,9 +14845,32 @@ type ContentfulSponsorPartner = ContentfulReference & ContentfulEntry & Node & {
   readonly contentful_id: Scalars['String'];
   readonly id: Scalars['ID'];
   readonly node_locale: Scalars['String'];
+  readonly name: Maybe<Scalars['String']>;
+  readonly link: Maybe<Scalars['String']>;
+  readonly image: Maybe<ContentfulAsset>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly sys: Maybe<ContentfulSponsorPartnerSys>;
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
+};
+
+
+type ContentfulSponsorPartner_createdAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type ContentfulSponsorPartner_updatedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
 };
 
 type ContentfulSponsorPartnerConnection = {
@@ -14548,6 +14904,107 @@ enum ContentfulSponsorPartnerFieldsEnum {
   contentful_id = 'contentful_id',
   id = 'id',
   node_locale = 'node_locale',
+  name = 'name',
+  link = 'link',
+  image___contentful_id = 'image.contentful_id',
+  image___id = 'image.id',
+  image___spaceId = 'image.spaceId',
+  image___createdAt = 'image.createdAt',
+  image___updatedAt = 'image.updatedAt',
+  image___file___url = 'image.file.url',
+  image___file___details___size = 'image.file.details.size',
+  image___file___fileName = 'image.file.fileName',
+  image___file___contentType = 'image.file.contentType',
+  image___title = 'image.title',
+  image___description = 'image.description',
+  image___node_locale = 'image.node_locale',
+  image___sys___type = 'image.sys.type',
+  image___sys___revision = 'image.sys.revision',
+  image___fixed___base64 = 'image.fixed.base64',
+  image___fixed___tracedSVG = 'image.fixed.tracedSVG',
+  image___fixed___aspectRatio = 'image.fixed.aspectRatio',
+  image___fixed___width = 'image.fixed.width',
+  image___fixed___height = 'image.fixed.height',
+  image___fixed___src = 'image.fixed.src',
+  image___fixed___srcSet = 'image.fixed.srcSet',
+  image___fixed___srcWebp = 'image.fixed.srcWebp',
+  image___fixed___srcSetWebp = 'image.fixed.srcSetWebp',
+  image___resolutions___base64 = 'image.resolutions.base64',
+  image___resolutions___tracedSVG = 'image.resolutions.tracedSVG',
+  image___resolutions___aspectRatio = 'image.resolutions.aspectRatio',
+  image___resolutions___width = 'image.resolutions.width',
+  image___resolutions___height = 'image.resolutions.height',
+  image___resolutions___src = 'image.resolutions.src',
+  image___resolutions___srcSet = 'image.resolutions.srcSet',
+  image___resolutions___srcWebp = 'image.resolutions.srcWebp',
+  image___resolutions___srcSetWebp = 'image.resolutions.srcSetWebp',
+  image___fluid___base64 = 'image.fluid.base64',
+  image___fluid___tracedSVG = 'image.fluid.tracedSVG',
+  image___fluid___aspectRatio = 'image.fluid.aspectRatio',
+  image___fluid___src = 'image.fluid.src',
+  image___fluid___srcSet = 'image.fluid.srcSet',
+  image___fluid___srcWebp = 'image.fluid.srcWebp',
+  image___fluid___srcSetWebp = 'image.fluid.srcSetWebp',
+  image___fluid___sizes = 'image.fluid.sizes',
+  image___sizes___base64 = 'image.sizes.base64',
+  image___sizes___tracedSVG = 'image.sizes.tracedSVG',
+  image___sizes___aspectRatio = 'image.sizes.aspectRatio',
+  image___sizes___src = 'image.sizes.src',
+  image___sizes___srcSet = 'image.sizes.srcSet',
+  image___sizes___srcWebp = 'image.sizes.srcWebp',
+  image___sizes___srcSetWebp = 'image.sizes.srcSetWebp',
+  image___sizes___sizes = 'image.sizes.sizes',
+  image___resize___base64 = 'image.resize.base64',
+  image___resize___tracedSVG = 'image.resize.tracedSVG',
+  image___resize___src = 'image.resize.src',
+  image___resize___width = 'image.resize.width',
+  image___resize___height = 'image.resize.height',
+  image___resize___aspectRatio = 'image.resize.aspectRatio',
+  image___parent___id = 'image.parent.id',
+  image___parent___parent___id = 'image.parent.parent.id',
+  image___parent___parent___children = 'image.parent.parent.children',
+  image___parent___children = 'image.parent.children',
+  image___parent___children___id = 'image.parent.children.id',
+  image___parent___children___children = 'image.parent.children.children',
+  image___parent___internal___content = 'image.parent.internal.content',
+  image___parent___internal___contentDigest = 'image.parent.internal.contentDigest',
+  image___parent___internal___description = 'image.parent.internal.description',
+  image___parent___internal___fieldOwners = 'image.parent.internal.fieldOwners',
+  image___parent___internal___ignoreType = 'image.parent.internal.ignoreType',
+  image___parent___internal___mediaType = 'image.parent.internal.mediaType',
+  image___parent___internal___owner = 'image.parent.internal.owner',
+  image___parent___internal___type = 'image.parent.internal.type',
+  image___children = 'image.children',
+  image___children___id = 'image.children.id',
+  image___children___parent___id = 'image.children.parent.id',
+  image___children___parent___children = 'image.children.parent.children',
+  image___children___children = 'image.children.children',
+  image___children___children___id = 'image.children.children.id',
+  image___children___children___children = 'image.children.children.children',
+  image___children___internal___content = 'image.children.internal.content',
+  image___children___internal___contentDigest = 'image.children.internal.contentDigest',
+  image___children___internal___description = 'image.children.internal.description',
+  image___children___internal___fieldOwners = 'image.children.internal.fieldOwners',
+  image___children___internal___ignoreType = 'image.children.internal.ignoreType',
+  image___children___internal___mediaType = 'image.children.internal.mediaType',
+  image___children___internal___owner = 'image.children.internal.owner',
+  image___children___internal___type = 'image.children.internal.type',
+  image___internal___content = 'image.internal.content',
+  image___internal___contentDigest = 'image.internal.contentDigest',
+  image___internal___description = 'image.internal.description',
+  image___internal___fieldOwners = 'image.internal.fieldOwners',
+  image___internal___ignoreType = 'image.internal.ignoreType',
+  image___internal___mediaType = 'image.internal.mediaType',
+  image___internal___owner = 'image.internal.owner',
+  image___internal___type = 'image.internal.type',
+  spaceId = 'spaceId',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys.type',
+  sys___revision = 'sys.revision',
+  sys___contentType___sys___type = 'sys.contentType.sys.type',
+  sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
+  sys___contentType___sys___id = 'sys.contentType.sys.id',
   parent___id = 'parent.id',
   parent___parent___id = 'parent.parent.id',
   parent___parent___parent___id = 'parent.parent.parent.id',
@@ -14639,9 +15096,20 @@ type ContentfulSponsorPartnerFilterInput = {
   readonly contentful_id: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly node_locale: Maybe<StringQueryOperatorInput>;
+  readonly name: Maybe<StringQueryOperatorInput>;
+  readonly link: Maybe<StringQueryOperatorInput>;
+  readonly image: Maybe<ContentfulAssetFilterInput>;
+  readonly spaceId: Maybe<StringQueryOperatorInput>;
+  readonly createdAt: Maybe<DateQueryOperatorInput>;
+  readonly updatedAt: Maybe<DateQueryOperatorInput>;
+  readonly sys: Maybe<ContentfulSponsorPartnerSysFilterInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
+};
+
+type ContentfulSponsorPartnerFilterListInput = {
+  readonly elemMatch: Maybe<ContentfulSponsorPartnerFilterInput>;
 };
 
 type ContentfulSponsorPartnerGroupConnection = {
@@ -14656,6 +15124,38 @@ type ContentfulSponsorPartnerGroupConnection = {
 type ContentfulSponsorPartnerSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulSponsorPartnerFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type ContentfulSponsorPartnerSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly contentType: Maybe<ContentfulSponsorPartnerSysContentType>;
+};
+
+type ContentfulSponsorPartnerSysContentType = {
+  readonly sys: Maybe<ContentfulSponsorPartnerSysContentTypeSys>;
+};
+
+type ContentfulSponsorPartnerSysContentTypeFilterInput = {
+  readonly sys: Maybe<ContentfulSponsorPartnerSysContentTypeSysFilterInput>;
+};
+
+type ContentfulSponsorPartnerSysContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+};
+
+type ContentfulSponsorPartnerSysContentTypeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly linkType: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulSponsorPartnerSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulSponsorPartnerSysContentTypeFilterInput>;
 };
 
 type ContentfulTimeList = ContentfulReference & ContentfulEntry & Node & {
@@ -16657,6 +17157,8 @@ type Query = {
   readonly allContentfulOurMission: ContentfulOurMissionConnection;
   readonly contentfulAboutBanner: Maybe<ContentfulAboutBanner>;
   readonly allContentfulAboutBanner: ContentfulAboutBannerConnection;
+  readonly contentfulOurSponsor: Maybe<ContentfulOurSponsor>;
+  readonly allContentfulOurSponsor: ContentfulOurSponsorConnection;
   readonly contentfulOurFounderDescriptionTextNode: Maybe<contentfulOurFounderDescriptionTextNode>;
   readonly allContentfulOurFounderDescriptionTextNode: contentfulOurFounderDescriptionTextNodeConnection;
   readonly contentfulOurStoryBodyTextNode: Maybe<contentfulOurStoryBodyTextNode>;
@@ -17163,6 +17665,13 @@ type Query_contentfulSponsorPartnerArgs = {
   contentful_id: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
+  name: Maybe<StringQueryOperatorInput>;
+  link: Maybe<StringQueryOperatorInput>;
+  image: Maybe<ContentfulAssetFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulSponsorPartnerSysFilterInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
@@ -17344,6 +17853,30 @@ type Query_contentfulAboutBannerArgs = {
 type Query_allContentfulAboutBannerArgs = {
   filter: Maybe<ContentfulAboutBannerFilterInput>;
   sort: Maybe<ContentfulAboutBannerSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulOurSponsorArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  sponsors: Maybe<ContentfulSponsorPartnerFilterListInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulOurSponsorSysFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulOurSponsorArgs = {
+  filter: Maybe<ContentfulOurSponsorFilterInput>;
+  sort: Maybe<ContentfulOurSponsorSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -18721,6 +19254,17 @@ type OurFounderSectionFragment = { readonly contentfulOurFounder: Maybe<(
     )> }
   )> };
 
+type OurSponsorSectionFragment = { readonly contentfulOurSponsor: Maybe<(
+    Pick<ContentfulOurSponsor, 'title'>
+    & { readonly sponsors: Maybe<ReadonlyArray<Maybe<(
+      Pick<ContentfulSponsorPartner, 'id' | 'link' | 'name'>
+      & { readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )>>> }
+  )> };
+
 type AboutQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -18730,6 +19274,7 @@ type AboutQueryQuery = (
   & OurWorkSectionFragment
   & OurStorySectionFragment
   & OurFounderSectionFragment
+  & OurSponsorSectionFragment
 );
 
 type ArticlePreviewFragment = (
