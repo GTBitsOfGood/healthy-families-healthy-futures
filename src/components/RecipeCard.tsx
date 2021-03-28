@@ -7,11 +7,11 @@ import Img from 'gatsby-image';
 
 interface Props {
   data: GatsbyTypes.RecipeCardFragment;
-  showTime?: true;
+  hideTime?: true;
 }
 
-function RecipeCard({ data, showTime }: Props): JSX.Element {
-  const timeInfo = showTime === true && (
+function RecipeCard({ data, hideTime }: Props): JSX.Element {
+  const timeInfo = hideTime == null && (
     <Flex>
       <TimeIcon mt="2px" color="green.500" />
       <Text ml={2} textStyle="subheading2" color="green.500">

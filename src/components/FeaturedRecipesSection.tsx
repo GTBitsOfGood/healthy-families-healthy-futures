@@ -26,7 +26,7 @@ const FeaturedRecipesSection = (props: Props) => {
           return (
             <Box key={recipe.id}>
               <Link to={`/recipes/${slugify(String(recipe.title)) ?? ''}`}>
-                <RecipeCard data={recipe} />
+                <RecipeCard data={recipe} hideTime />
               </Link>
               <Flex justifyContent="flex-end">
                 <Link to={`/recipes/${slugify(String(recipe.title)) ?? ''}`}>
