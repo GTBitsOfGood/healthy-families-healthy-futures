@@ -28,7 +28,7 @@ function AboutPage(props: Props): JSX.Element {
 
       <OurSponsorSection data={props.data} />
 
-      <DonateSection />
+      <DonateSection data={props.data} />
       <NewsletterSection />
     </Layout>
   );
@@ -48,5 +48,6 @@ export const pageQuery = graphql`
     ...OurStorySection
     ...OurFounderSection
     ...OurSponsorSection
+    ...DonateSection
   }
 `;

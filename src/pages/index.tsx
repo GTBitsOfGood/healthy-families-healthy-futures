@@ -37,7 +37,7 @@ function RootIndex(props: Props): JSX.Element {
 
       <OurWorkSection data={props.data} />
       <FeaturedRecipesSection data={props.data} />
-      <DonateSection />
+      <DonateSection data={props.data} />
 
       <NewsletterSection />
     </Layout>
@@ -55,5 +55,6 @@ export const pageQuery = graphql`
     }
     ...FeaturedRecipesSection
     ...OurWorkSection
+    ...DonateSection
   }
 `;
