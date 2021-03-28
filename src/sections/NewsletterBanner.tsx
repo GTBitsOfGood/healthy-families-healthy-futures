@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box, Text, Stack, Center, Input, Button } from '@chakra-ui/react';
 
-function Newsletter(): JSX.Element {
+function NewsletterBanner(): JSX.Element {
   const [value, setValue] = React.useState('');
   return (
     <Box h={275} pt={75} bg="gray.extralight">
@@ -25,4 +25,4 @@ function Newsletter(): JSX.Element {
   );
 }
 
-export default Newsletter;
+export default NewsletterBanner;

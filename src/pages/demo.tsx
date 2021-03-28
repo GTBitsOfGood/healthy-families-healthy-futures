@@ -18,7 +18,8 @@ import {
 } from '@chakra-ui/react';
 import { PageProps } from 'gatsby';
 import { MdChevronLeft, MdSearch } from 'react-icons/md';
-import Layout from 'src/components/Layout';
+
+import Layout from '../components/Layout';
 
 type Props = PageProps;
 

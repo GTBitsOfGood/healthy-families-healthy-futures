@@ -5,8 +5,8 @@ import { Box, Flex, Button } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
 import { graphql, Link } from 'gatsby';
 
-import RecipeCard from './RecipeCard';
-import SectionHeader from './SectionHeader';
+import RecipeCard from '../components/RecipeCard';
+import SectionHeader from '../components/SectionHeader';
 
 interface Props {
   data: GatsbyTypes.FeaturedRecipesSectionFragment;

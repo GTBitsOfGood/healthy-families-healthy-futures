@@ -4,9 +4,9 @@ import { ChevronLeftIcon } from '@chakra-ui/icons';
 import { Flex, Heading, Text, HStack, VStack, Box, Button, Grid } from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
-import TitledList from 'src/components/TitledList';
 
 import Layout from '../../components/Layout';
+import TitledList from '../../components/TitledList';
 import { parseRecipe } from '../../utils/parse';
 
 interface Props extends PageProps {

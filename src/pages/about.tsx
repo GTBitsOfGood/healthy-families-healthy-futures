@@ -1,18 +1,18 @@
 import React from 'react';
 
 import { graphql, PageProps } from 'gatsby';
-import AboutBanner from 'src/components/AboutBanner';
-import DonateSection from 'src/components/DonateSection';
-import OurFounderSection from 'src/components/OurFounderSection';
-import OurSponsorSection from 'src/components/OurSponsorSection';
-import OurStorySection from 'src/components/OurStorySection';
-import OurWorkSection from 'src/components/OurWorkSection';
 
 import Layout from '../components/Layout';
-import NewsletterSection from '../components/NewsletterSection';
+import AboutBanner from '../sections/AboutBanner';
+import DonateSection from '../sections/DonateBanner';
+import NewsletterSection from '../sections/NewsletterBanner';
+import OurFounderSection from '../sections/OurFounderSection';
+import OurSponsorSection from '../sections/OurSponsorSection';
+import OurStorySection from '../sections/OurStorySection';
+import OurWorkSection from '../sections/OurWorkSection';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.AboutQueryQuery;
+  data: GatsbyTypes.AboutPageQuery;
 }
 
 function AboutPage(props: Props): JSX.Element {
@@ -37,7 +37,7 @@ function AboutPage(props: Props): JSX.Element {
 export default AboutPage;
 
 export const pageQuery = graphql`
-  query AboutQuery {
+  query AboutPage {
     site {
       siteMetadata {
         title
@@ -48,6 +48,6 @@ export const pageQuery = graphql`
     ...OurStorySection
     ...OurFounderSection
     ...OurSponsorSection
-    ...DonateSection
+    ...DonateBanner
   }
 `;

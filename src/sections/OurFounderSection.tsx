@@ -4,7 +4,7 @@ import { HStack, Box, VStack, Text, Center, Button, useTheme } from '@chakra-ui/
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import SectionHeader from './SectionHeader';
+import SectionHeader from '../components/SectionHeader';
 
 interface Props {
   data: GatsbyTypes.OurFounderSectionFragment;

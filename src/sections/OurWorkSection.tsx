@@ -3,8 +3,8 @@ import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 
-import OurWorkCard from './OurWorkCard';
-import SectionHeader from './SectionHeader';
+import OurWorkCard from '../components/OurWorkCard';
+import SectionHeader from '../components/SectionHeader';
 
 interface Props {
   data: GatsbyTypes.OurWorkSectionFragment;
