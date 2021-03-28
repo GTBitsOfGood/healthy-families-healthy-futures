@@ -6338,6 +6338,816 @@ type ContentfulFoodTypeTagSysFilterInput = {
   readonly contentType: Maybe<ContentfulFoodTypeTagSysContentTypeFilterInput>;
 };
 
+type ContentfulHomeBanner = ContentfulReference & ContentfulEntry & Node & {
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly node_locale: Scalars['String'];
+  readonly titleLine1: Maybe<Scalars['String']>;
+  readonly titleLine2: Maybe<Scalars['String']>;
+  readonly ctaLink: Maybe<Scalars['String']>;
+  readonly ctaText: Maybe<Scalars['String']>;
+  readonly body: Maybe<contentfulHomeBannerBodyTextNode>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly sys: Maybe<ContentfulHomeBannerSys>;
+  /** Returns all children nodes filtered by type contentfulHomeBannerBodyTextNode */
+  readonly childrenContentfulHomeBannerBodyTextNode: Maybe<ReadonlyArray<Maybe<contentfulHomeBannerBodyTextNode>>>;
+  /**
+   * Returns the first child node of type contentfulHomeBannerBodyTextNode or null
+   * if there are no children of given type on this node
+   */
+  readonly childContentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+
+type ContentfulHomeBanner_createdAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type ContentfulHomeBanner_updatedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+type contentfulHomeBannerBodyTextNode = Node & {
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+  readonly body: Maybe<Scalars['String']>;
+  readonly sys: Maybe<contentfulHomeBannerBodyTextNodeSys>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  readonly childMarkdownRemark: Maybe<MarkdownRemark>;
+};
+
+type contentfulHomeBannerBodyTextNodeConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<contentfulHomeBannerBodyTextNodeEdge>;
+  readonly nodes: ReadonlyArray<contentfulHomeBannerBodyTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<contentfulHomeBannerBodyTextNodeGroupConnection>;
+};
+
+
+type contentfulHomeBannerBodyTextNodeConnection_distinctArgs = {
+  field: contentfulHomeBannerBodyTextNodeFieldsEnum;
+};
+
+
+type contentfulHomeBannerBodyTextNodeConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: contentfulHomeBannerBodyTextNodeFieldsEnum;
+};
+
+type contentfulHomeBannerBodyTextNodeEdge = {
+  readonly next: Maybe<contentfulHomeBannerBodyTextNode>;
+  readonly node: contentfulHomeBannerBodyTextNode;
+  readonly previous: Maybe<contentfulHomeBannerBodyTextNode>;
+};
+
+enum contentfulHomeBannerBodyTextNodeFieldsEnum {
+  id = 'id',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type',
+  body = 'body',
+  sys___type = 'sys.type',
+  childrenMarkdownRemark = 'childrenMarkdownRemark',
+  childrenMarkdownRemark___id = 'childrenMarkdownRemark.id',
+  childrenMarkdownRemark___frontmatter___title = 'childrenMarkdownRemark.frontmatter.title',
+  childrenMarkdownRemark___excerpt = 'childrenMarkdownRemark.excerpt',
+  childrenMarkdownRemark___rawMarkdownBody = 'childrenMarkdownRemark.rawMarkdownBody',
+  childrenMarkdownRemark___html = 'childrenMarkdownRemark.html',
+  childrenMarkdownRemark___htmlAst = 'childrenMarkdownRemark.htmlAst',
+  childrenMarkdownRemark___excerptAst = 'childrenMarkdownRemark.excerptAst',
+  childrenMarkdownRemark___headings = 'childrenMarkdownRemark.headings',
+  childrenMarkdownRemark___headings___id = 'childrenMarkdownRemark.headings.id',
+  childrenMarkdownRemark___headings___value = 'childrenMarkdownRemark.headings.value',
+  childrenMarkdownRemark___headings___depth = 'childrenMarkdownRemark.headings.depth',
+  childrenMarkdownRemark___timeToRead = 'childrenMarkdownRemark.timeToRead',
+  childrenMarkdownRemark___tableOfContents = 'childrenMarkdownRemark.tableOfContents',
+  childrenMarkdownRemark___wordCount___paragraphs = 'childrenMarkdownRemark.wordCount.paragraphs',
+  childrenMarkdownRemark___wordCount___sentences = 'childrenMarkdownRemark.wordCount.sentences',
+  childrenMarkdownRemark___wordCount___words = 'childrenMarkdownRemark.wordCount.words',
+  childrenMarkdownRemark___parent___id = 'childrenMarkdownRemark.parent.id',
+  childrenMarkdownRemark___parent___parent___id = 'childrenMarkdownRemark.parent.parent.id',
+  childrenMarkdownRemark___parent___parent___children = 'childrenMarkdownRemark.parent.parent.children',
+  childrenMarkdownRemark___parent___children = 'childrenMarkdownRemark.parent.children',
+  childrenMarkdownRemark___parent___children___id = 'childrenMarkdownRemark.parent.children.id',
+  childrenMarkdownRemark___parent___children___children = 'childrenMarkdownRemark.parent.children.children',
+  childrenMarkdownRemark___parent___internal___content = 'childrenMarkdownRemark.parent.internal.content',
+  childrenMarkdownRemark___parent___internal___contentDigest = 'childrenMarkdownRemark.parent.internal.contentDigest',
+  childrenMarkdownRemark___parent___internal___description = 'childrenMarkdownRemark.parent.internal.description',
+  childrenMarkdownRemark___parent___internal___fieldOwners = 'childrenMarkdownRemark.parent.internal.fieldOwners',
+  childrenMarkdownRemark___parent___internal___ignoreType = 'childrenMarkdownRemark.parent.internal.ignoreType',
+  childrenMarkdownRemark___parent___internal___mediaType = 'childrenMarkdownRemark.parent.internal.mediaType',
+  childrenMarkdownRemark___parent___internal___owner = 'childrenMarkdownRemark.parent.internal.owner',
+  childrenMarkdownRemark___parent___internal___type = 'childrenMarkdownRemark.parent.internal.type',
+  childrenMarkdownRemark___children = 'childrenMarkdownRemark.children',
+  childrenMarkdownRemark___children___id = 'childrenMarkdownRemark.children.id',
+  childrenMarkdownRemark___children___parent___id = 'childrenMarkdownRemark.children.parent.id',
+  childrenMarkdownRemark___children___parent___children = 'childrenMarkdownRemark.children.parent.children',
+  childrenMarkdownRemark___children___children = 'childrenMarkdownRemark.children.children',
+  childrenMarkdownRemark___children___children___id = 'childrenMarkdownRemark.children.children.id',
+  childrenMarkdownRemark___children___children___children = 'childrenMarkdownRemark.children.children.children',
+  childrenMarkdownRemark___children___internal___content = 'childrenMarkdownRemark.children.internal.content',
+  childrenMarkdownRemark___children___internal___contentDigest = 'childrenMarkdownRemark.children.internal.contentDigest',
+  childrenMarkdownRemark___children___internal___description = 'childrenMarkdownRemark.children.internal.description',
+  childrenMarkdownRemark___children___internal___fieldOwners = 'childrenMarkdownRemark.children.internal.fieldOwners',
+  childrenMarkdownRemark___children___internal___ignoreType = 'childrenMarkdownRemark.children.internal.ignoreType',
+  childrenMarkdownRemark___children___internal___mediaType = 'childrenMarkdownRemark.children.internal.mediaType',
+  childrenMarkdownRemark___children___internal___owner = 'childrenMarkdownRemark.children.internal.owner',
+  childrenMarkdownRemark___children___internal___type = 'childrenMarkdownRemark.children.internal.type',
+  childrenMarkdownRemark___internal___content = 'childrenMarkdownRemark.internal.content',
+  childrenMarkdownRemark___internal___contentDigest = 'childrenMarkdownRemark.internal.contentDigest',
+  childrenMarkdownRemark___internal___description = 'childrenMarkdownRemark.internal.description',
+  childrenMarkdownRemark___internal___fieldOwners = 'childrenMarkdownRemark.internal.fieldOwners',
+  childrenMarkdownRemark___internal___ignoreType = 'childrenMarkdownRemark.internal.ignoreType',
+  childrenMarkdownRemark___internal___mediaType = 'childrenMarkdownRemark.internal.mediaType',
+  childrenMarkdownRemark___internal___owner = 'childrenMarkdownRemark.internal.owner',
+  childrenMarkdownRemark___internal___type = 'childrenMarkdownRemark.internal.type',
+  childMarkdownRemark___id = 'childMarkdownRemark.id',
+  childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
+  childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
+  childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
+  childMarkdownRemark___html = 'childMarkdownRemark.html',
+  childMarkdownRemark___htmlAst = 'childMarkdownRemark.htmlAst',
+  childMarkdownRemark___excerptAst = 'childMarkdownRemark.excerptAst',
+  childMarkdownRemark___headings = 'childMarkdownRemark.headings',
+  childMarkdownRemark___headings___id = 'childMarkdownRemark.headings.id',
+  childMarkdownRemark___headings___value = 'childMarkdownRemark.headings.value',
+  childMarkdownRemark___headings___depth = 'childMarkdownRemark.headings.depth',
+  childMarkdownRemark___timeToRead = 'childMarkdownRemark.timeToRead',
+  childMarkdownRemark___tableOfContents = 'childMarkdownRemark.tableOfContents',
+  childMarkdownRemark___wordCount___paragraphs = 'childMarkdownRemark.wordCount.paragraphs',
+  childMarkdownRemark___wordCount___sentences = 'childMarkdownRemark.wordCount.sentences',
+  childMarkdownRemark___wordCount___words = 'childMarkdownRemark.wordCount.words',
+  childMarkdownRemark___parent___id = 'childMarkdownRemark.parent.id',
+  childMarkdownRemark___parent___parent___id = 'childMarkdownRemark.parent.parent.id',
+  childMarkdownRemark___parent___parent___children = 'childMarkdownRemark.parent.parent.children',
+  childMarkdownRemark___parent___children = 'childMarkdownRemark.parent.children',
+  childMarkdownRemark___parent___children___id = 'childMarkdownRemark.parent.children.id',
+  childMarkdownRemark___parent___children___children = 'childMarkdownRemark.parent.children.children',
+  childMarkdownRemark___parent___internal___content = 'childMarkdownRemark.parent.internal.content',
+  childMarkdownRemark___parent___internal___contentDigest = 'childMarkdownRemark.parent.internal.contentDigest',
+  childMarkdownRemark___parent___internal___description = 'childMarkdownRemark.parent.internal.description',
+  childMarkdownRemark___parent___internal___fieldOwners = 'childMarkdownRemark.parent.internal.fieldOwners',
+  childMarkdownRemark___parent___internal___ignoreType = 'childMarkdownRemark.parent.internal.ignoreType',
+  childMarkdownRemark___parent___internal___mediaType = 'childMarkdownRemark.parent.internal.mediaType',
+  childMarkdownRemark___parent___internal___owner = 'childMarkdownRemark.parent.internal.owner',
+  childMarkdownRemark___parent___internal___type = 'childMarkdownRemark.parent.internal.type',
+  childMarkdownRemark___children = 'childMarkdownRemark.children',
+  childMarkdownRemark___children___id = 'childMarkdownRemark.children.id',
+  childMarkdownRemark___children___parent___id = 'childMarkdownRemark.children.parent.id',
+  childMarkdownRemark___children___parent___children = 'childMarkdownRemark.children.parent.children',
+  childMarkdownRemark___children___children = 'childMarkdownRemark.children.children',
+  childMarkdownRemark___children___children___id = 'childMarkdownRemark.children.children.id',
+  childMarkdownRemark___children___children___children = 'childMarkdownRemark.children.children.children',
+  childMarkdownRemark___children___internal___content = 'childMarkdownRemark.children.internal.content',
+  childMarkdownRemark___children___internal___contentDigest = 'childMarkdownRemark.children.internal.contentDigest',
+  childMarkdownRemark___children___internal___description = 'childMarkdownRemark.children.internal.description',
+  childMarkdownRemark___children___internal___fieldOwners = 'childMarkdownRemark.children.internal.fieldOwners',
+  childMarkdownRemark___children___internal___ignoreType = 'childMarkdownRemark.children.internal.ignoreType',
+  childMarkdownRemark___children___internal___mediaType = 'childMarkdownRemark.children.internal.mediaType',
+  childMarkdownRemark___children___internal___owner = 'childMarkdownRemark.children.internal.owner',
+  childMarkdownRemark___children___internal___type = 'childMarkdownRemark.children.internal.type',
+  childMarkdownRemark___internal___content = 'childMarkdownRemark.internal.content',
+  childMarkdownRemark___internal___contentDigest = 'childMarkdownRemark.internal.contentDigest',
+  childMarkdownRemark___internal___description = 'childMarkdownRemark.internal.description',
+  childMarkdownRemark___internal___fieldOwners = 'childMarkdownRemark.internal.fieldOwners',
+  childMarkdownRemark___internal___ignoreType = 'childMarkdownRemark.internal.ignoreType',
+  childMarkdownRemark___internal___mediaType = 'childMarkdownRemark.internal.mediaType',
+  childMarkdownRemark___internal___owner = 'childMarkdownRemark.internal.owner',
+  childMarkdownRemark___internal___type = 'childMarkdownRemark.internal.type'
+}
+
+type contentfulHomeBannerBodyTextNodeFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+  readonly body: Maybe<StringQueryOperatorInput>;
+  readonly sys: Maybe<contentfulHomeBannerBodyTextNodeSysFilterInput>;
+  readonly childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  readonly childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+type contentfulHomeBannerBodyTextNodeFilterListInput = {
+  readonly elemMatch: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+};
+
+type contentfulHomeBannerBodyTextNodeGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<contentfulHomeBannerBodyTextNodeEdge>;
+  readonly nodes: ReadonlyArray<contentfulHomeBannerBodyTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type contentfulHomeBannerBodyTextNodeSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<contentfulHomeBannerBodyTextNodeFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type contentfulHomeBannerBodyTextNodeSys = {
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type contentfulHomeBannerBodyTextNodeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulHomeBannerConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulHomeBannerEdge>;
+  readonly nodes: ReadonlyArray<ContentfulHomeBanner>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulHomeBannerGroupConnection>;
+};
+
+
+type ContentfulHomeBannerConnection_distinctArgs = {
+  field: ContentfulHomeBannerFieldsEnum;
+};
+
+
+type ContentfulHomeBannerConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: ContentfulHomeBannerFieldsEnum;
+};
+
+type ContentfulHomeBannerEdge = {
+  readonly next: Maybe<ContentfulHomeBanner>;
+  readonly node: ContentfulHomeBanner;
+  readonly previous: Maybe<ContentfulHomeBanner>;
+};
+
+enum ContentfulHomeBannerFieldsEnum {
+  contentful_id = 'contentful_id',
+  id = 'id',
+  node_locale = 'node_locale',
+  titleLine1 = 'titleLine1',
+  titleLine2 = 'titleLine2',
+  ctaLink = 'ctaLink',
+  ctaText = 'ctaText',
+  body___id = 'body.id',
+  body___parent___id = 'body.parent.id',
+  body___parent___parent___id = 'body.parent.parent.id',
+  body___parent___parent___children = 'body.parent.parent.children',
+  body___parent___children = 'body.parent.children',
+  body___parent___children___id = 'body.parent.children.id',
+  body___parent___children___children = 'body.parent.children.children',
+  body___parent___internal___content = 'body.parent.internal.content',
+  body___parent___internal___contentDigest = 'body.parent.internal.contentDigest',
+  body___parent___internal___description = 'body.parent.internal.description',
+  body___parent___internal___fieldOwners = 'body.parent.internal.fieldOwners',
+  body___parent___internal___ignoreType = 'body.parent.internal.ignoreType',
+  body___parent___internal___mediaType = 'body.parent.internal.mediaType',
+  body___parent___internal___owner = 'body.parent.internal.owner',
+  body___parent___internal___type = 'body.parent.internal.type',
+  body___children = 'body.children',
+  body___children___id = 'body.children.id',
+  body___children___parent___id = 'body.children.parent.id',
+  body___children___parent___children = 'body.children.parent.children',
+  body___children___children = 'body.children.children',
+  body___children___children___id = 'body.children.children.id',
+  body___children___children___children = 'body.children.children.children',
+  body___children___internal___content = 'body.children.internal.content',
+  body___children___internal___contentDigest = 'body.children.internal.contentDigest',
+  body___children___internal___description = 'body.children.internal.description',
+  body___children___internal___fieldOwners = 'body.children.internal.fieldOwners',
+  body___children___internal___ignoreType = 'body.children.internal.ignoreType',
+  body___children___internal___mediaType = 'body.children.internal.mediaType',
+  body___children___internal___owner = 'body.children.internal.owner',
+  body___children___internal___type = 'body.children.internal.type',
+  body___internal___content = 'body.internal.content',
+  body___internal___contentDigest = 'body.internal.contentDigest',
+  body___internal___description = 'body.internal.description',
+  body___internal___fieldOwners = 'body.internal.fieldOwners',
+  body___internal___ignoreType = 'body.internal.ignoreType',
+  body___internal___mediaType = 'body.internal.mediaType',
+  body___internal___owner = 'body.internal.owner',
+  body___internal___type = 'body.internal.type',
+  body___body = 'body.body',
+  body___sys___type = 'body.sys.type',
+  body___childrenMarkdownRemark = 'body.childrenMarkdownRemark',
+  body___childrenMarkdownRemark___id = 'body.childrenMarkdownRemark.id',
+  body___childrenMarkdownRemark___frontmatter___title = 'body.childrenMarkdownRemark.frontmatter.title',
+  body___childrenMarkdownRemark___excerpt = 'body.childrenMarkdownRemark.excerpt',
+  body___childrenMarkdownRemark___rawMarkdownBody = 'body.childrenMarkdownRemark.rawMarkdownBody',
+  body___childrenMarkdownRemark___html = 'body.childrenMarkdownRemark.html',
+  body___childrenMarkdownRemark___htmlAst = 'body.childrenMarkdownRemark.htmlAst',
+  body___childrenMarkdownRemark___excerptAst = 'body.childrenMarkdownRemark.excerptAst',
+  body___childrenMarkdownRemark___headings = 'body.childrenMarkdownRemark.headings',
+  body___childrenMarkdownRemark___headings___id = 'body.childrenMarkdownRemark.headings.id',
+  body___childrenMarkdownRemark___headings___value = 'body.childrenMarkdownRemark.headings.value',
+  body___childrenMarkdownRemark___headings___depth = 'body.childrenMarkdownRemark.headings.depth',
+  body___childrenMarkdownRemark___timeToRead = 'body.childrenMarkdownRemark.timeToRead',
+  body___childrenMarkdownRemark___tableOfContents = 'body.childrenMarkdownRemark.tableOfContents',
+  body___childrenMarkdownRemark___wordCount___paragraphs = 'body.childrenMarkdownRemark.wordCount.paragraphs',
+  body___childrenMarkdownRemark___wordCount___sentences = 'body.childrenMarkdownRemark.wordCount.sentences',
+  body___childrenMarkdownRemark___wordCount___words = 'body.childrenMarkdownRemark.wordCount.words',
+  body___childrenMarkdownRemark___parent___id = 'body.childrenMarkdownRemark.parent.id',
+  body___childrenMarkdownRemark___parent___children = 'body.childrenMarkdownRemark.parent.children',
+  body___childrenMarkdownRemark___children = 'body.childrenMarkdownRemark.children',
+  body___childrenMarkdownRemark___children___id = 'body.childrenMarkdownRemark.children.id',
+  body___childrenMarkdownRemark___children___children = 'body.childrenMarkdownRemark.children.children',
+  body___childrenMarkdownRemark___internal___content = 'body.childrenMarkdownRemark.internal.content',
+  body___childrenMarkdownRemark___internal___contentDigest = 'body.childrenMarkdownRemark.internal.contentDigest',
+  body___childrenMarkdownRemark___internal___description = 'body.childrenMarkdownRemark.internal.description',
+  body___childrenMarkdownRemark___internal___fieldOwners = 'body.childrenMarkdownRemark.internal.fieldOwners',
+  body___childrenMarkdownRemark___internal___ignoreType = 'body.childrenMarkdownRemark.internal.ignoreType',
+  body___childrenMarkdownRemark___internal___mediaType = 'body.childrenMarkdownRemark.internal.mediaType',
+  body___childrenMarkdownRemark___internal___owner = 'body.childrenMarkdownRemark.internal.owner',
+  body___childrenMarkdownRemark___internal___type = 'body.childrenMarkdownRemark.internal.type',
+  body___childMarkdownRemark___id = 'body.childMarkdownRemark.id',
+  body___childMarkdownRemark___frontmatter___title = 'body.childMarkdownRemark.frontmatter.title',
+  body___childMarkdownRemark___excerpt = 'body.childMarkdownRemark.excerpt',
+  body___childMarkdownRemark___rawMarkdownBody = 'body.childMarkdownRemark.rawMarkdownBody',
+  body___childMarkdownRemark___html = 'body.childMarkdownRemark.html',
+  body___childMarkdownRemark___htmlAst = 'body.childMarkdownRemark.htmlAst',
+  body___childMarkdownRemark___excerptAst = 'body.childMarkdownRemark.excerptAst',
+  body___childMarkdownRemark___headings = 'body.childMarkdownRemark.headings',
+  body___childMarkdownRemark___headings___id = 'body.childMarkdownRemark.headings.id',
+  body___childMarkdownRemark___headings___value = 'body.childMarkdownRemark.headings.value',
+  body___childMarkdownRemark___headings___depth = 'body.childMarkdownRemark.headings.depth',
+  body___childMarkdownRemark___timeToRead = 'body.childMarkdownRemark.timeToRead',
+  body___childMarkdownRemark___tableOfContents = 'body.childMarkdownRemark.tableOfContents',
+  body___childMarkdownRemark___wordCount___paragraphs = 'body.childMarkdownRemark.wordCount.paragraphs',
+  body___childMarkdownRemark___wordCount___sentences = 'body.childMarkdownRemark.wordCount.sentences',
+  body___childMarkdownRemark___wordCount___words = 'body.childMarkdownRemark.wordCount.words',
+  body___childMarkdownRemark___parent___id = 'body.childMarkdownRemark.parent.id',
+  body___childMarkdownRemark___parent___children = 'body.childMarkdownRemark.parent.children',
+  body___childMarkdownRemark___children = 'body.childMarkdownRemark.children',
+  body___childMarkdownRemark___children___id = 'body.childMarkdownRemark.children.id',
+  body___childMarkdownRemark___children___children = 'body.childMarkdownRemark.children.children',
+  body___childMarkdownRemark___internal___content = 'body.childMarkdownRemark.internal.content',
+  body___childMarkdownRemark___internal___contentDigest = 'body.childMarkdownRemark.internal.contentDigest',
+  body___childMarkdownRemark___internal___description = 'body.childMarkdownRemark.internal.description',
+  body___childMarkdownRemark___internal___fieldOwners = 'body.childMarkdownRemark.internal.fieldOwners',
+  body___childMarkdownRemark___internal___ignoreType = 'body.childMarkdownRemark.internal.ignoreType',
+  body___childMarkdownRemark___internal___mediaType = 'body.childMarkdownRemark.internal.mediaType',
+  body___childMarkdownRemark___internal___owner = 'body.childMarkdownRemark.internal.owner',
+  body___childMarkdownRemark___internal___type = 'body.childMarkdownRemark.internal.type',
+  spaceId = 'spaceId',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys.type',
+  sys___revision = 'sys.revision',
+  sys___contentType___sys___type = 'sys.contentType.sys.type',
+  sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
+  sys___contentType___sys___id = 'sys.contentType.sys.id',
+  childrenContentfulHomeBannerBodyTextNode = 'childrenContentfulHomeBannerBodyTextNode',
+  childrenContentfulHomeBannerBodyTextNode___id = 'childrenContentfulHomeBannerBodyTextNode.id',
+  childrenContentfulHomeBannerBodyTextNode___parent___id = 'childrenContentfulHomeBannerBodyTextNode.parent.id',
+  childrenContentfulHomeBannerBodyTextNode___parent___parent___id = 'childrenContentfulHomeBannerBodyTextNode.parent.parent.id',
+  childrenContentfulHomeBannerBodyTextNode___parent___parent___children = 'childrenContentfulHomeBannerBodyTextNode.parent.parent.children',
+  childrenContentfulHomeBannerBodyTextNode___parent___children = 'childrenContentfulHomeBannerBodyTextNode.parent.children',
+  childrenContentfulHomeBannerBodyTextNode___parent___children___id = 'childrenContentfulHomeBannerBodyTextNode.parent.children.id',
+  childrenContentfulHomeBannerBodyTextNode___parent___children___children = 'childrenContentfulHomeBannerBodyTextNode.parent.children.children',
+  childrenContentfulHomeBannerBodyTextNode___parent___internal___content = 'childrenContentfulHomeBannerBodyTextNode.parent.internal.content',
+  childrenContentfulHomeBannerBodyTextNode___parent___internal___contentDigest = 'childrenContentfulHomeBannerBodyTextNode.parent.internal.contentDigest',
+  childrenContentfulHomeBannerBodyTextNode___parent___internal___description = 'childrenContentfulHomeBannerBodyTextNode.parent.internal.description',
+  childrenContentfulHomeBannerBodyTextNode___parent___internal___fieldOwners = 'childrenContentfulHomeBannerBodyTextNode.parent.internal.fieldOwners',
+  childrenContentfulHomeBannerBodyTextNode___parent___internal___ignoreType = 'childrenContentfulHomeBannerBodyTextNode.parent.internal.ignoreType',
+  childrenContentfulHomeBannerBodyTextNode___parent___internal___mediaType = 'childrenContentfulHomeBannerBodyTextNode.parent.internal.mediaType',
+  childrenContentfulHomeBannerBodyTextNode___parent___internal___owner = 'childrenContentfulHomeBannerBodyTextNode.parent.internal.owner',
+  childrenContentfulHomeBannerBodyTextNode___parent___internal___type = 'childrenContentfulHomeBannerBodyTextNode.parent.internal.type',
+  childrenContentfulHomeBannerBodyTextNode___children = 'childrenContentfulHomeBannerBodyTextNode.children',
+  childrenContentfulHomeBannerBodyTextNode___children___id = 'childrenContentfulHomeBannerBodyTextNode.children.id',
+  childrenContentfulHomeBannerBodyTextNode___children___parent___id = 'childrenContentfulHomeBannerBodyTextNode.children.parent.id',
+  childrenContentfulHomeBannerBodyTextNode___children___parent___children = 'childrenContentfulHomeBannerBodyTextNode.children.parent.children',
+  childrenContentfulHomeBannerBodyTextNode___children___children = 'childrenContentfulHomeBannerBodyTextNode.children.children',
+  childrenContentfulHomeBannerBodyTextNode___children___children___id = 'childrenContentfulHomeBannerBodyTextNode.children.children.id',
+  childrenContentfulHomeBannerBodyTextNode___children___children___children = 'childrenContentfulHomeBannerBodyTextNode.children.children.children',
+  childrenContentfulHomeBannerBodyTextNode___children___internal___content = 'childrenContentfulHomeBannerBodyTextNode.children.internal.content',
+  childrenContentfulHomeBannerBodyTextNode___children___internal___contentDigest = 'childrenContentfulHomeBannerBodyTextNode.children.internal.contentDigest',
+  childrenContentfulHomeBannerBodyTextNode___children___internal___description = 'childrenContentfulHomeBannerBodyTextNode.children.internal.description',
+  childrenContentfulHomeBannerBodyTextNode___children___internal___fieldOwners = 'childrenContentfulHomeBannerBodyTextNode.children.internal.fieldOwners',
+  childrenContentfulHomeBannerBodyTextNode___children___internal___ignoreType = 'childrenContentfulHomeBannerBodyTextNode.children.internal.ignoreType',
+  childrenContentfulHomeBannerBodyTextNode___children___internal___mediaType = 'childrenContentfulHomeBannerBodyTextNode.children.internal.mediaType',
+  childrenContentfulHomeBannerBodyTextNode___children___internal___owner = 'childrenContentfulHomeBannerBodyTextNode.children.internal.owner',
+  childrenContentfulHomeBannerBodyTextNode___children___internal___type = 'childrenContentfulHomeBannerBodyTextNode.children.internal.type',
+  childrenContentfulHomeBannerBodyTextNode___internal___content = 'childrenContentfulHomeBannerBodyTextNode.internal.content',
+  childrenContentfulHomeBannerBodyTextNode___internal___contentDigest = 'childrenContentfulHomeBannerBodyTextNode.internal.contentDigest',
+  childrenContentfulHomeBannerBodyTextNode___internal___description = 'childrenContentfulHomeBannerBodyTextNode.internal.description',
+  childrenContentfulHomeBannerBodyTextNode___internal___fieldOwners = 'childrenContentfulHomeBannerBodyTextNode.internal.fieldOwners',
+  childrenContentfulHomeBannerBodyTextNode___internal___ignoreType = 'childrenContentfulHomeBannerBodyTextNode.internal.ignoreType',
+  childrenContentfulHomeBannerBodyTextNode___internal___mediaType = 'childrenContentfulHomeBannerBodyTextNode.internal.mediaType',
+  childrenContentfulHomeBannerBodyTextNode___internal___owner = 'childrenContentfulHomeBannerBodyTextNode.internal.owner',
+  childrenContentfulHomeBannerBodyTextNode___internal___type = 'childrenContentfulHomeBannerBodyTextNode.internal.type',
+  childrenContentfulHomeBannerBodyTextNode___body = 'childrenContentfulHomeBannerBodyTextNode.body',
+  childrenContentfulHomeBannerBodyTextNode___sys___type = 'childrenContentfulHomeBannerBodyTextNode.sys.type',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___id = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.id',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___frontmatter___title = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.frontmatter.title',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___excerpt = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.excerpt',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___rawMarkdownBody = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___html = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.html',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___htmlAst = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.htmlAst',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___excerptAst = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.excerptAst',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___headings = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.headings',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___headings___id = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.headings.id',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___headings___value = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.headings.value',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___headings___depth = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.headings.depth',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___timeToRead = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.timeToRead',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___tableOfContents = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.tableOfContents',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___wordCount___paragraphs = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.wordCount.paragraphs',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___wordCount___sentences = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.wordCount.sentences',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___wordCount___words = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.wordCount.words',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___parent___id = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.parent.id',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___parent___children = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.parent.children',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___children = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.children',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___children___id = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.children.id',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___children___children = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.children.children',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___content = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.content',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___contentDigest = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.contentDigest',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___description = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.description',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___fieldOwners = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.fieldOwners',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___ignoreType = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.ignoreType',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___mediaType = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.mediaType',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___owner = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.owner',
+  childrenContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___type = 'childrenContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.type',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___id = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.id',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___frontmatter___title = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.frontmatter.title',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___excerpt = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.excerpt',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___rawMarkdownBody = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.rawMarkdownBody',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___html = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.html',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___htmlAst = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.htmlAst',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___excerptAst = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.excerptAst',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___headings = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.headings',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___headings___id = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.headings.id',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___headings___value = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.headings.value',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___headings___depth = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.headings.depth',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___timeToRead = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.timeToRead',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___tableOfContents = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.tableOfContents',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___wordCount___paragraphs = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.wordCount.paragraphs',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___wordCount___sentences = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.wordCount.sentences',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___wordCount___words = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.wordCount.words',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___parent___id = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.parent.id',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___parent___children = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.parent.children',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___children = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.children',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___children___id = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.children.id',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___children___children = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.children.children',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___content = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.content',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___contentDigest = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.contentDigest',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___description = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.description',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___fieldOwners = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.fieldOwners',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___ignoreType = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.ignoreType',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___mediaType = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.mediaType',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___owner = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.owner',
+  childrenContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___type = 'childrenContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.type',
+  childContentfulHomeBannerBodyTextNode___id = 'childContentfulHomeBannerBodyTextNode.id',
+  childContentfulHomeBannerBodyTextNode___parent___id = 'childContentfulHomeBannerBodyTextNode.parent.id',
+  childContentfulHomeBannerBodyTextNode___parent___parent___id = 'childContentfulHomeBannerBodyTextNode.parent.parent.id',
+  childContentfulHomeBannerBodyTextNode___parent___parent___children = 'childContentfulHomeBannerBodyTextNode.parent.parent.children',
+  childContentfulHomeBannerBodyTextNode___parent___children = 'childContentfulHomeBannerBodyTextNode.parent.children',
+  childContentfulHomeBannerBodyTextNode___parent___children___id = 'childContentfulHomeBannerBodyTextNode.parent.children.id',
+  childContentfulHomeBannerBodyTextNode___parent___children___children = 'childContentfulHomeBannerBodyTextNode.parent.children.children',
+  childContentfulHomeBannerBodyTextNode___parent___internal___content = 'childContentfulHomeBannerBodyTextNode.parent.internal.content',
+  childContentfulHomeBannerBodyTextNode___parent___internal___contentDigest = 'childContentfulHomeBannerBodyTextNode.parent.internal.contentDigest',
+  childContentfulHomeBannerBodyTextNode___parent___internal___description = 'childContentfulHomeBannerBodyTextNode.parent.internal.description',
+  childContentfulHomeBannerBodyTextNode___parent___internal___fieldOwners = 'childContentfulHomeBannerBodyTextNode.parent.internal.fieldOwners',
+  childContentfulHomeBannerBodyTextNode___parent___internal___ignoreType = 'childContentfulHomeBannerBodyTextNode.parent.internal.ignoreType',
+  childContentfulHomeBannerBodyTextNode___parent___internal___mediaType = 'childContentfulHomeBannerBodyTextNode.parent.internal.mediaType',
+  childContentfulHomeBannerBodyTextNode___parent___internal___owner = 'childContentfulHomeBannerBodyTextNode.parent.internal.owner',
+  childContentfulHomeBannerBodyTextNode___parent___internal___type = 'childContentfulHomeBannerBodyTextNode.parent.internal.type',
+  childContentfulHomeBannerBodyTextNode___children = 'childContentfulHomeBannerBodyTextNode.children',
+  childContentfulHomeBannerBodyTextNode___children___id = 'childContentfulHomeBannerBodyTextNode.children.id',
+  childContentfulHomeBannerBodyTextNode___children___parent___id = 'childContentfulHomeBannerBodyTextNode.children.parent.id',
+  childContentfulHomeBannerBodyTextNode___children___parent___children = 'childContentfulHomeBannerBodyTextNode.children.parent.children',
+  childContentfulHomeBannerBodyTextNode___children___children = 'childContentfulHomeBannerBodyTextNode.children.children',
+  childContentfulHomeBannerBodyTextNode___children___children___id = 'childContentfulHomeBannerBodyTextNode.children.children.id',
+  childContentfulHomeBannerBodyTextNode___children___children___children = 'childContentfulHomeBannerBodyTextNode.children.children.children',
+  childContentfulHomeBannerBodyTextNode___children___internal___content = 'childContentfulHomeBannerBodyTextNode.children.internal.content',
+  childContentfulHomeBannerBodyTextNode___children___internal___contentDigest = 'childContentfulHomeBannerBodyTextNode.children.internal.contentDigest',
+  childContentfulHomeBannerBodyTextNode___children___internal___description = 'childContentfulHomeBannerBodyTextNode.children.internal.description',
+  childContentfulHomeBannerBodyTextNode___children___internal___fieldOwners = 'childContentfulHomeBannerBodyTextNode.children.internal.fieldOwners',
+  childContentfulHomeBannerBodyTextNode___children___internal___ignoreType = 'childContentfulHomeBannerBodyTextNode.children.internal.ignoreType',
+  childContentfulHomeBannerBodyTextNode___children___internal___mediaType = 'childContentfulHomeBannerBodyTextNode.children.internal.mediaType',
+  childContentfulHomeBannerBodyTextNode___children___internal___owner = 'childContentfulHomeBannerBodyTextNode.children.internal.owner',
+  childContentfulHomeBannerBodyTextNode___children___internal___type = 'childContentfulHomeBannerBodyTextNode.children.internal.type',
+  childContentfulHomeBannerBodyTextNode___internal___content = 'childContentfulHomeBannerBodyTextNode.internal.content',
+  childContentfulHomeBannerBodyTextNode___internal___contentDigest = 'childContentfulHomeBannerBodyTextNode.internal.contentDigest',
+  childContentfulHomeBannerBodyTextNode___internal___description = 'childContentfulHomeBannerBodyTextNode.internal.description',
+  childContentfulHomeBannerBodyTextNode___internal___fieldOwners = 'childContentfulHomeBannerBodyTextNode.internal.fieldOwners',
+  childContentfulHomeBannerBodyTextNode___internal___ignoreType = 'childContentfulHomeBannerBodyTextNode.internal.ignoreType',
+  childContentfulHomeBannerBodyTextNode___internal___mediaType = 'childContentfulHomeBannerBodyTextNode.internal.mediaType',
+  childContentfulHomeBannerBodyTextNode___internal___owner = 'childContentfulHomeBannerBodyTextNode.internal.owner',
+  childContentfulHomeBannerBodyTextNode___internal___type = 'childContentfulHomeBannerBodyTextNode.internal.type',
+  childContentfulHomeBannerBodyTextNode___body = 'childContentfulHomeBannerBodyTextNode.body',
+  childContentfulHomeBannerBodyTextNode___sys___type = 'childContentfulHomeBannerBodyTextNode.sys.type',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___id = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.id',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___frontmatter___title = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.frontmatter.title',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___excerpt = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.excerpt',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___rawMarkdownBody = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___html = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.html',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___htmlAst = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.htmlAst',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___excerptAst = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.excerptAst',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___headings = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.headings',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___headings___id = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.headings.id',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___headings___value = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.headings.value',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___headings___depth = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.headings.depth',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___timeToRead = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.timeToRead',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___tableOfContents = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.tableOfContents',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___wordCount___paragraphs = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.wordCount.paragraphs',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___wordCount___sentences = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.wordCount.sentences',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___wordCount___words = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.wordCount.words',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___parent___id = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.parent.id',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___parent___children = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.parent.children',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___children = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.children',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___children___id = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.children.id',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___children___children = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.children.children',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___content = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.content',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___contentDigest = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.contentDigest',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___description = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.description',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___fieldOwners = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.fieldOwners',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___ignoreType = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.ignoreType',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___mediaType = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.mediaType',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___owner = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.owner',
+  childContentfulHomeBannerBodyTextNode___childrenMarkdownRemark___internal___type = 'childContentfulHomeBannerBodyTextNode.childrenMarkdownRemark.internal.type',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___id = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.id',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___frontmatter___title = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.frontmatter.title',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___excerpt = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.excerpt',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___rawMarkdownBody = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.rawMarkdownBody',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___html = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.html',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___htmlAst = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.htmlAst',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___excerptAst = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.excerptAst',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___headings = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.headings',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___headings___id = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.headings.id',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___headings___value = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.headings.value',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___headings___depth = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.headings.depth',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___timeToRead = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.timeToRead',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___tableOfContents = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.tableOfContents',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___wordCount___paragraphs = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.wordCount.paragraphs',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___wordCount___sentences = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.wordCount.sentences',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___wordCount___words = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.wordCount.words',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___parent___id = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.parent.id',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___parent___children = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.parent.children',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___children = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.children',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___children___id = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.children.id',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___children___children = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.children.children',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___content = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.content',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___contentDigest = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.contentDigest',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___description = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.description',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___fieldOwners = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.fieldOwners',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___ignoreType = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.ignoreType',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___mediaType = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.mediaType',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___owner = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.owner',
+  childContentfulHomeBannerBodyTextNode___childMarkdownRemark___internal___type = 'childContentfulHomeBannerBodyTextNode.childMarkdownRemark.internal.type',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type'
+}
+
+type ContentfulHomeBannerFilterInput = {
+  readonly contentful_id: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly node_locale: Maybe<StringQueryOperatorInput>;
+  readonly titleLine1: Maybe<StringQueryOperatorInput>;
+  readonly titleLine2: Maybe<StringQueryOperatorInput>;
+  readonly ctaLink: Maybe<StringQueryOperatorInput>;
+  readonly ctaText: Maybe<StringQueryOperatorInput>;
+  readonly body: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  readonly spaceId: Maybe<StringQueryOperatorInput>;
+  readonly createdAt: Maybe<DateQueryOperatorInput>;
+  readonly updatedAt: Maybe<DateQueryOperatorInput>;
+  readonly sys: Maybe<ContentfulHomeBannerSysFilterInput>;
+  readonly childrenContentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNodeFilterListInput>;
+  readonly childContentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type ContentfulHomeBannerGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulHomeBannerEdge>;
+  readonly nodes: ReadonlyArray<ContentfulHomeBanner>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type ContentfulHomeBannerSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulHomeBannerFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type ContentfulHomeBannerSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly contentType: Maybe<ContentfulHomeBannerSysContentType>;
+};
+
+type ContentfulHomeBannerSysContentType = {
+  readonly sys: Maybe<ContentfulHomeBannerSysContentTypeSys>;
+};
+
+type ContentfulHomeBannerSysContentTypeFilterInput = {
+  readonly sys: Maybe<ContentfulHomeBannerSysContentTypeSysFilterInput>;
+};
+
+type ContentfulHomeBannerSysContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+};
+
+type ContentfulHomeBannerSysContentTypeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly linkType: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulHomeBannerSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulHomeBannerSysContentTypeFilterInput>;
+};
+
 type ContentfulHomePage = ContentfulReference & ContentfulEntry & Node & {
   readonly contentful_id: Scalars['String'];
   readonly id: Scalars['ID'];
@@ -18154,6 +18964,10 @@ type Query = {
   readonly allContentfulOurSponsor: ContentfulOurSponsorConnection;
   readonly contentfulDonateSection: Maybe<ContentfulDonateSection>;
   readonly allContentfulDonateSection: ContentfulDonateSectionConnection;
+  readonly contentfulHomeBanner: Maybe<ContentfulHomeBanner>;
+  readonly allContentfulHomeBanner: ContentfulHomeBannerConnection;
+  readonly contentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
+  readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
   readonly contentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNode>;
   readonly allContentfulDonateSectionBodyTextNode: contentfulDonateSectionBodyTextNodeConnection;
   readonly contentfulOurFounderDescriptionTextNode: Maybe<contentfulOurFounderDescriptionTextNode>;
@@ -18904,6 +19718,55 @@ type Query_contentfulDonateSectionArgs = {
 type Query_allContentfulDonateSectionArgs = {
   filter: Maybe<ContentfulDonateSectionFilterInput>;
   sort: Maybe<ContentfulDonateSectionSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulHomeBannerArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  titleLine1: Maybe<StringQueryOperatorInput>;
+  titleLine2: Maybe<StringQueryOperatorInput>;
+  ctaLink: Maybe<StringQueryOperatorInput>;
+  ctaText: Maybe<StringQueryOperatorInput>;
+  body: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulHomeBannerSysFilterInput>;
+  childrenContentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNodeFilterListInput>;
+  childContentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulHomeBannerArgs = {
+  filter: Maybe<ContentfulHomeBannerFilterInput>;
+  sort: Maybe<ContentfulHomeBannerSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulHomeBannerBodyTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  body: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulHomeBannerBodyTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulHomeBannerBodyTextNodeArgs = {
+  filter: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulHomeBannerBodyTextNodeSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -20351,6 +21214,11 @@ type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
+type HomeBannerFragment = { readonly contentfulHomeBanner: Maybe<(
+    Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText'>
+    & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
+  )> };
+
 type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<RecipeCardFragment> } };
 
 type RecipeCardFragment = (
@@ -20366,6 +21234,7 @@ type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type HomeQueryQuery = (
   { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & HomeBannerFragment
   & FeaturedRecipesSectionFragment
   & OurWorkSectionFragment
   & DonateSectionFragment
