@@ -37,9 +37,11 @@ const FeaturedRecipesSection = (props: Props) => {
               </Flex>
               {i === recipes.length - 1 && (
                 <Flex justifyContent="flex-end" marginTop={82} marginBottom={155}>
-                  <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
-                    View All Recipes
-                  </Button>
+                  <Link to="/recipes">
+                    <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
+                      View All Recipes
+                    </Button>
+                  </Link>
                 </Flex>
               )}
             </Box>
