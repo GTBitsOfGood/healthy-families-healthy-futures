@@ -2,8 +2,7 @@ import React from 'react';
 
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-
-import styles from '../css/ArticlePreview.module.css';
+import styles from 'src/css/ArticlePreview.module.css';
 
 interface Props {
   data: GatsbyTypes.ArticlePreviewFragment;

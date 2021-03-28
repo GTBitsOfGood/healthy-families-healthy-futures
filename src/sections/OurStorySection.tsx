@@ -3,8 +3,7 @@ import React from 'react';
 import { Box, Text, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-
-import SectionHeader from '../components/SectionHeader';
+import SectionHeader from 'src/components/SectionHeader';
 
 interface Props {
   data: GatsbyTypes.OurStorySectionFragment;

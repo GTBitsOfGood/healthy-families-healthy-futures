@@ -4,9 +4,8 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Box, Flex, Button } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
 import { graphql, Link } from 'gatsby';
-
-import RecipeCard from '../components/RecipeCard';
-import SectionHeader from '../components/SectionHeader';
+import RecipeCard from 'src/components/RecipeCard';
+import SectionHeader from 'src/components/SectionHeader';
 
 interface Props {
   data: GatsbyTypes.FeaturedRecipesSectionFragment;

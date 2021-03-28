@@ -2,9 +2,8 @@ import React from 'react';
 
 import { Box, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
-
-import OurWorkCard from '../components/OurWorkCard';
-import SectionHeader from '../components/SectionHeader';
+import OurWorkCard from 'src/components/OurWorkCard';
+import SectionHeader from 'src/components/SectionHeader';
 
 interface Props {
   data: GatsbyTypes.OurWorkSectionFragment;

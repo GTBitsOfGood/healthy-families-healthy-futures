@@ -4,13 +4,12 @@ import { Divider, Flex, Grid, GridItem } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
 import { graphql, Link, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
-
-import Layout from '../components/Layout';
-import Pagination from '../components/Pagination';
-import RecipeCard from '../components/RecipeCard';
-import RecipeSidebar from '../components/RecipeSidebar';
-import { initRecipeFilters, filterRecipes } from '../utils/filter';
-import { SelectedRecipeFilters } from '../utils/types';
+import Layout from 'src/components/Layout';
+import Pagination from 'src/components/Pagination';
+import RecipeCard from 'src/components/RecipeCard';
+import RecipeSidebar from 'src/components/RecipeSidebar';
+import { initRecipeFilters, filterRecipes } from 'src/utils/filter';
+import { SelectedRecipeFilters } from 'src/utils/types';
 
 interface Props extends PageProps {
   data: GatsbyTypes.RecipeQueryQuery;

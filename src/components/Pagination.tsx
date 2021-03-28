@@ -3,8 +3,7 @@ import React from 'react';
 import { Button } from '@chakra-ui/button';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { Box, HStack } from '@chakra-ui/layout';
-
-import theme from '../@chakra-ui/gatsby-plugin/theme';
+import theme from 'src/@chakra-ui/gatsby-plugin/theme';
 
 interface Props {
   currentPage: number;

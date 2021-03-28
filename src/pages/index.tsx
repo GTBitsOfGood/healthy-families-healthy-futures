@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { graphql, PageProps } from 'gatsby';
-
-import Layout from '../components/Layout';
-import DonateBanner from '../sections/DonateBanner';
-import FeaturedRecipesSection from '../sections/FeaturedRecipesSection';
-import HomeBanner from '../sections/HomeBanner';
-import NewsletterBanner from '../sections/NewsletterBanner';
-import OurWorkSection from '../sections/OurWorkSection';
+import Layout from 'src/components/Layout';
+import DonateBanner from 'src/sections/DonateBanner';
+import FeaturedRecipesSection from 'src/sections/FeaturedRecipesSection';
+import HomeBanner from 'src/sections/HomeBanner';
+import NewsletterBanner from 'src/sections/NewsletterBanner';
+import OurWorkSection from 'src/sections/OurWorkSection';
 
 interface Props extends PageProps {
   data: GatsbyTypes.HomePageQuery;
