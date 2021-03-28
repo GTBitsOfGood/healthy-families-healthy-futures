@@ -1,31 +1,20 @@
 import React from 'react';
 
-import { TimeIcon } from '@chakra-ui/icons';
-import { Box, Heading, Text, Flex, Spacer } from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { Box, Heading, Text, Flex, Spacer, Button } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 interface Props {
   data: GatsbyTypes.RecipeCardFragment;
-  hideTime?: true;
 }
 
-function RecipeCard({ data, hideTime }: Props): JSX.Element {
-  const timeInfo = hideTime == null && (
-    <Flex>
-      <TimeIcon mt="2px" color="green.500" />
-      <Text ml={2} textStyle="subheading2" color="green.500">
-        {Number(data.totalTime) + Number(data.prepTime)} min
-      </Text>
-    </Flex>
-  );
-
+function Featured({ data }: Props): JSX.Element {
   return (
     <Box w={{ base: '183px', md: '340px' }}>
       <Flex display={{ base: 'none', md: 'flex' }} mb={5}>
         <Heading textStyle="subheading2">{data.title}</Heading>
         <Spacer />
-        {timeInfo}
       </Flex>
 
       <Box h={{ base: '179px', md: '219px' }} mb={3}>
@@ -39,18 +28,22 @@ function RecipeCard({ data, hideTime }: Props): JSX.Element {
       <Box display={{ base: 'inline', md: 'none' }} mb={5}>
         <Heading textStyle="subheading2">{data.title}</Heading>
         <Spacer />
-        {timeInfo}
       </Box>
 
       <Text textStyle="body3" fontWeight="semibold">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore
       </Text>
+      <Flex float="right">
+        <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
+          MORE
+        </Button>
+      </Flex>
     </Box>
   );
 }
 
-export default RecipeCard;
+export default Featured;
 export const fragment = graphql`
   fragment RecipeCard on ContentfulRecipe {
     id
