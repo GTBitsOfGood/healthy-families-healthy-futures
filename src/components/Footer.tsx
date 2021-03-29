@@ -1,6 +1,16 @@
 import React from 'react';
 
-import { Box, VStack, Heading, Flex, Link, HStack } from '@chakra-ui/react';
+import {
+  Box,
+  useDisclosure,
+  Collapse,
+  Button,
+  VStack,
+  Heading,
+  Flex,
+  Link,
+  HStack,
+} from '@chakra-ui/react';
 import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -18,10 +28,12 @@ function Footer(): JSX.Element {
     }
   `);
 
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
     <Flex
       bgColor="charcoal"
-      h={{ base: '443px', md: '384px' }}
+      h={{ md: '384px' }}
       w="full"
       mt={40}
       wrap="nowrap"
@@ -29,6 +41,7 @@ function Footer(): JSX.Element {
       justifyContent="space-evenly"
       alignItems="flex-start"
       p={{ base: '47px', md: '98px' }}
+      maxH={{ base: '813px', md: '384px' }}
     >
       <VStack display={{ base: 'flex', md: 'none' }}>
         <Flex align="center" flexDir="row">
@@ -45,15 +58,83 @@ function Footer(): JSX.Element {
         </Flex>
 
         <VStack>
-          <Heading color="creamsicle" textStyle="heading1">
-            About Us +
-          </Heading>
-          <Heading color="creamsicle" textStyle="heading1">
-            Get Involved +
-          </Heading>
-          <Heading color="creamsicle" textStyle="heading1">
-            Resources and Blog +
-          </Heading>
+          <VStack>
+            <Button
+              onClick={onToggle}
+              variant="unstyled"
+              bg="charcoal"
+              color="creamsicle"
+              textStyle="heading1"
+            >
+              ABOUT US +
+            </Button>
+            <Collapse in={isOpen} animateOpacity>
+              <VStack>
+                <Link color="white" to="/about#our-story" textStyle="body3" as={GatsbyLink}>
+                  Our Story
+                </Link>
+                <Link color="white" to="/about#our-work" textStyle="body3" as={GatsbyLink}>
+                  Our Work
+                </Link>
+                <Link color="white" to="/about#founder" textStyle="body3" as={GatsbyLink}>
+                  Founder
+                </Link>
+              </VStack>
+            </Collapse>
+          </VStack>
+
+          <VStack>
+            <Button
+              onClick={onToggle}
+              variant="unstyled"
+              bg="charcoal"
+              color="creamsicle"
+              textStyle="heading1"
+            >
+              GET INVOLVED +
+            </Button>
+            <Collapse in={isOpen} animateOpacity>
+              <VStack>
+                <Link color="white" to="/donate" textStyle="body3" as={GatsbyLink}>
+                  Donate
+                </Link>
+                <Link color="white" to="/events-classes" textStyle="body3" as={GatsbyLink}>
+                  Events/Classes
+                </Link>
+                <Link color="white" to="/contact-us" textStyle="body3" as={GatsbyLink}>
+                  Contact Us
+                </Link>
+              </VStack>
+            </Collapse>
+          </VStack>
+
+          <VStack>
+            <Button
+              onClick={onToggle}
+              variant="unstyled"
+              bg="charcoal"
+              color="creamsicle"
+              textStyle="heading1"
+            >
+              RESOURCES AND BLOG +
+            </Button>
+            <Collapse in={isOpen} animateOpacity>
+              <VStack>
+                <Link color="white" to="/recipes" textStyle="body3" as={GatsbyLink}>
+                  Recipes
+                </Link>
+                <Link color="white" to="/blog" textStyle="body3" as={GatsbyLink}>
+                  Blog
+                </Link>
+                <Link color="white" to="/links-documents" textStyle="body3" as={GatsbyLink}>
+                  Links/Documents
+                </Link>
+                <Link color="white" to="/media" textStyle="body3" as={GatsbyLink}>
+                  Media
+                </Link>
+              </VStack>
+            </Collapse>
+          </VStack>
         </VStack>
 
         <HStack spacing={5} paddingTop="44px">
