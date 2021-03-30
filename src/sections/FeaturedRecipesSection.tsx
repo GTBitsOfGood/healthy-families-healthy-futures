@@ -14,8 +14,6 @@ interface Props {
 const FeaturedRecipesSection = (props: Props) => {
   const recipes = props.data?.allContentfulRecipe?.nodes;
 
-  console.log(recipes);
-
   return (
     <Box>
       <Box marginBottom={170}>
