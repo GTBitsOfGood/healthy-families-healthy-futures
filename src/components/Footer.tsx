@@ -28,7 +28,13 @@ function Footer(): JSX.Element {
     }
   `);
 
-  const { isOpen, onToggle } = useDisclosure();
+  const [show1, setShow1] = React.useState(false);
+  const [show2, setShow2] = React.useState(false);
+  const [show3, setShow3] = React.useState(false);
+
+  const handleToggle1 = () => setShow1(!show1);
+  const handleToggle2 = () => setShow2(!show2);
+  const handleToggle3 = () => setShow3(!show3);
 
   return (
     <Flex
@@ -60,7 +66,7 @@ function Footer(): JSX.Element {
         <VStack>
           <VStack>
             <Button
-              onClick={onToggle}
+              onClick={handleToggle1}
               variant="unstyled"
               bg="charcoal"
               color="creamsicle"
@@ -68,7 +74,7 @@ function Footer(): JSX.Element {
             >
               ABOUT US +
             </Button>
-            <Collapse in={isOpen} animateOpacity>
+            <Collapse in={show1} animateOpacity>
               <VStack>
                 <Link color="white" to="/about#our-story" textStyle="body3" as={GatsbyLink}>
                   Our Story
@@ -85,7 +91,7 @@ function Footer(): JSX.Element {
 
           <VStack>
             <Button
-              onClick={onToggle}
+              onClick={handleToggle2}
               variant="unstyled"
               bg="charcoal"
               color="creamsicle"
@@ -93,7 +99,7 @@ function Footer(): JSX.Element {
             >
               GET INVOLVED +
             </Button>
-            <Collapse in={isOpen} animateOpacity>
+            <Collapse in={show2} animateOpacity>
               <VStack>
                 <Link color="white" to="/donate" textStyle="body3" as={GatsbyLink}>
                   Donate
@@ -110,7 +116,7 @@ function Footer(): JSX.Element {
 
           <VStack>
             <Button
-              onClick={onToggle}
+              onClick={handleToggle3}
               variant="unstyled"
               bg="charcoal"
               color="creamsicle"
@@ -118,7 +124,7 @@ function Footer(): JSX.Element {
             >
               RESOURCES AND BLOG +
             </Button>
-            <Collapse in={isOpen} animateOpacity>
+            <Collapse in={show3} animateOpacity>
               <VStack>
                 <Link color="white" to="/recipes" textStyle="body3" as={GatsbyLink}>
                   Recipes
