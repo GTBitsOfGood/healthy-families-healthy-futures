@@ -3,8 +3,7 @@ import React from 'react';
 import { Container, Heading } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
-
-import Layout from '../components/Layout';
+import Layout from 'src/components/Layout';
 
 interface Props extends PageProps {
   data: GatsbyTypes.DonationQueryQuery;

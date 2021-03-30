@@ -5,10 +5,10 @@ import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 interface Props {
-  data: GatsbyTypes.DonateSectionFragment;
+  data: GatsbyTypes.DonateBannerFragment;
 }
 
-function DonateSection({ data }: Props): JSX.Element {
+function DonateBanner({ data }: Props): JSX.Element {
   const section = data.contentfulDonateSection;
 
   return (
@@ -49,10 +49,10 @@ function DonateSection({ data }: Props): JSX.Element {
   );
 }
 
-export default DonateSection;
+export default DonateBanner;
 
 export const fragment = graphql`
-  fragment DonateSection on Query {
+  fragment DonateBanner on Query {
     contentfulDonateSection {
       ctaLink
       ctaText

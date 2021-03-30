@@ -6,11 +6,10 @@ import { graphql, Link, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 import Pagination from 'src/components/Pagination';
+import RecipeCard from 'src/components/RecipeCard';
 import RecipeSidebar from 'src/components/RecipeSidebar';
+import { initRecipeFilters, filterRecipes } from 'src/utils/filter';
 import { SelectedRecipeFilters } from 'src/utils/types';
-
-import RecipeCard from '../components/RecipeCard';
-import { initRecipeFilters, filterRecipes } from '../utils/filter';
 
 interface Props extends PageProps {
   data: GatsbyTypes.RecipeQueryQuery;

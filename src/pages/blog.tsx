@@ -3,10 +3,9 @@ import React from 'react';
 import { Divider } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { Helmet } from 'react-helmet';
-
-import ArticlePreview from '../components/ArticlePreview';
-import Layout from '../components/Layout';
-import styles from '../css/Blog.module.css';
+import ArticlePreview from 'src/components/ArticlePreview';
+import Layout from 'src/components/Layout';
+import styles from 'src/css/Blog.module.css';
 
 interface Props extends PageProps {
   data: GatsbyTypes.BlogIndexQueryQuery;

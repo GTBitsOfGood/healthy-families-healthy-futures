@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Heading, Flex, Button, VStack, Box } from '@chakra-ui/react';
 import { navigate } from 'gatsby';
 import { parse, stringify } from 'query-string';
+import { SelectedRecipeFilters } from 'src/utils/types';
 import { entries, removeNulls } from 'src/utils/util';
 
-import { SelectedRecipeFilters } from '../utils/types';
 import FilterGroup from './FilterGroup';
 
 interface Props {

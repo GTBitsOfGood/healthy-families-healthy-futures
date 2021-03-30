@@ -1,16 +1,15 @@
 import React from 'react';
 
 import { graphql, PageProps } from 'gatsby';
-import DonateSection from 'src/components/DonateSection';
-import FeaturedRecipesSection from 'src/components/FeaturedRecipesSection';
-import HomeBanner from 'src/components/HomeBanner';
-import OurWorkSection from 'src/components/OurWorkSection';
-
-import Layout from '../components/Layout';
-import NewsletterSection from '../components/NewsletterSection';
+import Layout from 'src/components/Layout';
+import DonateBanner from 'src/sections/DonateBanner';
+import FeaturedRecipesSection from 'src/sections/FeaturedRecipesSection';
+import HomeBanner from 'src/sections/HomeBanner';
+import NewsletterBanner from 'src/sections/NewsletterBanner';
+import OurWorkSection from 'src/sections/OurWorkSection';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.HomeQueryQuery;
+  data: GatsbyTypes.HomePageQuery;
 }
 
 function RootIndex(props: Props): JSX.Element {
@@ -20,9 +19,9 @@ function RootIndex(props: Props): JSX.Element {
 
       <OurWorkSection data={props.data} />
       <FeaturedRecipesSection data={props.data} />
-      <DonateSection data={props.data} />
+      <DonateBanner data={props.data} />
 
-      <NewsletterSection />
+      <NewsletterBanner />
     </Layout>
   );
 }
@@ -30,7 +29,7 @@ function RootIndex(props: Props): JSX.Element {
 export default RootIndex;
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query HomePage {
     site {
       siteMetadata {
         title
@@ -39,6 +38,6 @@ export const pageQuery = graphql`
     ...HomeBanner
     ...FeaturedRecipesSection
     ...OurWorkSection
-    ...DonateSection
+    ...DonateBanner
   }
 `;
