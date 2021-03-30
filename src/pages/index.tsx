@@ -1,41 +1,27 @@
 import React from 'react';
 
-import { Box, Container, Divider, Heading } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
-import { Helmet } from 'react-helmet';
-
-import ArticlePreview from '../components/ArticlePreview';
-import Hero from '../components/Hero';
-import Layout from '../components/Layout';
+import Layout from 'src/components/Layout';
+import DonateBanner from 'src/sections/DonateBanner';
+import FeaturedRecipesSection from 'src/sections/FeaturedRecipesSection';
+import HomeBanner from 'src/sections/HomeBanner';
+import NewsletterBanner from 'src/sections/NewsletterBanner';
+import OurWorkSection from 'src/sections/OurWorkSection';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.HomeQueryQuery;
+  data: GatsbyTypes.HomePageQuery;
 }
 
 function RootIndex(props: Props): JSX.Element {
-  const siteTitle = props.data.site?.siteMetadata?.title;
-  const posts = props.data.allContentfulBlogPost.edges;
-  const [author] = props.data.allContentfulPerson.nodes;
-
   return (
     <Layout location={props.location}>
-      <Container maxW="5xl" style={{ background: '#fff' }}>
-        <Helmet title={siteTitle} />
-        <Hero data={author} />
-        <Box py="10">
-          <Heading as="h3">Recent articles</Heading>
-          <Divider />
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.slug}>
-                  <ArticlePreview data={node} />
-                </li>
-              );
-            })}
-          </ul>
-        </Box>
-      </Container>
+      <HomeBanner data={props.data} />
+
+      <OurWorkSection data={props.data} />
+      <FeaturedRecipesSection data={props.data} />
+      <DonateBanner data={props.data} />
+
+      <NewsletterBanner />
     </Layout>
   );
 }
@@ -43,23 +29,15 @@ function RootIndex(props: Props): JSX.Element {
 export default RootIndex;
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query HomePage {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          ...ArticlePreview
-        }
-      }
-    }
-    allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
-      nodes {
-        ...Hero
-      }
-    }
+    ...HomeBanner
+    ...FeaturedRecipesSection
+    ...OurWorkSection
+    ...DonateBanner
   }
 `;

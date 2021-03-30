@@ -31,7 +31,6 @@ function Footer(): JSX.Element {
       bgColor="charcoal"
       h={{ md: '384px' }}
       w="full"
-      mt={40}
       wrap="nowrap"
       flexDir="row"
       justifyContent="space-evenly"
