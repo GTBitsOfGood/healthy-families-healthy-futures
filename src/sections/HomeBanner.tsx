@@ -10,7 +10,12 @@ interface Props {
 const HomeBanner = ({ data }: Props) => {
   const banner = data.contentfulHomeBanner;
   return (
-    <Box w={560} marginTop={240} marginLeft={180}>
+    <Box
+      w={{ base: '90vw', md: 560 }}
+      marginTop={240}
+      mx={{ base: 'auto' }}
+      marginLeft={{ md: 180 }}
+    >
       <Heading textStyle="heading1" color="creamsicle">
         {banner?.titleLine1}
       </Heading>
