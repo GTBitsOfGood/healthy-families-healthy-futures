@@ -14,11 +14,15 @@ function OurWorkSection({ data }: Props): JSX.Element {
   const sortedCards = [...cards].sort((a, b) => (a.displayIndex ?? 0) - (b.displayIndex ?? 0));
 
   return (
-    <Box h={900} bg="gray.extralight">
-      <Box marginBottom={170}>
+    <Box bg="gray.extralight">
+      <Box>
         <SectionHeader text="Our Work" textPosition="left" />
       </Box>
-      <Flex justify="space-evenly">
+      <Flex
+        justify="space-between"
+        py={{ base: 0, md: 50 }}
+        direction={{ base: 'column', md: 'row' }}
+      >
         {sortedCards.map(card => (
           <OurWorkCard key={card.title} data={card} />
         ))}

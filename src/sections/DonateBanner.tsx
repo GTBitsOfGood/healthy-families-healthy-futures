@@ -13,7 +13,7 @@ function DonateBanner({ data }: Props): JSX.Element {
 
   return (
     <Flex>
-      <Box w="40%" h={480}>
+      <Box w="40%" h={480} display={{ base: 'none', md: 'block' }}>
         <Box boxSize="480px" w="full">
           {section?.image?.fluid != null && (
             <Img
@@ -25,18 +25,18 @@ function DonateBanner({ data }: Props): JSX.Element {
           )}
         </Box>
       </Box>
-      <Center flex="1" h={480} bg="creamsicle">
-        <Box w={183} h={158}>
+      <Center p={5} flex="1" h={{ md: 480 }} bg="creamsicle">
+        <Box w={{ base: '32vw', md: 183 }} h={{ base: 'auto', md: 158 }}>
           {section?.logo?.fluid != null && (
             <Img fluid={section?.logo.fluid} alt={section?.logo.description} />
           )}
         </Box>
-        <Stack spacing={5} marginLeft={55} direction="column">
+        <Stack spacing={{ base: 1, md: 5 }} marginLeft={{ base: 5, md: 55 }} direction="column">
           <Heading textAlign="left" textStyle="heading1" color="charcoal">
             {section?.title}
           </Heading>
-          <Box w={320}>
-            <Text textAlign="left" textStyle="body1">
+          <Box w={{ base: 190, md: 320 }}>
+            <Text textAlign="left" textStyle="body1" color="charcoal">
               {section?.body?.childMarkdownRemark?.rawMarkdownBody}
             </Text>
           </Box>

@@ -14,13 +14,43 @@ interface Props {
 const FeaturedRecipesSection = (props: Props) => {
   const recipes = props.data?.allContentfulRecipe?.nodes;
 
+  console.log(recipes);
+
   return (
     <Box>
       <Box marginBottom={170}>
         <SectionHeader text="Featured Recipes" textPosition="right" />
       </Box>
 
-      <Flex justifyContent="space-evenly">
+      <Flex display={{ base: 'none', md: 'none' }} justifyContent="space-evenly">
+        {recipes.map((recipe, i) => {
+          return (
+            <Box key={recipe.id}>
+              <Link to={`/recipes/${slugify(String(recipe.title)) ?? ''}`}>
+                <RecipeCard data={recipe} hideTime />
+              </Link>
+              <Flex justifyContent="flex-end">
+                <Link to={`/recipes/${slugify(String(recipe.title)) ?? ''}`}>
+                  <Button rightIcon={<ArrowForwardIcon />} variant="secondary" textTransform="none">
+                    More
+                  </Button>
+                </Link>
+              </Flex>
+              {i === recipes.length - 1 && (
+                <Flex justifyContent="flex-end" marginTop={82} marginBottom={155}>
+                  <Link to="/recipes">
+                    <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
+                      View All Recipes
+                    </Button>
+                  </Link>
+                </Flex>
+              )}
+            </Box>
+          );
+        })}
+      </Flex>
+
+      <Flex display={{ base: 'none', md: 'flex' }} justifyContent="space-evenly">
         {recipes.map((recipe, i) => {
           return (
             <Box key={recipe.id}>
