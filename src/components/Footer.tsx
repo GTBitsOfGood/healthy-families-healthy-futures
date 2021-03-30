@@ -1,16 +1,6 @@
 import React from 'react';
 
-import {
-  Box,
-  useDisclosure,
-  Collapse,
-  Button,
-  VStack,
-  Heading,
-  Flex,
-  Link,
-  HStack,
-} from '@chakra-ui/react';
+import { Box, Collapse, Button, VStack, Heading, Flex, Link, HStack } from '@chakra-ui/react';
 import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -64,83 +54,77 @@ function Footer(): JSX.Element {
         </Flex>
 
         <VStack>
-          <VStack>
-            <Button
-              onClick={handleToggle1}
-              variant="unstyled"
-              bg="charcoal"
-              color="creamsicle"
-              textStyle="heading1"
-            >
-              ABOUT US +
-            </Button>
-            <Collapse in={show1} animateOpacity>
-              <VStack>
-                <Link color="white" to="/about#our-story" textStyle="body3" as={GatsbyLink}>
-                  Our Story
-                </Link>
-                <Link color="white" to="/about#our-work" textStyle="body3" as={GatsbyLink}>
-                  Our Work
-                </Link>
-                <Link color="white" to="/about#founder" textStyle="body3" as={GatsbyLink}>
-                  Founder
-                </Link>
-              </VStack>
-            </Collapse>
-          </VStack>
+          <Button
+            onClick={handleToggle1}
+            variant="unstyled"
+            bg="charcoal"
+            color="creamsicle"
+            textStyle="heading1"
+          >
+            ABOUT US +
+          </Button>
+          <Collapse in={show1} animateOpacity>
+            <VStack>
+              <Link color="white" to="/about#our-story" textStyle="body3" as={GatsbyLink}>
+                Our Story
+              </Link>
+              <Link color="white" to="/about#our-work" textStyle="body3" as={GatsbyLink}>
+                Our Work
+              </Link>
+              <Link color="white" to="/about#founder" textStyle="body3" as={GatsbyLink}>
+                Founder
+              </Link>
+            </VStack>
+          </Collapse>
 
-          <VStack>
-            <Button
-              onClick={handleToggle2}
-              variant="unstyled"
-              bg="charcoal"
-              color="creamsicle"
-              textStyle="heading1"
-            >
-              GET INVOLVED +
-            </Button>
-            <Collapse in={show2} animateOpacity>
-              <VStack>
-                <Link color="white" to="/donate" textStyle="body3" as={GatsbyLink}>
-                  Donate
-                </Link>
-                <Link color="white" to="/events-classes" textStyle="body3" as={GatsbyLink}>
-                  Events/Classes
-                </Link>
-                <Link color="white" to="/contact-us" textStyle="body3" as={GatsbyLink}>
-                  Contact Us
-                </Link>
-              </VStack>
-            </Collapse>
-          </VStack>
+          <Button
+            onClick={handleToggle2}
+            variant="unstyled"
+            bg="charcoal"
+            color="creamsicle"
+            textStyle="heading1"
+          >
+            GET INVOLVED +
+          </Button>
+          <Collapse in={show2} animateOpacity>
+            <VStack>
+              <Link color="white" to="/donate" textStyle="body3" as={GatsbyLink}>
+                Donate
+              </Link>
+              <Link color="white" to="/events-classes" textStyle="body3" as={GatsbyLink}>
+                Events/Classes
+              </Link>
+              <Link color="white" to="/contact-us" textStyle="body3" as={GatsbyLink}>
+                Contact Us
+              </Link>
+            </VStack>
+          </Collapse>
 
-          <VStack>
-            <Button
-              onClick={handleToggle3}
-              variant="unstyled"
-              bg="charcoal"
-              color="creamsicle"
-              textStyle="heading1"
-            >
-              RESOURCES AND BLOG +
-            </Button>
-            <Collapse in={show3} animateOpacity>
-              <VStack>
-                <Link color="white" to="/recipes" textStyle="body3" as={GatsbyLink}>
-                  Recipes
-                </Link>
-                <Link color="white" to="/blog" textStyle="body3" as={GatsbyLink}>
-                  Blog
-                </Link>
-                <Link color="white" to="/links-documents" textStyle="body3" as={GatsbyLink}>
-                  Links/Documents
-                </Link>
-                <Link color="white" to="/media" textStyle="body3" as={GatsbyLink}>
-                  Media
-                </Link>
-              </VStack>
-            </Collapse>
-          </VStack>
+          <Button
+            onClick={handleToggle3}
+            variant="unstyled"
+            bg="charcoal"
+            color="creamsicle"
+            textStyle="heading1"
+          >
+            RESOURCES AND BLOG +
+          </Button>
+          <Collapse in={show3} animateOpacity>
+            <VStack>
+              <Link color="white" to="/recipes" textStyle="body3" as={GatsbyLink}>
+                Recipes
+              </Link>
+              <Link color="white" to="/blog" textStyle="body3" as={GatsbyLink}>
+                Blog
+              </Link>
+              <Link color="white" to="/links-documents" textStyle="body3" as={GatsbyLink}>
+                Links/Documents
+              </Link>
+              <Link color="white" to="/media" textStyle="body3" as={GatsbyLink}>
+                Media
+              </Link>
+            </VStack>
+          </Collapse>
         </VStack>
 
         <HStack spacing={5} paddingTop="44px">
