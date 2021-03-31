@@ -2377,6 +2377,156 @@ type ContentfulAssetSysFilterInput = {
   readonly revision: Maybe<IntQueryOperatorInput>;
 };
 
+type ContentfulBasicBanner = ContentfulReference & ContentfulEntry & Node & {
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+type ContentfulBasicBannerConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulBasicBannerEdge>;
+  readonly nodes: ReadonlyArray<ContentfulBasicBanner>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulBasicBannerGroupConnection>;
+};
+
+
+type ContentfulBasicBannerConnection_distinctArgs = {
+  field: ContentfulBasicBannerFieldsEnum;
+};
+
+
+type ContentfulBasicBannerConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: ContentfulBasicBannerFieldsEnum;
+};
+
+type ContentfulBasicBannerEdge = {
+  readonly next: Maybe<ContentfulBasicBanner>;
+  readonly node: ContentfulBasicBanner;
+  readonly previous: Maybe<ContentfulBasicBanner>;
+};
+
+enum ContentfulBasicBannerFieldsEnum {
+  contentful_id = 'contentful_id',
+  id = 'id',
+  node_locale = 'node_locale',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type'
+}
+
+type ContentfulBasicBannerFilterInput = {
+  readonly contentful_id: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly node_locale: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type ContentfulBasicBannerGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulBasicBannerEdge>;
+  readonly nodes: ReadonlyArray<ContentfulBasicBanner>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type ContentfulBasicBannerSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulBasicBannerFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
 type ContentfulBlogPost = ContentfulReference & ContentfulEntry & Node & {
   readonly contentful_id: Scalars['String'];
   readonly id: Scalars['ID'];
@@ -5353,6 +5503,234 @@ type ContentfulDonateSectionSysFilterInput = {
   readonly contentType: Maybe<ContentfulDonateSectionSysContentTypeFilterInput>;
 };
 
+type ContentfulDonationDetailSection = ContentfulReference & ContentfulEntry & Node & {
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly node_locale: Scalars['String'];
+  readonly title: Maybe<Scalars['String']>;
+  readonly description: Maybe<ContentfulDonationDetailSectionDescription>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly sys: Maybe<ContentfulDonationDetailSectionSys>;
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+
+type ContentfulDonationDetailSection_createdAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type ContentfulDonationDetailSection_updatedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+type ContentfulDonationDetailSectionConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulDonationDetailSectionEdge>;
+  readonly nodes: ReadonlyArray<ContentfulDonationDetailSection>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulDonationDetailSectionGroupConnection>;
+};
+
+
+type ContentfulDonationDetailSectionConnection_distinctArgs = {
+  field: ContentfulDonationDetailSectionFieldsEnum;
+};
+
+
+type ContentfulDonationDetailSectionConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: ContentfulDonationDetailSectionFieldsEnum;
+};
+
+type ContentfulDonationDetailSectionDescription = {
+  readonly raw: Maybe<Scalars['String']>;
+};
+
+type ContentfulDonationDetailSectionDescriptionFilterInput = {
+  readonly raw: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulDonationDetailSectionEdge = {
+  readonly next: Maybe<ContentfulDonationDetailSection>;
+  readonly node: ContentfulDonationDetailSection;
+  readonly previous: Maybe<ContentfulDonationDetailSection>;
+};
+
+enum ContentfulDonationDetailSectionFieldsEnum {
+  contentful_id = 'contentful_id',
+  id = 'id',
+  node_locale = 'node_locale',
+  title = 'title',
+  description___raw = 'description.raw',
+  spaceId = 'spaceId',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys.type',
+  sys___revision = 'sys.revision',
+  sys___contentType___sys___type = 'sys.contentType.sys.type',
+  sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
+  sys___contentType___sys___id = 'sys.contentType.sys.id',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type'
+}
+
+type ContentfulDonationDetailSectionFilterInput = {
+  readonly contentful_id: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly node_locale: Maybe<StringQueryOperatorInput>;
+  readonly title: Maybe<StringQueryOperatorInput>;
+  readonly description: Maybe<ContentfulDonationDetailSectionDescriptionFilterInput>;
+  readonly spaceId: Maybe<StringQueryOperatorInput>;
+  readonly createdAt: Maybe<DateQueryOperatorInput>;
+  readonly updatedAt: Maybe<DateQueryOperatorInput>;
+  readonly sys: Maybe<ContentfulDonationDetailSectionSysFilterInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type ContentfulDonationDetailSectionGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulDonationDetailSectionEdge>;
+  readonly nodes: ReadonlyArray<ContentfulDonationDetailSection>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type ContentfulDonationDetailSectionSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulDonationDetailSectionFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type ContentfulDonationDetailSectionSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly contentType: Maybe<ContentfulDonationDetailSectionSysContentType>;
+};
+
+type ContentfulDonationDetailSectionSysContentType = {
+  readonly sys: Maybe<ContentfulDonationDetailSectionSysContentTypeSys>;
+};
+
+type ContentfulDonationDetailSectionSysContentTypeFilterInput = {
+  readonly sys: Maybe<ContentfulDonationDetailSectionSysContentTypeSysFilterInput>;
+};
+
+type ContentfulDonationDetailSectionSysContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+};
+
+type ContentfulDonationDetailSectionSysContentTypeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly linkType: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulDonationDetailSectionSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulDonationDetailSectionSysContentTypeFilterInput>;
+};
+
 type ContentfulEntry = {
   readonly contentful_id: Scalars['String'];
   readonly id: Scalars['ID'];
@@ -6336,6 +6714,319 @@ type ContentfulFoodTypeTagSysFilterInput = {
   readonly type: Maybe<StringQueryOperatorInput>;
   readonly revision: Maybe<IntQueryOperatorInput>;
   readonly contentType: Maybe<ContentfulFoodTypeTagSysContentTypeFilterInput>;
+};
+
+type ContentfulGetInvolvedCard = ContentfulReference & ContentfulEntry & Node & {
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly node_locale: Scalars['String'];
+  readonly title: Maybe<Scalars['String']>;
+  readonly link: Maybe<Scalars['String']>;
+  readonly icon: Maybe<ContentfulAsset>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly sys: Maybe<ContentfulGetInvolvedCardSys>;
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+
+type ContentfulGetInvolvedCard_createdAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type ContentfulGetInvolvedCard_updatedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+type ContentfulGetInvolvedCardConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulGetInvolvedCardEdge>;
+  readonly nodes: ReadonlyArray<ContentfulGetInvolvedCard>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulGetInvolvedCardGroupConnection>;
+};
+
+
+type ContentfulGetInvolvedCardConnection_distinctArgs = {
+  field: ContentfulGetInvolvedCardFieldsEnum;
+};
+
+
+type ContentfulGetInvolvedCardConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: ContentfulGetInvolvedCardFieldsEnum;
+};
+
+type ContentfulGetInvolvedCardEdge = {
+  readonly next: Maybe<ContentfulGetInvolvedCard>;
+  readonly node: ContentfulGetInvolvedCard;
+  readonly previous: Maybe<ContentfulGetInvolvedCard>;
+};
+
+enum ContentfulGetInvolvedCardFieldsEnum {
+  contentful_id = 'contentful_id',
+  id = 'id',
+  node_locale = 'node_locale',
+  title = 'title',
+  link = 'link',
+  icon___contentful_id = 'icon.contentful_id',
+  icon___id = 'icon.id',
+  icon___spaceId = 'icon.spaceId',
+  icon___createdAt = 'icon.createdAt',
+  icon___updatedAt = 'icon.updatedAt',
+  icon___file___url = 'icon.file.url',
+  icon___file___details___size = 'icon.file.details.size',
+  icon___file___fileName = 'icon.file.fileName',
+  icon___file___contentType = 'icon.file.contentType',
+  icon___title = 'icon.title',
+  icon___description = 'icon.description',
+  icon___node_locale = 'icon.node_locale',
+  icon___sys___type = 'icon.sys.type',
+  icon___sys___revision = 'icon.sys.revision',
+  icon___fixed___base64 = 'icon.fixed.base64',
+  icon___fixed___tracedSVG = 'icon.fixed.tracedSVG',
+  icon___fixed___aspectRatio = 'icon.fixed.aspectRatio',
+  icon___fixed___width = 'icon.fixed.width',
+  icon___fixed___height = 'icon.fixed.height',
+  icon___fixed___src = 'icon.fixed.src',
+  icon___fixed___srcSet = 'icon.fixed.srcSet',
+  icon___fixed___srcWebp = 'icon.fixed.srcWebp',
+  icon___fixed___srcSetWebp = 'icon.fixed.srcSetWebp',
+  icon___resolutions___base64 = 'icon.resolutions.base64',
+  icon___resolutions___tracedSVG = 'icon.resolutions.tracedSVG',
+  icon___resolutions___aspectRatio = 'icon.resolutions.aspectRatio',
+  icon___resolutions___width = 'icon.resolutions.width',
+  icon___resolutions___height = 'icon.resolutions.height',
+  icon___resolutions___src = 'icon.resolutions.src',
+  icon___resolutions___srcSet = 'icon.resolutions.srcSet',
+  icon___resolutions___srcWebp = 'icon.resolutions.srcWebp',
+  icon___resolutions___srcSetWebp = 'icon.resolutions.srcSetWebp',
+  icon___fluid___base64 = 'icon.fluid.base64',
+  icon___fluid___tracedSVG = 'icon.fluid.tracedSVG',
+  icon___fluid___aspectRatio = 'icon.fluid.aspectRatio',
+  icon___fluid___src = 'icon.fluid.src',
+  icon___fluid___srcSet = 'icon.fluid.srcSet',
+  icon___fluid___srcWebp = 'icon.fluid.srcWebp',
+  icon___fluid___srcSetWebp = 'icon.fluid.srcSetWebp',
+  icon___fluid___sizes = 'icon.fluid.sizes',
+  icon___sizes___base64 = 'icon.sizes.base64',
+  icon___sizes___tracedSVG = 'icon.sizes.tracedSVG',
+  icon___sizes___aspectRatio = 'icon.sizes.aspectRatio',
+  icon___sizes___src = 'icon.sizes.src',
+  icon___sizes___srcSet = 'icon.sizes.srcSet',
+  icon___sizes___srcWebp = 'icon.sizes.srcWebp',
+  icon___sizes___srcSetWebp = 'icon.sizes.srcSetWebp',
+  icon___sizes___sizes = 'icon.sizes.sizes',
+  icon___resize___base64 = 'icon.resize.base64',
+  icon___resize___tracedSVG = 'icon.resize.tracedSVG',
+  icon___resize___src = 'icon.resize.src',
+  icon___resize___width = 'icon.resize.width',
+  icon___resize___height = 'icon.resize.height',
+  icon___resize___aspectRatio = 'icon.resize.aspectRatio',
+  icon___parent___id = 'icon.parent.id',
+  icon___parent___parent___id = 'icon.parent.parent.id',
+  icon___parent___parent___children = 'icon.parent.parent.children',
+  icon___parent___children = 'icon.parent.children',
+  icon___parent___children___id = 'icon.parent.children.id',
+  icon___parent___children___children = 'icon.parent.children.children',
+  icon___parent___internal___content = 'icon.parent.internal.content',
+  icon___parent___internal___contentDigest = 'icon.parent.internal.contentDigest',
+  icon___parent___internal___description = 'icon.parent.internal.description',
+  icon___parent___internal___fieldOwners = 'icon.parent.internal.fieldOwners',
+  icon___parent___internal___ignoreType = 'icon.parent.internal.ignoreType',
+  icon___parent___internal___mediaType = 'icon.parent.internal.mediaType',
+  icon___parent___internal___owner = 'icon.parent.internal.owner',
+  icon___parent___internal___type = 'icon.parent.internal.type',
+  icon___children = 'icon.children',
+  icon___children___id = 'icon.children.id',
+  icon___children___parent___id = 'icon.children.parent.id',
+  icon___children___parent___children = 'icon.children.parent.children',
+  icon___children___children = 'icon.children.children',
+  icon___children___children___id = 'icon.children.children.id',
+  icon___children___children___children = 'icon.children.children.children',
+  icon___children___internal___content = 'icon.children.internal.content',
+  icon___children___internal___contentDigest = 'icon.children.internal.contentDigest',
+  icon___children___internal___description = 'icon.children.internal.description',
+  icon___children___internal___fieldOwners = 'icon.children.internal.fieldOwners',
+  icon___children___internal___ignoreType = 'icon.children.internal.ignoreType',
+  icon___children___internal___mediaType = 'icon.children.internal.mediaType',
+  icon___children___internal___owner = 'icon.children.internal.owner',
+  icon___children___internal___type = 'icon.children.internal.type',
+  icon___internal___content = 'icon.internal.content',
+  icon___internal___contentDigest = 'icon.internal.contentDigest',
+  icon___internal___description = 'icon.internal.description',
+  icon___internal___fieldOwners = 'icon.internal.fieldOwners',
+  icon___internal___ignoreType = 'icon.internal.ignoreType',
+  icon___internal___mediaType = 'icon.internal.mediaType',
+  icon___internal___owner = 'icon.internal.owner',
+  icon___internal___type = 'icon.internal.type',
+  spaceId = 'spaceId',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys.type',
+  sys___revision = 'sys.revision',
+  sys___contentType___sys___type = 'sys.contentType.sys.type',
+  sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
+  sys___contentType___sys___id = 'sys.contentType.sys.id',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type'
+}
+
+type ContentfulGetInvolvedCardFilterInput = {
+  readonly contentful_id: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly node_locale: Maybe<StringQueryOperatorInput>;
+  readonly title: Maybe<StringQueryOperatorInput>;
+  readonly link: Maybe<StringQueryOperatorInput>;
+  readonly icon: Maybe<ContentfulAssetFilterInput>;
+  readonly spaceId: Maybe<StringQueryOperatorInput>;
+  readonly createdAt: Maybe<DateQueryOperatorInput>;
+  readonly updatedAt: Maybe<DateQueryOperatorInput>;
+  readonly sys: Maybe<ContentfulGetInvolvedCardSysFilterInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type ContentfulGetInvolvedCardGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulGetInvolvedCardEdge>;
+  readonly nodes: ReadonlyArray<ContentfulGetInvolvedCard>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type ContentfulGetInvolvedCardSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulGetInvolvedCardFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type ContentfulGetInvolvedCardSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly contentType: Maybe<ContentfulGetInvolvedCardSysContentType>;
+};
+
+type ContentfulGetInvolvedCardSysContentType = {
+  readonly sys: Maybe<ContentfulGetInvolvedCardSysContentTypeSys>;
+};
+
+type ContentfulGetInvolvedCardSysContentTypeFilterInput = {
+  readonly sys: Maybe<ContentfulGetInvolvedCardSysContentTypeSysFilterInput>;
+};
+
+type ContentfulGetInvolvedCardSysContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+};
+
+type ContentfulGetInvolvedCardSysContentTypeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly linkType: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulGetInvolvedCardSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulGetInvolvedCardSysContentTypeFilterInput>;
 };
 
 type ContentfulHomeBanner = ContentfulReference & ContentfulEntry & Node & {
@@ -19096,6 +19787,12 @@ type Query = {
   readonly allContentfulDonateSection: ContentfulDonateSectionConnection;
   readonly contentfulHomeBanner: Maybe<ContentfulHomeBanner>;
   readonly allContentfulHomeBanner: ContentfulHomeBannerConnection;
+  readonly contentfulGetInvolvedCard: Maybe<ContentfulGetInvolvedCard>;
+  readonly allContentfulGetInvolvedCard: ContentfulGetInvolvedCardConnection;
+  readonly contentfulDonationDetailSection: Maybe<ContentfulDonationDetailSection>;
+  readonly allContentfulDonationDetailSection: ContentfulDonationDetailSectionConnection;
+  readonly contentfulBasicBanner: Maybe<ContentfulBasicBanner>;
+  readonly allContentfulBasicBanner: ContentfulBasicBannerConnection;
   readonly contentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
   readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
   readonly contentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNode>;
@@ -19878,6 +20575,73 @@ type Query_contentfulHomeBannerArgs = {
 type Query_allContentfulHomeBannerArgs = {
   filter: Maybe<ContentfulHomeBannerFilterInput>;
   sort: Maybe<ContentfulHomeBannerSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulGetInvolvedCardArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  link: Maybe<StringQueryOperatorInput>;
+  icon: Maybe<ContentfulAssetFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulGetInvolvedCardSysFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulGetInvolvedCardArgs = {
+  filter: Maybe<ContentfulGetInvolvedCardFilterInput>;
+  sort: Maybe<ContentfulGetInvolvedCardSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulDonationDetailSectionArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  description: Maybe<ContentfulDonationDetailSectionDescriptionFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulDonationDetailSectionSysFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulDonationDetailSectionArgs = {
+  filter: Maybe<ContentfulDonationDetailSectionFilterInput>;
+  sort: Maybe<ContentfulDonationDetailSectionSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulBasicBannerArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulBasicBannerArgs = {
+  filter: Maybe<ContentfulBasicBannerFilterInput>;
+  sort: Maybe<ContentfulBasicBannerSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -21344,6 +22108,22 @@ type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+type InvolvmentSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
+
+type GetInvolvedCardFragment = (
+  Pick<ContentfulGetInvolvedCard, 'title' | 'link'>
+  & { readonly icon: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
+);
+
+type GetInvolvedPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type GetInvolvedPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & DonateBannerFragment
+  & InvolvmentSectionFragment
+);
 
 type HomeBannerFragment = { readonly contentfulHomeBanner: Maybe<(
     Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText'>
