@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Box, Heading, Text, Stack, Button, Flex, Center, Grid } from '@chakra-ui/react';
-import { graphql, Link } from 'gatsby';
+import { Box, Heading, Text, Stack, Center, Grid } from '@chakra-ui/react';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
 
@@ -20,20 +20,14 @@ function DonationDetailSection({ data }: Props): JSX.Element {
           {section?.image?.fluid != null && (
             <Img
               fluid={section?.image.fluid}
-              alt={section?.image.description}                            
+              alt={section?.image.description}
               style={{ height: '100%' }}
             />
           )}
         </Box>
         <Center>
-          <Stack spacing={5} px={{base: 10, md: 20, lg: '20%'}} py={10} direction="column">
-            <Heading
-              textAlign="center"
-              m="auto"
-              mb={10}
-              textStyle="heading1"
-              color="white"
-            >
+          <Stack spacing={5} px={{ base: 10, md: 20, lg: '20%' }} py={10} direction="column">
+            <Heading textAlign="center" m="auto" mb={10} textStyle="heading1" color="white">
               {section?.title}
             </Heading>
             <Box>
