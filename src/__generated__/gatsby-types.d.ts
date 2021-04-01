@@ -17080,6 +17080,7 @@ type ContentfulSponsorPartnerSysContentTypeSys = {
 };
 
 type ContentfulSponsorPartnerSysContentTypeSysFilterInput = {
+<<<<<<< HEAD
   readonly type: Maybe<StringQueryOperatorInput>;
   readonly linkType: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -17091,6 +17092,19 @@ type ContentfulSponsorPartnerSysFilterInput = {
   readonly contentType: Maybe<ContentfulSponsorPartnerSysContentTypeFilterInput>;
 };
 
+=======
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly linkType: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulSponsorPartnerSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulSponsorPartnerSysContentTypeFilterInput>;
+};
+
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 type ContentfulTimeList = ContentfulReference & ContentfulEntry & Node & {
   readonly contentful_id: Scalars['String'];
   readonly id: Scalars['ID'];
@@ -17261,6 +17275,7 @@ type ContentfulTimeListFilterInput = {
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
 };
+<<<<<<< HEAD
 
 type ContentfulTimeListGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -17393,6 +17408,140 @@ type Directory_birthTimeArgs = {
 };
 
 
+=======
+
+type ContentfulTimeListGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulTimeListEdge>;
+  readonly nodes: ReadonlyArray<ContentfulTimeList>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type ContentfulTimeListSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulTimeListFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type ContentfulTimeListSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly contentType: Maybe<ContentfulTimeListSysContentType>;
+};
+
+type ContentfulTimeListSysContentType = {
+  readonly sys: Maybe<ContentfulTimeListSysContentTypeSys>;
+};
+
+type ContentfulTimeListSysContentTypeFilterInput = {
+  readonly sys: Maybe<ContentfulTimeListSysContentTypeSysFilterInput>;
+};
+
+type ContentfulTimeListSysContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+};
+
+type ContentfulTimeListSysContentTypeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly linkType: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulTimeListSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulTimeListSysContentTypeFilterInput>;
+};
+
+
+type DateQueryOperatorInput = {
+  readonly eq: Maybe<Scalars['Date']>;
+  readonly ne: Maybe<Scalars['Date']>;
+  readonly gt: Maybe<Scalars['Date']>;
+  readonly gte: Maybe<Scalars['Date']>;
+  readonly lt: Maybe<Scalars['Date']>;
+  readonly lte: Maybe<Scalars['Date']>;
+  readonly in: Maybe<ReadonlyArray<Maybe<Scalars['Date']>>>;
+  readonly nin: Maybe<ReadonlyArray<Maybe<Scalars['Date']>>>;
+};
+
+type Directory = Node & {
+  readonly sourceInstanceName: Scalars['String'];
+  readonly absolutePath: Scalars['String'];
+  readonly relativePath: Scalars['String'];
+  readonly extension: Scalars['String'];
+  readonly size: Scalars['Int'];
+  readonly prettySize: Scalars['String'];
+  readonly modifiedTime: Scalars['Date'];
+  readonly accessTime: Scalars['Date'];
+  readonly changeTime: Scalars['Date'];
+  readonly birthTime: Scalars['Date'];
+  readonly root: Scalars['String'];
+  readonly dir: Scalars['String'];
+  readonly base: Scalars['String'];
+  readonly ext: Scalars['String'];
+  readonly name: Scalars['String'];
+  readonly relativeDirectory: Scalars['String'];
+  readonly dev: Scalars['Int'];
+  readonly mode: Scalars['Int'];
+  readonly nlink: Scalars['Int'];
+  readonly uid: Scalars['Int'];
+  readonly gid: Scalars['Int'];
+  readonly rdev: Scalars['Int'];
+  readonly ino: Scalars['Float'];
+  readonly atimeMs: Scalars['Float'];
+  readonly mtimeMs: Scalars['Float'];
+  readonly ctimeMs: Scalars['Float'];
+  readonly atime: Scalars['Date'];
+  readonly mtime: Scalars['Date'];
+  readonly ctime: Scalars['Date'];
+  /** @deprecated Use `birthTime` instead */
+  readonly birthtime: Maybe<Scalars['Date']>;
+  /** @deprecated Use `birthTime` instead */
+  readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+
+type Directory_modifiedTimeArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type Directory_accessTimeArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type Directory_changeTimeArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type Directory_birthTimeArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 type Directory_atimeArgs = {
   formatString: Maybe<Scalars['String']>;
   fromNow: Maybe<Scalars['Boolean']>;
@@ -18106,6 +18255,7 @@ type FileSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<FileFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
+<<<<<<< HEAD
 
 type FloatQueryOperatorInput = {
   readonly eq: Maybe<Scalars['Float']>;
@@ -18155,12 +18305,64 @@ enum ImageLayout {
   CONSTRAINED = 'constrained'
 }
 
+=======
+
+type FloatQueryOperatorInput = {
+  readonly eq: Maybe<Scalars['Float']>;
+  readonly ne: Maybe<Scalars['Float']>;
+  readonly gt: Maybe<Scalars['Float']>;
+  readonly gte: Maybe<Scalars['Float']>;
+  readonly lt: Maybe<Scalars['Float']>;
+  readonly lte: Maybe<Scalars['Float']>;
+  readonly in: Maybe<ReadonlyArray<Maybe<Scalars['Float']>>>;
+  readonly nin: Maybe<ReadonlyArray<Maybe<Scalars['Float']>>>;
+};
+
+enum ImageCropFocus {
+  CENTER = 0,
+  NORTH = 1,
+  NORTHEAST = 5,
+  EAST = 2,
+  SOUTHEAST = 6,
+  SOUTH = 3,
+  SOUTHWEST = 7,
+  WEST = 4,
+  NORTHWEST = 8,
+  ENTROPY = 16,
+  ATTENTION = 17
+}
+
+enum ImageFit {
+  COVER = 'cover',
+  CONTAIN = 'contain',
+  FILL = 'fill',
+  INSIDE = 'inside',
+  OUTSIDE = 'outside'
+}
+
+enum ImageFormat {
+  NO_CHANGE = '',
+  AUTO = '',
+  JPG = 'jpg',
+  PNG = 'png',
+  WEBP = 'webp',
+  AVIF = 'avif'
+}
+
+enum ImageLayout {
+  FIXED = 'fixed',
+  FULL_WIDTH = 'fullWidth',
+  CONSTRAINED = 'constrained'
+}
+
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 enum ImagePlaceholder {
   DOMINANT_COLOR = 'dominantColor',
   TRACED_SVG = 'tracedSVG',
   BLURRED = 'blurred',
   NONE = 'none'
 }
+<<<<<<< HEAD
 
 enum ImageResizingBehavior {
   NO_CHANGE = '',
@@ -18179,6 +18381,26 @@ enum ImageResizingBehavior {
   SCALE = 'scale'
 }
 
+=======
+
+enum ImageResizingBehavior {
+  NO_CHANGE = '',
+  /** Same as the default resizing, but adds padding so that the generated image has the specified dimensions. */
+  PAD = 'pad',
+  /** Crop a part of the original image to match the specified size. */
+  CROP = 'crop',
+  /**
+   * Crop the image to the specified dimensions, if the original image is smaller
+   * than these dimensions, then the image will be upscaled.
+   */
+  FILL = 'fill',
+  /** When used in association with the f parameter below, creates a thumbnail from the image based on a focus area. */
+  THUMB = 'thumb',
+  /** Scale the image regardless of the original aspect ratio. */
+  SCALE = 'scale'
+}
+
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 type ImageSharp = Node & {
   readonly fixed: Maybe<ImageSharpFixed>;
   /** @deprecated Resolutions was deprecated in Gatsby v2. It's been renamed to "fixed" https://example.com/write-docs-and-fix-this-example-link */
@@ -18587,6 +18809,7 @@ type ImageSharpGroupConnection = {
   readonly pageInfo: PageInfo;
   readonly field: Scalars['String'];
   readonly fieldValue: Maybe<Scalars['String']>;
+<<<<<<< HEAD
 };
 
 type ImageSharpOriginal = {
@@ -18750,6 +18973,171 @@ type MarkdownHeadingFilterListInput = {
   readonly elemMatch: Maybe<MarkdownHeadingFilterInput>;
 };
 
+=======
+};
+
+type ImageSharpOriginal = {
+  readonly width: Maybe<Scalars['Float']>;
+  readonly height: Maybe<Scalars['Float']>;
+  readonly src: Maybe<Scalars['String']>;
+};
+
+type ImageSharpOriginalFilterInput = {
+  readonly width: Maybe<FloatQueryOperatorInput>;
+  readonly height: Maybe<FloatQueryOperatorInput>;
+  readonly src: Maybe<StringQueryOperatorInput>;
+};
+
+type ImageSharpResize = {
+  readonly src: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly aspectRatio: Maybe<Scalars['Float']>;
+  readonly originalName: Maybe<Scalars['String']>;
+};
+
+type ImageSharpResizeFilterInput = {
+  readonly src: Maybe<StringQueryOperatorInput>;
+  readonly tracedSVG: Maybe<StringQueryOperatorInput>;
+  readonly width: Maybe<IntQueryOperatorInput>;
+  readonly height: Maybe<IntQueryOperatorInput>;
+  readonly aspectRatio: Maybe<FloatQueryOperatorInput>;
+  readonly originalName: Maybe<StringQueryOperatorInput>;
+};
+
+type ImageSharpResolutions = {
+  readonly base64: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
+  readonly aspectRatio: Maybe<Scalars['Float']>;
+  readonly width: Scalars['Float'];
+  readonly height: Scalars['Float'];
+  readonly src: Scalars['String'];
+  readonly srcSet: Scalars['String'];
+  readonly srcWebp: Maybe<Scalars['String']>;
+  readonly srcSetWebp: Maybe<Scalars['String']>;
+  readonly originalName: Maybe<Scalars['String']>;
+};
+
+type ImageSharpResolutionsFilterInput = {
+  readonly base64: Maybe<StringQueryOperatorInput>;
+  readonly tracedSVG: Maybe<StringQueryOperatorInput>;
+  readonly aspectRatio: Maybe<FloatQueryOperatorInput>;
+  readonly width: Maybe<FloatQueryOperatorInput>;
+  readonly height: Maybe<FloatQueryOperatorInput>;
+  readonly src: Maybe<StringQueryOperatorInput>;
+  readonly srcSet: Maybe<StringQueryOperatorInput>;
+  readonly srcWebp: Maybe<StringQueryOperatorInput>;
+  readonly srcSetWebp: Maybe<StringQueryOperatorInput>;
+  readonly originalName: Maybe<StringQueryOperatorInput>;
+};
+
+type ImageSharpSizes = {
+  readonly base64: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
+  readonly aspectRatio: Scalars['Float'];
+  readonly src: Scalars['String'];
+  readonly srcSet: Scalars['String'];
+  readonly srcWebp: Maybe<Scalars['String']>;
+  readonly srcSetWebp: Maybe<Scalars['String']>;
+  readonly sizes: Scalars['String'];
+  readonly originalImg: Maybe<Scalars['String']>;
+  readonly originalName: Maybe<Scalars['String']>;
+  readonly presentationWidth: Scalars['Int'];
+  readonly presentationHeight: Scalars['Int'];
+};
+
+type ImageSharpSizesFilterInput = {
+  readonly base64: Maybe<StringQueryOperatorInput>;
+  readonly tracedSVG: Maybe<StringQueryOperatorInput>;
+  readonly aspectRatio: Maybe<FloatQueryOperatorInput>;
+  readonly src: Maybe<StringQueryOperatorInput>;
+  readonly srcSet: Maybe<StringQueryOperatorInput>;
+  readonly srcWebp: Maybe<StringQueryOperatorInput>;
+  readonly srcSetWebp: Maybe<StringQueryOperatorInput>;
+  readonly sizes: Maybe<StringQueryOperatorInput>;
+  readonly originalImg: Maybe<StringQueryOperatorInput>;
+  readonly originalName: Maybe<StringQueryOperatorInput>;
+  readonly presentationWidth: Maybe<IntQueryOperatorInput>;
+  readonly presentationHeight: Maybe<IntQueryOperatorInput>;
+};
+
+type ImageSharpSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ImageSharpFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type Internal = {
+  readonly content: Maybe<Scalars['String']>;
+  readonly contentDigest: Scalars['String'];
+  readonly description: Maybe<Scalars['String']>;
+  readonly fieldOwners: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly ignoreType: Maybe<Scalars['Boolean']>;
+  readonly mediaType: Maybe<Scalars['String']>;
+  readonly owner: Scalars['String'];
+  readonly type: Scalars['String'];
+};
+
+type InternalFilterInput = {
+  readonly content: Maybe<StringQueryOperatorInput>;
+  readonly contentDigest: Maybe<StringQueryOperatorInput>;
+  readonly description: Maybe<StringQueryOperatorInput>;
+  readonly fieldOwners: Maybe<StringQueryOperatorInput>;
+  readonly ignoreType: Maybe<BooleanQueryOperatorInput>;
+  readonly mediaType: Maybe<StringQueryOperatorInput>;
+  readonly owner: Maybe<StringQueryOperatorInput>;
+  readonly type: Maybe<StringQueryOperatorInput>;
+};
+
+type IntQueryOperatorInput = {
+  readonly eq: Maybe<Scalars['Int']>;
+  readonly ne: Maybe<Scalars['Int']>;
+  readonly gt: Maybe<Scalars['Int']>;
+  readonly gte: Maybe<Scalars['Int']>;
+  readonly lt: Maybe<Scalars['Int']>;
+  readonly lte: Maybe<Scalars['Int']>;
+  readonly in: Maybe<ReadonlyArray<Maybe<Scalars['Int']>>>;
+  readonly nin: Maybe<ReadonlyArray<Maybe<Scalars['Int']>>>;
+};
+
+type JPGOptions = {
+  readonly quality: Maybe<Scalars['Int']>;
+  readonly progressive: Maybe<Scalars['Boolean']>;
+};
+
+
+type JSONQueryOperatorInput = {
+  readonly eq: Maybe<Scalars['JSON']>;
+  readonly ne: Maybe<Scalars['JSON']>;
+  readonly in: Maybe<ReadonlyArray<Maybe<Scalars['JSON']>>>;
+  readonly nin: Maybe<ReadonlyArray<Maybe<Scalars['JSON']>>>;
+  readonly regex: Maybe<Scalars['JSON']>;
+  readonly glob: Maybe<Scalars['JSON']>;
+};
+
+enum MarkdownExcerptFormats {
+  PLAIN = 'PLAIN',
+  HTML = 'HTML',
+  MARKDOWN = 'MARKDOWN'
+}
+
+type MarkdownHeading = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly value: Maybe<Scalars['String']>;
+  readonly depth: Maybe<Scalars['Int']>;
+};
+
+type MarkdownHeadingFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly value: Maybe<StringQueryOperatorInput>;
+  readonly depth: Maybe<IntQueryOperatorInput>;
+};
+
+type MarkdownHeadingFilterListInput = {
+  readonly elemMatch: Maybe<MarkdownHeadingFilterInput>;
+};
+
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 enum MarkdownHeadingLevels {
   h1 = 'h1',
   h2 = 'h2',
@@ -18781,6 +19169,7 @@ type MarkdownRemark_excerptArgs = {
   pruneLength?: Maybe<Scalars['Int']>;
   truncate?: Maybe<Scalars['Boolean']>;
   format?: Maybe<MarkdownExcerptFormats>;
+<<<<<<< HEAD
 };
 
 
@@ -18802,6 +19191,29 @@ type MarkdownRemark_tableOfContentsArgs = {
   heading: Maybe<Scalars['String']>;
 };
 
+=======
+};
+
+
+type MarkdownRemark_excerptAstArgs = {
+  pruneLength?: Maybe<Scalars['Int']>;
+  truncate?: Maybe<Scalars['Boolean']>;
+};
+
+
+type MarkdownRemark_headingsArgs = {
+  depth: Maybe<MarkdownHeadingLevels>;
+};
+
+
+type MarkdownRemark_tableOfContentsArgs = {
+  absolute?: Maybe<Scalars['Boolean']>;
+  pathToSlugField?: Maybe<Scalars['String']>;
+  maxDepth: Maybe<Scalars['Int']>;
+  heading: Maybe<Scalars['String']>;
+};
+
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 type MarkdownRemarkConnection = {
   readonly totalCount: Scalars['Int'];
   readonly edges: ReadonlyArray<MarkdownRemarkEdge>;
@@ -19001,6 +19413,268 @@ type NodeFilterInput = {
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
+<<<<<<< HEAD
+};
+
+type NodeFilterListInput = {
+  readonly elemMatch: Maybe<NodeFilterInput>;
+};
+
+type PageInfo = {
+  readonly currentPage: Scalars['Int'];
+  readonly hasPreviousPage: Scalars['Boolean'];
+  readonly hasNextPage: Scalars['Boolean'];
+  readonly itemCount: Scalars['Int'];
+  readonly pageCount: Scalars['Int'];
+  readonly perPage: Maybe<Scalars['Int']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+type PNGOptions = {
+  readonly quality: Maybe<Scalars['Int']>;
+  readonly compressionSpeed: Maybe<Scalars['Int']>;
+};
+
+type Potrace = {
+  readonly turnPolicy: Maybe<PotraceTurnPolicy>;
+  readonly turdSize: Maybe<Scalars['Float']>;
+  readonly alphaMax: Maybe<Scalars['Float']>;
+  readonly optCurve: Maybe<Scalars['Boolean']>;
+  readonly optTolerance: Maybe<Scalars['Float']>;
+  readonly threshold: Maybe<Scalars['Int']>;
+  readonly blackOnWhite: Maybe<Scalars['Boolean']>;
+  readonly color: Maybe<Scalars['String']>;
+  readonly background: Maybe<Scalars['String']>;
+};
+
+enum PotraceTurnPolicy {
+  TURNPOLICY_BLACK = 'black',
+  TURNPOLICY_WHITE = 'white',
+  TURNPOLICY_LEFT = 'left',
+  TURNPOLICY_RIGHT = 'right',
+  TURNPOLICY_MINORITY = 'minority',
+  TURNPOLICY_MAJORITY = 'majority'
+}
+
+type Query = {
+  readonly contentfulEntry: Maybe<ContentfulEntry>;
+  readonly allContentfulEntry: ContentfulEntryConnection;
+  readonly file: Maybe<File>;
+  readonly allFile: FileConnection;
+  readonly directory: Maybe<Directory>;
+  readonly allDirectory: DirectoryConnection;
+  readonly site: Maybe<Site>;
+  readonly allSite: SiteConnection;
+  readonly sitePage: Maybe<SitePage>;
+  readonly allSitePage: SitePageConnection;
+  readonly markdownRemark: Maybe<MarkdownRemark>;
+  readonly allMarkdownRemark: MarkdownRemarkConnection;
+  readonly imageSharp: Maybe<ImageSharp>;
+  readonly allImageSharp: ImageSharpConnection;
+  readonly contentfulAsset: Maybe<ContentfulAsset>;
+  readonly allContentfulAsset: ContentfulAssetConnection;
+  readonly contentfulPerson: Maybe<ContentfulPerson>;
+  readonly allContentfulPerson: ContentfulPersonConnection;
+  readonly contentfulBlogPost: Maybe<ContentfulBlogPost>;
+  readonly allContentfulBlogPost: ContentfulBlogPostConnection;
+  readonly contentfulRecipe: Maybe<ContentfulRecipe>;
+  readonly allContentfulRecipe: ContentfulRecipeConnection;
+  readonly contentfulAboutUsBanner: Maybe<ContentfulAboutUsBanner>;
+  readonly allContentfulAboutUsBanner: ContentfulAboutUsBannerConnection;
+  readonly contentfulOurWorkCard: Maybe<ContentfulOurWorkCard>;
+  readonly allContentfulOurWorkCard: ContentfulOurWorkCardConnection;
+  readonly contentfulOurStory: Maybe<ContentfulOurStory>;
+  readonly allContentfulOurStory: ContentfulOurStoryConnection;
+  readonly contentfulOurFounder: Maybe<ContentfulOurFounder>;
+  readonly allContentfulOurFounder: ContentfulOurFounderConnection;
+  readonly contentfulSponsorPartner: Maybe<ContentfulSponsorPartner>;
+  readonly allContentfulSponsorPartner: ContentfulSponsorPartnerConnection;
+  readonly contentfulNewsletterSection: Maybe<ContentfulNewsletterSection>;
+  readonly allContentfulNewsletterSection: ContentfulNewsletterSectionConnection;
+  readonly contentfulHomePage: Maybe<ContentfulHomePage>;
+  readonly allContentfulHomePage: ContentfulHomePageConnection;
+  readonly contentfulIngredientTag: Maybe<ContentfulIngredientTag>;
+  readonly allContentfulIngredientTag: ContentfulIngredientTagConnection;
+  readonly contentfulFoodTypeTag: Maybe<ContentfulFoodTypeTag>;
+  readonly allContentfulFoodTypeTag: ContentfulFoodTypeTagConnection;
+  readonly contentfulTimeList: Maybe<ContentfulTimeList>;
+  readonly allContentfulTimeList: ContentfulTimeListConnection;
+  readonly contentfulOurMission: Maybe<ContentfulOurMission>;
+  readonly allContentfulOurMission: ContentfulOurMissionConnection;
+  readonly contentfulAboutBanner: Maybe<ContentfulAboutBanner>;
+  readonly allContentfulAboutBanner: ContentfulAboutBannerConnection;
+  readonly contentfulOurSponsor: Maybe<ContentfulOurSponsor>;
+  readonly allContentfulOurSponsor: ContentfulOurSponsorConnection;
+  readonly contentfulDonateSection: Maybe<ContentfulDonateSection>;
+  readonly allContentfulDonateSection: ContentfulDonateSectionConnection;
+  readonly contentfulHomeBanner: Maybe<ContentfulHomeBanner>;
+  readonly allContentfulHomeBanner: ContentfulHomeBannerConnection;
+  readonly contentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
+  readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
+  readonly contentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNode>;
+  readonly allContentfulDonateSectionBodyTextNode: contentfulDonateSectionBodyTextNodeConnection;
+  readonly contentfulAboutBannerBodyTextNode: Maybe<contentfulAboutBannerBodyTextNode>;
+  readonly allContentfulAboutBannerBodyTextNode: contentfulAboutBannerBodyTextNodeConnection;
+  readonly contentfulHomePageDescriptionTextNode: Maybe<contentfulHomePageDescriptionTextNode>;
+  readonly allContentfulHomePageDescriptionTextNode: contentfulHomePageDescriptionTextNodeConnection;
+  readonly contentfulOurFounderDescriptionTextNode: Maybe<contentfulOurFounderDescriptionTextNode>;
+  readonly allContentfulOurFounderDescriptionTextNode: contentfulOurFounderDescriptionTextNodeConnection;
+  readonly contentfulOurStoryBodyTextNode: Maybe<contentfulOurStoryBodyTextNode>;
+  readonly allContentfulOurStoryBodyTextNode: contentfulOurStoryBodyTextNodeConnection;
+  readonly contentfulOurWorkCardDescriptionTextNode: Maybe<contentfulOurWorkCardDescriptionTextNode>;
+  readonly allContentfulOurWorkCardDescriptionTextNode: contentfulOurWorkCardDescriptionTextNodeConnection;
+  readonly contentfulAboutUsBannerDescriptionTextNode: Maybe<contentfulAboutUsBannerDescriptionTextNode>;
+  readonly allContentfulAboutUsBannerDescriptionTextNode: contentfulAboutUsBannerDescriptionTextNodeConnection;
+  readonly contentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNode>;
+  readonly allContentfulRecipeNotesTextNode: contentfulRecipeNotesTextNodeConnection;
+  readonly contentfulRecipeDirectionsTextNode: Maybe<contentfulRecipeDirectionsTextNode>;
+  readonly allContentfulRecipeDirectionsTextNode: contentfulRecipeDirectionsTextNodeConnection;
+  readonly contentfulRecipePrepDirectionsTextNode: Maybe<contentfulRecipePrepDirectionsTextNode>;
+  readonly allContentfulRecipePrepDirectionsTextNode: contentfulRecipePrepDirectionsTextNodeConnection;
+  readonly contentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNode>;
+  readonly allContentfulRecipeIngredientsTextNode: contentfulRecipeIngredientsTextNodeConnection;
+  readonly contentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNode>;
+  readonly allContentfulBlogPostBodyTextNode: contentfulBlogPostBodyTextNodeConnection;
+  readonly contentfulBlogPostDescriptionTextNode: Maybe<contentfulBlogPostDescriptionTextNode>;
+  readonly allContentfulBlogPostDescriptionTextNode: contentfulBlogPostDescriptionTextNodeConnection;
+  readonly contentfulPersonShortBioTextNode: Maybe<contentfulPersonShortBioTextNode>;
+  readonly allContentfulPersonShortBioTextNode: contentfulPersonShortBioTextNodeConnection;
+  readonly contentfulContentType: Maybe<ContentfulContentType>;
+  readonly allContentfulContentType: ContentfulContentTypeConnection;
+  readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
+  readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
+  readonly sitePlugin: Maybe<SitePlugin>;
+  readonly allSitePlugin: SitePluginConnection;
+};
+
+
+type Query_contentfulEntryArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+};
+
+
+type Query_allContentfulEntryArgs = {
+  filter: Maybe<ContentfulEntryFilterInput>;
+  sort: Maybe<ContentfulEntrySortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_fileArgs = {
+  sourceInstanceName: Maybe<StringQueryOperatorInput>;
+  absolutePath: Maybe<StringQueryOperatorInput>;
+  relativePath: Maybe<StringQueryOperatorInput>;
+  extension: Maybe<StringQueryOperatorInput>;
+  size: Maybe<IntQueryOperatorInput>;
+  prettySize: Maybe<StringQueryOperatorInput>;
+  modifiedTime: Maybe<DateQueryOperatorInput>;
+  accessTime: Maybe<DateQueryOperatorInput>;
+  changeTime: Maybe<DateQueryOperatorInput>;
+  birthTime: Maybe<DateQueryOperatorInput>;
+  root: Maybe<StringQueryOperatorInput>;
+  dir: Maybe<StringQueryOperatorInput>;
+  base: Maybe<StringQueryOperatorInput>;
+  ext: Maybe<StringQueryOperatorInput>;
+  name: Maybe<StringQueryOperatorInput>;
+  relativeDirectory: Maybe<StringQueryOperatorInput>;
+  dev: Maybe<IntQueryOperatorInput>;
+  mode: Maybe<IntQueryOperatorInput>;
+  nlink: Maybe<IntQueryOperatorInput>;
+  uid: Maybe<IntQueryOperatorInput>;
+  gid: Maybe<IntQueryOperatorInput>;
+  rdev: Maybe<IntQueryOperatorInput>;
+  ino: Maybe<FloatQueryOperatorInput>;
+  atimeMs: Maybe<FloatQueryOperatorInput>;
+  mtimeMs: Maybe<FloatQueryOperatorInput>;
+  ctimeMs: Maybe<FloatQueryOperatorInput>;
+  atime: Maybe<DateQueryOperatorInput>;
+  mtime: Maybe<DateQueryOperatorInput>;
+  ctime: Maybe<DateQueryOperatorInput>;
+  birthtime: Maybe<DateQueryOperatorInput>;
+  birthtimeMs: Maybe<FloatQueryOperatorInput>;
+  childrenImageSharp: Maybe<ImageSharpFilterListInput>;
+  childImageSharp: Maybe<ImageSharpFilterInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allFileArgs = {
+  filter: Maybe<FileFilterInput>;
+  sort: Maybe<FileSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_directoryArgs = {
+  sourceInstanceName: Maybe<StringQueryOperatorInput>;
+  absolutePath: Maybe<StringQueryOperatorInput>;
+  relativePath: Maybe<StringQueryOperatorInput>;
+  extension: Maybe<StringQueryOperatorInput>;
+  size: Maybe<IntQueryOperatorInput>;
+  prettySize: Maybe<StringQueryOperatorInput>;
+  modifiedTime: Maybe<DateQueryOperatorInput>;
+  accessTime: Maybe<DateQueryOperatorInput>;
+  changeTime: Maybe<DateQueryOperatorInput>;
+  birthTime: Maybe<DateQueryOperatorInput>;
+  root: Maybe<StringQueryOperatorInput>;
+  dir: Maybe<StringQueryOperatorInput>;
+  base: Maybe<StringQueryOperatorInput>;
+  ext: Maybe<StringQueryOperatorInput>;
+  name: Maybe<StringQueryOperatorInput>;
+  relativeDirectory: Maybe<StringQueryOperatorInput>;
+  dev: Maybe<IntQueryOperatorInput>;
+  mode: Maybe<IntQueryOperatorInput>;
+  nlink: Maybe<IntQueryOperatorInput>;
+  uid: Maybe<IntQueryOperatorInput>;
+  gid: Maybe<IntQueryOperatorInput>;
+  rdev: Maybe<IntQueryOperatorInput>;
+  ino: Maybe<FloatQueryOperatorInput>;
+  atimeMs: Maybe<FloatQueryOperatorInput>;
+  mtimeMs: Maybe<FloatQueryOperatorInput>;
+  ctimeMs: Maybe<FloatQueryOperatorInput>;
+  atime: Maybe<DateQueryOperatorInput>;
+  mtime: Maybe<DateQueryOperatorInput>;
+  ctime: Maybe<DateQueryOperatorInput>;
+  birthtime: Maybe<DateQueryOperatorInput>;
+  birthtimeMs: Maybe<FloatQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allDirectoryArgs = {
+  filter: Maybe<DirectoryFilterInput>;
+  sort: Maybe<DirectorySortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_siteArgs = {
+  buildTime: Maybe<DateQueryOperatorInput>;
+  siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  polyfill: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allSiteArgs = {
+  filter: Maybe<SiteFilterInput>;
+  sort: Maybe<SiteSortInput>;
+=======
 };
 
 type NodeFilterListInput = {
@@ -19315,10 +19989,61 @@ type Query_markdownRemarkArgs = {
 type Query_allMarkdownRemarkArgs = {
   filter: Maybe<MarkdownRemarkFilterInput>;
   sort: Maybe<MarkdownRemarkSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
+<<<<<<< HEAD
+
+type Query_sitePageArgs = {
+  path: Maybe<StringQueryOperatorInput>;
+  component: Maybe<StringQueryOperatorInput>;
+  internalComponentName: Maybe<StringQueryOperatorInput>;
+  componentChunkName: Maybe<StringQueryOperatorInput>;
+  matchPath: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
+  context: Maybe<SitePageContextFilterInput>;
+  pluginCreator: Maybe<SitePluginFilterInput>;
+  pluginCreatorId: Maybe<StringQueryOperatorInput>;
+  componentPath: Maybe<StringQueryOperatorInput>;
+};
+
+
+type Query_allSitePageArgs = {
+  filter: Maybe<SitePageFilterInput>;
+  sort: Maybe<SitePageSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_markdownRemarkArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  frontmatter: Maybe<MarkdownRemarkFrontmatterFilterInput>;
+  excerpt: Maybe<StringQueryOperatorInput>;
+  rawMarkdownBody: Maybe<StringQueryOperatorInput>;
+  html: Maybe<StringQueryOperatorInput>;
+  htmlAst: Maybe<JSONQueryOperatorInput>;
+  excerptAst: Maybe<JSONQueryOperatorInput>;
+  headings: Maybe<MarkdownHeadingFilterListInput>;
+  timeToRead: Maybe<IntQueryOperatorInput>;
+  tableOfContents: Maybe<StringQueryOperatorInput>;
+  wordCount: Maybe<MarkdownWordCountFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allMarkdownRemarkArgs = {
+  filter: Maybe<MarkdownRemarkFilterInput>;
+  sort: Maybe<MarkdownRemarkSortInput>;
+=======
 
 type Query_imageSharpArgs = {
   fixed: Maybe<ImageSharpFixedFilterInput>;
@@ -19334,6 +20059,50 @@ type Query_imageSharpArgs = {
   internal: Maybe<InternalFilterInput>;
 };
 
+
+type Query_allImageSharpArgs = {
+  filter: Maybe<ImageSharpFilterInput>;
+  sort: Maybe<ImageSharpSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+<<<<<<< HEAD
+type Query_imageSharpArgs = {
+  fixed: Maybe<ImageSharpFixedFilterInput>;
+  resolutions: Maybe<ImageSharpResolutionsFilterInput>;
+  fluid: Maybe<ImageSharpFluidFilterInput>;
+  sizes: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImageData: Maybe<JSONQueryOperatorInput>;
+  original: Maybe<ImageSharpOriginalFilterInput>;
+  resize: Maybe<ImageSharpResizeFilterInput>;
+  id: Maybe<StringQueryOperatorInput>;
+=======
+type Query_contentfulAssetArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  file: Maybe<ContentfulAssetFileFilterInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  description: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<ContentfulAssetSysFilterInput>;
+  fixed: Maybe<ContentfulFixedFilterInput>;
+  resolutions: Maybe<ContentfulResolutionsFilterInput>;
+  fluid: Maybe<ContentfulFluidFilterInput>;
+  sizes: Maybe<ContentfulSizesFilterInput>;
+  resize: Maybe<ContentfulResizeFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+<<<<<<< HEAD
 
 type Query_allImageSharpArgs = {
   filter: Maybe<ImageSharpFilterInput>;
@@ -19478,6 +20247,122 @@ type Query_contentfulRecipeArgs = {
 };
 
 
+=======
+
+type Query_allContentfulAssetArgs = {
+  filter: Maybe<ContentfulAssetFilterInput>;
+  sort: Maybe<ContentfulAssetSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulPersonArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  name: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  company: Maybe<StringQueryOperatorInput>;
+  email: Maybe<StringQueryOperatorInput>;
+  phone: Maybe<StringQueryOperatorInput>;
+  facebook: Maybe<StringQueryOperatorInput>;
+  twitter: Maybe<StringQueryOperatorInput>;
+  github: Maybe<StringQueryOperatorInput>;
+  image: Maybe<ContentfulAssetFilterInput>;
+  blog_post: Maybe<ContentfulBlogPostFilterListInput>;
+  shortBio: Maybe<contentfulPersonShortBioTextNodeFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulPersonSysFilterInput>;
+  childrenContentfulPersonShortBioTextNode: Maybe<contentfulPersonShortBioTextNodeFilterListInput>;
+  childContentfulPersonShortBioTextNode: Maybe<contentfulPersonShortBioTextNodeFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulPersonArgs = {
+  filter: Maybe<ContentfulPersonFilterInput>;
+  sort: Maybe<ContentfulPersonSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulBlogPostArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  slug: Maybe<StringQueryOperatorInput>;
+  publishDate: Maybe<DateQueryOperatorInput>;
+  heroImage: Maybe<ContentfulAssetFilterInput>;
+  description: Maybe<contentfulBlogPostDescriptionTextNodeFilterInput>;
+  body: Maybe<contentfulBlogPostBodyTextNodeFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulBlogPostSysFilterInput>;
+  tags: Maybe<StringQueryOperatorInput>;
+  author: Maybe<ContentfulPersonFilterInput>;
+  gatsbyPath: Maybe<StringQueryOperatorInput>;
+  childrenContentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNodeFilterListInput>;
+  childContentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNodeFilterInput>;
+  childrenContentfulBlogPostDescriptionTextNode: Maybe<contentfulBlogPostDescriptionTextNodeFilterListInput>;
+  childContentfulBlogPostDescriptionTextNode: Maybe<contentfulBlogPostDescriptionTextNodeFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulBlogPostArgs = {
+  filter: Maybe<ContentfulBlogPostFilterInput>;
+  sort: Maybe<ContentfulBlogPostSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulRecipeArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  yield: Maybe<StringQueryOperatorInput>;
+  prepTime: Maybe<IntQueryOperatorInput>;
+  totalTime: Maybe<IntQueryOperatorInput>;
+  ingredients: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
+  prepDirections: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
+  directions: Maybe<contentfulRecipeDirectionsTextNodeFilterInput>;
+  notes: Maybe<contentfulRecipeNotesTextNodeFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulRecipeSysFilterInput>;
+  featured: Maybe<BooleanQueryOperatorInput>;
+  ingredientTags: Maybe<ContentfulIngredientTagFilterListInput>;
+  foodTypeTags: Maybe<ContentfulFoodTypeTagFilterListInput>;
+  mainImage: Maybe<ContentfulAssetFilterInput>;
+  gatsbyPath: Maybe<StringQueryOperatorInput>;
+  childrenContentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNodeFilterListInput>;
+  childContentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNodeFilterInput>;
+  childrenContentfulRecipeDirectionsTextNode: Maybe<contentfulRecipeDirectionsTextNodeFilterListInput>;
+  childContentfulRecipeDirectionsTextNode: Maybe<contentfulRecipeDirectionsTextNodeFilterInput>;
+  childrenContentfulRecipePrepDirectionsTextNode: Maybe<contentfulRecipePrepDirectionsTextNodeFilterListInput>;
+  childContentfulRecipePrepDirectionsTextNode: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
+  childrenContentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNodeFilterListInput>;
+  childContentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 type Query_allContentfulRecipeArgs = {
   filter: Maybe<ContentfulRecipeFilterInput>;
   sort: Maybe<ContentfulRecipeSortInput>;
@@ -19599,6 +20484,7 @@ type Query_allContentfulOurFounderArgs = {
   sort: Maybe<ContentfulOurFounderSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
+<<<<<<< HEAD
 };
 
 
@@ -19639,11 +20525,29 @@ type Query_contentfulNewsletterSectionArgs = {
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
   sys: Maybe<ContentfulNewsletterSectionSysFilterInput>;
+=======
+};
+
+
+type Query_contentfulSponsorPartnerArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  name: Maybe<StringQueryOperatorInput>;
+  link: Maybe<StringQueryOperatorInput>;
+  image: Maybe<ContentfulAssetFilterInput>;
+  our_sponsor: Maybe<ContentfulOurSponsorFilterListInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulSponsorPartnerSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
 };
 
+<<<<<<< HEAD
 
 type Query_allContentfulNewsletterSectionArgs = {
   filter: Maybe<ContentfulNewsletterSectionFilterInput>;
@@ -19726,11 +20630,71 @@ type Query_contentfulFoodTypeTagArgs = {
 type Query_allContentfulFoodTypeTagArgs = {
   filter: Maybe<ContentfulFoodTypeTagFilterInput>;
   sort: Maybe<ContentfulFoodTypeTagSortInput>;
+=======
+
+type Query_allContentfulSponsorPartnerArgs = {
+  filter: Maybe<ContentfulSponsorPartnerFilterInput>;
+  sort: Maybe<ContentfulSponsorPartnerSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+type Query_contentfulNewsletterSectionArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  headline: Maybe<StringQueryOperatorInput>;
+  ctaLink: Maybe<StringQueryOperatorInput>;
+  ctaText: Maybe<StringQueryOperatorInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulNewsletterSectionSysFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulNewsletterSectionArgs = {
+  filter: Maybe<ContentfulNewsletterSectionFilterInput>;
+  sort: Maybe<ContentfulNewsletterSectionSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulHomePageArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  ctaLink: Maybe<StringQueryOperatorInput>;
+  ctaText: Maybe<StringQueryOperatorInput>;
+  description: Maybe<contentfulHomePageDescriptionTextNodeFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulHomePageSysFilterInput>;
+  childrenContentfulHomePageDescriptionTextNode: Maybe<contentfulHomePageDescriptionTextNodeFilterListInput>;
+  childContentfulHomePageDescriptionTextNode: Maybe<contentfulHomePageDescriptionTextNodeFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulHomePageArgs = {
+  filter: Maybe<ContentfulHomePageFilterInput>;
+  sort: Maybe<ContentfulHomePageSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+<<<<<<< HEAD
 type Query_contentfulTimeListArgs = {
   contentful_id: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -19740,38 +20704,163 @@ type Query_contentfulTimeListArgs = {
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
   sys: Maybe<ContentfulTimeListSysFilterInput>;
+=======
+type Query_contentfulIngredientTagArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  tagName: Maybe<StringQueryOperatorInput>;
+  key: Maybe<StringQueryOperatorInput>;
+  recipe: Maybe<ContentfulRecipeFilterListInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulIngredientTagSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
 };
 
 
+<<<<<<< HEAD
 type Query_allContentfulTimeListArgs = {
   filter: Maybe<ContentfulTimeListFilterInput>;
   sort: Maybe<ContentfulTimeListSortInput>;
+=======
+type Query_allContentfulIngredientTagArgs = {
+  filter: Maybe<ContentfulIngredientTagFilterInput>;
+  sort: Maybe<ContentfulIngredientTagSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
 type Query_contentfulOurMissionArgs = {
   contentful_id: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
+=======
+type Query_contentfulFoodTypeTagArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  tagName: Maybe<StringQueryOperatorInput>;
+  key: Maybe<StringQueryOperatorInput>;
+  recipe: Maybe<ContentfulRecipeFilterListInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulFoodTypeTagSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
 };
 
 
+<<<<<<< HEAD
 type Query_allContentfulOurMissionArgs = {
   filter: Maybe<ContentfulOurMissionFilterInput>;
   sort: Maybe<ContentfulOurMissionSortInput>;
+=======
+type Query_allContentfulFoodTypeTagArgs = {
+  filter: Maybe<ContentfulFoodTypeTagFilterInput>;
+  sort: Maybe<ContentfulFoodTypeTagSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
+type Query_contentfulAboutBannerArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  logo: Maybe<ContentfulAssetFilterInput>;
+  image: Maybe<ContentfulAssetFilterInput>;
+  body: Maybe<contentfulAboutBannerBodyTextNodeFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulAboutBannerSysFilterInput>;
+  childrenContentfulAboutBannerBodyTextNode: Maybe<contentfulAboutBannerBodyTextNodeFilterListInput>;
+  childContentfulAboutBannerBodyTextNode: Maybe<contentfulAboutBannerBodyTextNodeFilterInput>;
+=======
+type Query_contentfulTimeListArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  timeList: Maybe<StringQueryOperatorInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulTimeListSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+<<<<<<< HEAD
+type Query_allContentfulAboutBannerArgs = {
+  filter: Maybe<ContentfulAboutBannerFilterInput>;
+  sort: Maybe<ContentfulAboutBannerSortInput>;
+=======
+type Query_allContentfulTimeListArgs = {
+  filter: Maybe<ContentfulTimeListFilterInput>;
+  sort: Maybe<ContentfulTimeListSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+<<<<<<< HEAD
+type Query_contentfulOurSponsorArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  sponsors: Maybe<ContentfulSponsorPartnerFilterListInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulOurSponsorSysFilterInput>;
+=======
+type Query_contentfulOurMissionArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+<<<<<<< HEAD
+type Query_allContentfulOurSponsorArgs = {
+  filter: Maybe<ContentfulOurSponsorFilterInput>;
+  sort: Maybe<ContentfulOurSponsorSortInput>;
+=======
+type Query_allContentfulOurMissionArgs = {
+  filter: Maybe<ContentfulOurMissionFilterInput>;
+  sort: Maybe<ContentfulOurMissionSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+<<<<<<< HEAD
+type Query_contentfulDonateSectionArgs = {
+=======
 type Query_contentfulAboutBannerArgs = {
   contentful_id: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -19801,29 +20890,67 @@ type Query_allContentfulAboutBannerArgs = {
 
 
 type Query_contentfulOurSponsorArgs = {
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   contentful_id: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
+<<<<<<< HEAD
+  ctaLink: Maybe<StringQueryOperatorInput>;
+  ctaText: Maybe<StringQueryOperatorInput>;
+  image: Maybe<ContentfulAssetFilterInput>;
+  logo: Maybe<ContentfulAssetFilterInput>;
+  body: Maybe<contentfulDonateSectionBodyTextNodeFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulDonateSectionSysFilterInput>;
+  childrenContentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNodeFilterListInput>;
+  childContentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNodeFilterInput>;
+=======
   sponsors: Maybe<ContentfulSponsorPartnerFilterListInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
   sys: Maybe<ContentfulOurSponsorSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
 };
 
 
+<<<<<<< HEAD
+type Query_allContentfulDonateSectionArgs = {
+  filter: Maybe<ContentfulDonateSectionFilterInput>;
+  sort: Maybe<ContentfulDonateSectionSortInput>;
+=======
 type Query_allContentfulOurSponsorArgs = {
   filter: Maybe<ContentfulOurSponsorFilterInput>;
   sort: Maybe<ContentfulOurSponsorSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
+type Query_contentfulHomeBannerArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  titleLine1: Maybe<StringQueryOperatorInput>;
+  titleLine2: Maybe<StringQueryOperatorInput>;
+  ctaLink: Maybe<StringQueryOperatorInput>;
+  ctaText: Maybe<StringQueryOperatorInput>;
+  body: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulHomeBannerSysFilterInput>;
+  childrenContentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNodeFilterListInput>;
+  childContentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+=======
 type Query_contentfulDonateSectionArgs = {
   contentful_id: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -19840,22 +20967,33 @@ type Query_contentfulDonateSectionArgs = {
   sys: Maybe<ContentfulDonateSectionSysFilterInput>;
   childrenContentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNodeFilterListInput>;
   childContentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNodeFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
 };
 
 
+<<<<<<< HEAD
+type Query_allContentfulHomeBannerArgs = {
+  filter: Maybe<ContentfulHomeBannerFilterInput>;
+  sort: Maybe<ContentfulHomeBannerSortInput>;
+=======
 type Query_allContentfulDonateSectionArgs = {
   filter: Maybe<ContentfulDonateSectionFilterInput>;
   sort: Maybe<ContentfulDonateSectionSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
+type Query_contentfulHomeBannerBodyTextNodeArgs = {
+=======
 type Query_contentfulHomeBannerArgs = {
   contentful_id: Maybe<StringQueryOperatorInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   titleLine1: Maybe<StringQueryOperatorInput>;
@@ -19872,22 +21010,7 @@ type Query_contentfulHomeBannerArgs = {
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-};
-
-
-type Query_allContentfulHomeBannerArgs = {
-  filter: Maybe<ContentfulHomeBannerFilterInput>;
-  sort: Maybe<ContentfulHomeBannerSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulHomeBannerBodyTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
+<<<<<<< HEAD
   body: Maybe<StringQueryOperatorInput>;
   sys: Maybe<contentfulHomeBannerBodyTextNodeSysFilterInput>;
   childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
@@ -19898,111 +21021,228 @@ type Query_contentfulHomeBannerBodyTextNodeArgs = {
 type Query_allContentfulHomeBannerBodyTextNodeArgs = {
   filter: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
   sort: Maybe<contentfulHomeBannerBodyTextNodeSortInput>;
+=======
+};
+
+
+type Query_allContentfulHomeBannerArgs = {
+  filter: Maybe<ContentfulHomeBannerFilterInput>;
+  sort: Maybe<ContentfulHomeBannerSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
 type Query_contentfulDonateSectionBodyTextNodeArgs = {
+=======
+type Query_contentfulHomeBannerBodyTextNodeArgs = {
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
   body: Maybe<StringQueryOperatorInput>;
+<<<<<<< HEAD
   sys: Maybe<contentfulDonateSectionBodyTextNodeSysFilterInput>;
+=======
+  sys: Maybe<contentfulHomeBannerBodyTextNodeSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
 
+<<<<<<< HEAD
 type Query_allContentfulDonateSectionBodyTextNodeArgs = {
   filter: Maybe<contentfulDonateSectionBodyTextNodeFilterInput>;
   sort: Maybe<contentfulDonateSectionBodyTextNodeSortInput>;
+=======
+type Query_allContentfulHomeBannerBodyTextNodeArgs = {
+  filter: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulHomeBannerBodyTextNodeSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
 type Query_contentfulAboutBannerBodyTextNodeArgs = {
+=======
+type Query_contentfulDonateSectionBodyTextNodeArgs = {
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
   body: Maybe<StringQueryOperatorInput>;
+<<<<<<< HEAD
   sys: Maybe<contentfulAboutBannerBodyTextNodeSysFilterInput>;
+=======
+  sys: Maybe<contentfulDonateSectionBodyTextNodeSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
 
+<<<<<<< HEAD
 type Query_allContentfulAboutBannerBodyTextNodeArgs = {
   filter: Maybe<contentfulAboutBannerBodyTextNodeFilterInput>;
   sort: Maybe<contentfulAboutBannerBodyTextNodeSortInput>;
+=======
+type Query_allContentfulDonateSectionBodyTextNodeArgs = {
+  filter: Maybe<contentfulDonateSectionBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulDonateSectionBodyTextNodeSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
 type Query_contentfulHomePageDescriptionTextNodeArgs = {
+=======
+type Query_contentfulAboutBannerBodyTextNodeArgs = {
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
+<<<<<<< HEAD
   description: Maybe<StringQueryOperatorInput>;
   sys: Maybe<contentfulHomePageDescriptionTextNodeSysFilterInput>;
+=======
+  body: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulAboutBannerBodyTextNodeSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
 
+<<<<<<< HEAD
 type Query_allContentfulHomePageDescriptionTextNodeArgs = {
   filter: Maybe<contentfulHomePageDescriptionTextNodeFilterInput>;
   sort: Maybe<contentfulHomePageDescriptionTextNodeSortInput>;
+=======
+type Query_allContentfulAboutBannerBodyTextNodeArgs = {
+  filter: Maybe<contentfulAboutBannerBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulAboutBannerBodyTextNodeSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
 type Query_contentfulOurFounderDescriptionTextNodeArgs = {
+=======
+type Query_contentfulHomePageDescriptionTextNodeArgs = {
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
   description: Maybe<StringQueryOperatorInput>;
+<<<<<<< HEAD
   sys: Maybe<contentfulOurFounderDescriptionTextNodeSysFilterInput>;
+=======
+  sys: Maybe<contentfulHomePageDescriptionTextNodeSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
 
+<<<<<<< HEAD
 type Query_allContentfulOurFounderDescriptionTextNodeArgs = {
   filter: Maybe<contentfulOurFounderDescriptionTextNodeFilterInput>;
   sort: Maybe<contentfulOurFounderDescriptionTextNodeSortInput>;
+=======
+type Query_allContentfulHomePageDescriptionTextNodeArgs = {
+  filter: Maybe<contentfulHomePageDescriptionTextNodeFilterInput>;
+  sort: Maybe<contentfulHomePageDescriptionTextNodeSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
 type Query_contentfulOurStoryBodyTextNodeArgs = {
+=======
+type Query_contentfulOurFounderDescriptionTextNodeArgs = {
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
+<<<<<<< HEAD
   body: Maybe<StringQueryOperatorInput>;
   sys: Maybe<contentfulOurStoryBodyTextNodeSysFilterInput>;
+=======
+  description: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulOurFounderDescriptionTextNodeSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
 
+<<<<<<< HEAD
 type Query_allContentfulOurStoryBodyTextNodeArgs = {
   filter: Maybe<contentfulOurStoryBodyTextNodeFilterInput>;
   sort: Maybe<contentfulOurStoryBodyTextNodeSortInput>;
+=======
+type Query_allContentfulOurFounderDescriptionTextNodeArgs = {
+  filter: Maybe<contentfulOurFounderDescriptionTextNodeFilterInput>;
+  sort: Maybe<contentfulOurFounderDescriptionTextNodeSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
 
 
+<<<<<<< HEAD
+type Query_contentfulOurWorkCardDescriptionTextNodeArgs = {
+=======
+type Query_contentfulOurStoryBodyTextNodeArgs = {
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+<<<<<<< HEAD
+  description: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulOurWorkCardDescriptionTextNodeSysFilterInput>;
+=======
+  body: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulOurStoryBodyTextNodeSysFilterInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+<<<<<<< HEAD
+type Query_allContentfulOurWorkCardDescriptionTextNodeArgs = {
+  filter: Maybe<contentfulOurWorkCardDescriptionTextNodeFilterInput>;
+  sort: Maybe<contentfulOurWorkCardDescriptionTextNodeSortInput>;
+=======
+type Query_allContentfulOurStoryBodyTextNodeArgs = {
+  filter: Maybe<contentfulOurStoryBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulOurStoryBodyTextNodeSortInput>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+<<<<<<< HEAD
+=======
 type Query_contentfulOurWorkCardDescriptionTextNodeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -20023,6 +21263,7 @@ type Query_allContentfulOurWorkCardDescriptionTextNodeArgs = {
 };
 
 
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 type Query_contentfulAboutUsBannerDescriptionTextNodeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -20247,8 +21488,6 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -20451,8 +21690,6 @@ enum SiteFieldsEnum {
   buildTime = 'buildTime',
   siteMetadata___title = 'siteMetadata.title',
   siteMetadata___description = 'siteMetadata.description',
-  port = 'port',
-  host = 'host',
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -20546,8 +21783,6 @@ enum SiteFieldsEnum {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -21256,6 +22491,9 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
+<<<<<<< HEAD
+type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
+=======
 type AboutBannerFragment = { readonly contentfulAboutBanner: Maybe<(
     Pick<ContentfulAboutBanner, 'title'>
     & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly logo: Maybe<(
@@ -21268,9 +22506,16 @@ type AboutBannerFragment = { readonly contentfulAboutBanner: Maybe<(
   )> };
 
 type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 
 type OurWorkSectionFragment = { readonly allContentfulOurWorkCard: { readonly nodes: ReadonlyArray<OurWorkCardFragment> } };
 
+<<<<<<< HEAD
+type HeaderQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+=======
 type OurWorkCardFragment = (
   Pick<ContentfulOurWorkCard, 'displayIndex' | 'title' | 'ctaLink' | 'ctaText'>
   & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
@@ -21329,10 +22574,34 @@ type AboutPageQuery = (
   & OurSponsorSectionFragment
   & DonateBannerFragment
 );
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 
 type ArticlePreviewFragment = (
   Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
   & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+);
+
+<<<<<<< HEAD
+type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+=======
+type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type BlogIndexQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<ArticlePreviewFragment> } };
+
+type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
+
+
+type FooterQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+
+<<<<<<< HEAD
+type HeroFragment = (
+  Pick<ContentfulPerson, 'name' | 'title'>
+  & { readonly shortBio: Maybe<Pick<contentfulPersonShortBioTextNode, 'shortBio'>>, readonly image: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
 );
 
 type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
@@ -21340,17 +22609,23 @@ type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type BlogIndexQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<ArticlePreviewFragment> } };
 
-type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type BlogPostBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
 
 
-type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
-
+type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
+    Pick<ContentfulBlogPost, 'title' | 'publishDate'>
+    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+  )> };
+=======
 type HomeBannerFragment = { readonly contentfulHomeBanner: Maybe<(
     Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText'>
     & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
   )> };
 
 type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<RecipeCardFragment> } };
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 
 type RecipeCardFragment = (
   Pick<ContentfulRecipe, 'id' | 'prepTime' | 'title' | 'totalTime' | 'updatedAt' | 'yield'>
@@ -21371,9 +22646,12 @@ type HomePageQuery = (
   & DonateBannerFragment
 );
 
-type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
+<<<<<<< HEAD
+type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+=======
 type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<RecipeCardFragment> }, readonly allContentfulIngredientTag: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulIngredientTag, 'tagName'>
       & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
@@ -21381,16 +22659,17 @@ type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pi
       Pick<ContentfulFoodTypeTag, 'tagName'>
       & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
     )> }, readonly contentfulTimeList: Maybe<Pick<ContentfulTimeList, 'timeList'>> };
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 
-type BlogPostBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
+type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
-    Pick<ContentfulBlogPost, 'title' | 'publishDate'>
-    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
-  )> };
+type HomeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: ArticlePreviewFragment }> }, readonly allContentfulPerson: { readonly nodes: ReadonlyArray<HeroFragment> } };
+
+type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<RecipeCardFragment> } };
 
 type RecipeByTitleQueryVariables = Exact<{
   title: Scalars['String'];
@@ -21402,9 +22681,102 @@ type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
     & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
   )> };
 
+<<<<<<< HEAD
+type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+=======
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 
+type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
+<<<<<<< HEAD
+type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpResolutionsFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpResolutions_tracedSVGFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpResolutions_withWebpFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpResolutions_withWebp_tracedSVGFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpResolutions_noBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpResolutions_withWebp_noBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpSizesFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpSizes_tracedSVGFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpSizes_withWebpFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebpFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulResolutionsFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_tracedSVGFragment = Pick<ContentfulResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_withWebpFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulResolutions_withWebp_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulSizesFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_tracedSVGFragment = Pick<ContentfulSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+=======
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+>>>>>>> ec09459c105506a0483e56f8663fa29f44fe5c75
 
 }
