@@ -4,6 +4,7 @@ import { graphql, PageProps } from 'gatsby';
 import BasicBanner from 'src/components/BasicBanner';
 import Layout from 'src/components/Layout';
 import DonateSection from 'src/sections/DonateBanner';
+import DonationDetailSection from 'src/sections/DonationDetailSection';
 import InvolvmentSection from 'src/sections/InvolvementSection';
 import NewsletterSection from 'src/sections/NewsletterBanner';
 
@@ -12,11 +13,14 @@ interface Props extends PageProps {
 }
 
 const GetInvolvedPage = (props: Props) => {
+  const { data, location } = props;
+
   return (
-    <Layout location={props.location}>
+    <Layout location={location}>
       <BasicBanner title="Get Involved" />
-      <InvolvmentSection data={props.data} />
-      <DonateSection data={props.data} />
+      <InvolvmentSection data={data} />
+      <DonationDetailSection data={data} />
+      <DonateSection data={data} />
       <NewsletterSection />
     </Layout>
   );
@@ -31,6 +35,7 @@ export const pageQuery = graphql`
         title
       }
     }
+    ...DonationDetail
     ...DonateBanner
     ...InvolvmentSection
   }
