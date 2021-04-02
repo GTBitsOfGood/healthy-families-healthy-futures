@@ -37,8 +37,8 @@ const OurFounderSection = ({ data }: Props) => {
                 />
               )}
             </Box>
-            <Center boxShadow="card" w={712} h={334}>
-              <Box w={580}>
+            <Center boxShadow="card" w={{ base: 380, md: 712 }} h={{ base: 402, md: 334 }}>
+              <Box w={{ base: 339, md: 580 }}>
                 <Text textAlign="left" textStyle="body1">
                   {founder?.description?.childMarkdownRemark?.rawMarkdownBody}
                 </Text>

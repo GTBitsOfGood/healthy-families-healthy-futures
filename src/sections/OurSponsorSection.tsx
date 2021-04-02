@@ -25,7 +25,7 @@ const OurSponsorSection = ({ data }: Props) => {
         marginLeft="20%"
         marginRight="20%"
         justifyContent="space-evenly"
-        wrap="wrap"
+        direction={{ base: 'row', md: 'row' }}
       >
         {info?.sponsors != null &&
           info.sponsors.map(

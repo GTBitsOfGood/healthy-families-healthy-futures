@@ -14,15 +14,15 @@ const OurStorySection = ({ data }: Props) => {
 
   return (
     <>
-      <Box mt={150} mb={110}>
+      <Box mt={{ base: 70, md: 150 }} mb={{ base: 70, md: 110 }}>
         <SectionHeader text={data.contentfulOurStory?.title ?? 'Our Story'} textPosition="right" />
       </Box>
 
-      <Flex justifyContent="space-evenly">
-        <Box w={433} h={631}>
+      <Flex justifyContent="space-evenly" direction={{ base: 'column', md: 'row' }}>
+        <Box mb={{ base: 0 }} w={{ base: 233, md: 433 }} h={{ base: 408, md: 631 }}>
           {image?.fluid != null && <Img fluid={image.fluid} alt={image.description} />}
         </Box>
-        <Box w={529} pt="60px">
+        <Box mt={{ base: 0 }} w={{ base: 376, md: 529 }} pt="60px">
           <Text
             textAlign="left"
             textStyle="body1"
