@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
@@ -26,9 +28,7 @@ function Header({ onHamburgerClick }: HeaderProps): JSX.Element {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     data.contentfulAsset?.fluid != null ? (
       <Img
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         fluid={data.contentfulAsset.fluid}
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         alt={data.contentfulAsset.description}
         imgStyle={{ objectFit: 'contain' }}
       />
