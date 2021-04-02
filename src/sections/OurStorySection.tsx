@@ -18,11 +18,20 @@ const OurStorySection = ({ data }: Props) => {
         <SectionHeader text={data.contentfulOurStory?.title ?? 'Our Story'} textPosition="right" />
       </Box>
 
-      <Flex justifyContent="space-evenly" direction={{ base: 'column', md: 'row' }}>
-        <Box mb={{ base: 0 }} w={{ base: 233, md: 433 }} h={{ base: 408, md: 631 }}>
+      <Flex
+        justifyContent="space-evenly"
+        direction={{ base: 'column', md: 'row' }}
+        align={{ base: 'center', md: 'normal' }}
+      >
+        <Box mb={{ base: 30, md: 0 }} w={{ base: 233, md: 433 }} h={{ md: 631 }}>
           {image?.fluid != null && <Img fluid={image.fluid} alt={image.description} />}
         </Box>
-        <Box mt={{ base: 0 }} w={{ base: 376, md: 529 }} pt="60px">
+        <Box
+          mt={{ base: 0 }}
+          mb={{ base: 50, md: 0 }}
+          w={{ base: '80vw', md: '40vw' }}
+          pt={{ base: 0, md: '60px' }}
+        >
           <Text
             textAlign="left"
             textStyle="body1"
