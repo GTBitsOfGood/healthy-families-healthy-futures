@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HStack, Box, VStack, Text, Center, Button, useTheme } from '@chakra-ui/react';
+import { Stack, Box, VStack, Text, Button, useTheme } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
@@ -19,35 +19,43 @@ const OurFounderSection = ({ data }: Props) => {
         <SectionHeader text={founder?.title ?? 'Our Founder'} textPosition="right" />
       </Box>
 
-      <Center h={748}>
-        <VStack spacing="100px">
-          <HStack justifyContent="center" spacing={20}>
-            <Box
-              w="272px"
-              borderRadius="50%"
-              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-unsafe-member-access
-              boxShadow={`9px 9px 0px 0px ${theme.colors.green[500]}`}
-            >
-              {founder?.image?.fluid != null && (
-                <Img
-                  style={{ overflow: 'visible' }}
-                  imgStyle={{ borderRadius: '50%' }}
-                  fluid={founder?.image.fluid}
-                  alt={founder.image.description}
-                />
-              )}
-            </Box>
-            <Center boxShadow="card" w={{ base: 380, md: 712 }} h={{ base: 402, md: 334 }}>
-              <Box w={{ base: 339, md: 580 }}>
-                <Text textAlign="left" textStyle="body1">
-                  {founder?.description?.childMarkdownRemark?.rawMarkdownBody}
-                </Text>
-              </Box>
-            </Center>
-          </HStack>
-          <Button variant="neutral">{founder?.ctaText}</Button>
-        </VStack>
-      </Center>
+      <VStack spacing="100px" mx="auto" my={20}>
+        <Stack
+          justifyContent="center"
+          spacing={20}
+          direction={{ base: 'column', md: 'row' }}
+          align={{ base: 'center' }}
+        >
+          <Box
+            // mt={{ md: 30 }}
+            w="272px"
+            h="272px"
+            borderRadius="50%"
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-unsafe-member-access
+            boxShadow={`9px 9px 0px 0px ${theme.colors.green[500]}`}
+          >
+            {founder?.image?.fluid != null && (
+              <Img
+                style={{ overflow: 'visible' }}
+                imgStyle={{ borderRadius: '50%' }}
+                fluid={founder?.image.fluid}
+                alt={founder.image.description}
+              />
+            )}
+          </Box>
+          <Box
+            boxShadow="card"
+            w={{ base: '80vw', md: '45vw' }}
+            px={{ base: 10, md: 35 }}
+            py={{ base: 10, md: 30 }}
+          >
+            <Text textAlign="left" textStyle="body1">
+              {founder?.description?.childMarkdownRemark?.rawMarkdownBody}
+            </Text>
+          </Box>
+        </Stack>
+        <Button variant="neutral">{founder?.ctaText}</Button>
+      </VStack>
     </>
   );
 };
