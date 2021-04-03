@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Box, Heading, HStack, VStack, Text, Center } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import LocaleContext from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.AboutBannerFragment;
 }
 
 const AboutBanner = ({ data }: Props) => {
-  const title = data.contentfulAboutBanner?.title;
-  const bodyText = data.contentfulAboutBanner?.body?.childMarkdownRemark?.rawMarkdownBody;
-  const mainImage = data.contentfulAboutBanner?.image;
-  const logoImage = data.contentfulAboutBanner?.logo;
+  const { locale } = useContext(LocaleContext);
+
+  const banner = data.allContentfulAboutBanner.nodes.find(d => d.node_locale === locale);
+  const title = banner?.title;
+  const bodyText = banner?.body?.childMarkdownRemark?.rawMarkdownBody;
+  const mainImage = banner?.image;
+  const logoImage = banner?.logo;
 
   return (
     <HStack spacing={0}>
@@ -52,24 +56,27 @@ export default AboutBanner;
 
 export const fragment = graphql`
   fragment AboutBanner on Query {
-    contentfulAboutBanner {
-      title
-      body {
-        childMarkdownRemark {
-          rawMarkdownBody
+    allContentfulAboutBanner {
+      nodes {
+        title
+        body {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
         }
-      }
-      logo {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
+        logo {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
+          description
         }
-        description
-      }
-      image {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
+        image {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
+          description
         }
-        description
+        node_locale
       }
     }
   }
