@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Center, Wrap } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import GetInvolvedCard from 'src/components/GetInvolvedCard';
 import SectionHeader from 'src/components/SectionHeader';
@@ -13,15 +13,17 @@ const InvolvmentSection = ({ data }: Props) => {
   const involvementCards = data?.allContentfulGetInvolvedCard.nodes;
 
   return (
-    <Box h={600} bg="gray.extralight">
-      <Box marginBottom={170}>
+    <Box bg="gray.extralight" pb={20}>
+      <Box marginBottom={100}>
         <SectionHeader text="Ways to get Involved" textPosition="right" />
       </Box>
-      <Flex justify="space-evenly">
-        {involvementCards.map(card => (
-          <GetInvolvedCard key={card.title} data={card} />
-        ))}
-      </Flex>
+      <Center>
+        <Wrap align="center" justify="center">
+          {involvementCards.map(card => (
+            <GetInvolvedCard key={card.title} data={card} />
+          ))}
+        </Wrap>
+      </Center>
     </Box>
   );
 };

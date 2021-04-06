@@ -20460,12 +20460,12 @@ type Query = {
   readonly allContentfulDonationDetailSection: ContentfulDonationDetailSectionConnection;
   readonly contentfulBasicBanner: Maybe<ContentfulBasicBanner>;
   readonly allContentfulBasicBanner: ContentfulBasicBannerConnection;
+  readonly contentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNode>;
+  readonly allContentfulDonateSectionBodyTextNode: contentfulDonateSectionBodyTextNodeConnection;
   readonly contentfulDonationDetailSectionDescriptionTextNode: Maybe<contentfulDonationDetailSectionDescriptionTextNode>;
   readonly allContentfulDonationDetailSectionDescriptionTextNode: contentfulDonationDetailSectionDescriptionTextNodeConnection;
   readonly contentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
   readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
-  readonly contentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNode>;
-  readonly allContentfulDonateSectionBodyTextNode: contentfulDonateSectionBodyTextNodeConnection;
   readonly contentfulAboutBannerBodyTextNode: Maybe<contentfulAboutBannerBodyTextNode>;
   readonly allContentfulAboutBannerBodyTextNode: contentfulAboutBannerBodyTextNodeConnection;
   readonly contentfulHomePageDescriptionTextNode: Maybe<contentfulHomePageDescriptionTextNode>;
@@ -21319,6 +21319,26 @@ type Query_allContentfulBasicBannerArgs = {
 };
 
 
+type Query_contentfulDonateSectionBodyTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  body: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulDonateSectionBodyTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulDonateSectionBodyTextNodeArgs = {
+  filter: Maybe<contentfulDonateSectionBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulDonateSectionBodyTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
 type Query_contentfulDonationDetailSectionDescriptionTextNodeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -21354,26 +21374,6 @@ type Query_contentfulHomeBannerBodyTextNodeArgs = {
 type Query_allContentfulHomeBannerBodyTextNodeArgs = {
   filter: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
   sort: Maybe<contentfulHomeBannerBodyTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulDonateSectionBodyTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  body: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulDonateSectionBodyTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulDonateSectionBodyTextNodeArgs = {
-  filter: Maybe<contentfulDonateSectionBodyTextNodeFilterInput>;
-  sort: Maybe<contentfulDonateSectionBodyTextNodeSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };

@@ -15,7 +15,7 @@ const GetInvolvedCard = ({ data }: Props) => {
     icon?.fluid != null ? <Img fluid={icon.fluid} imgStyle={{ objectFit: 'contain' }} /> : null;
 
   return (
-    <Box w={499}>
+    <Box w={500} my={10}>
       <Flex direction="column" align="center">
         <Box w={312} h={246}>
           {imageEl}
