@@ -25,7 +25,7 @@ interface NavigationProps {
   onDrawerClose: () => void;
 }
 
-function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Element {
+export function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Element {
   const styles = useStyleConfig('NavLink', { size });
 
   return (
