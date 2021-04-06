@@ -15,7 +15,7 @@ interface Props extends PageProps {
 function EventsPage(props: Props): JSX.Element {
   return (
     <Layout location={props.location}>
-      <BasicBanner title="Events & Classes" />
+      <BasicBanner title="Events &amp; Classes" />
       <EventCalendarSection />
       <UpcomingEventsSection />
       <DonateBanner data={props.data} />
