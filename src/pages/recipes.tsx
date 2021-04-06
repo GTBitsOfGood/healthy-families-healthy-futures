@@ -63,7 +63,7 @@ function RecipesIndex(props: Props): JSX.Element {
     <Layout location={props.location}>
       <Helmet title={siteTitle} />
 
-      <Grid templateColumns={{ base: '1fr', md: '250px 1px 1fr' }}>
+      <Grid templateColumns={{ base: '1fr', md: '250px 1px 1fr' }} mb={10}>
         <GridItem>
           <RecipeSidebar
             filters={recipeFilters}
