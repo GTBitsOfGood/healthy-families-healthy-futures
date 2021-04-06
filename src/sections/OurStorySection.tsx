@@ -4,14 +4,14 @@ import { Box, Text, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
-import { useLocaleContext } from 'src/contexts/LocaleContext';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.OurStorySectionFragment;
 }
 
 const OurStorySection = ({ data }: Props) => {
-  const { locale } = useLocaleContext();
+  const { locale } = useLocale();
 
   const section = data.allContentfulOurStory.nodes?.find(d => d.node_locale === locale);
 

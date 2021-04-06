@@ -9,7 +9,7 @@ import Layout from 'src/components/Layout';
 import Pagination from 'src/components/Pagination';
 import RecipeCard from 'src/components/RecipeCard';
 import RecipeSidebar from 'src/components/RecipeSidebar';
-import { useLocaleContext } from 'src/contexts/LocaleContext';
+import { useLocale } from 'src/contexts/LocaleContext';
 import { initRecipeFilters, filterRecipes } from 'src/utils/filter';
 import { SelectedRecipeFilters } from 'src/utils/types';
 import { entries } from 'src/utils/util';
@@ -19,7 +19,7 @@ interface Props extends PageProps {
 }
 
 function RecipesIndex(props: Props): JSX.Element {
-  const { filterLocale } = useLocaleContext();
+  const { filterLocale } = useLocale();
   const siteTitle = props.data.site?.siteMetadata?.title;
 
   const recipes = filterLocale(props.data?.allContentfulRecipe?.nodes);

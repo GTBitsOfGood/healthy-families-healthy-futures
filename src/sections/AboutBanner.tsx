@@ -3,14 +3,14 @@ import React from 'react';
 import { Box, Heading, HStack, VStack, Text, Center } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { useLocaleContext } from 'src/contexts/LocaleContext';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.AboutBannerFragment;
 }
 
 const AboutBanner = ({ data }: Props) => {
-  const { locale } = useLocaleContext();
+  const { locale } = useLocale();
 
   const banner = data.allContentfulAboutBanner.nodes.find(d => d.node_locale === locale);
   const title = banner?.title;

@@ -22,7 +22,7 @@ const LocaleContext = createContext<LocaleContextType>({
   },
 });
 
-export const useLocaleContext = () => {
+export const useLocale = () => {
   return useContext(LocaleContext);
 };
 
