@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { Box, Heading, Text, Stack, Center, Grid } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
-import LocaleContext from 'src/contexts/LocaleContext';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.DonationDetailFragment;
 }
 
 function DonationDetailSection({ data }: Props): JSX.Element {
-  const { locale } = useContext(LocaleContext);
-  const section = data.allContentfulDonationDetailSection.nodes.find(d => d.node_locale === locale);
+  const { findLocale } = useLocale();
+  const section = findLocale(data.allContentfulDonationDetailSection.nodes);
 
   return (
     <Box bg="white">
