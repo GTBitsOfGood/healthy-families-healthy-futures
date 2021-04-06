@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Box, Center, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import GetInvolvedCard from 'src/components/GetInvolvedCard';
 import SectionHeader from 'src/components/SectionHeader';
+import LocaleContext from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.GetInvolvedSectionFragment;
 }
 
 const GetInvolvedSection = ({ data }: Props) => {
-  const involvementCards = data?.allContentfulGetInvolvedCard.nodes;
+  const { locale } = useContext(LocaleContext);
+  const involvementCards = data?.allContentfulGetInvolvedCard.nodes.filter(
+    d => d.node_locale === locale,
+  );
 
   return (
     <Box bg="white" pb={20}>
@@ -18,7 +22,7 @@ const GetInvolvedSection = ({ data }: Props) => {
         <SectionHeader text="Ways to get Involved" textPosition="right" />
       </Box>
       <Center>
-        <Flex justify="space-evenly" direction={["column", null, null, "row"]} w="100%">
+        <Flex justify="space-evenly" direction={['column', null, null, 'row']} w="100%">
           {involvementCards.map(card => (
             <GetInvolvedCard key={card.title} data={card} />
           ))}

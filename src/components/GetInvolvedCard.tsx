@@ -41,5 +41,6 @@ export const fragment = graphql`
         ...GatsbyContentfulFluid
       }
     }
+    node_locale
   }
 `;

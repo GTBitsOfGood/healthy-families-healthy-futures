@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Box, Heading, Text, Stack, Center, Grid } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
+import LocaleContext from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.DonationDetailFragment;
 }
 
 function DonationDetailSection({ data }: Props): JSX.Element {
-  const section = data.contentfulDonationDetailSection;
+  const { locale } = useContext(LocaleContext);
+  const section = data.allContentfulDonationDetailSection.nodes.find(d => d.node_locale === locale);
 
   return (
     <Box bg="white">
@@ -44,18 +46,21 @@ export default DonationDetailSection;
 
 export const fragment = graphql`
   fragment DonationDetail on Query {
-    contentfulDonationDetailSection {
-      title
-      description {
-        childMarkdownRemark {
-          rawMarkdownBody
+    allContentfulDonationDetailSection {
+      nodes {
+        title
+        description {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
         }
-      }
-      image {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
+        image {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
+          description
         }
-        description
+        node_locale
       }
     }
   }
