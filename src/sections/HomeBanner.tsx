@@ -14,7 +14,11 @@ const HomeBanner = ({ data }: Props) => {
   const banner = data?.allContentfulHomeBanner?.nodes.find(d => d.node_locale == locale);
 
   return (
-    <Box w={560} marginTop={240} marginLeft={180}>
+    <Box
+      w={{ base: '90vw', md: 560 }}
+      marginTop={{ base: 20, md: 240 }}
+      marginLeft={{ base: 5, md: 180 }}
+    >
       <Heading textStyle="heading1" color="creamsicle">
         {banner?.titleLine1}
       </Heading>
@@ -24,7 +28,7 @@ const HomeBanner = ({ data }: Props) => {
       <Heading mt="13px" fontWeight="light" textStyle="subheading1" fontSize="16px">
         {banner?.body?.childMarkdownRemark?.rawMarkdownBody}
       </Heading>
-      <Box marginTop={31} marginBottom={300}>
+      <Box marginTop={31} marginBottom={{ base: 40, md: 300 }}>
         <Link to={banner?.ctaLink ?? '/about'}>
           <Button variant="neutral" fontSize="16px">
             {banner?.ctaText}

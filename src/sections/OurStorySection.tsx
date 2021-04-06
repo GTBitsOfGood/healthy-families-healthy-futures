@@ -19,15 +19,24 @@ const OurStorySection = ({ data }: Props) => {
 
   return (
     <>
-      <Box mt={150} mb={110}>
+      <Box mt={{ base: 70, md: 150 }} mb={{ base: 70, md: 110 }}>
         <SectionHeader text={section?.title ?? 'Our Story'} textPosition="right" />
       </Box>
 
-      <Flex justifyContent="space-evenly">
-        <Box w={433} h={631}>
+      <Flex
+        justifyContent="space-evenly"
+        direction={{ base: 'column', md: 'row' }}
+        align={{ base: 'center', md: 'normal' }}
+      >
+        <Box mb={{ base: 30, md: 0 }} w={{ base: 233, md: 433 }} h={{ md: 631 }}>
           {image?.fluid != null && <Img fluid={image.fluid} alt={image.description} />}
         </Box>
-        <Box w={529} pt="60px">
+        <Box
+          mt={{ base: 0 }}
+          mb={{ base: 50, md: 0 }}
+          w={{ base: '80vw', md: '40vw' }}
+          pt={{ base: 0, md: '60px' }}
+        >
           <Text
             textAlign="left"
             textStyle="body1"

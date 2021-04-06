@@ -26,10 +26,9 @@ const OurSponsorSection = ({ data }: Props) => {
       <Flex
         mt="-56px"
         mb="277px"
-        marginLeft="20%"
-        marginRight="20%"
+        mx={{ base: 0, md: `20%` }}
         justifyContent="space-evenly"
-        wrap="wrap"
+        direction={{ base: 'row', md: 'row' }}
       >
         {info?.sponsors != null &&
           info.sponsors.map(

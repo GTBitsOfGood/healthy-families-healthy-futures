@@ -26,9 +26,9 @@ const AboutBanner = ({ data }: Props) => {
         )}
       </Box>
       <Center w="50%" h={666} bg="creamsicle">
-        <Box h={155} bg="creamsicle"></Box>
+        <Box h={155} w={{ base: 305, md: 679 }} bg="creamsicle"></Box>
         <VStack spacing={5}>
-          <Box w={183} h={158}>
+          <Box w={{ base: 100, md: 183 }} h={158}>
             {logoImage?.fluid != null && (
               <Img fluid={logoImage.fluid} alt={logoImage.description} />
             )}
@@ -41,7 +41,7 @@ const AboutBanner = ({ data }: Props) => {
           >
             {title}
           </Heading>
-          <Box w={500}>
+          <Box w={{ base: 175, md: 500 }}>
             <Text textAlign="center" textStyle="body1">
               {bodyText}
             </Text>
