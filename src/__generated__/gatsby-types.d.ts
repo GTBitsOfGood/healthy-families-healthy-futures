@@ -25199,7 +25199,7 @@ type DonationDetailFragment = { readonly contentfulDonationDetailSection: Maybe<
     )> }
   )> };
 
-type InvolvmentSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
+type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
 
 type GetInvolvedCardFragment = (
   Pick<ContentfulGetInvolvedCard, 'title' | 'link'>
@@ -25213,7 +25213,7 @@ type GetInvolvedPageQuery = (
   { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
   & DonationDetailFragment
   & DonateBannerFragment
-  & InvolvmentSectionFragment
+  & GetInvolvedSectionFragment
 );
 
 type HomeBannerFragment = { readonly allContentfulHomeBanner: { readonly nodes: ReadonlyArray<(

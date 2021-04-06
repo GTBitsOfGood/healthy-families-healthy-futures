@@ -5,7 +5,7 @@ import BasicBanner from 'src/components/BasicBanner';
 import Layout from 'src/components/Layout';
 import DonateSection from 'src/sections/DonateBanner';
 import DonationDetailSection from 'src/sections/DonationDetailSection';
-import InvolvmentSection from 'src/sections/InvolvementSection';
+import GetInvolvedSection from 'src/sections/GetInvolvedSection';
 import NewsletterSection from 'src/sections/NewsletterBanner';
 
 interface Props extends PageProps {
@@ -18,7 +18,7 @@ const GetInvolvedPage = (props: Props) => {
   return (
     <Layout location={location}>
       <BasicBanner title="Get Involved" />
-      <InvolvmentSection data={data} />
+      <GetInvolvedSection data={data} />
       <DonationDetailSection data={data} />
       <DonateSection data={data} />
       <NewsletterSection />
@@ -37,6 +37,6 @@ export const pageQuery = graphql`
     }
     ...DonationDetail
     ...DonateBanner
-    ...InvolvmentSection
+    ...GetInvolvedSection
   }
 `;

@@ -15,16 +15,18 @@ const GetInvolvedCard = ({ data }: Props) => {
     icon?.fluid != null ? <Img fluid={icon.fluid} imgStyle={{ objectFit: 'contain' }} /> : null;
 
   return (
-    <Box w={500} my={10}>
-      <Flex direction="column" align="center">
-        <Box w={312} h={246}>
-          {imageEl}
-        </Box>
-        <Text color="charcoal" textTransform="uppercase" textStyle="heading2">
-          <Link to={link ?? '#'}>{title}</Link>
-        </Text>
-      </Flex>
-    </Box>
+    <Link to={link ?? '#'}>
+      <Box w="auto" my={10}>
+        <Flex direction="column" align="center">
+          <Box w={312} h={246}>
+            {imageEl}
+          </Box>
+          <Text color="charcoal" textTransform="uppercase" textStyle="heading2">
+            {title}
+          </Text>
+        </Flex>
+      </Box>
+    </Link>
   );
 };
 
