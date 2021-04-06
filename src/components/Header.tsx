@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
@@ -11,6 +11,7 @@ interface HeaderProps {
 }
 
 function Header({ onHamburgerClick }: HeaderProps): JSX.Element {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const data: GatsbyTypes.HeaderQuery = useStaticQuery<GatsbyTypes.HeaderQuery>(graphql`
     query Header {
       contentfulAsset(title: { eq: "Logo" }) {
@@ -23,6 +24,7 @@ function Header({ onHamburgerClick }: HeaderProps): JSX.Element {
   `);
 
   const hfhfLogo =
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     data.contentfulAsset?.fluid != null ? (
       <Img
         fluid={data.contentfulAsset.fluid}
