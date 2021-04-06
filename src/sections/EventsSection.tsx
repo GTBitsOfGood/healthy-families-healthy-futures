@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, StackDivider, VStack } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import EventCard from 'src/components/EventCard';
 import SectionHeader from 'src/components/SectionHeader';
 
@@ -26,11 +26,11 @@ function EventsSection(): JSX.Element {
       <Box marginBottom={50}>
         <SectionHeader text="Upcoming Events" textPosition="left" />
       </Box>
-      <VStack align="stretch" divider={<StackDivider borderColor="gray.200" />}>
+      <Flex direction="column">
         {events.map(event => (
           <EventCard key={event.id} data={event} />
         ))}
-      </VStack>
+      </Flex>
     </Box>
   );
 }

@@ -9,7 +9,7 @@ import EventsSection from 'src/sections/EventsSection';
 import NewsletterBanner from 'src/sections/NewsletterBanner';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.HomePageQuery;
+  data: GatsbyTypes.EventsPageQuery;
 }
 
 function EventsPage(props: Props): JSX.Element {
