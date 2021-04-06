@@ -12,9 +12,9 @@ interface Props {
 
 const OurFounderSection = ({ data }: Props) => {
   const theme = useTheme();
-  const { locale } = useLocale();
+  const { findLocale } = useLocale();
 
-  const founder = data.allContentfulOurFounder.nodes?.find(d => d.node_locale === locale);
+  const founder = findLocale(data.allContentfulOurFounder.nodes);
 
   return (
     <>

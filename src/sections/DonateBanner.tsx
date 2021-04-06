@@ -10,8 +10,8 @@ interface Props {
 }
 
 function DonateBanner({ data }: Props): JSX.Element {
-  const { locale } = useLocale();
-  const section = data.allContentfulDonateSection.nodes.find(d => d.node_locale === locale);
+  const { findLocale } = useLocale();
+  const section = findLocale(data.allContentfulDonateSection.nodes);
 
   return (
     <Flex>

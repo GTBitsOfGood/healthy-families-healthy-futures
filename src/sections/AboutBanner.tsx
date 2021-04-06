@@ -10,9 +10,9 @@ interface Props {
 }
 
 const AboutBanner = ({ data }: Props) => {
-  const { locale } = useLocale();
+  const { findLocale } = useLocale();
 
-  const banner = data.allContentfulAboutBanner.nodes.find(d => d.node_locale === locale);
+  const banner = findLocale(data.allContentfulAboutBanner.nodes);
   const title = banner?.title;
   const bodyText = banner?.body?.childMarkdownRemark?.rawMarkdownBody;
   const mainImage = banner?.image;

@@ -11,9 +11,9 @@ interface Props {
 }
 
 const OurStorySection = ({ data }: Props) => {
-  const { locale } = useLocale();
+  const { findLocale } = useLocale();
 
-  const section = data.allContentfulOurStory.nodes?.find(d => d.node_locale === locale);
+  const section = findLocale(data.allContentfulOurStory.nodes);
 
   const image = section?.image;
 

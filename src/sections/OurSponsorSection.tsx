@@ -11,9 +11,9 @@ interface Props {
 }
 
 const OurSponsorSection = ({ data }: Props) => {
-  const { locale } = useLocale();
+  const { findLocale } = useLocale();
 
-  const info = data.allContentfulOurSponsor.nodes?.find(d => d.node_locale === locale);
+  const info = findLocale(data.allContentfulOurSponsor.nodes);
 
   return (
     <>

@@ -9,9 +9,9 @@ interface Props {
 }
 
 const HomeBanner = ({ data }: Props) => {
-  const { locale } = useLocale();
+  const { findLocale } = useLocale();
 
-  const banner = data?.allContentfulHomeBanner?.nodes.find(d => d.node_locale == locale);
+  const banner = findLocale(data?.allContentfulHomeBanner?.nodes);
 
   return (
     <Box
