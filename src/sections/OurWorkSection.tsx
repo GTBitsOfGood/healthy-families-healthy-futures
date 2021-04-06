@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { Box, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import OurWorkCard from 'src/components/OurWorkCard';
 import SectionHeader from 'src/components/SectionHeader';
-import LocaleContext from 'src/contexts/LocaleContext';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.OurWorkSectionFragment;
 }
 
 function OurWorkSection({ data }: Props): JSX.Element {
-  const { locale } = useContext(LocaleContext);
+  const { filterLocale } = useLocale();
 
-  const cards = data.allContentfulOurWorkCard.nodes.filter(d => d.node_locale === locale);
+  const cards = filterLocale(data.allContentfulOurWorkCard.nodes);
   const sortedCards = [...cards].sort((a, b) => (a.displayIndex ?? 0) - (b.displayIndex ?? 0));
 
   return (

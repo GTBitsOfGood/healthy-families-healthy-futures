@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import LocaleContext from 'src/contexts/LocaleContext';
+import { useLocale } from 'src/contexts/LocaleContext';
 import { Locale } from 'src/utils/types';
 
 import { FacebookIcon, InstagramIcon, EmailIcon } from './Icons';
@@ -40,7 +40,7 @@ function Footer(): JSX.Element {
   const handleToggle3 = () => setShow3(!show3);
   const handleToggle4 = () => setShow4(!show4);
 
-  const { locale, setLocale } = useContext(LocaleContext);
+  const { locale, setLocale } = useLocale();
 
   const logo =
     data.contentfulAsset?.fluid != null ? (

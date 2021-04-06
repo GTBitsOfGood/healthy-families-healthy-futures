@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { Box, Heading, Text, Stack, Button, Flex, Center } from '@chakra-ui/react';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import LocaleContext from 'src/contexts/LocaleContext';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.DonateBannerFragment;
 }
 
 function DonateBanner({ data }: Props): JSX.Element {
-  const { locale } = useContext(LocaleContext);
-  const section = data.allContentfulDonateSection.nodes.find(d => d.node_locale === locale);
+  const { findLocale } = useLocale();
+  const section = findLocale(data.allContentfulDonateSection.nodes);
 
   return (
     <Flex>
