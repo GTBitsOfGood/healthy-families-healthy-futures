@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Box, Heading, Text, Stack, Button, Flex, Center } from '@chakra-ui/react';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
+import LocaleContext from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.DonateBannerFragment;
 }
 
 function DonateBanner({ data }: Props): JSX.Element {
-  const section = data.contentfulDonateSection;
+  const { locale } = useContext(LocaleContext);
+  const section = data.allContentfulDonateSection.nodes.find(d => d.node_locale === locale);
 
   return (
     <Flex>
@@ -53,26 +55,29 @@ export default DonateBanner;
 
 export const fragment = graphql`
   fragment DonateBanner on Query {
-    contentfulDonateSection {
-      ctaLink
-      ctaText
-      body {
-        childMarkdownRemark {
-          rawMarkdownBody
+    allContentfulDonateSection {
+      nodes {
+        ctaLink
+        ctaText
+        body {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
         }
-      }
-      title
-      image {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
+        title
+        image {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
+          description
         }
-        description
-      }
-      logo {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
+        logo {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
+          description
         }
-        description
+        node_locale
       }
     }
   }
