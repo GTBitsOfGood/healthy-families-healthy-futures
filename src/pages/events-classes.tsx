@@ -5,8 +5,8 @@ import BasicBanner from 'src/components/BasicBanner';
 import Layout from 'src/components/Layout';
 import DonateBanner from 'src/sections/DonateBanner';
 import EventCalendarSection from 'src/sections/EventCalendarSection';
-import EventsSection from 'src/sections/EventsSection';
 import NewsletterBanner from 'src/sections/NewsletterBanner';
+import UpcomingEventsSection from 'src/sections/UpcomingEventsSection';
 
 interface Props extends PageProps {
   data: GatsbyTypes.EventsPageQuery;
@@ -17,7 +17,7 @@ function EventsPage(props: Props): JSX.Element {
     <Layout location={props.location}>
       <BasicBanner title="Events & Classes" />
       <EventCalendarSection />
-      <EventsSection />
+      <UpcomingEventsSection />
       <DonateBanner data={props.data} />
       <NewsletterBanner />
     </Layout>

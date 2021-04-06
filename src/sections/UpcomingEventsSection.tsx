@@ -4,7 +4,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import EventCard from 'src/components/EventCard';
 import SectionHeader from 'src/components/SectionHeader';
 
-function EventsSection(): JSX.Element {
+function UpcomingEventsSection(): JSX.Element {
   // TODO - Retrieve events from Contenful or Facebook
   const events = [
     {
@@ -35,4 +35,4 @@ function EventsSection(): JSX.Element {
   );
 }
 
-export default EventsSection;
+export default UpcomingEventsSection;
