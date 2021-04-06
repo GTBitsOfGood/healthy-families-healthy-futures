@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { Box, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
-import LocaleContext from 'src/contexts/LocaleContext';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.OurSponsorSectionFragment;
 }
 
 const OurSponsorSection = ({ data }: Props) => {
-  const { locale } = useContext(LocaleContext);
+  const { findLocale } = useLocale();
 
-  const info = data.allContentfulOurSponsor.nodes?.find(d => d.node_locale === locale);
+  const info = findLocale(data.allContentfulOurSponsor.nodes);
 
   return (
     <>
