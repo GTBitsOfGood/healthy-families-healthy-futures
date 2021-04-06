@@ -21,8 +21,6 @@ function EventsSection(): JSX.Element {
     },
   ];
 
-  console.log(events);
-
   return (
     <Box>
       <Box marginBottom={50}>

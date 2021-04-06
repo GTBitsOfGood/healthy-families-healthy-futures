@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import Layout from 'src/components/Layout';
 import DonateBanner from 'src/sections/DonateBanner';
+import EventCalendarSection from 'src/sections/EventCalendarSection';
 import EventsSection from 'src/sections/EventsSection';
 import NewsletterBanner from 'src/sections/NewsletterBanner';
 
@@ -13,6 +14,7 @@ interface Props extends PageProps {
 function EventsPage(props: Props): JSX.Element {
   return (
     <Layout location={props.location}>
+      <EventCalendarSection />
       <EventsSection />
       <DonateBanner data={props.data} />
       <NewsletterBanner />
