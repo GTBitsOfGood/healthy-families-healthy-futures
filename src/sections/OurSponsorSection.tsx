@@ -26,8 +26,7 @@ const OurSponsorSection = ({ data }: Props) => {
       <Flex
         mt="-56px"
         mb="277px"
-        marginLeft="20%"
-        marginRight="20%"
+        mx={{ base: 0, md: `20%` }}
         justifyContent="space-evenly"
         direction={{ base: 'row', md: 'row' }}
       >
