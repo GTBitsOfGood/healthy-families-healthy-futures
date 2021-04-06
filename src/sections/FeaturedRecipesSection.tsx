@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Box, Flex, Button } from '@chakra-ui/react';
@@ -6,14 +6,14 @@ import slugify from '@sindresorhus/slugify';
 import { graphql, Link } from 'gatsby';
 import RecipeCard from 'src/components/RecipeCard';
 import SectionHeader from 'src/components/SectionHeader';
-import LocaleContext from 'src/contexts/LocaleContext';
+import { useLocaleContext } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.FeaturedRecipesSectionFragment;
 }
 
 const FeaturedRecipesSection = (props: Props) => {
-  const { locale } = useContext(LocaleContext);
+  const { locale } = useLocaleContext();
 
   const recipes = props.data?.allContentfulRecipe?.nodes.filter(d => d.node_locale === locale);
 
