@@ -4,13 +4,17 @@ import { Box, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.OurSponsorSectionFragment;
 }
 
 const OurSponsorSection = ({ data }: Props) => {
-  const info = data.contentfulOurSponsor;
+  const { findLocale } = useLocale();
+
+  const info = findLocale(data.allContentfulOurSponsor.nodes);
+
   return (
     <>
       <Box mb="189px">
@@ -22,10 +26,9 @@ const OurSponsorSection = ({ data }: Props) => {
       <Flex
         mt="-56px"
         mb="277px"
-        marginLeft="20%"
-        marginRight="20%"
+        mx={{ base: 0, md: `20%` }}
         justifyContent="space-evenly"
-        wrap="wrap"
+        direction={{ base: 'row', md: 'row' }}
       >
         {info?.sponsors != null &&
           info.sponsors.map(
@@ -52,18 +55,21 @@ export default OurSponsorSection;
 
 export const fragment = graphql`
   fragment OurSponsorSection on Query {
-    contentfulOurSponsor {
-      title
-      sponsors {
-        id
-        image {
-          fluid(quality: 100) {
-            ...GatsbyContentfulFluid
+    allContentfulOurSponsor {
+      nodes {
+        title
+        sponsors {
+          id
+          image {
+            fluid(quality: 100) {
+              ...GatsbyContentfulFluid
+            }
+            description
           }
-          description
+          link
+          name
         }
-        link
-        name
+        node_locale
       }
     }
   }
