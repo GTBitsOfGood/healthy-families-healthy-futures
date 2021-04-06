@@ -40,7 +40,7 @@ function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Eleme
     '/': 'Home',
     '/about': 'About',
     '/recipes': 'Recipes',
-    '/events': 'Events & Classes',
+    '/events-classes': 'Events & Classes',
     '/blog': 'Blog',
     '/resources': 'Resources',
   };
