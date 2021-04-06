@@ -13,9 +13,9 @@ interface Props {
 }
 
 const FeaturedRecipesSection = (props: Props) => {
-  const { locale } = useLocale();
+  const { filterLocale } = useLocale();
 
-  const recipes = props.data?.allContentfulRecipe?.nodes.filter(d => d.node_locale === locale);
+  const recipes = filterLocale(props.data?.allContentfulRecipe?.nodes);
 
   return (
     <Box>

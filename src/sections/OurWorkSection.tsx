@@ -11,9 +11,9 @@ interface Props {
 }
 
 function OurWorkSection({ data }: Props): JSX.Element {
-  const { locale } = useLocale();
+  const { filterLocale } = useLocale();
 
-  const cards = data.allContentfulOurWorkCard.nodes.filter(d => d.node_locale === locale);
+  const cards = filterLocale(data.allContentfulOurWorkCard.nodes);
   const sortedCards = [...cards].sort((a, b) => (a.displayIndex ?? 0) - (b.displayIndex ?? 0));
 
   return (
