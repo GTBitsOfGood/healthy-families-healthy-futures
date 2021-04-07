@@ -1,7 +1,16 @@
 import React from 'react';
 
-import { Box, Flex, Grid, Heading, Text, VStack } from '@chakra-ui/react';
-import { format, startOfMonth, endOfMonth, sub, add, isSameMonth, parse } from 'date-fns';
+import { Box, Grid, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import {
+  format,
+  startOfMonth,
+  endOfMonth,
+  sub,
+  add,
+  isSameMonth,
+  parse,
+  isSameDay,
+} from 'date-fns';
 import SectionHeader from 'src/components/SectionHeader';
 
 const TEMP_EVENTS = [
@@ -43,11 +52,15 @@ function EventCalendarSection(): JSX.Element {
   while (day <= endDate) {
     const week = [];
     for (let i = 0; i < 7; i++) {
+      const currEvents = events.filter(event => isSameDay(event.eventDate, day));
       week.push(
         <Box h="130px" py="4px" px="8px" backgroundColor="white">
           <Text textStyle="body1" color="gray.dark" opacity={isSameMonth(day, currDate) ? 1 : 0.5}>
             {format(day, 'dd')}
           </Text>
+          {currEvents.map(event => (
+            <Box key={event.id} h="25px" w="full" bg="green.500" borderRadius="5px"></Box>
+          ))}
         </Box>,
       );
       day = add(day, { days: 1 });
@@ -69,36 +82,45 @@ function EventCalendarSection(): JSX.Element {
     day = add(day, { days: 1 });
   }
 
+  const eventChips = events.map((e, i) => (
+    <Box key={i} bg="green.500" borderRadius="5px" py="2px" px="8px">
+      {e.title} - {format(e.eventDate, 'M/dd/yyyy')}
+    </Box>
+  ));
+
   return (
     <Box pb="160px">
       <Box marginBottom={50}>
         <SectionHeader text="Calendar" textPosition="right" />
       </Box>
-      <Flex>
-        <Box px="50px" pt="50px" pb="20px" flexGrow={1}>
-          <Heading textStyle="heading2" mb="24px" textTransform="uppercase" textAlign="start">
-            {monthYear}
-          </Heading>
-          <Grid templateColumns="repeat(7, 1fr)">{headers}</Grid>
-          <Grid
-            templateColumns="repeat(7, 1fr)"
-            templateRows="repeat(5, 1fr)"
-            textAlign="left"
-            gap="1px"
-            backgroundColor="#E0E0E0"
-            border="1px solid #E0E0E0"
-          >
-            {rows}
-          </Grid>
-        </Box>
-        <VStack w="200px" spacing={5}>
-          {events.map((e, i) => (
-            <Box key={i}>
-              {e.title} - {format(e.eventDate, 'MM/dd/yyyy')}
-            </Box>
-          ))}
+      <Heading textStyle="heading2" ml="90px" mb="24px" textTransform="uppercase" textAlign="start">
+        {monthYear}
+      </Heading>
+      <SimpleGrid
+        mx="40px"
+        gridColumnGap="40px"
+        gridTemplateAreas={`"headers ."\n"calendar chips"`}
+        gridTemplateColumns="1fr 200px"
+      >
+        <Grid templateColumns="repeat(7, 1fr)" ml="50px" gridArea="headers">
+          {headers}
+        </Grid>
+        <Grid
+          ml="50px"
+          templateColumns="repeat(7, 1fr)"
+          templateRows="repeat(5, 1fr)"
+          textAlign="left"
+          gap="1px"
+          backgroundColor="#E0E0E0"
+          border="1px solid #E0E0E0"
+          gridArea="calendar"
+        >
+          {rows}
+        </Grid>
+        <VStack w="200px" spacing={5} gridArea="chips">
+          {eventChips}
         </VStack>
-      </Flex>
+      </SimpleGrid>
     </Box>
   );
 }
