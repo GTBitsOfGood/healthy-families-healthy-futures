@@ -2534,15 +2534,15 @@ type ContentfulBlogPost = ContentfulReference & ContentfulEntry & Node & {
   readonly title: Maybe<Scalars['String']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly publishDate: Maybe<Scalars['Date']>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly heroImage: Maybe<ContentfulAsset>;
+  readonly author: Maybe<ContentfulPerson>;
   readonly description: Maybe<contentfulBlogPostDescriptionTextNode>;
   readonly body: Maybe<contentfulBlogPostBodyTextNode>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
   readonly sys: Maybe<ContentfulBlogPostSys>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly author: Maybe<ContentfulPerson>;
   readonly gatsbyPath: Maybe<Scalars['String']>;
   /** Returns all children nodes filtered by type contentfulBlogPostBodyTextNode */
   readonly childrenContentfulBlogPostBodyTextNode: Maybe<ReadonlyArray<Maybe<contentfulBlogPostBodyTextNode>>>;
@@ -3176,6 +3176,7 @@ enum ContentfulBlogPostFieldsEnum {
   title = 'title',
   slug = 'slug',
   publishDate = 'publishDate',
+  tags = 'tags',
   heroImage___contentful_id = 'heroImage.contentful_id',
   heroImage___id = 'heroImage.id',
   heroImage___spaceId = 'heroImage.spaceId',
@@ -3267,6 +3268,316 @@ enum ContentfulBlogPostFieldsEnum {
   heroImage___internal___mediaType = 'heroImage.internal.mediaType',
   heroImage___internal___owner = 'heroImage.internal.owner',
   heroImage___internal___type = 'heroImage.internal.type',
+  author___contentful_id = 'author.contentful_id',
+  author___id = 'author.id',
+  author___node_locale = 'author.node_locale',
+  author___name = 'author.name',
+  author___title = 'author.title',
+  author___company = 'author.company',
+  author___email = 'author.email',
+  author___phone = 'author.phone',
+  author___facebook = 'author.facebook',
+  author___twitter = 'author.twitter',
+  author___github = 'author.github',
+  author___image___contentful_id = 'author.image.contentful_id',
+  author___image___id = 'author.image.id',
+  author___image___spaceId = 'author.image.spaceId',
+  author___image___createdAt = 'author.image.createdAt',
+  author___image___updatedAt = 'author.image.updatedAt',
+  author___image___file___url = 'author.image.file.url',
+  author___image___file___fileName = 'author.image.file.fileName',
+  author___image___file___contentType = 'author.image.file.contentType',
+  author___image___title = 'author.image.title',
+  author___image___description = 'author.image.description',
+  author___image___node_locale = 'author.image.node_locale',
+  author___image___sys___type = 'author.image.sys.type',
+  author___image___sys___revision = 'author.image.sys.revision',
+  author___image___fixed___base64 = 'author.image.fixed.base64',
+  author___image___fixed___tracedSVG = 'author.image.fixed.tracedSVG',
+  author___image___fixed___aspectRatio = 'author.image.fixed.aspectRatio',
+  author___image___fixed___width = 'author.image.fixed.width',
+  author___image___fixed___height = 'author.image.fixed.height',
+  author___image___fixed___src = 'author.image.fixed.src',
+  author___image___fixed___srcSet = 'author.image.fixed.srcSet',
+  author___image___fixed___srcWebp = 'author.image.fixed.srcWebp',
+  author___image___fixed___srcSetWebp = 'author.image.fixed.srcSetWebp',
+  author___image___resolutions___base64 = 'author.image.resolutions.base64',
+  author___image___resolutions___tracedSVG = 'author.image.resolutions.tracedSVG',
+  author___image___resolutions___aspectRatio = 'author.image.resolutions.aspectRatio',
+  author___image___resolutions___width = 'author.image.resolutions.width',
+  author___image___resolutions___height = 'author.image.resolutions.height',
+  author___image___resolutions___src = 'author.image.resolutions.src',
+  author___image___resolutions___srcSet = 'author.image.resolutions.srcSet',
+  author___image___resolutions___srcWebp = 'author.image.resolutions.srcWebp',
+  author___image___resolutions___srcSetWebp = 'author.image.resolutions.srcSetWebp',
+  author___image___fluid___base64 = 'author.image.fluid.base64',
+  author___image___fluid___tracedSVG = 'author.image.fluid.tracedSVG',
+  author___image___fluid___aspectRatio = 'author.image.fluid.aspectRatio',
+  author___image___fluid___src = 'author.image.fluid.src',
+  author___image___fluid___srcSet = 'author.image.fluid.srcSet',
+  author___image___fluid___srcWebp = 'author.image.fluid.srcWebp',
+  author___image___fluid___srcSetWebp = 'author.image.fluid.srcSetWebp',
+  author___image___fluid___sizes = 'author.image.fluid.sizes',
+  author___image___sizes___base64 = 'author.image.sizes.base64',
+  author___image___sizes___tracedSVG = 'author.image.sizes.tracedSVG',
+  author___image___sizes___aspectRatio = 'author.image.sizes.aspectRatio',
+  author___image___sizes___src = 'author.image.sizes.src',
+  author___image___sizes___srcSet = 'author.image.sizes.srcSet',
+  author___image___sizes___srcWebp = 'author.image.sizes.srcWebp',
+  author___image___sizes___srcSetWebp = 'author.image.sizes.srcSetWebp',
+  author___image___sizes___sizes = 'author.image.sizes.sizes',
+  author___image___resize___base64 = 'author.image.resize.base64',
+  author___image___resize___tracedSVG = 'author.image.resize.tracedSVG',
+  author___image___resize___src = 'author.image.resize.src',
+  author___image___resize___width = 'author.image.resize.width',
+  author___image___resize___height = 'author.image.resize.height',
+  author___image___resize___aspectRatio = 'author.image.resize.aspectRatio',
+  author___image___parent___id = 'author.image.parent.id',
+  author___image___parent___children = 'author.image.parent.children',
+  author___image___children = 'author.image.children',
+  author___image___children___id = 'author.image.children.id',
+  author___image___children___children = 'author.image.children.children',
+  author___image___internal___content = 'author.image.internal.content',
+  author___image___internal___contentDigest = 'author.image.internal.contentDigest',
+  author___image___internal___description = 'author.image.internal.description',
+  author___image___internal___fieldOwners = 'author.image.internal.fieldOwners',
+  author___image___internal___ignoreType = 'author.image.internal.ignoreType',
+  author___image___internal___mediaType = 'author.image.internal.mediaType',
+  author___image___internal___owner = 'author.image.internal.owner',
+  author___image___internal___type = 'author.image.internal.type',
+  author___blog_post = 'author.blog_post',
+  author___blog_post___contentful_id = 'author.blog_post.contentful_id',
+  author___blog_post___id = 'author.blog_post.id',
+  author___blog_post___node_locale = 'author.blog_post.node_locale',
+  author___blog_post___title = 'author.blog_post.title',
+  author___blog_post___slug = 'author.blog_post.slug',
+  author___blog_post___publishDate = 'author.blog_post.publishDate',
+  author___blog_post___tags = 'author.blog_post.tags',
+  author___blog_post___heroImage___contentful_id = 'author.blog_post.heroImage.contentful_id',
+  author___blog_post___heroImage___id = 'author.blog_post.heroImage.id',
+  author___blog_post___heroImage___spaceId = 'author.blog_post.heroImage.spaceId',
+  author___blog_post___heroImage___createdAt = 'author.blog_post.heroImage.createdAt',
+  author___blog_post___heroImage___updatedAt = 'author.blog_post.heroImage.updatedAt',
+  author___blog_post___heroImage___title = 'author.blog_post.heroImage.title',
+  author___blog_post___heroImage___description = 'author.blog_post.heroImage.description',
+  author___blog_post___heroImage___node_locale = 'author.blog_post.heroImage.node_locale',
+  author___blog_post___heroImage___children = 'author.blog_post.heroImage.children',
+  author___blog_post___author___contentful_id = 'author.blog_post.author.contentful_id',
+  author___blog_post___author___id = 'author.blog_post.author.id',
+  author___blog_post___author___node_locale = 'author.blog_post.author.node_locale',
+  author___blog_post___author___name = 'author.blog_post.author.name',
+  author___blog_post___author___title = 'author.blog_post.author.title',
+  author___blog_post___author___company = 'author.blog_post.author.company',
+  author___blog_post___author___email = 'author.blog_post.author.email',
+  author___blog_post___author___phone = 'author.blog_post.author.phone',
+  author___blog_post___author___facebook = 'author.blog_post.author.facebook',
+  author___blog_post___author___twitter = 'author.blog_post.author.twitter',
+  author___blog_post___author___github = 'author.blog_post.author.github',
+  author___blog_post___author___blog_post = 'author.blog_post.author.blog_post',
+  author___blog_post___author___spaceId = 'author.blog_post.author.spaceId',
+  author___blog_post___author___createdAt = 'author.blog_post.author.createdAt',
+  author___blog_post___author___updatedAt = 'author.blog_post.author.updatedAt',
+  author___blog_post___author___childrenContentfulPersonShortBioTextNode = 'author.blog_post.author.childrenContentfulPersonShortBioTextNode',
+  author___blog_post___author___children = 'author.blog_post.author.children',
+  author___blog_post___description___id = 'author.blog_post.description.id',
+  author___blog_post___description___children = 'author.blog_post.description.children',
+  author___blog_post___description___description = 'author.blog_post.description.description',
+  author___blog_post___description___childrenMarkdownRemark = 'author.blog_post.description.childrenMarkdownRemark',
+  author___blog_post___body___id = 'author.blog_post.body.id',
+  author___blog_post___body___children = 'author.blog_post.body.children',
+  author___blog_post___body___body = 'author.blog_post.body.body',
+  author___blog_post___body___childrenMarkdownRemark = 'author.blog_post.body.childrenMarkdownRemark',
+  author___blog_post___spaceId = 'author.blog_post.spaceId',
+  author___blog_post___createdAt = 'author.blog_post.createdAt',
+  author___blog_post___updatedAt = 'author.blog_post.updatedAt',
+  author___blog_post___sys___type = 'author.blog_post.sys.type',
+  author___blog_post___sys___revision = 'author.blog_post.sys.revision',
+  author___blog_post___gatsbyPath = 'author.blog_post.gatsbyPath',
+  author___blog_post___childrenContentfulBlogPostBodyTextNode = 'author.blog_post.childrenContentfulBlogPostBodyTextNode',
+  author___blog_post___childrenContentfulBlogPostBodyTextNode___id = 'author.blog_post.childrenContentfulBlogPostBodyTextNode.id',
+  author___blog_post___childrenContentfulBlogPostBodyTextNode___children = 'author.blog_post.childrenContentfulBlogPostBodyTextNode.children',
+  author___blog_post___childrenContentfulBlogPostBodyTextNode___body = 'author.blog_post.childrenContentfulBlogPostBodyTextNode.body',
+  author___blog_post___childrenContentfulBlogPostBodyTextNode___childrenMarkdownRemark = 'author.blog_post.childrenContentfulBlogPostBodyTextNode.childrenMarkdownRemark',
+  author___blog_post___childContentfulBlogPostBodyTextNode___id = 'author.blog_post.childContentfulBlogPostBodyTextNode.id',
+  author___blog_post___childContentfulBlogPostBodyTextNode___children = 'author.blog_post.childContentfulBlogPostBodyTextNode.children',
+  author___blog_post___childContentfulBlogPostBodyTextNode___body = 'author.blog_post.childContentfulBlogPostBodyTextNode.body',
+  author___blog_post___childContentfulBlogPostBodyTextNode___childrenMarkdownRemark = 'author.blog_post.childContentfulBlogPostBodyTextNode.childrenMarkdownRemark',
+  author___blog_post___childrenContentfulBlogPostDescriptionTextNode = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode',
+  author___blog_post___childrenContentfulBlogPostDescriptionTextNode___id = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode.id',
+  author___blog_post___childrenContentfulBlogPostDescriptionTextNode___children = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode.children',
+  author___blog_post___childrenContentfulBlogPostDescriptionTextNode___description = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode.description',
+  author___blog_post___childrenContentfulBlogPostDescriptionTextNode___childrenMarkdownRemark = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode.childrenMarkdownRemark',
+  author___blog_post___childContentfulBlogPostDescriptionTextNode___id = 'author.blog_post.childContentfulBlogPostDescriptionTextNode.id',
+  author___blog_post___childContentfulBlogPostDescriptionTextNode___children = 'author.blog_post.childContentfulBlogPostDescriptionTextNode.children',
+  author___blog_post___childContentfulBlogPostDescriptionTextNode___description = 'author.blog_post.childContentfulBlogPostDescriptionTextNode.description',
+  author___blog_post___childContentfulBlogPostDescriptionTextNode___childrenMarkdownRemark = 'author.blog_post.childContentfulBlogPostDescriptionTextNode.childrenMarkdownRemark',
+  author___blog_post___parent___id = 'author.blog_post.parent.id',
+  author___blog_post___parent___children = 'author.blog_post.parent.children',
+  author___blog_post___children = 'author.blog_post.children',
+  author___blog_post___children___id = 'author.blog_post.children.id',
+  author___blog_post___children___children = 'author.blog_post.children.children',
+  author___blog_post___internal___content = 'author.blog_post.internal.content',
+  author___blog_post___internal___contentDigest = 'author.blog_post.internal.contentDigest',
+  author___blog_post___internal___description = 'author.blog_post.internal.description',
+  author___blog_post___internal___fieldOwners = 'author.blog_post.internal.fieldOwners',
+  author___blog_post___internal___ignoreType = 'author.blog_post.internal.ignoreType',
+  author___blog_post___internal___mediaType = 'author.blog_post.internal.mediaType',
+  author___blog_post___internal___owner = 'author.blog_post.internal.owner',
+  author___blog_post___internal___type = 'author.blog_post.internal.type',
+  author___shortBio___id = 'author.shortBio.id',
+  author___shortBio___parent___id = 'author.shortBio.parent.id',
+  author___shortBio___parent___children = 'author.shortBio.parent.children',
+  author___shortBio___children = 'author.shortBio.children',
+  author___shortBio___children___id = 'author.shortBio.children.id',
+  author___shortBio___children___children = 'author.shortBio.children.children',
+  author___shortBio___internal___content = 'author.shortBio.internal.content',
+  author___shortBio___internal___contentDigest = 'author.shortBio.internal.contentDigest',
+  author___shortBio___internal___description = 'author.shortBio.internal.description',
+  author___shortBio___internal___fieldOwners = 'author.shortBio.internal.fieldOwners',
+  author___shortBio___internal___ignoreType = 'author.shortBio.internal.ignoreType',
+  author___shortBio___internal___mediaType = 'author.shortBio.internal.mediaType',
+  author___shortBio___internal___owner = 'author.shortBio.internal.owner',
+  author___shortBio___internal___type = 'author.shortBio.internal.type',
+  author___shortBio___shortBio = 'author.shortBio.shortBio',
+  author___shortBio___sys___type = 'author.shortBio.sys.type',
+  author___shortBio___childrenMarkdownRemark = 'author.shortBio.childrenMarkdownRemark',
+  author___shortBio___childrenMarkdownRemark___id = 'author.shortBio.childrenMarkdownRemark.id',
+  author___shortBio___childrenMarkdownRemark___excerpt = 'author.shortBio.childrenMarkdownRemark.excerpt',
+  author___shortBio___childrenMarkdownRemark___rawMarkdownBody = 'author.shortBio.childrenMarkdownRemark.rawMarkdownBody',
+  author___shortBio___childrenMarkdownRemark___html = 'author.shortBio.childrenMarkdownRemark.html',
+  author___shortBio___childrenMarkdownRemark___htmlAst = 'author.shortBio.childrenMarkdownRemark.htmlAst',
+  author___shortBio___childrenMarkdownRemark___excerptAst = 'author.shortBio.childrenMarkdownRemark.excerptAst',
+  author___shortBio___childrenMarkdownRemark___headings = 'author.shortBio.childrenMarkdownRemark.headings',
+  author___shortBio___childrenMarkdownRemark___timeToRead = 'author.shortBio.childrenMarkdownRemark.timeToRead',
+  author___shortBio___childrenMarkdownRemark___tableOfContents = 'author.shortBio.childrenMarkdownRemark.tableOfContents',
+  author___shortBio___childrenMarkdownRemark___children = 'author.shortBio.childrenMarkdownRemark.children',
+  author___shortBio___childMarkdownRemark___id = 'author.shortBio.childMarkdownRemark.id',
+  author___shortBio___childMarkdownRemark___excerpt = 'author.shortBio.childMarkdownRemark.excerpt',
+  author___shortBio___childMarkdownRemark___rawMarkdownBody = 'author.shortBio.childMarkdownRemark.rawMarkdownBody',
+  author___shortBio___childMarkdownRemark___html = 'author.shortBio.childMarkdownRemark.html',
+  author___shortBio___childMarkdownRemark___htmlAst = 'author.shortBio.childMarkdownRemark.htmlAst',
+  author___shortBio___childMarkdownRemark___excerptAst = 'author.shortBio.childMarkdownRemark.excerptAst',
+  author___shortBio___childMarkdownRemark___headings = 'author.shortBio.childMarkdownRemark.headings',
+  author___shortBio___childMarkdownRemark___timeToRead = 'author.shortBio.childMarkdownRemark.timeToRead',
+  author___shortBio___childMarkdownRemark___tableOfContents = 'author.shortBio.childMarkdownRemark.tableOfContents',
+  author___shortBio___childMarkdownRemark___children = 'author.shortBio.childMarkdownRemark.children',
+  author___spaceId = 'author.spaceId',
+  author___createdAt = 'author.createdAt',
+  author___updatedAt = 'author.updatedAt',
+  author___sys___type = 'author.sys.type',
+  author___sys___revision = 'author.sys.revision',
+  author___childrenContentfulPersonShortBioTextNode = 'author.childrenContentfulPersonShortBioTextNode',
+  author___childrenContentfulPersonShortBioTextNode___id = 'author.childrenContentfulPersonShortBioTextNode.id',
+  author___childrenContentfulPersonShortBioTextNode___parent___id = 'author.childrenContentfulPersonShortBioTextNode.parent.id',
+  author___childrenContentfulPersonShortBioTextNode___parent___children = 'author.childrenContentfulPersonShortBioTextNode.parent.children',
+  author___childrenContentfulPersonShortBioTextNode___children = 'author.childrenContentfulPersonShortBioTextNode.children',
+  author___childrenContentfulPersonShortBioTextNode___children___id = 'author.childrenContentfulPersonShortBioTextNode.children.id',
+  author___childrenContentfulPersonShortBioTextNode___children___children = 'author.childrenContentfulPersonShortBioTextNode.children.children',
+  author___childrenContentfulPersonShortBioTextNode___internal___content = 'author.childrenContentfulPersonShortBioTextNode.internal.content',
+  author___childrenContentfulPersonShortBioTextNode___internal___contentDigest = 'author.childrenContentfulPersonShortBioTextNode.internal.contentDigest',
+  author___childrenContentfulPersonShortBioTextNode___internal___description = 'author.childrenContentfulPersonShortBioTextNode.internal.description',
+  author___childrenContentfulPersonShortBioTextNode___internal___fieldOwners = 'author.childrenContentfulPersonShortBioTextNode.internal.fieldOwners',
+  author___childrenContentfulPersonShortBioTextNode___internal___ignoreType = 'author.childrenContentfulPersonShortBioTextNode.internal.ignoreType',
+  author___childrenContentfulPersonShortBioTextNode___internal___mediaType = 'author.childrenContentfulPersonShortBioTextNode.internal.mediaType',
+  author___childrenContentfulPersonShortBioTextNode___internal___owner = 'author.childrenContentfulPersonShortBioTextNode.internal.owner',
+  author___childrenContentfulPersonShortBioTextNode___internal___type = 'author.childrenContentfulPersonShortBioTextNode.internal.type',
+  author___childrenContentfulPersonShortBioTextNode___shortBio = 'author.childrenContentfulPersonShortBioTextNode.shortBio',
+  author___childrenContentfulPersonShortBioTextNode___sys___type = 'author.childrenContentfulPersonShortBioTextNode.sys.type',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___id = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.id',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___excerpt = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.excerpt',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___rawMarkdownBody = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___html = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.html',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___htmlAst = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.htmlAst',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___excerptAst = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.excerptAst',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___headings = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.headings',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___timeToRead = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.timeToRead',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___tableOfContents = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.tableOfContents',
+  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___children = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.children',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___id = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.id',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___excerpt = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.excerpt',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___rawMarkdownBody = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.rawMarkdownBody',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___html = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.html',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___htmlAst = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.htmlAst',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___excerptAst = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.excerptAst',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___headings = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.headings',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___timeToRead = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.timeToRead',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___tableOfContents = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.tableOfContents',
+  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___children = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.children',
+  author___childContentfulPersonShortBioTextNode___id = 'author.childContentfulPersonShortBioTextNode.id',
+  author___childContentfulPersonShortBioTextNode___parent___id = 'author.childContentfulPersonShortBioTextNode.parent.id',
+  author___childContentfulPersonShortBioTextNode___parent___children = 'author.childContentfulPersonShortBioTextNode.parent.children',
+  author___childContentfulPersonShortBioTextNode___children = 'author.childContentfulPersonShortBioTextNode.children',
+  author___childContentfulPersonShortBioTextNode___children___id = 'author.childContentfulPersonShortBioTextNode.children.id',
+  author___childContentfulPersonShortBioTextNode___children___children = 'author.childContentfulPersonShortBioTextNode.children.children',
+  author___childContentfulPersonShortBioTextNode___internal___content = 'author.childContentfulPersonShortBioTextNode.internal.content',
+  author___childContentfulPersonShortBioTextNode___internal___contentDigest = 'author.childContentfulPersonShortBioTextNode.internal.contentDigest',
+  author___childContentfulPersonShortBioTextNode___internal___description = 'author.childContentfulPersonShortBioTextNode.internal.description',
+  author___childContentfulPersonShortBioTextNode___internal___fieldOwners = 'author.childContentfulPersonShortBioTextNode.internal.fieldOwners',
+  author___childContentfulPersonShortBioTextNode___internal___ignoreType = 'author.childContentfulPersonShortBioTextNode.internal.ignoreType',
+  author___childContentfulPersonShortBioTextNode___internal___mediaType = 'author.childContentfulPersonShortBioTextNode.internal.mediaType',
+  author___childContentfulPersonShortBioTextNode___internal___owner = 'author.childContentfulPersonShortBioTextNode.internal.owner',
+  author___childContentfulPersonShortBioTextNode___internal___type = 'author.childContentfulPersonShortBioTextNode.internal.type',
+  author___childContentfulPersonShortBioTextNode___shortBio = 'author.childContentfulPersonShortBioTextNode.shortBio',
+  author___childContentfulPersonShortBioTextNode___sys___type = 'author.childContentfulPersonShortBioTextNode.sys.type',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___id = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.id',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___excerpt = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.excerpt',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___rawMarkdownBody = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___html = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.html',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___htmlAst = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.htmlAst',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___excerptAst = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.excerptAst',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___headings = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.headings',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___timeToRead = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.timeToRead',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___tableOfContents = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.tableOfContents',
+  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___children = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.children',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___id = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.id',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___excerpt = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.excerpt',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___rawMarkdownBody = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.rawMarkdownBody',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___html = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.html',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___htmlAst = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.htmlAst',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___excerptAst = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.excerptAst',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___headings = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.headings',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___timeToRead = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.timeToRead',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___tableOfContents = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.tableOfContents',
+  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___children = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.children',
+  author___parent___id = 'author.parent.id',
+  author___parent___parent___id = 'author.parent.parent.id',
+  author___parent___parent___children = 'author.parent.parent.children',
+  author___parent___children = 'author.parent.children',
+  author___parent___children___id = 'author.parent.children.id',
+  author___parent___children___children = 'author.parent.children.children',
+  author___parent___internal___content = 'author.parent.internal.content',
+  author___parent___internal___contentDigest = 'author.parent.internal.contentDigest',
+  author___parent___internal___description = 'author.parent.internal.description',
+  author___parent___internal___fieldOwners = 'author.parent.internal.fieldOwners',
+  author___parent___internal___ignoreType = 'author.parent.internal.ignoreType',
+  author___parent___internal___mediaType = 'author.parent.internal.mediaType',
+  author___parent___internal___owner = 'author.parent.internal.owner',
+  author___parent___internal___type = 'author.parent.internal.type',
+  author___children = 'author.children',
+  author___children___id = 'author.children.id',
+  author___children___parent___id = 'author.children.parent.id',
+  author___children___parent___children = 'author.children.parent.children',
+  author___children___children = 'author.children.children',
+  author___children___children___id = 'author.children.children.id',
+  author___children___children___children = 'author.children.children.children',
+  author___children___internal___content = 'author.children.internal.content',
+  author___children___internal___contentDigest = 'author.children.internal.contentDigest',
+  author___children___internal___description = 'author.children.internal.description',
+  author___children___internal___fieldOwners = 'author.children.internal.fieldOwners',
+  author___children___internal___ignoreType = 'author.children.internal.ignoreType',
+  author___children___internal___mediaType = 'author.children.internal.mediaType',
+  author___children___internal___owner = 'author.children.internal.owner',
+  author___children___internal___type = 'author.children.internal.type',
+  author___internal___content = 'author.internal.content',
+  author___internal___contentDigest = 'author.internal.contentDigest',
+  author___internal___description = 'author.internal.description',
+  author___internal___fieldOwners = 'author.internal.fieldOwners',
+  author___internal___ignoreType = 'author.internal.ignoreType',
+  author___internal___mediaType = 'author.internal.mediaType',
+  author___internal___owner = 'author.internal.owner',
+  author___internal___type = 'author.internal.type',
   description___id = 'description.id',
   description___parent___id = 'description.parent.id',
   description___parent___parent___id = 'description.parent.parent.id',
@@ -3473,317 +3784,6 @@ enum ContentfulBlogPostFieldsEnum {
   sys___contentType___sys___type = 'sys.contentType.sys.type',
   sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
   sys___contentType___sys___id = 'sys.contentType.sys.id',
-  tags = 'tags',
-  author___contentful_id = 'author.contentful_id',
-  author___id = 'author.id',
-  author___node_locale = 'author.node_locale',
-  author___name = 'author.name',
-  author___title = 'author.title',
-  author___company = 'author.company',
-  author___email = 'author.email',
-  author___phone = 'author.phone',
-  author___facebook = 'author.facebook',
-  author___twitter = 'author.twitter',
-  author___github = 'author.github',
-  author___image___contentful_id = 'author.image.contentful_id',
-  author___image___id = 'author.image.id',
-  author___image___spaceId = 'author.image.spaceId',
-  author___image___createdAt = 'author.image.createdAt',
-  author___image___updatedAt = 'author.image.updatedAt',
-  author___image___file___url = 'author.image.file.url',
-  author___image___file___fileName = 'author.image.file.fileName',
-  author___image___file___contentType = 'author.image.file.contentType',
-  author___image___title = 'author.image.title',
-  author___image___description = 'author.image.description',
-  author___image___node_locale = 'author.image.node_locale',
-  author___image___sys___type = 'author.image.sys.type',
-  author___image___sys___revision = 'author.image.sys.revision',
-  author___image___fixed___base64 = 'author.image.fixed.base64',
-  author___image___fixed___tracedSVG = 'author.image.fixed.tracedSVG',
-  author___image___fixed___aspectRatio = 'author.image.fixed.aspectRatio',
-  author___image___fixed___width = 'author.image.fixed.width',
-  author___image___fixed___height = 'author.image.fixed.height',
-  author___image___fixed___src = 'author.image.fixed.src',
-  author___image___fixed___srcSet = 'author.image.fixed.srcSet',
-  author___image___fixed___srcWebp = 'author.image.fixed.srcWebp',
-  author___image___fixed___srcSetWebp = 'author.image.fixed.srcSetWebp',
-  author___image___resolutions___base64 = 'author.image.resolutions.base64',
-  author___image___resolutions___tracedSVG = 'author.image.resolutions.tracedSVG',
-  author___image___resolutions___aspectRatio = 'author.image.resolutions.aspectRatio',
-  author___image___resolutions___width = 'author.image.resolutions.width',
-  author___image___resolutions___height = 'author.image.resolutions.height',
-  author___image___resolutions___src = 'author.image.resolutions.src',
-  author___image___resolutions___srcSet = 'author.image.resolutions.srcSet',
-  author___image___resolutions___srcWebp = 'author.image.resolutions.srcWebp',
-  author___image___resolutions___srcSetWebp = 'author.image.resolutions.srcSetWebp',
-  author___image___fluid___base64 = 'author.image.fluid.base64',
-  author___image___fluid___tracedSVG = 'author.image.fluid.tracedSVG',
-  author___image___fluid___aspectRatio = 'author.image.fluid.aspectRatio',
-  author___image___fluid___src = 'author.image.fluid.src',
-  author___image___fluid___srcSet = 'author.image.fluid.srcSet',
-  author___image___fluid___srcWebp = 'author.image.fluid.srcWebp',
-  author___image___fluid___srcSetWebp = 'author.image.fluid.srcSetWebp',
-  author___image___fluid___sizes = 'author.image.fluid.sizes',
-  author___image___sizes___base64 = 'author.image.sizes.base64',
-  author___image___sizes___tracedSVG = 'author.image.sizes.tracedSVG',
-  author___image___sizes___aspectRatio = 'author.image.sizes.aspectRatio',
-  author___image___sizes___src = 'author.image.sizes.src',
-  author___image___sizes___srcSet = 'author.image.sizes.srcSet',
-  author___image___sizes___srcWebp = 'author.image.sizes.srcWebp',
-  author___image___sizes___srcSetWebp = 'author.image.sizes.srcSetWebp',
-  author___image___sizes___sizes = 'author.image.sizes.sizes',
-  author___image___resize___base64 = 'author.image.resize.base64',
-  author___image___resize___tracedSVG = 'author.image.resize.tracedSVG',
-  author___image___resize___src = 'author.image.resize.src',
-  author___image___resize___width = 'author.image.resize.width',
-  author___image___resize___height = 'author.image.resize.height',
-  author___image___resize___aspectRatio = 'author.image.resize.aspectRatio',
-  author___image___parent___id = 'author.image.parent.id',
-  author___image___parent___children = 'author.image.parent.children',
-  author___image___children = 'author.image.children',
-  author___image___children___id = 'author.image.children.id',
-  author___image___children___children = 'author.image.children.children',
-  author___image___internal___content = 'author.image.internal.content',
-  author___image___internal___contentDigest = 'author.image.internal.contentDigest',
-  author___image___internal___description = 'author.image.internal.description',
-  author___image___internal___fieldOwners = 'author.image.internal.fieldOwners',
-  author___image___internal___ignoreType = 'author.image.internal.ignoreType',
-  author___image___internal___mediaType = 'author.image.internal.mediaType',
-  author___image___internal___owner = 'author.image.internal.owner',
-  author___image___internal___type = 'author.image.internal.type',
-  author___blog_post = 'author.blog_post',
-  author___blog_post___contentful_id = 'author.blog_post.contentful_id',
-  author___blog_post___id = 'author.blog_post.id',
-  author___blog_post___node_locale = 'author.blog_post.node_locale',
-  author___blog_post___title = 'author.blog_post.title',
-  author___blog_post___slug = 'author.blog_post.slug',
-  author___blog_post___publishDate = 'author.blog_post.publishDate',
-  author___blog_post___heroImage___contentful_id = 'author.blog_post.heroImage.contentful_id',
-  author___blog_post___heroImage___id = 'author.blog_post.heroImage.id',
-  author___blog_post___heroImage___spaceId = 'author.blog_post.heroImage.spaceId',
-  author___blog_post___heroImage___createdAt = 'author.blog_post.heroImage.createdAt',
-  author___blog_post___heroImage___updatedAt = 'author.blog_post.heroImage.updatedAt',
-  author___blog_post___heroImage___title = 'author.blog_post.heroImage.title',
-  author___blog_post___heroImage___description = 'author.blog_post.heroImage.description',
-  author___blog_post___heroImage___node_locale = 'author.blog_post.heroImage.node_locale',
-  author___blog_post___heroImage___children = 'author.blog_post.heroImage.children',
-  author___blog_post___description___id = 'author.blog_post.description.id',
-  author___blog_post___description___children = 'author.blog_post.description.children',
-  author___blog_post___description___description = 'author.blog_post.description.description',
-  author___blog_post___description___childrenMarkdownRemark = 'author.blog_post.description.childrenMarkdownRemark',
-  author___blog_post___body___id = 'author.blog_post.body.id',
-  author___blog_post___body___children = 'author.blog_post.body.children',
-  author___blog_post___body___body = 'author.blog_post.body.body',
-  author___blog_post___body___childrenMarkdownRemark = 'author.blog_post.body.childrenMarkdownRemark',
-  author___blog_post___spaceId = 'author.blog_post.spaceId',
-  author___blog_post___createdAt = 'author.blog_post.createdAt',
-  author___blog_post___updatedAt = 'author.blog_post.updatedAt',
-  author___blog_post___sys___type = 'author.blog_post.sys.type',
-  author___blog_post___sys___revision = 'author.blog_post.sys.revision',
-  author___blog_post___tags = 'author.blog_post.tags',
-  author___blog_post___author___contentful_id = 'author.blog_post.author.contentful_id',
-  author___blog_post___author___id = 'author.blog_post.author.id',
-  author___blog_post___author___node_locale = 'author.blog_post.author.node_locale',
-  author___blog_post___author___name = 'author.blog_post.author.name',
-  author___blog_post___author___title = 'author.blog_post.author.title',
-  author___blog_post___author___company = 'author.blog_post.author.company',
-  author___blog_post___author___email = 'author.blog_post.author.email',
-  author___blog_post___author___phone = 'author.blog_post.author.phone',
-  author___blog_post___author___facebook = 'author.blog_post.author.facebook',
-  author___blog_post___author___twitter = 'author.blog_post.author.twitter',
-  author___blog_post___author___github = 'author.blog_post.author.github',
-  author___blog_post___author___blog_post = 'author.blog_post.author.blog_post',
-  author___blog_post___author___spaceId = 'author.blog_post.author.spaceId',
-  author___blog_post___author___createdAt = 'author.blog_post.author.createdAt',
-  author___blog_post___author___updatedAt = 'author.blog_post.author.updatedAt',
-  author___blog_post___author___childrenContentfulPersonShortBioTextNode = 'author.blog_post.author.childrenContentfulPersonShortBioTextNode',
-  author___blog_post___author___children = 'author.blog_post.author.children',
-  author___blog_post___gatsbyPath = 'author.blog_post.gatsbyPath',
-  author___blog_post___childrenContentfulBlogPostBodyTextNode = 'author.blog_post.childrenContentfulBlogPostBodyTextNode',
-  author___blog_post___childrenContentfulBlogPostBodyTextNode___id = 'author.blog_post.childrenContentfulBlogPostBodyTextNode.id',
-  author___blog_post___childrenContentfulBlogPostBodyTextNode___children = 'author.blog_post.childrenContentfulBlogPostBodyTextNode.children',
-  author___blog_post___childrenContentfulBlogPostBodyTextNode___body = 'author.blog_post.childrenContentfulBlogPostBodyTextNode.body',
-  author___blog_post___childrenContentfulBlogPostBodyTextNode___childrenMarkdownRemark = 'author.blog_post.childrenContentfulBlogPostBodyTextNode.childrenMarkdownRemark',
-  author___blog_post___childContentfulBlogPostBodyTextNode___id = 'author.blog_post.childContentfulBlogPostBodyTextNode.id',
-  author___blog_post___childContentfulBlogPostBodyTextNode___children = 'author.blog_post.childContentfulBlogPostBodyTextNode.children',
-  author___blog_post___childContentfulBlogPostBodyTextNode___body = 'author.blog_post.childContentfulBlogPostBodyTextNode.body',
-  author___blog_post___childContentfulBlogPostBodyTextNode___childrenMarkdownRemark = 'author.blog_post.childContentfulBlogPostBodyTextNode.childrenMarkdownRemark',
-  author___blog_post___childrenContentfulBlogPostDescriptionTextNode = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode',
-  author___blog_post___childrenContentfulBlogPostDescriptionTextNode___id = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode.id',
-  author___blog_post___childrenContentfulBlogPostDescriptionTextNode___children = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode.children',
-  author___blog_post___childrenContentfulBlogPostDescriptionTextNode___description = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode.description',
-  author___blog_post___childrenContentfulBlogPostDescriptionTextNode___childrenMarkdownRemark = 'author.blog_post.childrenContentfulBlogPostDescriptionTextNode.childrenMarkdownRemark',
-  author___blog_post___childContentfulBlogPostDescriptionTextNode___id = 'author.blog_post.childContentfulBlogPostDescriptionTextNode.id',
-  author___blog_post___childContentfulBlogPostDescriptionTextNode___children = 'author.blog_post.childContentfulBlogPostDescriptionTextNode.children',
-  author___blog_post___childContentfulBlogPostDescriptionTextNode___description = 'author.blog_post.childContentfulBlogPostDescriptionTextNode.description',
-  author___blog_post___childContentfulBlogPostDescriptionTextNode___childrenMarkdownRemark = 'author.blog_post.childContentfulBlogPostDescriptionTextNode.childrenMarkdownRemark',
-  author___blog_post___parent___id = 'author.blog_post.parent.id',
-  author___blog_post___parent___children = 'author.blog_post.parent.children',
-  author___blog_post___children = 'author.blog_post.children',
-  author___blog_post___children___id = 'author.blog_post.children.id',
-  author___blog_post___children___children = 'author.blog_post.children.children',
-  author___blog_post___internal___content = 'author.blog_post.internal.content',
-  author___blog_post___internal___contentDigest = 'author.blog_post.internal.contentDigest',
-  author___blog_post___internal___description = 'author.blog_post.internal.description',
-  author___blog_post___internal___fieldOwners = 'author.blog_post.internal.fieldOwners',
-  author___blog_post___internal___ignoreType = 'author.blog_post.internal.ignoreType',
-  author___blog_post___internal___mediaType = 'author.blog_post.internal.mediaType',
-  author___blog_post___internal___owner = 'author.blog_post.internal.owner',
-  author___blog_post___internal___type = 'author.blog_post.internal.type',
-  author___shortBio___id = 'author.shortBio.id',
-  author___shortBio___parent___id = 'author.shortBio.parent.id',
-  author___shortBio___parent___children = 'author.shortBio.parent.children',
-  author___shortBio___children = 'author.shortBio.children',
-  author___shortBio___children___id = 'author.shortBio.children.id',
-  author___shortBio___children___children = 'author.shortBio.children.children',
-  author___shortBio___internal___content = 'author.shortBio.internal.content',
-  author___shortBio___internal___contentDigest = 'author.shortBio.internal.contentDigest',
-  author___shortBio___internal___description = 'author.shortBio.internal.description',
-  author___shortBio___internal___fieldOwners = 'author.shortBio.internal.fieldOwners',
-  author___shortBio___internal___ignoreType = 'author.shortBio.internal.ignoreType',
-  author___shortBio___internal___mediaType = 'author.shortBio.internal.mediaType',
-  author___shortBio___internal___owner = 'author.shortBio.internal.owner',
-  author___shortBio___internal___type = 'author.shortBio.internal.type',
-  author___shortBio___shortBio = 'author.shortBio.shortBio',
-  author___shortBio___sys___type = 'author.shortBio.sys.type',
-  author___shortBio___childrenMarkdownRemark = 'author.shortBio.childrenMarkdownRemark',
-  author___shortBio___childrenMarkdownRemark___id = 'author.shortBio.childrenMarkdownRemark.id',
-  author___shortBio___childrenMarkdownRemark___excerpt = 'author.shortBio.childrenMarkdownRemark.excerpt',
-  author___shortBio___childrenMarkdownRemark___rawMarkdownBody = 'author.shortBio.childrenMarkdownRemark.rawMarkdownBody',
-  author___shortBio___childrenMarkdownRemark___html = 'author.shortBio.childrenMarkdownRemark.html',
-  author___shortBio___childrenMarkdownRemark___htmlAst = 'author.shortBio.childrenMarkdownRemark.htmlAst',
-  author___shortBio___childrenMarkdownRemark___excerptAst = 'author.shortBio.childrenMarkdownRemark.excerptAst',
-  author___shortBio___childrenMarkdownRemark___headings = 'author.shortBio.childrenMarkdownRemark.headings',
-  author___shortBio___childrenMarkdownRemark___timeToRead = 'author.shortBio.childrenMarkdownRemark.timeToRead',
-  author___shortBio___childrenMarkdownRemark___tableOfContents = 'author.shortBio.childrenMarkdownRemark.tableOfContents',
-  author___shortBio___childrenMarkdownRemark___children = 'author.shortBio.childrenMarkdownRemark.children',
-  author___shortBio___childMarkdownRemark___id = 'author.shortBio.childMarkdownRemark.id',
-  author___shortBio___childMarkdownRemark___excerpt = 'author.shortBio.childMarkdownRemark.excerpt',
-  author___shortBio___childMarkdownRemark___rawMarkdownBody = 'author.shortBio.childMarkdownRemark.rawMarkdownBody',
-  author___shortBio___childMarkdownRemark___html = 'author.shortBio.childMarkdownRemark.html',
-  author___shortBio___childMarkdownRemark___htmlAst = 'author.shortBio.childMarkdownRemark.htmlAst',
-  author___shortBio___childMarkdownRemark___excerptAst = 'author.shortBio.childMarkdownRemark.excerptAst',
-  author___shortBio___childMarkdownRemark___headings = 'author.shortBio.childMarkdownRemark.headings',
-  author___shortBio___childMarkdownRemark___timeToRead = 'author.shortBio.childMarkdownRemark.timeToRead',
-  author___shortBio___childMarkdownRemark___tableOfContents = 'author.shortBio.childMarkdownRemark.tableOfContents',
-  author___shortBio___childMarkdownRemark___children = 'author.shortBio.childMarkdownRemark.children',
-  author___spaceId = 'author.spaceId',
-  author___createdAt = 'author.createdAt',
-  author___updatedAt = 'author.updatedAt',
-  author___sys___type = 'author.sys.type',
-  author___sys___revision = 'author.sys.revision',
-  author___childrenContentfulPersonShortBioTextNode = 'author.childrenContentfulPersonShortBioTextNode',
-  author___childrenContentfulPersonShortBioTextNode___id = 'author.childrenContentfulPersonShortBioTextNode.id',
-  author___childrenContentfulPersonShortBioTextNode___parent___id = 'author.childrenContentfulPersonShortBioTextNode.parent.id',
-  author___childrenContentfulPersonShortBioTextNode___parent___children = 'author.childrenContentfulPersonShortBioTextNode.parent.children',
-  author___childrenContentfulPersonShortBioTextNode___children = 'author.childrenContentfulPersonShortBioTextNode.children',
-  author___childrenContentfulPersonShortBioTextNode___children___id = 'author.childrenContentfulPersonShortBioTextNode.children.id',
-  author___childrenContentfulPersonShortBioTextNode___children___children = 'author.childrenContentfulPersonShortBioTextNode.children.children',
-  author___childrenContentfulPersonShortBioTextNode___internal___content = 'author.childrenContentfulPersonShortBioTextNode.internal.content',
-  author___childrenContentfulPersonShortBioTextNode___internal___contentDigest = 'author.childrenContentfulPersonShortBioTextNode.internal.contentDigest',
-  author___childrenContentfulPersonShortBioTextNode___internal___description = 'author.childrenContentfulPersonShortBioTextNode.internal.description',
-  author___childrenContentfulPersonShortBioTextNode___internal___fieldOwners = 'author.childrenContentfulPersonShortBioTextNode.internal.fieldOwners',
-  author___childrenContentfulPersonShortBioTextNode___internal___ignoreType = 'author.childrenContentfulPersonShortBioTextNode.internal.ignoreType',
-  author___childrenContentfulPersonShortBioTextNode___internal___mediaType = 'author.childrenContentfulPersonShortBioTextNode.internal.mediaType',
-  author___childrenContentfulPersonShortBioTextNode___internal___owner = 'author.childrenContentfulPersonShortBioTextNode.internal.owner',
-  author___childrenContentfulPersonShortBioTextNode___internal___type = 'author.childrenContentfulPersonShortBioTextNode.internal.type',
-  author___childrenContentfulPersonShortBioTextNode___shortBio = 'author.childrenContentfulPersonShortBioTextNode.shortBio',
-  author___childrenContentfulPersonShortBioTextNode___sys___type = 'author.childrenContentfulPersonShortBioTextNode.sys.type',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___id = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.id',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___excerpt = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.excerpt',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___rawMarkdownBody = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.rawMarkdownBody',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___html = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.html',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___htmlAst = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.htmlAst',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___excerptAst = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.excerptAst',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___headings = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.headings',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___timeToRead = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.timeToRead',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___tableOfContents = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.tableOfContents',
-  author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark___children = 'author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark.children',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___id = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.id',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___excerpt = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.excerpt',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___rawMarkdownBody = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.rawMarkdownBody',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___html = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.html',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___htmlAst = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.htmlAst',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___excerptAst = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.excerptAst',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___headings = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.headings',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___timeToRead = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.timeToRead',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___tableOfContents = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.tableOfContents',
-  author___childrenContentfulPersonShortBioTextNode___childMarkdownRemark___children = 'author.childrenContentfulPersonShortBioTextNode.childMarkdownRemark.children',
-  author___childContentfulPersonShortBioTextNode___id = 'author.childContentfulPersonShortBioTextNode.id',
-  author___childContentfulPersonShortBioTextNode___parent___id = 'author.childContentfulPersonShortBioTextNode.parent.id',
-  author___childContentfulPersonShortBioTextNode___parent___children = 'author.childContentfulPersonShortBioTextNode.parent.children',
-  author___childContentfulPersonShortBioTextNode___children = 'author.childContentfulPersonShortBioTextNode.children',
-  author___childContentfulPersonShortBioTextNode___children___id = 'author.childContentfulPersonShortBioTextNode.children.id',
-  author___childContentfulPersonShortBioTextNode___children___children = 'author.childContentfulPersonShortBioTextNode.children.children',
-  author___childContentfulPersonShortBioTextNode___internal___content = 'author.childContentfulPersonShortBioTextNode.internal.content',
-  author___childContentfulPersonShortBioTextNode___internal___contentDigest = 'author.childContentfulPersonShortBioTextNode.internal.contentDigest',
-  author___childContentfulPersonShortBioTextNode___internal___description = 'author.childContentfulPersonShortBioTextNode.internal.description',
-  author___childContentfulPersonShortBioTextNode___internal___fieldOwners = 'author.childContentfulPersonShortBioTextNode.internal.fieldOwners',
-  author___childContentfulPersonShortBioTextNode___internal___ignoreType = 'author.childContentfulPersonShortBioTextNode.internal.ignoreType',
-  author___childContentfulPersonShortBioTextNode___internal___mediaType = 'author.childContentfulPersonShortBioTextNode.internal.mediaType',
-  author___childContentfulPersonShortBioTextNode___internal___owner = 'author.childContentfulPersonShortBioTextNode.internal.owner',
-  author___childContentfulPersonShortBioTextNode___internal___type = 'author.childContentfulPersonShortBioTextNode.internal.type',
-  author___childContentfulPersonShortBioTextNode___shortBio = 'author.childContentfulPersonShortBioTextNode.shortBio',
-  author___childContentfulPersonShortBioTextNode___sys___type = 'author.childContentfulPersonShortBioTextNode.sys.type',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___id = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.id',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___excerpt = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.excerpt',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___rawMarkdownBody = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.rawMarkdownBody',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___html = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.html',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___htmlAst = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.htmlAst',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___excerptAst = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.excerptAst',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___headings = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.headings',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___timeToRead = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.timeToRead',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___tableOfContents = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.tableOfContents',
-  author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark___children = 'author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark.children',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___id = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.id',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___excerpt = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.excerpt',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___rawMarkdownBody = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.rawMarkdownBody',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___html = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.html',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___htmlAst = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.htmlAst',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___excerptAst = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.excerptAst',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___headings = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.headings',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___timeToRead = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.timeToRead',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___tableOfContents = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.tableOfContents',
-  author___childContentfulPersonShortBioTextNode___childMarkdownRemark___children = 'author.childContentfulPersonShortBioTextNode.childMarkdownRemark.children',
-  author___parent___id = 'author.parent.id',
-  author___parent___parent___id = 'author.parent.parent.id',
-  author___parent___parent___children = 'author.parent.parent.children',
-  author___parent___children = 'author.parent.children',
-  author___parent___children___id = 'author.parent.children.id',
-  author___parent___children___children = 'author.parent.children.children',
-  author___parent___internal___content = 'author.parent.internal.content',
-  author___parent___internal___contentDigest = 'author.parent.internal.contentDigest',
-  author___parent___internal___description = 'author.parent.internal.description',
-  author___parent___internal___fieldOwners = 'author.parent.internal.fieldOwners',
-  author___parent___internal___ignoreType = 'author.parent.internal.ignoreType',
-  author___parent___internal___mediaType = 'author.parent.internal.mediaType',
-  author___parent___internal___owner = 'author.parent.internal.owner',
-  author___parent___internal___type = 'author.parent.internal.type',
-  author___children = 'author.children',
-  author___children___id = 'author.children.id',
-  author___children___parent___id = 'author.children.parent.id',
-  author___children___parent___children = 'author.children.parent.children',
-  author___children___children = 'author.children.children',
-  author___children___children___id = 'author.children.children.id',
-  author___children___children___children = 'author.children.children.children',
-  author___children___internal___content = 'author.children.internal.content',
-  author___children___internal___contentDigest = 'author.children.internal.contentDigest',
-  author___children___internal___description = 'author.children.internal.description',
-  author___children___internal___fieldOwners = 'author.children.internal.fieldOwners',
-  author___children___internal___ignoreType = 'author.children.internal.ignoreType',
-  author___children___internal___mediaType = 'author.children.internal.mediaType',
-  author___children___internal___owner = 'author.children.internal.owner',
-  author___children___internal___type = 'author.children.internal.type',
-  author___internal___content = 'author.internal.content',
-  author___internal___contentDigest = 'author.internal.contentDigest',
-  author___internal___description = 'author.internal.description',
-  author___internal___fieldOwners = 'author.internal.fieldOwners',
-  author___internal___ignoreType = 'author.internal.ignoreType',
-  author___internal___mediaType = 'author.internal.mediaType',
-  author___internal___owner = 'author.internal.owner',
-  author___internal___type = 'author.internal.type',
   gatsbyPath = 'gatsbyPath',
   childrenContentfulBlogPostBodyTextNode = 'childrenContentfulBlogPostBodyTextNode',
   childrenContentfulBlogPostBodyTextNode___id = 'childrenContentfulBlogPostBodyTextNode.id',
@@ -4277,15 +4277,15 @@ type ContentfulBlogPostFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly slug: Maybe<StringQueryOperatorInput>;
   readonly publishDate: Maybe<DateQueryOperatorInput>;
+  readonly tags: Maybe<StringQueryOperatorInput>;
   readonly heroImage: Maybe<ContentfulAssetFilterInput>;
+  readonly author: Maybe<ContentfulPersonFilterInput>;
   readonly description: Maybe<contentfulBlogPostDescriptionTextNodeFilterInput>;
   readonly body: Maybe<contentfulBlogPostBodyTextNodeFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
   readonly updatedAt: Maybe<DateQueryOperatorInput>;
   readonly sys: Maybe<ContentfulBlogPostSysFilterInput>;
-  readonly tags: Maybe<StringQueryOperatorInput>;
-  readonly author: Maybe<ContentfulPersonFilterInput>;
   readonly gatsbyPath: Maybe<StringQueryOperatorInput>;
   readonly childrenContentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNodeFilterListInput>;
   readonly childContentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNodeFilterInput>;
@@ -14640,6 +14640,7 @@ enum ContentfulPersonFieldsEnum {
   blog_post___title = 'blog_post.title',
   blog_post___slug = 'blog_post.slug',
   blog_post___publishDate = 'blog_post.publishDate',
+  blog_post___tags = 'blog_post.tags',
   blog_post___heroImage___contentful_id = 'blog_post.heroImage.contentful_id',
   blog_post___heroImage___id = 'blog_post.heroImage.id',
   blog_post___heroImage___spaceId = 'blog_post.heroImage.spaceId',
@@ -14706,6 +14707,72 @@ enum ContentfulPersonFieldsEnum {
   blog_post___heroImage___internal___mediaType = 'blog_post.heroImage.internal.mediaType',
   blog_post___heroImage___internal___owner = 'blog_post.heroImage.internal.owner',
   blog_post___heroImage___internal___type = 'blog_post.heroImage.internal.type',
+  blog_post___author___contentful_id = 'blog_post.author.contentful_id',
+  blog_post___author___id = 'blog_post.author.id',
+  blog_post___author___node_locale = 'blog_post.author.node_locale',
+  blog_post___author___name = 'blog_post.author.name',
+  blog_post___author___title = 'blog_post.author.title',
+  blog_post___author___company = 'blog_post.author.company',
+  blog_post___author___email = 'blog_post.author.email',
+  blog_post___author___phone = 'blog_post.author.phone',
+  blog_post___author___facebook = 'blog_post.author.facebook',
+  blog_post___author___twitter = 'blog_post.author.twitter',
+  blog_post___author___github = 'blog_post.author.github',
+  blog_post___author___image___contentful_id = 'blog_post.author.image.contentful_id',
+  blog_post___author___image___id = 'blog_post.author.image.id',
+  blog_post___author___image___spaceId = 'blog_post.author.image.spaceId',
+  blog_post___author___image___createdAt = 'blog_post.author.image.createdAt',
+  blog_post___author___image___updatedAt = 'blog_post.author.image.updatedAt',
+  blog_post___author___image___title = 'blog_post.author.image.title',
+  blog_post___author___image___description = 'blog_post.author.image.description',
+  blog_post___author___image___node_locale = 'blog_post.author.image.node_locale',
+  blog_post___author___image___children = 'blog_post.author.image.children',
+  blog_post___author___blog_post = 'blog_post.author.blog_post',
+  blog_post___author___blog_post___contentful_id = 'blog_post.author.blog_post.contentful_id',
+  blog_post___author___blog_post___id = 'blog_post.author.blog_post.id',
+  blog_post___author___blog_post___node_locale = 'blog_post.author.blog_post.node_locale',
+  blog_post___author___blog_post___title = 'blog_post.author.blog_post.title',
+  blog_post___author___blog_post___slug = 'blog_post.author.blog_post.slug',
+  blog_post___author___blog_post___publishDate = 'blog_post.author.blog_post.publishDate',
+  blog_post___author___blog_post___tags = 'blog_post.author.blog_post.tags',
+  blog_post___author___blog_post___spaceId = 'blog_post.author.blog_post.spaceId',
+  blog_post___author___blog_post___createdAt = 'blog_post.author.blog_post.createdAt',
+  blog_post___author___blog_post___updatedAt = 'blog_post.author.blog_post.updatedAt',
+  blog_post___author___blog_post___gatsbyPath = 'blog_post.author.blog_post.gatsbyPath',
+  blog_post___author___blog_post___childrenContentfulBlogPostBodyTextNode = 'blog_post.author.blog_post.childrenContentfulBlogPostBodyTextNode',
+  blog_post___author___blog_post___childrenContentfulBlogPostDescriptionTextNode = 'blog_post.author.blog_post.childrenContentfulBlogPostDescriptionTextNode',
+  blog_post___author___blog_post___children = 'blog_post.author.blog_post.children',
+  blog_post___author___shortBio___id = 'blog_post.author.shortBio.id',
+  blog_post___author___shortBio___children = 'blog_post.author.shortBio.children',
+  blog_post___author___shortBio___shortBio = 'blog_post.author.shortBio.shortBio',
+  blog_post___author___shortBio___childrenMarkdownRemark = 'blog_post.author.shortBio.childrenMarkdownRemark',
+  blog_post___author___spaceId = 'blog_post.author.spaceId',
+  blog_post___author___createdAt = 'blog_post.author.createdAt',
+  blog_post___author___updatedAt = 'blog_post.author.updatedAt',
+  blog_post___author___sys___type = 'blog_post.author.sys.type',
+  blog_post___author___sys___revision = 'blog_post.author.sys.revision',
+  blog_post___author___childrenContentfulPersonShortBioTextNode = 'blog_post.author.childrenContentfulPersonShortBioTextNode',
+  blog_post___author___childrenContentfulPersonShortBioTextNode___id = 'blog_post.author.childrenContentfulPersonShortBioTextNode.id',
+  blog_post___author___childrenContentfulPersonShortBioTextNode___children = 'blog_post.author.childrenContentfulPersonShortBioTextNode.children',
+  blog_post___author___childrenContentfulPersonShortBioTextNode___shortBio = 'blog_post.author.childrenContentfulPersonShortBioTextNode.shortBio',
+  blog_post___author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark = 'blog_post.author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark',
+  blog_post___author___childContentfulPersonShortBioTextNode___id = 'blog_post.author.childContentfulPersonShortBioTextNode.id',
+  blog_post___author___childContentfulPersonShortBioTextNode___children = 'blog_post.author.childContentfulPersonShortBioTextNode.children',
+  blog_post___author___childContentfulPersonShortBioTextNode___shortBio = 'blog_post.author.childContentfulPersonShortBioTextNode.shortBio',
+  blog_post___author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark = 'blog_post.author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark',
+  blog_post___author___parent___id = 'blog_post.author.parent.id',
+  blog_post___author___parent___children = 'blog_post.author.parent.children',
+  blog_post___author___children = 'blog_post.author.children',
+  blog_post___author___children___id = 'blog_post.author.children.id',
+  blog_post___author___children___children = 'blog_post.author.children.children',
+  blog_post___author___internal___content = 'blog_post.author.internal.content',
+  blog_post___author___internal___contentDigest = 'blog_post.author.internal.contentDigest',
+  blog_post___author___internal___description = 'blog_post.author.internal.description',
+  blog_post___author___internal___fieldOwners = 'blog_post.author.internal.fieldOwners',
+  blog_post___author___internal___ignoreType = 'blog_post.author.internal.ignoreType',
+  blog_post___author___internal___mediaType = 'blog_post.author.internal.mediaType',
+  blog_post___author___internal___owner = 'blog_post.author.internal.owner',
+  blog_post___author___internal___type = 'blog_post.author.internal.type',
   blog_post___description___id = 'blog_post.description.id',
   blog_post___description___parent___id = 'blog_post.description.parent.id',
   blog_post___description___parent___children = 'blog_post.description.parent.children',
@@ -14785,73 +14852,6 @@ enum ContentfulPersonFieldsEnum {
   blog_post___updatedAt = 'blog_post.updatedAt',
   blog_post___sys___type = 'blog_post.sys.type',
   blog_post___sys___revision = 'blog_post.sys.revision',
-  blog_post___tags = 'blog_post.tags',
-  blog_post___author___contentful_id = 'blog_post.author.contentful_id',
-  blog_post___author___id = 'blog_post.author.id',
-  blog_post___author___node_locale = 'blog_post.author.node_locale',
-  blog_post___author___name = 'blog_post.author.name',
-  blog_post___author___title = 'blog_post.author.title',
-  blog_post___author___company = 'blog_post.author.company',
-  blog_post___author___email = 'blog_post.author.email',
-  blog_post___author___phone = 'blog_post.author.phone',
-  blog_post___author___facebook = 'blog_post.author.facebook',
-  blog_post___author___twitter = 'blog_post.author.twitter',
-  blog_post___author___github = 'blog_post.author.github',
-  blog_post___author___image___contentful_id = 'blog_post.author.image.contentful_id',
-  blog_post___author___image___id = 'blog_post.author.image.id',
-  blog_post___author___image___spaceId = 'blog_post.author.image.spaceId',
-  blog_post___author___image___createdAt = 'blog_post.author.image.createdAt',
-  blog_post___author___image___updatedAt = 'blog_post.author.image.updatedAt',
-  blog_post___author___image___title = 'blog_post.author.image.title',
-  blog_post___author___image___description = 'blog_post.author.image.description',
-  blog_post___author___image___node_locale = 'blog_post.author.image.node_locale',
-  blog_post___author___image___children = 'blog_post.author.image.children',
-  blog_post___author___blog_post = 'blog_post.author.blog_post',
-  blog_post___author___blog_post___contentful_id = 'blog_post.author.blog_post.contentful_id',
-  blog_post___author___blog_post___id = 'blog_post.author.blog_post.id',
-  blog_post___author___blog_post___node_locale = 'blog_post.author.blog_post.node_locale',
-  blog_post___author___blog_post___title = 'blog_post.author.blog_post.title',
-  blog_post___author___blog_post___slug = 'blog_post.author.blog_post.slug',
-  blog_post___author___blog_post___publishDate = 'blog_post.author.blog_post.publishDate',
-  blog_post___author___blog_post___spaceId = 'blog_post.author.blog_post.spaceId',
-  blog_post___author___blog_post___createdAt = 'blog_post.author.blog_post.createdAt',
-  blog_post___author___blog_post___updatedAt = 'blog_post.author.blog_post.updatedAt',
-  blog_post___author___blog_post___tags = 'blog_post.author.blog_post.tags',
-  blog_post___author___blog_post___gatsbyPath = 'blog_post.author.blog_post.gatsbyPath',
-  blog_post___author___blog_post___childrenContentfulBlogPostBodyTextNode = 'blog_post.author.blog_post.childrenContentfulBlogPostBodyTextNode',
-  blog_post___author___blog_post___childrenContentfulBlogPostDescriptionTextNode = 'blog_post.author.blog_post.childrenContentfulBlogPostDescriptionTextNode',
-  blog_post___author___blog_post___children = 'blog_post.author.blog_post.children',
-  blog_post___author___shortBio___id = 'blog_post.author.shortBio.id',
-  blog_post___author___shortBio___children = 'blog_post.author.shortBio.children',
-  blog_post___author___shortBio___shortBio = 'blog_post.author.shortBio.shortBio',
-  blog_post___author___shortBio___childrenMarkdownRemark = 'blog_post.author.shortBio.childrenMarkdownRemark',
-  blog_post___author___spaceId = 'blog_post.author.spaceId',
-  blog_post___author___createdAt = 'blog_post.author.createdAt',
-  blog_post___author___updatedAt = 'blog_post.author.updatedAt',
-  blog_post___author___sys___type = 'blog_post.author.sys.type',
-  blog_post___author___sys___revision = 'blog_post.author.sys.revision',
-  blog_post___author___childrenContentfulPersonShortBioTextNode = 'blog_post.author.childrenContentfulPersonShortBioTextNode',
-  blog_post___author___childrenContentfulPersonShortBioTextNode___id = 'blog_post.author.childrenContentfulPersonShortBioTextNode.id',
-  blog_post___author___childrenContentfulPersonShortBioTextNode___children = 'blog_post.author.childrenContentfulPersonShortBioTextNode.children',
-  blog_post___author___childrenContentfulPersonShortBioTextNode___shortBio = 'blog_post.author.childrenContentfulPersonShortBioTextNode.shortBio',
-  blog_post___author___childrenContentfulPersonShortBioTextNode___childrenMarkdownRemark = 'blog_post.author.childrenContentfulPersonShortBioTextNode.childrenMarkdownRemark',
-  blog_post___author___childContentfulPersonShortBioTextNode___id = 'blog_post.author.childContentfulPersonShortBioTextNode.id',
-  blog_post___author___childContentfulPersonShortBioTextNode___children = 'blog_post.author.childContentfulPersonShortBioTextNode.children',
-  blog_post___author___childContentfulPersonShortBioTextNode___shortBio = 'blog_post.author.childContentfulPersonShortBioTextNode.shortBio',
-  blog_post___author___childContentfulPersonShortBioTextNode___childrenMarkdownRemark = 'blog_post.author.childContentfulPersonShortBioTextNode.childrenMarkdownRemark',
-  blog_post___author___parent___id = 'blog_post.author.parent.id',
-  blog_post___author___parent___children = 'blog_post.author.parent.children',
-  blog_post___author___children = 'blog_post.author.children',
-  blog_post___author___children___id = 'blog_post.author.children.id',
-  blog_post___author___children___children = 'blog_post.author.children.children',
-  blog_post___author___internal___content = 'blog_post.author.internal.content',
-  blog_post___author___internal___contentDigest = 'blog_post.author.internal.contentDigest',
-  blog_post___author___internal___description = 'blog_post.author.internal.description',
-  blog_post___author___internal___fieldOwners = 'blog_post.author.internal.fieldOwners',
-  blog_post___author___internal___ignoreType = 'blog_post.author.internal.ignoreType',
-  blog_post___author___internal___mediaType = 'blog_post.author.internal.mediaType',
-  blog_post___author___internal___owner = 'blog_post.author.internal.owner',
-  blog_post___author___internal___type = 'blog_post.author.internal.type',
   blog_post___gatsbyPath = 'blog_post.gatsbyPath',
   blog_post___childrenContentfulBlogPostBodyTextNode = 'blog_post.childrenContentfulBlogPostBodyTextNode',
   blog_post___childrenContentfulBlogPostBodyTextNode___id = 'blog_post.childrenContentfulBlogPostBodyTextNode.id',
@@ -23019,15 +23019,15 @@ type Query_contentfulBlogPostArgs = {
   title: Maybe<StringQueryOperatorInput>;
   slug: Maybe<StringQueryOperatorInput>;
   publishDate: Maybe<DateQueryOperatorInput>;
+  tags: Maybe<StringQueryOperatorInput>;
   heroImage: Maybe<ContentfulAssetFilterInput>;
+  author: Maybe<ContentfulPersonFilterInput>;
   description: Maybe<contentfulBlogPostDescriptionTextNodeFilterInput>;
   body: Maybe<contentfulBlogPostBodyTextNodeFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
   sys: Maybe<ContentfulBlogPostSysFilterInput>;
-  tags: Maybe<StringQueryOperatorInput>;
-  author: Maybe<ContentfulPersonFilterInput>;
   gatsbyPath: Maybe<StringQueryOperatorInput>;
   childrenContentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNodeFilterListInput>;
   childContentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNodeFilterInput>;
@@ -25086,9 +25086,25 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
-type ArticlePreviewFragment = (
-  Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
-  & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HeaderQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+
+type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+
+type GetInvolvedCardFragment = (
+  Pick<ContentfulGetInvolvedCard, 'title' | 'link' | 'node_locale'>
+  & { readonly icon: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
 );
 
 type RecipeCardFragment = (
@@ -25099,13 +25115,10 @@ type RecipeCardFragment = (
   )>, readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulFoodTypeTag, 'key' | 'tagName'>>>>, readonly ingredientTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulIngredientTag, 'key' | 'tagName'>>>> }
 );
 
-type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HeaderQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> };
+type ArticlePreviewFragment = (
+  Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
+  & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+);
 
 type OurWorkCardFragment = (
   Pick<ContentfulOurWorkCard, 'displayIndex' | 'title' | 'ctaLink' | 'ctaText'>
@@ -25114,19 +25127,6 @@ type OurWorkCardFragment = (
     & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
   )> }
 );
-
-type GetInvolvedCardFragment = (
-  Pick<ContentfulGetInvolvedCard, 'title' | 'link' | 'node_locale'>
-  & { readonly icon: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
-);
-
-type FooterQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> };
 
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -25141,10 +25141,33 @@ type AboutPageQuery = (
   & DonateBannerFragment
 );
 
+type EventsPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type EventsPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & DonateBannerFragment
+);
+
 type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type BlogIndexQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<ArticlePreviewFragment> } };
+
+type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+type BlogPostBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
+    Pick<ContentfulBlogPost, 'title' | 'publishDate'>
+    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+  )> };
 
 type GetInvolvedPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -25156,14 +25179,25 @@ type GetInvolvedPageQuery = (
   & GetInvolvedSectionFragment
 );
 
-type BlogPostBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
+type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HomePageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & HomeBannerFragment
+  & FeaturedRecipesSectionFragment
+  & OurWorkSectionFragment
+  & DonateBannerFragment
+);
+
+type RecipeByTitleQueryVariables = Exact<{
+  title: Scalars['String'];
 }>;
 
 
-type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
-    Pick<ContentfulBlogPost, 'title' | 'publishDate'>
-    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
+    Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
+    & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
   )> };
 
 type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
@@ -25180,32 +25214,13 @@ type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pi
       & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
     )> }, readonly contentfulTimeList: Maybe<Pick<ContentfulTimeList, 'timeList'>> };
 
-type AboutBannerFragment = { readonly allContentfulAboutBanner: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulAboutBanner, 'title' | 'node_locale'>
-      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly logo: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )>, readonly image: Maybe<(
+type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulDonationDetailSection, 'title' | 'node_locale'>
+      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
         Pick<ContentfulAsset, 'description'>
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
     )> } };
-
-type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
-
-type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HomePageQuery = (
-  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
-  & HomeBannerFragment
-  & FeaturedRecipesSectionFragment
-  & OurWorkSectionFragment
-  & DonateBannerFragment
-);
 
 type DonateBannerFragment = { readonly allContentfulDonateSection: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulDonateSection, 'ctaLink' | 'ctaText' | 'title' | 'node_locale'>
@@ -25218,26 +25233,40 @@ type DonateBannerFragment = { readonly allContentfulDonateSection: { readonly no
       )> }
     )> } };
 
+type AboutBannerFragment = { readonly allContentfulAboutBanner: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulAboutBanner, 'title' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly logo: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )>, readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )> } };
+
+type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
+
 type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulRecipe, 'node_locale'>
       & RecipeCardFragment
     )> } };
 
-type RecipeByTitleQueryVariables = Exact<{
-  title: Scalars['String'];
-}>;
-
-
-type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
-    Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
-    & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
-  )> };
-
-type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
+type HomeBannerFragment = { readonly allContentfulHomeBanner: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
+    )> } };
 
 type OurStorySectionFragment = { readonly allContentfulOurStory: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulOurStory, 'title' | 'node_locale'>
       & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )> } };
+
+type OurFounderSectionFragment = { readonly allContentfulOurFounder: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText' | 'node_locale'>
+      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
         Pick<ContentfulAsset, 'description'>
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
@@ -25254,18 +25283,50 @@ type OurSponsorSectionFragment = { readonly allContentfulOurSponsor: { readonly 
       )>>> }
     )> } };
 
-type OurFounderSectionFragment = { readonly allContentfulOurFounder: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText' | 'node_locale'>
-      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )> }
+type OurWorkSectionFragment = { readonly allContentfulOurWorkCard: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulOurWorkCard, 'node_locale'>
+      & OurWorkCardFragment
     )> } };
 
-type HomeBannerFragment = { readonly allContentfulHomeBanner: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText' | 'node_locale'>
-      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
-    )> } };
+type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebpFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulResolutionsFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_tracedSVGFragment = Pick<ContentfulResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_withWebpFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulResolutions_withWebp_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulSizesFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_tracedSVGFragment = Pick<ContentfulSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -25316,58 +25377,5 @@ type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 't
 type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type OurWorkSectionFragment = { readonly allContentfulOurWorkCard: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulOurWorkCard, 'node_locale'>
-      & OurWorkCardFragment
-    )> } };
-
-type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_withWebpFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyContentfulResolutionsFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulResolutions_tracedSVGFragment = Pick<ContentfulResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulResolutions_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulResolutions_withWebpFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulResolutions_withWebp_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulSizesFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_tracedSVGFragment = Pick<ContentfulSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulDonationDetailSection, 'title' | 'node_locale'>
-      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )> }
-    )> } };
 
 }
