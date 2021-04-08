@@ -15,7 +15,7 @@ function DonationDetailSection({ data }: Props): JSX.Element {
   const section = findLocale(data.allContentfulDonationDetailSection.nodes);
 
   return (
-    <Box bg="white">
+    <Box bg="white" mb="117px">
       <SectionHeader text="Where do donations go" textPosition="left" />
       <Grid bg="charcoal" templateColumns={{ base: '1fr', md: '1fr 1fr' }}>
         {section?.image?.fluid != null && (

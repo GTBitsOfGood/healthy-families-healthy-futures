@@ -26,7 +26,6 @@ const AboutBanner = ({ data }: Props) => {
         )}
       </Box>
       <Center w="50%" h={666} bg="creamsicle">
-        <Box h={155} w={{ base: 305, md: 679 }} bg="creamsicle"></Box>
         <VStack spacing={5}>
           <Box w={{ base: 100, md: 183 }} h={158}>
             {logoImage?.fluid != null && (

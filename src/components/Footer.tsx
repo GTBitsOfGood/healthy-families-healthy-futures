@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 
 import {
   Box,
@@ -182,11 +182,10 @@ function Footer(): JSX.Element {
               color="white"
               sx={{ '>option': { background: 'charcoal' } }}
               onChange={e => setLocale(e.target.value as Locale)}
+              defaultValue={locale}
             >
               <option value="en-US">English</option>
-              <option value="es-US" selected={locale === 'es-US'}>
-                Español
-              </option>
+              <option value="es-US">Español</option>
             </Select>
           </Collapse>
         </VStack>
@@ -258,11 +257,10 @@ function Footer(): JSX.Element {
             color="white"
             sx={{ '>option': { background: 'charcoal' } }}
             onChange={e => setLocale(e.target.value as Locale)}
+            defaultValue={locale}
           >
             <option value="en-US">English</option>
-            <option value="es-US" selected={locale === 'es-US'}>
-              Español
-            </option>
+            <option value="es-US">Español</option>
           </Select>
         </VStack>
       </VStack>

@@ -34,7 +34,7 @@ const OurSponsorSection = ({ data }: Props) => {
           info.sponsors.map(
             sponsor =>
               sponsor?.image?.fluid != null && (
-                <Box flexBasis="20%" mt="56px">
+                <Box flexBasis="20%" mt="56px" key={sponsor.name}>
                   <Box boxSize="106px">
                     <Img
                       style={{ overflow: 'visible' }}
