@@ -25,7 +25,7 @@ interface NavigationProps {
   onDrawerClose: () => void;
 }
 
-function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Element {
+export function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Element {
   const styles = useStyleConfig('NavLink', { size });
 
   return (
@@ -40,7 +40,7 @@ function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Eleme
     '/': 'Home',
     '/about': 'About',
     '/recipes': 'Recipes',
-    '/events-and-classes': 'Events & Classes',
+    '/events-classes': 'Events & Classes',
     '/blog': 'Blog',
     '/resources': 'Resources',
   };

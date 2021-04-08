@@ -1,28 +1,57 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Divider, Flex, Grid, GridItem } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, Link, navigate, PageProps } from 'gatsby';
+import { parse, stringify } from 'query-string';
 import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 import Pagination from 'src/components/Pagination';
 import RecipeCard from 'src/components/RecipeCard';
 import RecipeSidebar from 'src/components/RecipeSidebar';
+import { useLocale } from 'src/contexts/LocaleContext';
 import { initRecipeFilters, filterRecipes } from 'src/utils/filter';
 import { SelectedRecipeFilters } from 'src/utils/types';
+import { entries } from 'src/utils/util';
 
 interface Props extends PageProps {
   data: GatsbyTypes.RecipeQueryQuery;
 }
 
 function RecipesIndex(props: Props): JSX.Element {
+  const { filterLocale } = useLocale();
   const siteTitle = props.data.site?.siteMetadata?.title;
-  const recipes = props.data?.allContentfulRecipe?.nodes;
-  const foodTypeTags = props.data?.allContentfulFoodTypeTag?.nodes;
-  const ingredientTags = props.data?.allContentfulIngredientTag?.nodes;
+
+  const recipes = filterLocale(props.data?.allContentfulRecipe?.nodes);
+  const foodTypeTags = filterLocale(props.data?.allContentfulFoodTypeTag?.nodes);
+  const ingredientTags = filterLocale(props.data?.allContentfulIngredientTag?.nodes);
   const timeListStr = props.data?.contentfulTimeList?.timeList;
-  const [recipeFilters, setRecipeFilters] = useState<SelectedRecipeFilters>({});
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+
+  const recipeFilters = initRecipeFilters(foodTypeTags, ingredientTags, timeListStr);
+
+  const defaultFilters = Object.fromEntries(
+    entries(parse(props.location.search, { arrayFormat: 'comma' })).map(([category, value]) => [
+      category,
+      typeof value === 'string' ? [value] : value,
+    ]),
+  );
+
+  // Note: selectedFilters can include other query parameters that are not necessarily used for filtering
+  const [selectedFilters, updateSelectedFilters] = useState<SelectedRecipeFilters>(defaultFilters);
+
+  useEffect(() => {
+    const newQueries = stringify(selectedFilters, { arrayFormat: 'comma' });
+    const newUrl = `${location.pathname}?${newQueries}`;
+    void navigate(newUrl, {
+      state: {
+        disableScrollUpdate: true,
+      },
+      replace: true,
+    });
+    setCurrentPage(0);
+  }, [selectedFilters]);
+
+  const filteredRecipes = filterRecipes(recipes, selectedFilters);
   const [currentPage, setCurrentPage] = useState(0);
 
   const recipesPerPage = 6;
@@ -30,28 +59,16 @@ function RecipesIndex(props: Props): JSX.Element {
   const recipeEnd = recipeStart + recipesPerPage;
   const pageCount = Math.ceil(filteredRecipes.length / recipesPerPage);
 
-  useEffect(() => {
-    setRecipeFilters(initRecipeFilters(foodTypeTags, ingredientTags, timeListStr));
-  }, [foodTypeTags, ingredientTags, timeListStr]);
-
-  const handleFilterChange = useCallback(
-    (currentFilters: SelectedRecipeFilters): void => {
-      setFilteredRecipes(filterRecipes(recipes, currentFilters));
-      setCurrentPage(0);
-    },
-    [recipes],
-  );
-
   return (
     <Layout location={props.location}>
       <Helmet title={siteTitle} />
 
-      <Grid templateColumns={{ base: '1fr', md: '250px 1px 1fr' }}>
+      <Grid templateColumns={{ base: '1fr', md: '250px 1px 1fr' }} mb={10}>
         <GridItem>
           <RecipeSidebar
-            location={props.location}
             filters={recipeFilters}
-            onChange={handleFilterChange}
+            selectedFilters={selectedFilters}
+            updateSelectedFilters={updateSelectedFilters}
           />
         </GridItem>
         <Divider orientation="vertical" />
@@ -98,6 +115,7 @@ export const pageQuery = graphql`
     allContentfulRecipe {
       nodes {
         ...RecipeCard
+        node_locale
       }
     }
     allContentfulIngredientTag {
@@ -106,6 +124,7 @@ export const pageQuery = graphql`
         recipe {
           id
         }
+        node_locale
       }
     }
     allContentfulFoodTypeTag {
@@ -114,6 +133,7 @@ export const pageQuery = graphql`
         recipe {
           id
         }
+        node_locale
       }
     }
     contentfulTimeList {

@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import { Heading, Flex, Button, VStack, Box } from '@chakra-ui/react';
-import { navigate } from 'gatsby';
-import { parse, stringify } from 'query-string';
 import { SelectedRecipeFilters } from 'src/utils/types';
 import { entries, removeNulls } from 'src/utils/util';
 
@@ -10,36 +8,11 @@ import FilterGroup from './FilterGroup';
 
 interface Props {
   filters: SelectedRecipeFilters;
-  location: Location;
-  onChange(newFilter: SelectedRecipeFilters): void;
+  selectedFilters: SelectedRecipeFilters;
+  updateSelectedFilters: React.Dispatch<React.SetStateAction<SelectedRecipeFilters>>;
 }
 
-function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
-  const defaultFilters = Object.fromEntries(
-    entries(parse(location.search, { arrayFormat: 'comma' })).map(([category, value]) => [
-      category,
-      typeof value === 'string' ? [value] : value,
-    ]),
-  );
-
-  // Note: selectedFilters can include other query parameters that are not necessarily used for filtering
-  const [selectedFilters, updateSelectedFilters] = useState<SelectedRecipeFilters>(defaultFilters);
-
-  useEffect(() => {
-    onChange(selectedFilters);
-  }, [onChange, selectedFilters]);
-
-  useEffect(() => {
-    const newQueries = stringify(selectedFilters, { arrayFormat: 'comma' });
-    const newUrl = `${location.pathname}?${newQueries}`;
-    void navigate(newUrl, {
-      state: {
-        disableScrollUpdate: true,
-      },
-      replace: true,
-    });
-  }, [location.pathname, selectedFilters]);
-
+function RecipeSidebar({ filters, selectedFilters, updateSelectedFilters }: Props): JSX.Element {
   // Check if the query string has any of the category as a selected filter
   const hasActiveFilter = entries(filters).some(x => x != null && x[0] in selectedFilters);
 
@@ -53,7 +26,6 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
           variant="back"
           colorScheme="gray"
           onClick={() => {
-            onChange({});
             updateSelectedFilters({});
           }}
           hidden={!hasActiveFilter}
@@ -74,14 +46,12 @@ function RecipeSidebar({ filters, location, onChange }: Props): JSX.Element {
             if (options.length > 0) {
               const filters = { ...selectedFilters, [category]: options };
               updateSelectedFilters(filters);
-              onChange(filters);
             } else {
               // If there are no options, remove this category from selected filters.
               // This helps to determine if there is any active filters
               const newSelectedFilters = { ...selectedFilters };
               delete newSelectedFilters[category];
               updateSelectedFilters(newSelectedFilters);
-              onChange(newSelectedFilters);
             }
           };
 

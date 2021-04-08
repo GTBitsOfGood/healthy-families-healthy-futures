@@ -10,3 +10,5 @@ export type SelectedRecipeFilters = Partial<RecipeFilters>;
 export type Entries<T> = {
   [K in keyof T]: [K, T[K]];
 }[keyof T][];
+
+export type Locale = 'en-US' | 'es-US';
