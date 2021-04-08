@@ -1,4 +1,4 @@
-import { Category, RecipeFilters, SelectedRecipeFilters } from './types';
+import { Category, RecipeFilters, SelectedRecipeFilters, Tag } from './types';
 import { removeNulls } from './util';
 
 type RecipeQuery = GatsbyTypes.RecipeQueryQuery;
@@ -20,8 +20,8 @@ export function initRecipeFilters(
 function initFoodTypes(foodTypeTags: RecipeQuery['allContentfulFoodTypeTag']['nodes']) {
   return removeNulls(
     foodTypeTags.map(tag => {
-      if (tag.recipe && tag.tagName) {
-        return tag.tagName;
+      if (tag.recipe && tag.tagName && tag.key) {
+        return { key: tag.key, name: tag.tagName };
       }
     }),
   );
@@ -31,8 +31,8 @@ function initFoodTypes(foodTypeTags: RecipeQuery['allContentfulFoodTypeTag']['no
 function initIngredients(ingredientTags: RecipeQuery['allContentfulIngredientTag']['nodes']) {
   return removeNulls(
     ingredientTags.map(tag => {
-      if (tag.recipe && tag.tagName) {
-        return tag.tagName;
+      if (tag.recipe && tag.tagName && tag.key) {
+        return { key: tag.key, name: tag.tagName };
       }
     }),
   );
@@ -56,7 +56,7 @@ function initTimes(timeListStr: string | undefined) {
       }),
     ),
     `> ${timeList[timeList.length - 1]} min`,
-  ];
+  ].map(x => ({ key: x, name: x }));
 }
 
 // Filters all recipes given the selected filters
@@ -80,52 +80,41 @@ export function filterRecipes(
 // Returns a boolean based on whether recipe matches the critera of the ingredients filter
 function checkIngredients(
   recipe: RecipeQuery['allContentfulRecipe']['nodes'][0],
-  ingredients?: string | string[],
+  ingredients?: Tag[],
 ) {
-  if (!ingredients) {
+  if (!ingredients || ingredients.length === 0) {
     return true;
   } else if (!recipe.ingredientTags) {
     return false;
-  } else if (typeof ingredients === 'string') {
-    return recipe.ingredientTags?.some(tag => {
-      return tag?.tagName === ingredients;
-    });
   }
 
   return recipe.ingredientTags.some(
-    ingredient => ingredient?.tagName && ingredients.includes(ingredient.tagName),
+    ingredientTag => ingredientTag?.key && ingredients.some(i => i.key === ingredientTag.key),
   );
 }
 
 // Returns a boolean based on whether recipe matches the critera of the food types filter
-function checkFoodTypes(
-  recipe: RecipeQuery['allContentfulRecipe']['nodes'][0],
-  foodTypes?: string | string[],
-) {
-  if (!foodTypes) {
+function checkFoodTypes(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], foodTypes?: Tag[]) {
+  if (!foodTypes || foodTypes.length === 0) {
     return true;
   } else if (!recipe.foodTypeTags) {
     return false;
-  } else if (typeof foodTypes === 'string') {
-    return recipe.foodTypeTags?.some(tag => {
-      return tag?.tagName === foodTypes;
-    });
   }
 
   return recipe.foodTypeTags.some(
-    foodType => foodType?.tagName && foodTypes.includes(foodType.tagName),
+    foodType => foodType?.key && foodTypes.some(f => f.key === foodType.key),
   );
 }
 
 // Returns a boolean based on whether recipe matches the critera of the times filter
-function checkTime(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], times?: string[]) {
-  if (!times) {
+function checkTime(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], times?: Tag[]) {
+  if (!times || times.length === 0) {
     return true;
   }
 
   const recipeTime = recipe.totalTime && recipe.prepTime ? recipe.totalTime + recipe.prepTime : 0;
 
-  return times.some(time => isInRange(recipeTime, time));
+  return times.some(time => isInRange(recipeTime, time.key));
 }
 
 function checkSearch(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], search?: string) {

@@ -16,7 +16,7 @@ const RecipeSidebarChips = ({ selectedFilters, updateSelectedFilters }: Props) =
       {keys(selectedFilters).map(category =>
         selectedFilters[category]?.map(val => {
           return (
-            <WrapItem key={val}>
+            <WrapItem key={val.key}>
               <Flex
                 bg="green.500"
                 py="2px"
@@ -26,7 +26,7 @@ const RecipeSidebarChips = ({ selectedFilters, updateSelectedFilters }: Props) =
                 alignItems="center"
               >
                 <Text fontSize="14px" mr="6px">
-                  {val}
+                  {val.name}
                 </Text>
                 <MdClose
                   cursor="pointer"
@@ -36,11 +36,7 @@ const RecipeSidebarChips = ({ selectedFilters, updateSelectedFilters }: Props) =
                       const oldFilters = { ...filters };
                       const vals = oldFilters[category];
                       if (vals != null) {
-                        if (vals.length === 1) {
-                          delete oldFilters[category];
-                        } else {
-                          oldFilters[category] = vals.filter(v => v !== val);
-                        }
+                        oldFilters[category] = vals.filter(v => v.key !== val.key);
                       }
                       return oldFilters;
                     })

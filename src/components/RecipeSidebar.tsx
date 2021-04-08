@@ -13,14 +13,14 @@ import {
   InputRightElement,
 } from '@chakra-ui/react';
 import { MdClose, MdSearch } from 'react-icons/md';
-import { SelectedRecipeFilters } from 'src/utils/types';
+import { RecipeFilters, SelectedRecipeFilters, Tag } from 'src/utils/types';
 import { entries, removeNulls } from 'src/utils/util';
 
 import FilterGroup from './FilterGroup';
 import RecipeSidebarChips from './RecipeSidebarChips';
 
 interface Props {
-  filters: SelectedRecipeFilters;
+  filters: RecipeFilters;
   selectedFilters: SelectedRecipeFilters;
   updateSelectedFilters: React.Dispatch<React.SetStateAction<SelectedRecipeFilters>>;
   searchQuery: string;
@@ -34,9 +34,8 @@ function RecipeSidebar({
   searchQuery,
   setSearchQuery,
 }: Props): JSX.Element {
-  // Check if the query string has any of the category as a selected filter
   const hasActiveFilter =
-    entries(filters).some(x => x != null && x[0] in selectedFilters) || searchQuery.length > 0;
+    entries(selectedFilters).some(x => x[1].length > 0) || searchQuery.length > 0;
 
   const filterValues = removeNulls(entries(selectedFilters))
     .map(x => x[0])
@@ -51,7 +50,7 @@ function RecipeSidebar({
         <Button
           variant="back"
           onClick={() => {
-            updateSelectedFilters({});
+            updateSelectedFilters({ 'Food Type': [], Ingredients: [], Time: [] });
             setSearchQuery('');
           }}
           hidden={!hasActiveFilter}
@@ -89,31 +88,24 @@ function RecipeSidebar({
 
       <VStack align="stretch" mt={5}>
         {removeNulls(entries(filters)).map(([category, options]) => {
-          let selectedOptions: string[] = [];
+          const onOptionChange = (checked: boolean, option: Tag) => {
+            const oldCategoryOptions = selectedFilters[category];
+            const categoryOptions = checked
+              ? [...oldCategoryOptions, option]
+              : oldCategoryOptions.filter(tag => tag.key !== option.key);
 
-          if (category in selectedFilters) {
-            selectedOptions = selectedFilters[category] as string[];
-          }
-
-          const onOptionsChange = (options: string[]) => {
-            if (options.length > 0) {
-              const filters = { ...selectedFilters, [category]: options };
-              updateSelectedFilters(filters);
-            } else {
-              // If there are no options, remove this category from selected filters.
-              // This helps to determine if there is any active filters
-              const newSelectedFilters = { ...selectedFilters };
-              delete newSelectedFilters[category];
-              updateSelectedFilters(newSelectedFilters);
-            }
+            updateSelectedFilters({
+              ...selectedFilters,
+              [category]: categoryOptions,
+            });
           };
 
           return (
             <FilterGroup
               category={category}
               options={options ?? []}
-              selectedOptions={selectedOptions}
-              onChange={onOptionsChange}
+              selectedOptions={selectedFilters[category]}
+              onOptionChange={onOptionChange}
               key={category}
             />
           );

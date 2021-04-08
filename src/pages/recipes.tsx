@@ -12,7 +12,7 @@ import RecipeSidebar from 'src/components/RecipeSidebar';
 import { useLocale } from 'src/contexts/LocaleContext';
 import { initRecipeFilters, filterRecipes } from 'src/utils/filter';
 import { SelectedRecipeFilters } from 'src/utils/types';
-import { entries } from 'src/utils/util';
+import { entries, keys, removeNulls } from 'src/utils/util';
 
 import { NoSearchIcon } from '../components/Icons';
 
@@ -31,12 +31,20 @@ function RecipesIndex(props: Props): JSX.Element {
 
   const recipeFilters = initRecipeFilters(foodTypeTags, ingredientTags, timeListStr);
 
-  const defaultFilters = Object.fromEntries(
-    entries(parse(props.location.search, { arrayFormat: 'comma' })).map(([category, value]) => [
-      category,
-      typeof value === 'string' ? [value] : value,
-    ]),
+  const queryObj = parse(props.location.search, { arrayFormat: 'comma' });
+
+  const initialFilters = Object.fromEntries(
+    keys(recipeFilters).map(category => {
+      const value = queryObj[category];
+      const tagKeys = typeof value === 'string' ? [value] : value ?? [];
+
+      return [
+        category,
+        removeNulls(tagKeys.map(tag => recipeFilters[category].find(option => tag === option.key))),
+      ];
+    }),
   );
+
   const querySearchValue = parse(props.location.search, { arrayFormat: 'comma' }).search;
   const defaultSearch: string =
     querySearchValue == null
@@ -46,13 +54,18 @@ function RecipesIndex(props: Props): JSX.Element {
       : querySearchValue;
 
   // Note: selectedFilters can include other query parameters that are not necessarily used for filtering
-  const [selectedFilters, updateSelectedFilters] = useState<SelectedRecipeFilters>(defaultFilters);
+  const [selectedFilters, updateSelectedFilters] = useState<SelectedRecipeFilters>(
+    initialFilters as SelectedRecipeFilters,
+  );
   const [searchQuery, setSearchQuery] = useState(defaultSearch);
 
   useEffect(() => {
+    // console.log(selectedFilters);
     const newQueries = stringify(
       {
-        ...selectedFilters,
+        ...Object.fromEntries(
+          entries(selectedFilters).map(([category, tags]) => [category, tags.map(tag => tag.key)]),
+        ),
         search: searchQuery === '' ? undefined : searchQuery,
       },
       { arrayFormat: 'comma' },
@@ -156,6 +169,7 @@ export const pageQuery = graphql`
     allContentfulIngredientTag {
       nodes {
         tagName
+        key
         recipe {
           id
         }
@@ -165,6 +179,7 @@ export const pageQuery = graphql`
     allContentfulFoodTypeTag {
       nodes {
         tagName
+        key
         recipe {
           id
         }
