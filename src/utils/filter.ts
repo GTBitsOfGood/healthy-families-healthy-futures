@@ -63,13 +63,15 @@ function initTimes(timeListStr: string | undefined) {
 export function filterRecipes(
   recipes: RecipeQuery['allContentfulRecipe']['nodes'],
   selectedFilters: SelectedRecipeFilters,
+  searchQuery: string,
 ) {
   const filteredRecipes = recipes.filter(recipe => {
     const hasIngredients = checkIngredients(recipe, selectedFilters[Category.INGREDIENTS]);
     const hasFoodTypes = checkFoodTypes(recipe, selectedFilters[Category.FOOD_TYPE]);
     const hasTime = checkTime(recipe, selectedFilters[Category.TIME]);
+    const hasSearch = checkSearch(recipe, searchQuery);
 
-    return hasIngredients && hasFoodTypes && hasTime;
+    return hasIngredients && hasFoodTypes && hasTime && hasSearch;
   });
 
   return filteredRecipes;
@@ -124,6 +126,20 @@ function checkTime(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], times
   const recipeTime = recipe.totalTime && recipe.prepTime ? recipe.totalTime + recipe.prepTime : 0;
 
   return times.some(time => isInRange(recipeTime, time));
+}
+
+function checkSearch(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], search?: string) {
+  if (search == null) {
+    return true;
+  }
+  if (search.length === 0) {
+    return true;
+  }
+  return (
+    recipe.title?.toLowerCase().includes(search) ||
+    recipe.directions?.directions?.toLowerCase().includes(search) ||
+    recipe.ingredients?.ingredients?.toLowerCase().includes(search)
+  );
 }
 
 // Helper function to ensure the time given is within the time range in the form of a strings
