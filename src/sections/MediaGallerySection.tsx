@@ -1,41 +1,45 @@
 import React from 'react';
 
-import { Box, Text, VStack, Wrap } from '@chakra-ui/layout';
+import { Box, Text, VStack } from '@chakra-ui/layout';
 import { graphql } from 'gatsby';
+import CardList from 'src/components/CardList';
 import PhotoCard from 'src/components/PhotoCard';
 import SectionHeader from 'src/components/SectionHeader';
 import VideoCard from 'src/components/VideoCard';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.MediaGalleryFragment;
 }
 
 function MediaGallerySection({ data }: Props): JSX.Element {
-  const photoCards = data.allContentfulPhotoCard.nodes;
-  const videoCards = data.allContentfulVideoCard.nodes;
+  const { filterLocale } = useLocale();
+
+  const photoCards = filterLocale(data.allContentfulPhotoCard.nodes);
+  const videoCards = filterLocale(data.allContentfulVideoCard.nodes);
 
   return (
-    <Box bg="gray.extralight" p={20}>
-      <Box marginBottom={100}>
+    <Box bg="gray.extralight" pb="100px">
+      <Box mb="45px">
         <SectionHeader text="Media Gallery" textPosition="left" />
       </Box>
-      <VStack align={{ base: 'center', md: 'start' }}>
-        <Text textStyle="heading2" color="creamsicle" pl={3}>
-          PHOTOS
+      <VStack align={{ base: 'center', md: 'start' }} spacing="45px">
+        <Text textStyle="heading2" color="creamsicle" pl="70px" textTransform="uppercase">
+          Photos
         </Text>
-        <Wrap justify={{ base: 'center', md: 'space-between' }}>
+        <CardList>
           {photoCards.map(card => (
             <PhotoCard key={card.title} data={card} />
           ))}
-        </Wrap>
-        <Text textStyle="heading2" color="creamsicle" pl={3}>
-          VIDEOS
+        </CardList>
+        <Text textStyle="heading2" color="creamsicle" pl="70px" textTransform="uppercase">
+          Videos
         </Text>
-        <Wrap justify={{ base: 'center', md: 'space-between' }}>
+        <CardList>
           {videoCards.map(card => (
             <VideoCard key={card.title} data={card} />
           ))}
-        </Wrap>
+        </CardList>
       </VStack>
     </Box>
   );
@@ -48,11 +52,13 @@ export const fragment = graphql`
     allContentfulPhotoCard {
       nodes {
         ...PhotoCard
+        node_locale
       }
     }
     allContentfulVideoCard {
       nodes {
         ...VideoCard
+        node_locale
       }
     }
   }

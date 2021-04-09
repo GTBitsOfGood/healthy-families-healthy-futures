@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from '@chakra-ui/button';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Box, HStack, Link, Text, VStack } from '@chakra-ui/layout';
+import { Box, LinkBox, LinkOverlay, Text, VStack } from '@chakra-ui/layout';
 import { graphql } from 'gatsby';
 
 interface Props {
@@ -22,14 +22,13 @@ function ResourceCard({ data }: Props): JSX.Element {
         </Text>
         <Text textStyle="body3">{body}</Text>
         <Box align="end">
-          <Link href={link} isExternal>
-            <Button variant="secondary">
-              <HStack align="center">
-                <Text textStyle="body2">CHECK IT OUT</Text>
-                <ArrowForwardIcon />
-              </HStack>
-            </Button>
-          </Link>
+          <LinkBox>
+            <LinkOverlay href={link ?? '#'} isExternal>
+              <Button variant="secondary" rightIcon={<ArrowForwardIcon />}>
+                Check it out
+              </Button>
+            </LinkOverlay>
+          </LinkBox>
         </Box>
       </VStack>
     </Box>
