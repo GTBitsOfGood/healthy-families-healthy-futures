@@ -6,7 +6,7 @@ import Layout from 'src/components/Layout';
 import DonateSection from 'src/sections/DonateBanner';
 import DonationDetailSection from 'src/sections/DonationDetailSection';
 import GetInvolvedSection from 'src/sections/GetInvolvedSection';
-import NewsletterSection from 'src/sections/NewsletterBanner';
+import NewsletterBanner from 'src/sections/NewsletterBanner';
 
 interface Props extends PageProps {
   data: GatsbyTypes.GetInvolvedPageQuery;
@@ -21,7 +21,7 @@ const GetInvolvedPage = (props: Props) => {
       <GetInvolvedSection data={data} />
       <DonationDetailSection data={data} />
       <DonateSection data={data} />
-      <NewsletterSection />
+      <NewsletterBanner data={data} />
     </Layout>
   );
 };
@@ -38,5 +38,6 @@ export const pageQuery = graphql`
     ...DonationDetail
     ...DonateBanner
     ...GetInvolvedSection
+    ...NewsletterBanner
   }
 `;
