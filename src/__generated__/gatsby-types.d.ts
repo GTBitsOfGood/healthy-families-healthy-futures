@@ -19137,6 +19137,7 @@ type ContentfulResourceCard = ContentfulReference & ContentfulEntry & Node & {
   readonly id: Scalars['ID'];
   readonly node_locale: Scalars['String'];
   readonly title: Maybe<Scalars['String']>;
+  readonly link: Maybe<Scalars['String']>;
   readonly body: Maybe<contentfulResourceCardBodyTextNode>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
@@ -19477,6 +19478,7 @@ enum ContentfulResourceCardFieldsEnum {
   id = 'id',
   node_locale = 'node_locale',
   title = 'title',
+  link = 'link',
   body___id = 'body.id',
   body___parent___id = 'body.parent.id',
   body___parent___parent___id = 'body.parent.parent.id',
@@ -19875,6 +19877,7 @@ type ContentfulResourceCardFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly node_locale: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
+  readonly link: Maybe<StringQueryOperatorInput>;
   readonly body: Maybe<contentfulResourceCardBodyTextNodeFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
@@ -23593,6 +23596,7 @@ type Query_contentfulResourceCardArgs = {
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
+  link: Maybe<StringQueryOperatorInput>;
   body: Maybe<contentfulResourceCardBodyTextNodeFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
@@ -25277,7 +25281,7 @@ type LinkDocFragment = { readonly contentfulLinkDocSection: Maybe<(
   )>, readonly allContentfulResourceCard: { readonly nodes: ReadonlyArray<ResourceCardFragment> } };
 
 type ResourceCardFragment = (
-  Pick<ContentfulResourceCard, 'title'>
+  Pick<ContentfulResourceCard, 'title' | 'link'>
   & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
 );
 
