@@ -14,7 +14,7 @@ function ResourceCard({ data }: Props): JSX.Element {
   const body = data.body?.childMarkdownRemark?.rawMarkdownBody;
 
   return (
-    <Box maxW="md" p={10}>
+    <Box maxW="xl" p={10}>
       <VStack align="stretch" borderLeft="solid" borderLeftColor="creamsicle" pl={5}>
         <Text textStyle="body3" color="creamsicle">
           {title}
