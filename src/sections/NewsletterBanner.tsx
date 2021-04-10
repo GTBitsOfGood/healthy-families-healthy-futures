@@ -1,13 +1,23 @@
 import React from 'react';
 
-import { Box, Text, Stack, Center, Input, Button } from '@chakra-ui/react';
+import { Box, Text, Stack, Center, Input, Button, LinkOverlay, LinkBox } from '@chakra-ui/react';
+import { graphql } from 'gatsby';
+import { useLocale } from 'src/contexts/LocaleContext';
 
-function NewsletterBanner(): JSX.Element {
+interface Props {
+  data: GatsbyTypes.NewsletterBannerFragment;
+}
+
+function NewsletterBanner({ data }: Props): JSX.Element {
   const [value, setValue] = React.useState('');
+
+  const { findLocale } = useLocale();
+  const banner = findLocale(data.allContentfulNewsletterSection.nodes);
+
   return (
     <Box h={275} pt={75} bg="gray.extralight">
       <Text color="charcoal" textAlign={'center'} textStyle="heading2">
-        Sign up for our newsletter!
+        {banner?.headline}
       </Text>
       <Center>
         <Stack direction="row" spacing={4} marginTop={30}>
@@ -18,7 +28,11 @@ function NewsletterBanner(): JSX.Element {
             onChange={e => setValue(e.target.value)}
             value={value}
           />
-          <Button variant="neutral">Subscribe</Button>
+          <LinkBox>
+            <LinkOverlay href={banner?.ctaLink ?? '#'}>
+              <Button variant="neutral">{banner?.ctaText}</Button>
+            </LinkOverlay>
+          </LinkBox>
         </Stack>
       </Center>
     </Box>
@@ -26,3 +40,16 @@ function NewsletterBanner(): JSX.Element {
 }
 
 export default NewsletterBanner;
+
+export const fragment = graphql`
+  fragment NewsletterBanner on Query {
+    allContentfulNewsletterSection {
+      nodes {
+        headline
+        ctaLink
+        ctaText
+        node_locale
+      }
+    }
+  }
+`;
