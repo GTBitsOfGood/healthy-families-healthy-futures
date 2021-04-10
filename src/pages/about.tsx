@@ -4,7 +4,7 @@ import { graphql, PageProps } from 'gatsby';
 import Layout from 'src/components/Layout';
 import AboutBanner from 'src/sections/AboutBanner';
 import DonateSection from 'src/sections/DonateBanner';
-import NewsletterSection from 'src/sections/NewsletterBanner';
+import NewsletterBanner from 'src/sections/NewsletterBanner';
 import OurFounderSection from 'src/sections/OurFounderSection';
 import OurSponsorSection from 'src/sections/OurSponsorSection';
 import OurStorySection from 'src/sections/OurStorySection';
@@ -28,7 +28,7 @@ function AboutPage(props: Props): JSX.Element {
       <OurSponsorSection data={props.data} />
 
       <DonateSection data={props.data} />
-      <NewsletterSection />
+      <NewsletterBanner data={props.data} />
     </Layout>
   );
 }
@@ -48,5 +48,6 @@ export const pageQuery = graphql`
     ...OurFounderSection
     ...OurSponsorSection
     ...DonateBanner
+    ...NewsletterBanner
   }
 `;
