@@ -37,7 +37,7 @@ const CardList = ({ children }: Props) => {
           <ChevronLeftIcon boxSize="24px" color="white" />
         </Center>
       )}
-      <HStack ml={!hasPrev ? '30px' : ''} mr={!hasNext ? '30px' : ''}>
+      <HStack spacing="40px" ml={!hasPrev ? '30px' : ''} mr={!hasNext ? '30px' : ''}>
         {children
           .map((card, i) => <Box key={i}>{card}</Box>)
           .filter((_, i) => i >= startIndex && i < startIndex + numCards)}

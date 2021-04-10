@@ -19,7 +19,7 @@ function LinkDocSection({ data }: Props): JSX.Element {
   const resourceCards = filterLocale(data.allContentfulResourceCard.nodes);
 
   return (
-    <Box>
+    <Box mb="160px">
       <Box marginBottom={100}>
         <SectionHeader text="Links &amp; Documents" textPosition="right" />
       </Box>
