@@ -19,7 +19,7 @@ function ResourcesPage({ data, location }: Props): JSX.Element {
       <LinkDocSection data={data} />
       <MediaGallerySection data={data} />
       <DonateBanner data={data} />
-      <NewsletterBanner />
+      <NewsletterBanner data={data} />
     </Layout>
   );
 }
@@ -36,5 +36,6 @@ export const pageQuery = graphql`
     ...LinkDoc
     ...MediaGallery
     ...DonateBanner
+    ...NewsletterBanner
   }
 `;
