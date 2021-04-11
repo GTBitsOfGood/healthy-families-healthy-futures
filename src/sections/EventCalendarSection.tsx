@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Box, Grid, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import {
-  format,
-  startOfMonth,
-  endOfMonth,
-  sub,
-  add,
-  isSameMonth,
-  parse,
-  isSameDay,
-} from 'date-fns';
+  Box,
+  Grid,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalOverlay,
+  SimpleGrid,
+  useDisclosure,
+  VStack,
+} from '@chakra-ui/react';
+import { format, isSameDay, parse } from 'date-fns';
+import Calendar from 'src/components/calendar';
+import EventModalCard from 'src/components/EventModalCard';
 import SectionHeader from 'src/components/SectionHeader';
 
 const TEMP_EVENTS = [
@@ -19,71 +23,76 @@ const TEMP_EVENTS = [
     title: 'Healthy Cooking Class',
     eventDate: 'Wednesday, April 17th',
     link: '#',
+    description:
+      'Spicy jalapeno bacon ipsum dolor amet jowl bresaola cow flank burgdoggen tail pancetta tenderloin corned beef. Landjaeger beef ribs tri-tip biltong andouille cow spare ribs. Ribeye jerky jowl ground round alcatra beef. Sausage biltong shankle, bresaola ribeye bacon pancetta cupim meatball shoulder andouille turkey strip steak salami. Ribeye leberkas prosciutto, pork loin ground round corned beef short ribs landjaeger brisket pork belly. Rump meatloaf salami, prosciutto boudin pork hamburger ground round bresaola frankfurter biltong.',
   },
   {
     id: 2,
     title: 'Healthy Cooking Class',
     eventDate: 'Wednesday, April 24th',
     link: '#',
+    description:
+      'Sausage leberkas tenderloin pancetta andouille short ribs venison pork belly drumstick cow ribeye pastrami. Short loin kielbasa ribeye spare ribs short ribs. Shankle chislic landjaeger shank. Chicken meatloaf hamburger alcatra shank.',
+  },
+  {
+    id: 3,
+    title: 'Healthy Cooking Class 2',
+    eventDate: 'Wednesday, April 24th',
+    link: '#',
+    description:
+      'Bacon ipsum dolor amet meatloaf short ribs shank pork bresaola. Filet mignon frankfurter beef, buffalo pancetta brisket cupim pork chop turkey hamburger capicola chicken cow sausage. Ribeye bresaola burgdoggen beef ribs shank kielbasa chislic chuck tail ham hock pork jowl, pork belly meatball. Short ribs beef ribs turducken tenderloin sausage picanha boudin kielbasa andouille cow.',
+  },
+  {
+    id: 4,
+    title: 'Healthy Cooking Class 3',
+    eventDate: 'Wednesday, April 24th',
+    link: '#',
+    description:
+      'Bacon ipsum dolor amet meatloaf short ribs shank pork bresaola. Filet mignon frankfurter beef, buffalo pancetta brisket cupim pork chop turkey hamburger capicola chicken cow sausage. Ribeye bresaola burgdoggen beef ribs shank kielbasa chislic chuck tail ham hock pork jowl, pork belly meatball. Short ribs beef ribs turducken tenderloin sausage picanha boudin kielbasa andouille cow.',
   },
 ];
 
 function EventCalendarSection(): JSX.Element {
-  const currDate = new Date();
-  const monthYear = format(currDate, 'MMMM y');
+  const [selectedEvents, setSelectedEvents] = useState<typeof events>([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const events = TEMP_EVENTS.map(event => {
     return { ...event, eventDate: parse(event.eventDate, 'EEEE, MMMM do', new Date()) };
   });
 
-  const firstDay = +format(startOfMonth(currDate), 'i') - 1;
-
-  const startDate = sub(endOfMonth(sub(currDate, { months: 1 })), { days: firstDay });
-
-  let endDate = add(startDate, { days: 6 });
-  while (isSameMonth(currDate, endDate)) {
-    endDate = add(endDate, { weeks: 1 });
-  }
-
-  let day = startDate;
-
-  const rows = [];
-
-  while (day <= endDate) {
-    const week = [];
-    for (let i = 0; i < 7; i++) {
-      const currEvents = events.filter(event => isSameDay(event.eventDate, day));
-      week.push(
-        <Box h="130px" py="4px" px="8px" backgroundColor="white">
-          <Text textStyle="body1" color="gray.dark" opacity={isSameMonth(day, currDate) ? 1 : 0.5}>
-            {format(day, 'dd')}
-          </Text>
-          {currEvents.map(event => (
-            <Box key={event.id} h="25px" w="full" bg="green.500" borderRadius="5px"></Box>
-          ))}
-        </Box>,
-      );
-      day = add(day, { days: 1 });
+  const openEventModal = (eventsToShow: typeof events) => {
+    if (eventsToShow.length > 0) {
+      setSelectedEvents(eventsToShow);
+      onOpen();
     }
+  };
 
-    rows.push(...week);
-  }
+  const openEventModalByDate = (selectedDate: Date) => {
+    const eventsOnSelectedDate = events.filter(event => isSameDay(event.eventDate, selectedDate));
+    openEventModal(eventsOnSelectedDate);
+  };
 
-  const headers = [];
+  const openEventModalById = (eventId: number) => {
+    const matchingEvents = events.filter(event => event.id == eventId);
+    openEventModal(matchingEvents);
+  };
 
-  for (let i = 0, day = startDate; i < 7; i++) {
-    headers.push(
-      <Box px="8px">
-        <Text textStyle="body1" color="gray.dark">
-          {format(day, 'EEEEE')}
-        </Text>
-      </Box>,
-    );
-    day = add(day, { days: 1 });
-  }
+  const closeEventModal = () => {
+    setSelectedEvents([]);
+    onClose();
+  };
 
   const eventChips = events.map((e, i) => (
-    <Box key={i} bg="green.500" borderRadius="5px" py="2px" px="8px">
+    <Box
+      key={i}
+      bg="green.500"
+      borderRadius="5px"
+      py={['10px', null, '2px']}
+      px="8px"
+      onClick={() => openEventModalById(e.id)}
+      cursor="pointer"
+      w="100%"
+    >
       {e.title} - {format(e.eventDate, 'M/dd/yyyy')}
     </Box>
   ));
@@ -93,34 +102,34 @@ function EventCalendarSection(): JSX.Element {
       <Box marginBottom={50}>
         <SectionHeader text="Calendar" textPosition="right" />
       </Box>
-      <Heading textStyle="heading2" ml="90px" mb="24px" textTransform="uppercase" textAlign="start">
-        {monthYear}
-      </Heading>
       <SimpleGrid
         mx="40px"
         gridColumnGap="40px"
-        gridTemplateAreas={`"headers ."\n"calendar chips"`}
-        gridTemplateColumns="1fr 200px"
+        gridTemplateAreas={[`"calendar"\n"chips"`, null, `"calendar chips"`]}
+        gridTemplateColumns={['1fr', null, '1fr 250px']}
       >
-        <Grid templateColumns="repeat(7, 1fr)" ml="50px" gridArea="headers">
-          {headers}
+        <Grid ml={[0, null, '50px']} gridArea="calendar">
+          <Calendar
+            eventDates={events.map(event => event.eventDate)}
+            onDateClick={openEventModalByDate}
+          />
         </Grid>
-        <Grid
-          ml="50px"
-          templateColumns="repeat(7, 1fr)"
-          templateRows="repeat(5, 1fr)"
-          textAlign="left"
-          gap="1px"
-          backgroundColor="#E0E0E0"
-          border="1px solid #E0E0E0"
-          gridArea="calendar"
-        >
-          {rows}
-        </Grid>
-        <VStack w="200px" spacing={5} gridArea="chips">
+        <VStack spacing={5} gridArea="chips" mt={[0, null, '100px']}>
           {eventChips}
         </VStack>
       </SimpleGrid>
+
+      <Modal isOpen={isOpen} onClose={closeEventModal} isCentered scrollBehavior="inside">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody p={5}>
+            {selectedEvents.map(event => {
+              return <EventModalCard event={event} key={event?.id} />;
+            })}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }
