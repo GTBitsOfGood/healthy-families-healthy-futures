@@ -42,6 +42,14 @@ const TEMP_EVENTS = [
     description:
       'Bacon ipsum dolor amet meatloaf short ribs shank pork bresaola. Filet mignon frankfurter beef, buffalo pancetta brisket cupim pork chop turkey hamburger capicola chicken cow sausage. Ribeye bresaola burgdoggen beef ribs shank kielbasa chislic chuck tail ham hock pork jowl, pork belly meatball. Short ribs beef ribs turducken tenderloin sausage picanha boudin kielbasa andouille cow.',
   },
+  {
+    id: 4,
+    title: 'Healthy Cooking Class 3',
+    eventDate: 'Wednesday, April 24th',
+    link: '#',
+    description:
+      'Bacon ipsum dolor amet meatloaf short ribs shank pork bresaola. Filet mignon frankfurter beef, buffalo pancetta brisket cupim pork chop turkey hamburger capicola chicken cow sausage. Ribeye bresaola burgdoggen beef ribs shank kielbasa chislic chuck tail ham hock pork jowl, pork belly meatball. Short ribs beef ribs turducken tenderloin sausage picanha boudin kielbasa andouille cow.',
+  },
 ];
 
 function EventCalendarSection(): JSX.Element {
@@ -111,7 +119,7 @@ function EventCalendarSection(): JSX.Element {
         </VStack>
       </SimpleGrid>
 
-      <Modal isOpen={isOpen} onClose={closeEventModal} isCentered>
+      <Modal isOpen={isOpen} onClose={closeEventModal} isCentered scrollBehavior="inside">
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />

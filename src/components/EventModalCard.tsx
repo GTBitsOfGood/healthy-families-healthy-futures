@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Text, Button, Box, Link, LinkOverlay } from '@chakra-ui/react';
-import { format } from 'date-fns';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { Text, Button, Box, LinkOverlay } from '@chakra-ui/react';
+import { format } from 'date-fns';
 
 interface EventProps {
   event: {
