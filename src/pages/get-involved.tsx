@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import BasicBanner from 'src/components/BasicBanner';
 import Layout from 'src/components/Layout';
+import { useLocale } from 'src/contexts/LocaleContext';
 import DonateSection from 'src/sections/DonateBanner';
 import DonationDetailSection from 'src/sections/DonationDetailSection';
 import GetInvolvedSection from 'src/sections/GetInvolvedSection';
@@ -14,10 +15,13 @@ interface Props extends PageProps {
 
 const GetInvolvedPage = (props: Props) => {
   const { data, location } = props;
+  const { findLocale } = useLocale();
+
+  const header = findLocale(data.allContentfulHeaderSection.nodes);
 
   return (
     <Layout location={location}>
-      <BasicBanner title="Get Involved" />
+      <BasicBanner data={header} />
       <GetInvolvedSection data={data} />
       <DonationDetailSection data={data} />
       <DonateSection data={data} />
@@ -33,6 +37,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allContentfulHeaderSection(filter: { key: { eq: "get-involved" } }) {
+      nodes {
+        ...BasicBanner
+        node_locale
       }
     }
     ...DonationDetail

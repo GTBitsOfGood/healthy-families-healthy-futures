@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import BasicBanner from 'src/components/BasicBanner';
 import Layout from 'src/components/Layout';
+import { useLocale } from 'src/contexts/LocaleContext';
 import DonateBanner from 'src/sections/DonateBanner';
 import EventCalendarSection from 'src/sections/EventCalendarSection';
 import NewsletterBanner from 'src/sections/NewsletterBanner';
@@ -13,9 +14,13 @@ interface Props extends PageProps {
 }
 
 function EventsPage(props: Props): JSX.Element {
+  const { findLocale } = useLocale();
+
+  const header = findLocale(props.data.allContentfulHeaderSection.nodes);
+
   return (
     <Layout location={props.location}>
-      <BasicBanner title="Events &amp; Classes" />
+      <BasicBanner data={header} />
       <EventCalendarSection />
       <UpcomingEventsSection />
       <DonateBanner data={props.data} />
@@ -31,6 +36,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allContentfulHeaderSection(filter: { key: { eq: "events-classes" } }) {
+      nodes {
+        ...BasicBanner
+        node_locale
       }
     }
     ...DonateBanner

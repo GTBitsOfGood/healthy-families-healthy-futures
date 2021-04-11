@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import BasicBanner from 'src/components/BasicBanner';
 import Layout from 'src/components/Layout';
+import { useLocale } from 'src/contexts/LocaleContext';
 import DonateBanner from 'src/sections/DonateBanner';
 import LinkDocSection from 'src/sections/LinkDocSection';
 import MediaGallerySection from 'src/sections/MediaGallerySection';
@@ -13,9 +14,13 @@ interface Props extends PageProps {
 }
 
 function ResourcesPage({ data, location }: Props): JSX.Element {
+  const { findLocale } = useLocale();
+
+  const header = findLocale(data.allContentfulHeaderSection.nodes);
+
   return (
     <Layout location={location}>
-      <BasicBanner title="Resources" />
+      <BasicBanner data={header} />
       <LinkDocSection data={data} />
       <MediaGallerySection data={data} />
       <DonateBanner data={data} />
@@ -31,6 +36,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allContentfulHeaderSection(filter: { key: { eq: "resources" } }) {
+      nodes {
+        ...BasicBanner
+        node_locale
       }
     }
     ...LinkDoc

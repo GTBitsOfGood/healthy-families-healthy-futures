@@ -28,6 +28,12 @@ const theme = extendTheme({
     },
   },
   textStyles: {
+    pageHeading: {
+      fontSize: [20, null, 50],
+      lineHeight: [`31px`, null, `68px`],
+      fontWeight: 800,
+      textTransform: 'uppercase',
+    },
     heading1: {
       fontSize: [20, null, 35],
       lineHeight: ['31px', null, '55px'],
