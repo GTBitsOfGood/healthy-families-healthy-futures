@@ -1,4 +1,4 @@
-import React, { ReactText } from 'react';
+import React from 'react';
 
 import {
   Accordion,
@@ -8,18 +8,18 @@ import {
   AccordionPanel,
   Box,
   Checkbox,
-  CheckboxGroup,
   VStack,
 } from '@chakra-ui/react';
+import { Tag } from 'src/utils/types';
 
 interface Props {
   category: string;
-  options: ReactText[];
-  selectedOptions: ReactText[];
-  onChange: (options: string[]) => void;
+  options: Tag[];
+  selectedOptions: Tag[];
+  onOptionChange: (checked: boolean, option: Tag) => void;
 }
 
-function FilterGroup({ category, options, selectedOptions, onChange }: Props): JSX.Element {
+function FilterGroup({ category, options, selectedOptions, onOptionChange }: Props): JSX.Element {
   return (
     <Accordion allowToggle borderColor="white" defaultIndex={0}>
       <AccordionItem>
@@ -30,22 +30,22 @@ function FilterGroup({ category, options, selectedOptions, onChange }: Props): J
           <AccordionIcon />
         </AccordionButton>
         <AccordionPanel paddingBottom={4}>
-          <CheckboxGroup value={selectedOptions} onChange={onChange}>
-            <VStack align="left">
-              {options.map(option => (
-                <Checkbox
-                  key={option}
-                  value={option}
-                  spacing={5}
-                  borderColor="gray.400"
-                  color="gray.700"
-                  colorScheme="green"
-                >
-                  {option}
-                </Checkbox>
-              ))}
-            </VStack>
-          </CheckboxGroup>
+          <VStack align="left">
+            {options.map(option => (
+              <Checkbox
+                key={option.key}
+                value={option.key}
+                spacing={5}
+                borderColor="gray.400"
+                color="gray.700"
+                colorScheme="green"
+                isChecked={selectedOptions.some(o => o.key === option.key)}
+                onChange={e => onOptionChange(e.target.checked, option)}
+              >
+                {option.name}
+              </Checkbox>
+            ))}
+          </VStack>
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
