@@ -73,7 +73,7 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
   }
 
   return (
-    <Box pb="160px">
+    <Box pb={['50px', null, '160px']}>
       <Heading textStyle="heading2" mb="24px" textTransform="uppercase" textAlign="start">
         {monthYear}
       </Heading>

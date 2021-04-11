@@ -65,10 +65,11 @@ function EventCalendarSection(): JSX.Element {
       key={i}
       bg="green.500"
       borderRadius="5px"
-      py="2px"
+      py={['10px', null, '2px']}
       px="8px"
       onClick={() => openEventModal(e.eventDate)}
       cursor="pointer"
+      w="100%"
     >
       {e.title} - {format(e.eventDate, 'M/dd/yyyy')}
     </Box>
@@ -85,13 +86,13 @@ function EventCalendarSection(): JSX.Element {
         gridTemplateAreas={[`"calendar"\n"chips"`, null, `"calendar chips"`]}
         gridTemplateColumns={['1fr', null, '1fr 250px']}
       >
-        <Grid ml="50px" gridArea="calendar">
+        <Grid ml={'50px'} gridArea="calendar">
           <Calendar
             eventDates={events.map(event => event.eventDate)}
             onDateClick={openEventModal}
           />
         </Grid>
-        <VStack w="200px" spacing={5} gridArea="chips">
+        <VStack spacing={5} gridArea="chips" mt={[0, null, '100px']}>
           {eventChips}
         </VStack>
       </SimpleGrid>
@@ -100,7 +101,7 @@ function EventCalendarSection(): JSX.Element {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody p={5}>
             <Text textStyle="heading2">{currentEvent?.title}</Text>
             <Text textStyle="subheading1">
               {currentEvent?.eventDate && format(currentEvent?.eventDate, 'EEEE, d MMMM')}
