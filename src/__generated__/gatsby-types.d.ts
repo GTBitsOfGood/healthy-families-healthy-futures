@@ -6799,6 +6799,73 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___yield = 'recipe.yield',
   recipe___prepTime = 'recipe.prepTime',
   recipe___totalTime = 'recipe.totalTime',
+  recipe___featured = 'recipe.featured',
+  recipe___mainImage___contentful_id = 'recipe.mainImage.contentful_id',
+  recipe___mainImage___id = 'recipe.mainImage.id',
+  recipe___mainImage___spaceId = 'recipe.mainImage.spaceId',
+  recipe___mainImage___createdAt = 'recipe.mainImage.createdAt',
+  recipe___mainImage___updatedAt = 'recipe.mainImage.updatedAt',
+  recipe___mainImage___file___url = 'recipe.mainImage.file.url',
+  recipe___mainImage___file___fileName = 'recipe.mainImage.file.fileName',
+  recipe___mainImage___file___contentType = 'recipe.mainImage.file.contentType',
+  recipe___mainImage___title = 'recipe.mainImage.title',
+  recipe___mainImage___description = 'recipe.mainImage.description',
+  recipe___mainImage___node_locale = 'recipe.mainImage.node_locale',
+  recipe___mainImage___sys___type = 'recipe.mainImage.sys.type',
+  recipe___mainImage___sys___revision = 'recipe.mainImage.sys.revision',
+  recipe___mainImage___fixed___base64 = 'recipe.mainImage.fixed.base64',
+  recipe___mainImage___fixed___tracedSVG = 'recipe.mainImage.fixed.tracedSVG',
+  recipe___mainImage___fixed___aspectRatio = 'recipe.mainImage.fixed.aspectRatio',
+  recipe___mainImage___fixed___width = 'recipe.mainImage.fixed.width',
+  recipe___mainImage___fixed___height = 'recipe.mainImage.fixed.height',
+  recipe___mainImage___fixed___src = 'recipe.mainImage.fixed.src',
+  recipe___mainImage___fixed___srcSet = 'recipe.mainImage.fixed.srcSet',
+  recipe___mainImage___fixed___srcWebp = 'recipe.mainImage.fixed.srcWebp',
+  recipe___mainImage___fixed___srcSetWebp = 'recipe.mainImage.fixed.srcSetWebp',
+  recipe___mainImage___resolutions___base64 = 'recipe.mainImage.resolutions.base64',
+  recipe___mainImage___resolutions___tracedSVG = 'recipe.mainImage.resolutions.tracedSVG',
+  recipe___mainImage___resolutions___aspectRatio = 'recipe.mainImage.resolutions.aspectRatio',
+  recipe___mainImage___resolutions___width = 'recipe.mainImage.resolutions.width',
+  recipe___mainImage___resolutions___height = 'recipe.mainImage.resolutions.height',
+  recipe___mainImage___resolutions___src = 'recipe.mainImage.resolutions.src',
+  recipe___mainImage___resolutions___srcSet = 'recipe.mainImage.resolutions.srcSet',
+  recipe___mainImage___resolutions___srcWebp = 'recipe.mainImage.resolutions.srcWebp',
+  recipe___mainImage___resolutions___srcSetWebp = 'recipe.mainImage.resolutions.srcSetWebp',
+  recipe___mainImage___fluid___base64 = 'recipe.mainImage.fluid.base64',
+  recipe___mainImage___fluid___tracedSVG = 'recipe.mainImage.fluid.tracedSVG',
+  recipe___mainImage___fluid___aspectRatio = 'recipe.mainImage.fluid.aspectRatio',
+  recipe___mainImage___fluid___src = 'recipe.mainImage.fluid.src',
+  recipe___mainImage___fluid___srcSet = 'recipe.mainImage.fluid.srcSet',
+  recipe___mainImage___fluid___srcWebp = 'recipe.mainImage.fluid.srcWebp',
+  recipe___mainImage___fluid___srcSetWebp = 'recipe.mainImage.fluid.srcSetWebp',
+  recipe___mainImage___fluid___sizes = 'recipe.mainImage.fluid.sizes',
+  recipe___mainImage___sizes___base64 = 'recipe.mainImage.sizes.base64',
+  recipe___mainImage___sizes___tracedSVG = 'recipe.mainImage.sizes.tracedSVG',
+  recipe___mainImage___sizes___aspectRatio = 'recipe.mainImage.sizes.aspectRatio',
+  recipe___mainImage___sizes___src = 'recipe.mainImage.sizes.src',
+  recipe___mainImage___sizes___srcSet = 'recipe.mainImage.sizes.srcSet',
+  recipe___mainImage___sizes___srcWebp = 'recipe.mainImage.sizes.srcWebp',
+  recipe___mainImage___sizes___srcSetWebp = 'recipe.mainImage.sizes.srcSetWebp',
+  recipe___mainImage___sizes___sizes = 'recipe.mainImage.sizes.sizes',
+  recipe___mainImage___resize___base64 = 'recipe.mainImage.resize.base64',
+  recipe___mainImage___resize___tracedSVG = 'recipe.mainImage.resize.tracedSVG',
+  recipe___mainImage___resize___src = 'recipe.mainImage.resize.src',
+  recipe___mainImage___resize___width = 'recipe.mainImage.resize.width',
+  recipe___mainImage___resize___height = 'recipe.mainImage.resize.height',
+  recipe___mainImage___resize___aspectRatio = 'recipe.mainImage.resize.aspectRatio',
+  recipe___mainImage___parent___id = 'recipe.mainImage.parent.id',
+  recipe___mainImage___parent___children = 'recipe.mainImage.parent.children',
+  recipe___mainImage___children = 'recipe.mainImage.children',
+  recipe___mainImage___children___id = 'recipe.mainImage.children.id',
+  recipe___mainImage___children___children = 'recipe.mainImage.children.children',
+  recipe___mainImage___internal___content = 'recipe.mainImage.internal.content',
+  recipe___mainImage___internal___contentDigest = 'recipe.mainImage.internal.contentDigest',
+  recipe___mainImage___internal___description = 'recipe.mainImage.internal.description',
+  recipe___mainImage___internal___fieldOwners = 'recipe.mainImage.internal.fieldOwners',
+  recipe___mainImage___internal___ignoreType = 'recipe.mainImage.internal.ignoreType',
+  recipe___mainImage___internal___mediaType = 'recipe.mainImage.internal.mediaType',
+  recipe___mainImage___internal___owner = 'recipe.mainImage.internal.owner',
+  recipe___mainImage___internal___type = 'recipe.mainImage.internal.type',
   recipe___description___id = 'recipe.description.id',
   recipe___description___parent___id = 'recipe.description.parent.id',
   recipe___description___parent___children = 'recipe.description.parent.children',
@@ -6989,7 +7056,6 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___updatedAt = 'recipe.updatedAt',
   recipe___sys___type = 'recipe.sys.type',
   recipe___sys___revision = 'recipe.sys.revision',
-  recipe___featured = 'recipe.featured',
   recipe___ingredientTags = 'recipe.ingredientTags',
   recipe___ingredientTags___contentful_id = 'recipe.ingredientTags.contentful_id',
   recipe___ingredientTags___id = 'recipe.ingredientTags.id',
@@ -7004,10 +7070,10 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___ingredientTags___recipe___yield = 'recipe.ingredientTags.recipe.yield',
   recipe___ingredientTags___recipe___prepTime = 'recipe.ingredientTags.recipe.prepTime',
   recipe___ingredientTags___recipe___totalTime = 'recipe.ingredientTags.recipe.totalTime',
+  recipe___ingredientTags___recipe___featured = 'recipe.ingredientTags.recipe.featured',
   recipe___ingredientTags___recipe___spaceId = 'recipe.ingredientTags.recipe.spaceId',
   recipe___ingredientTags___recipe___createdAt = 'recipe.ingredientTags.recipe.createdAt',
   recipe___ingredientTags___recipe___updatedAt = 'recipe.ingredientTags.recipe.updatedAt',
-  recipe___ingredientTags___recipe___featured = 'recipe.ingredientTags.recipe.featured',
   recipe___ingredientTags___recipe___ingredientTags = 'recipe.ingredientTags.recipe.ingredientTags',
   recipe___ingredientTags___recipe___foodTypeTags = 'recipe.ingredientTags.recipe.foodTypeTags',
   recipe___ingredientTags___recipe___gatsbyPath = 'recipe.ingredientTags.recipe.gatsbyPath',
@@ -7049,10 +7115,10 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___foodTypeTags___recipe___yield = 'recipe.foodTypeTags.recipe.yield',
   recipe___foodTypeTags___recipe___prepTime = 'recipe.foodTypeTags.recipe.prepTime',
   recipe___foodTypeTags___recipe___totalTime = 'recipe.foodTypeTags.recipe.totalTime',
+  recipe___foodTypeTags___recipe___featured = 'recipe.foodTypeTags.recipe.featured',
   recipe___foodTypeTags___recipe___spaceId = 'recipe.foodTypeTags.recipe.spaceId',
   recipe___foodTypeTags___recipe___createdAt = 'recipe.foodTypeTags.recipe.createdAt',
   recipe___foodTypeTags___recipe___updatedAt = 'recipe.foodTypeTags.recipe.updatedAt',
-  recipe___foodTypeTags___recipe___featured = 'recipe.foodTypeTags.recipe.featured',
   recipe___foodTypeTags___recipe___ingredientTags = 'recipe.foodTypeTags.recipe.ingredientTags',
   recipe___foodTypeTags___recipe___foodTypeTags = 'recipe.foodTypeTags.recipe.foodTypeTags',
   recipe___foodTypeTags___recipe___gatsbyPath = 'recipe.foodTypeTags.recipe.gatsbyPath',
@@ -7080,72 +7146,6 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___foodTypeTags___internal___mediaType = 'recipe.foodTypeTags.internal.mediaType',
   recipe___foodTypeTags___internal___owner = 'recipe.foodTypeTags.internal.owner',
   recipe___foodTypeTags___internal___type = 'recipe.foodTypeTags.internal.type',
-  recipe___mainImage___contentful_id = 'recipe.mainImage.contentful_id',
-  recipe___mainImage___id = 'recipe.mainImage.id',
-  recipe___mainImage___spaceId = 'recipe.mainImage.spaceId',
-  recipe___mainImage___createdAt = 'recipe.mainImage.createdAt',
-  recipe___mainImage___updatedAt = 'recipe.mainImage.updatedAt',
-  recipe___mainImage___file___url = 'recipe.mainImage.file.url',
-  recipe___mainImage___file___fileName = 'recipe.mainImage.file.fileName',
-  recipe___mainImage___file___contentType = 'recipe.mainImage.file.contentType',
-  recipe___mainImage___title = 'recipe.mainImage.title',
-  recipe___mainImage___description = 'recipe.mainImage.description',
-  recipe___mainImage___node_locale = 'recipe.mainImage.node_locale',
-  recipe___mainImage___sys___type = 'recipe.mainImage.sys.type',
-  recipe___mainImage___sys___revision = 'recipe.mainImage.sys.revision',
-  recipe___mainImage___fixed___base64 = 'recipe.mainImage.fixed.base64',
-  recipe___mainImage___fixed___tracedSVG = 'recipe.mainImage.fixed.tracedSVG',
-  recipe___mainImage___fixed___aspectRatio = 'recipe.mainImage.fixed.aspectRatio',
-  recipe___mainImage___fixed___width = 'recipe.mainImage.fixed.width',
-  recipe___mainImage___fixed___height = 'recipe.mainImage.fixed.height',
-  recipe___mainImage___fixed___src = 'recipe.mainImage.fixed.src',
-  recipe___mainImage___fixed___srcSet = 'recipe.mainImage.fixed.srcSet',
-  recipe___mainImage___fixed___srcWebp = 'recipe.mainImage.fixed.srcWebp',
-  recipe___mainImage___fixed___srcSetWebp = 'recipe.mainImage.fixed.srcSetWebp',
-  recipe___mainImage___resolutions___base64 = 'recipe.mainImage.resolutions.base64',
-  recipe___mainImage___resolutions___tracedSVG = 'recipe.mainImage.resolutions.tracedSVG',
-  recipe___mainImage___resolutions___aspectRatio = 'recipe.mainImage.resolutions.aspectRatio',
-  recipe___mainImage___resolutions___width = 'recipe.mainImage.resolutions.width',
-  recipe___mainImage___resolutions___height = 'recipe.mainImage.resolutions.height',
-  recipe___mainImage___resolutions___src = 'recipe.mainImage.resolutions.src',
-  recipe___mainImage___resolutions___srcSet = 'recipe.mainImage.resolutions.srcSet',
-  recipe___mainImage___resolutions___srcWebp = 'recipe.mainImage.resolutions.srcWebp',
-  recipe___mainImage___resolutions___srcSetWebp = 'recipe.mainImage.resolutions.srcSetWebp',
-  recipe___mainImage___fluid___base64 = 'recipe.mainImage.fluid.base64',
-  recipe___mainImage___fluid___tracedSVG = 'recipe.mainImage.fluid.tracedSVG',
-  recipe___mainImage___fluid___aspectRatio = 'recipe.mainImage.fluid.aspectRatio',
-  recipe___mainImage___fluid___src = 'recipe.mainImage.fluid.src',
-  recipe___mainImage___fluid___srcSet = 'recipe.mainImage.fluid.srcSet',
-  recipe___mainImage___fluid___srcWebp = 'recipe.mainImage.fluid.srcWebp',
-  recipe___mainImage___fluid___srcSetWebp = 'recipe.mainImage.fluid.srcSetWebp',
-  recipe___mainImage___fluid___sizes = 'recipe.mainImage.fluid.sizes',
-  recipe___mainImage___sizes___base64 = 'recipe.mainImage.sizes.base64',
-  recipe___mainImage___sizes___tracedSVG = 'recipe.mainImage.sizes.tracedSVG',
-  recipe___mainImage___sizes___aspectRatio = 'recipe.mainImage.sizes.aspectRatio',
-  recipe___mainImage___sizes___src = 'recipe.mainImage.sizes.src',
-  recipe___mainImage___sizes___srcSet = 'recipe.mainImage.sizes.srcSet',
-  recipe___mainImage___sizes___srcWebp = 'recipe.mainImage.sizes.srcWebp',
-  recipe___mainImage___sizes___srcSetWebp = 'recipe.mainImage.sizes.srcSetWebp',
-  recipe___mainImage___sizes___sizes = 'recipe.mainImage.sizes.sizes',
-  recipe___mainImage___resize___base64 = 'recipe.mainImage.resize.base64',
-  recipe___mainImage___resize___tracedSVG = 'recipe.mainImage.resize.tracedSVG',
-  recipe___mainImage___resize___src = 'recipe.mainImage.resize.src',
-  recipe___mainImage___resize___width = 'recipe.mainImage.resize.width',
-  recipe___mainImage___resize___height = 'recipe.mainImage.resize.height',
-  recipe___mainImage___resize___aspectRatio = 'recipe.mainImage.resize.aspectRatio',
-  recipe___mainImage___parent___id = 'recipe.mainImage.parent.id',
-  recipe___mainImage___parent___children = 'recipe.mainImage.parent.children',
-  recipe___mainImage___children = 'recipe.mainImage.children',
-  recipe___mainImage___children___id = 'recipe.mainImage.children.id',
-  recipe___mainImage___children___children = 'recipe.mainImage.children.children',
-  recipe___mainImage___internal___content = 'recipe.mainImage.internal.content',
-  recipe___mainImage___internal___contentDigest = 'recipe.mainImage.internal.contentDigest',
-  recipe___mainImage___internal___description = 'recipe.mainImage.internal.description',
-  recipe___mainImage___internal___fieldOwners = 'recipe.mainImage.internal.fieldOwners',
-  recipe___mainImage___internal___ignoreType = 'recipe.mainImage.internal.ignoreType',
-  recipe___mainImage___internal___mediaType = 'recipe.mainImage.internal.mediaType',
-  recipe___mainImage___internal___owner = 'recipe.mainImage.internal.owner',
-  recipe___mainImage___internal___type = 'recipe.mainImage.internal.type',
   recipe___gatsbyPath = 'recipe.gatsbyPath',
   recipe___childrenContentfulRecipeNotesTextNode = 'recipe.childrenContentfulRecipeNotesTextNode',
   recipe___childrenContentfulRecipeNotesTextNode___id = 'recipe.childrenContentfulRecipeNotesTextNode.id',
@@ -8354,6 +8354,7 @@ type ContentfulHomeBanner = ContentfulReference & ContentfulEntry & Node & {
   readonly titleLine2: Maybe<Scalars['String']>;
   readonly ctaLink: Maybe<Scalars['String']>;
   readonly ctaText: Maybe<Scalars['String']>;
+  readonly image: Maybe<ContentfulAsset>;
   readonly body: Maybe<contentfulHomeBannerBodyTextNode>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
@@ -8697,6 +8698,97 @@ enum ContentfulHomeBannerFieldsEnum {
   titleLine2 = 'titleLine2',
   ctaLink = 'ctaLink',
   ctaText = 'ctaText',
+  image___contentful_id = 'image.contentful_id',
+  image___id = 'image.id',
+  image___spaceId = 'image.spaceId',
+  image___createdAt = 'image.createdAt',
+  image___updatedAt = 'image.updatedAt',
+  image___file___url = 'image.file.url',
+  image___file___details___size = 'image.file.details.size',
+  image___file___fileName = 'image.file.fileName',
+  image___file___contentType = 'image.file.contentType',
+  image___title = 'image.title',
+  image___description = 'image.description',
+  image___node_locale = 'image.node_locale',
+  image___sys___type = 'image.sys.type',
+  image___sys___revision = 'image.sys.revision',
+  image___fixed___base64 = 'image.fixed.base64',
+  image___fixed___tracedSVG = 'image.fixed.tracedSVG',
+  image___fixed___aspectRatio = 'image.fixed.aspectRatio',
+  image___fixed___width = 'image.fixed.width',
+  image___fixed___height = 'image.fixed.height',
+  image___fixed___src = 'image.fixed.src',
+  image___fixed___srcSet = 'image.fixed.srcSet',
+  image___fixed___srcWebp = 'image.fixed.srcWebp',
+  image___fixed___srcSetWebp = 'image.fixed.srcSetWebp',
+  image___resolutions___base64 = 'image.resolutions.base64',
+  image___resolutions___tracedSVG = 'image.resolutions.tracedSVG',
+  image___resolutions___aspectRatio = 'image.resolutions.aspectRatio',
+  image___resolutions___width = 'image.resolutions.width',
+  image___resolutions___height = 'image.resolutions.height',
+  image___resolutions___src = 'image.resolutions.src',
+  image___resolutions___srcSet = 'image.resolutions.srcSet',
+  image___resolutions___srcWebp = 'image.resolutions.srcWebp',
+  image___resolutions___srcSetWebp = 'image.resolutions.srcSetWebp',
+  image___fluid___base64 = 'image.fluid.base64',
+  image___fluid___tracedSVG = 'image.fluid.tracedSVG',
+  image___fluid___aspectRatio = 'image.fluid.aspectRatio',
+  image___fluid___src = 'image.fluid.src',
+  image___fluid___srcSet = 'image.fluid.srcSet',
+  image___fluid___srcWebp = 'image.fluid.srcWebp',
+  image___fluid___srcSetWebp = 'image.fluid.srcSetWebp',
+  image___fluid___sizes = 'image.fluid.sizes',
+  image___sizes___base64 = 'image.sizes.base64',
+  image___sizes___tracedSVG = 'image.sizes.tracedSVG',
+  image___sizes___aspectRatio = 'image.sizes.aspectRatio',
+  image___sizes___src = 'image.sizes.src',
+  image___sizes___srcSet = 'image.sizes.srcSet',
+  image___sizes___srcWebp = 'image.sizes.srcWebp',
+  image___sizes___srcSetWebp = 'image.sizes.srcSetWebp',
+  image___sizes___sizes = 'image.sizes.sizes',
+  image___resize___base64 = 'image.resize.base64',
+  image___resize___tracedSVG = 'image.resize.tracedSVG',
+  image___resize___src = 'image.resize.src',
+  image___resize___width = 'image.resize.width',
+  image___resize___height = 'image.resize.height',
+  image___resize___aspectRatio = 'image.resize.aspectRatio',
+  image___parent___id = 'image.parent.id',
+  image___parent___parent___id = 'image.parent.parent.id',
+  image___parent___parent___children = 'image.parent.parent.children',
+  image___parent___children = 'image.parent.children',
+  image___parent___children___id = 'image.parent.children.id',
+  image___parent___children___children = 'image.parent.children.children',
+  image___parent___internal___content = 'image.parent.internal.content',
+  image___parent___internal___contentDigest = 'image.parent.internal.contentDigest',
+  image___parent___internal___description = 'image.parent.internal.description',
+  image___parent___internal___fieldOwners = 'image.parent.internal.fieldOwners',
+  image___parent___internal___ignoreType = 'image.parent.internal.ignoreType',
+  image___parent___internal___mediaType = 'image.parent.internal.mediaType',
+  image___parent___internal___owner = 'image.parent.internal.owner',
+  image___parent___internal___type = 'image.parent.internal.type',
+  image___children = 'image.children',
+  image___children___id = 'image.children.id',
+  image___children___parent___id = 'image.children.parent.id',
+  image___children___parent___children = 'image.children.parent.children',
+  image___children___children = 'image.children.children',
+  image___children___children___id = 'image.children.children.id',
+  image___children___children___children = 'image.children.children.children',
+  image___children___internal___content = 'image.children.internal.content',
+  image___children___internal___contentDigest = 'image.children.internal.contentDigest',
+  image___children___internal___description = 'image.children.internal.description',
+  image___children___internal___fieldOwners = 'image.children.internal.fieldOwners',
+  image___children___internal___ignoreType = 'image.children.internal.ignoreType',
+  image___children___internal___mediaType = 'image.children.internal.mediaType',
+  image___children___internal___owner = 'image.children.internal.owner',
+  image___children___internal___type = 'image.children.internal.type',
+  image___internal___content = 'image.internal.content',
+  image___internal___contentDigest = 'image.internal.contentDigest',
+  image___internal___description = 'image.internal.description',
+  image___internal___fieldOwners = 'image.internal.fieldOwners',
+  image___internal___ignoreType = 'image.internal.ignoreType',
+  image___internal___mediaType = 'image.internal.mediaType',
+  image___internal___owner = 'image.internal.owner',
+  image___internal___type = 'image.internal.type',
   body___id = 'body.id',
   body___parent___id = 'body.parent.id',
   body___parent___parent___id = 'body.parent.parent.id',
@@ -9098,6 +9190,7 @@ type ContentfulHomeBannerFilterInput = {
   readonly titleLine2: Maybe<StringQueryOperatorInput>;
   readonly ctaLink: Maybe<StringQueryOperatorInput>;
   readonly ctaText: Maybe<StringQueryOperatorInput>;
+  readonly image: Maybe<ContentfulAssetFilterInput>;
   readonly body: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
@@ -10057,6 +10150,73 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___yield = 'recipe.yield',
   recipe___prepTime = 'recipe.prepTime',
   recipe___totalTime = 'recipe.totalTime',
+  recipe___featured = 'recipe.featured',
+  recipe___mainImage___contentful_id = 'recipe.mainImage.contentful_id',
+  recipe___mainImage___id = 'recipe.mainImage.id',
+  recipe___mainImage___spaceId = 'recipe.mainImage.spaceId',
+  recipe___mainImage___createdAt = 'recipe.mainImage.createdAt',
+  recipe___mainImage___updatedAt = 'recipe.mainImage.updatedAt',
+  recipe___mainImage___file___url = 'recipe.mainImage.file.url',
+  recipe___mainImage___file___fileName = 'recipe.mainImage.file.fileName',
+  recipe___mainImage___file___contentType = 'recipe.mainImage.file.contentType',
+  recipe___mainImage___title = 'recipe.mainImage.title',
+  recipe___mainImage___description = 'recipe.mainImage.description',
+  recipe___mainImage___node_locale = 'recipe.mainImage.node_locale',
+  recipe___mainImage___sys___type = 'recipe.mainImage.sys.type',
+  recipe___mainImage___sys___revision = 'recipe.mainImage.sys.revision',
+  recipe___mainImage___fixed___base64 = 'recipe.mainImage.fixed.base64',
+  recipe___mainImage___fixed___tracedSVG = 'recipe.mainImage.fixed.tracedSVG',
+  recipe___mainImage___fixed___aspectRatio = 'recipe.mainImage.fixed.aspectRatio',
+  recipe___mainImage___fixed___width = 'recipe.mainImage.fixed.width',
+  recipe___mainImage___fixed___height = 'recipe.mainImage.fixed.height',
+  recipe___mainImage___fixed___src = 'recipe.mainImage.fixed.src',
+  recipe___mainImage___fixed___srcSet = 'recipe.mainImage.fixed.srcSet',
+  recipe___mainImage___fixed___srcWebp = 'recipe.mainImage.fixed.srcWebp',
+  recipe___mainImage___fixed___srcSetWebp = 'recipe.mainImage.fixed.srcSetWebp',
+  recipe___mainImage___resolutions___base64 = 'recipe.mainImage.resolutions.base64',
+  recipe___mainImage___resolutions___tracedSVG = 'recipe.mainImage.resolutions.tracedSVG',
+  recipe___mainImage___resolutions___aspectRatio = 'recipe.mainImage.resolutions.aspectRatio',
+  recipe___mainImage___resolutions___width = 'recipe.mainImage.resolutions.width',
+  recipe___mainImage___resolutions___height = 'recipe.mainImage.resolutions.height',
+  recipe___mainImage___resolutions___src = 'recipe.mainImage.resolutions.src',
+  recipe___mainImage___resolutions___srcSet = 'recipe.mainImage.resolutions.srcSet',
+  recipe___mainImage___resolutions___srcWebp = 'recipe.mainImage.resolutions.srcWebp',
+  recipe___mainImage___resolutions___srcSetWebp = 'recipe.mainImage.resolutions.srcSetWebp',
+  recipe___mainImage___fluid___base64 = 'recipe.mainImage.fluid.base64',
+  recipe___mainImage___fluid___tracedSVG = 'recipe.mainImage.fluid.tracedSVG',
+  recipe___mainImage___fluid___aspectRatio = 'recipe.mainImage.fluid.aspectRatio',
+  recipe___mainImage___fluid___src = 'recipe.mainImage.fluid.src',
+  recipe___mainImage___fluid___srcSet = 'recipe.mainImage.fluid.srcSet',
+  recipe___mainImage___fluid___srcWebp = 'recipe.mainImage.fluid.srcWebp',
+  recipe___mainImage___fluid___srcSetWebp = 'recipe.mainImage.fluid.srcSetWebp',
+  recipe___mainImage___fluid___sizes = 'recipe.mainImage.fluid.sizes',
+  recipe___mainImage___sizes___base64 = 'recipe.mainImage.sizes.base64',
+  recipe___mainImage___sizes___tracedSVG = 'recipe.mainImage.sizes.tracedSVG',
+  recipe___mainImage___sizes___aspectRatio = 'recipe.mainImage.sizes.aspectRatio',
+  recipe___mainImage___sizes___src = 'recipe.mainImage.sizes.src',
+  recipe___mainImage___sizes___srcSet = 'recipe.mainImage.sizes.srcSet',
+  recipe___mainImage___sizes___srcWebp = 'recipe.mainImage.sizes.srcWebp',
+  recipe___mainImage___sizes___srcSetWebp = 'recipe.mainImage.sizes.srcSetWebp',
+  recipe___mainImage___sizes___sizes = 'recipe.mainImage.sizes.sizes',
+  recipe___mainImage___resize___base64 = 'recipe.mainImage.resize.base64',
+  recipe___mainImage___resize___tracedSVG = 'recipe.mainImage.resize.tracedSVG',
+  recipe___mainImage___resize___src = 'recipe.mainImage.resize.src',
+  recipe___mainImage___resize___width = 'recipe.mainImage.resize.width',
+  recipe___mainImage___resize___height = 'recipe.mainImage.resize.height',
+  recipe___mainImage___resize___aspectRatio = 'recipe.mainImage.resize.aspectRatio',
+  recipe___mainImage___parent___id = 'recipe.mainImage.parent.id',
+  recipe___mainImage___parent___children = 'recipe.mainImage.parent.children',
+  recipe___mainImage___children = 'recipe.mainImage.children',
+  recipe___mainImage___children___id = 'recipe.mainImage.children.id',
+  recipe___mainImage___children___children = 'recipe.mainImage.children.children',
+  recipe___mainImage___internal___content = 'recipe.mainImage.internal.content',
+  recipe___mainImage___internal___contentDigest = 'recipe.mainImage.internal.contentDigest',
+  recipe___mainImage___internal___description = 'recipe.mainImage.internal.description',
+  recipe___mainImage___internal___fieldOwners = 'recipe.mainImage.internal.fieldOwners',
+  recipe___mainImage___internal___ignoreType = 'recipe.mainImage.internal.ignoreType',
+  recipe___mainImage___internal___mediaType = 'recipe.mainImage.internal.mediaType',
+  recipe___mainImage___internal___owner = 'recipe.mainImage.internal.owner',
+  recipe___mainImage___internal___type = 'recipe.mainImage.internal.type',
   recipe___description___id = 'recipe.description.id',
   recipe___description___parent___id = 'recipe.description.parent.id',
   recipe___description___parent___children = 'recipe.description.parent.children',
@@ -10247,7 +10407,6 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___updatedAt = 'recipe.updatedAt',
   recipe___sys___type = 'recipe.sys.type',
   recipe___sys___revision = 'recipe.sys.revision',
-  recipe___featured = 'recipe.featured',
   recipe___ingredientTags = 'recipe.ingredientTags',
   recipe___ingredientTags___contentful_id = 'recipe.ingredientTags.contentful_id',
   recipe___ingredientTags___id = 'recipe.ingredientTags.id',
@@ -10262,10 +10421,10 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___ingredientTags___recipe___yield = 'recipe.ingredientTags.recipe.yield',
   recipe___ingredientTags___recipe___prepTime = 'recipe.ingredientTags.recipe.prepTime',
   recipe___ingredientTags___recipe___totalTime = 'recipe.ingredientTags.recipe.totalTime',
+  recipe___ingredientTags___recipe___featured = 'recipe.ingredientTags.recipe.featured',
   recipe___ingredientTags___recipe___spaceId = 'recipe.ingredientTags.recipe.spaceId',
   recipe___ingredientTags___recipe___createdAt = 'recipe.ingredientTags.recipe.createdAt',
   recipe___ingredientTags___recipe___updatedAt = 'recipe.ingredientTags.recipe.updatedAt',
-  recipe___ingredientTags___recipe___featured = 'recipe.ingredientTags.recipe.featured',
   recipe___ingredientTags___recipe___ingredientTags = 'recipe.ingredientTags.recipe.ingredientTags',
   recipe___ingredientTags___recipe___foodTypeTags = 'recipe.ingredientTags.recipe.foodTypeTags',
   recipe___ingredientTags___recipe___gatsbyPath = 'recipe.ingredientTags.recipe.gatsbyPath',
@@ -10307,10 +10466,10 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___foodTypeTags___recipe___yield = 'recipe.foodTypeTags.recipe.yield',
   recipe___foodTypeTags___recipe___prepTime = 'recipe.foodTypeTags.recipe.prepTime',
   recipe___foodTypeTags___recipe___totalTime = 'recipe.foodTypeTags.recipe.totalTime',
+  recipe___foodTypeTags___recipe___featured = 'recipe.foodTypeTags.recipe.featured',
   recipe___foodTypeTags___recipe___spaceId = 'recipe.foodTypeTags.recipe.spaceId',
   recipe___foodTypeTags___recipe___createdAt = 'recipe.foodTypeTags.recipe.createdAt',
   recipe___foodTypeTags___recipe___updatedAt = 'recipe.foodTypeTags.recipe.updatedAt',
-  recipe___foodTypeTags___recipe___featured = 'recipe.foodTypeTags.recipe.featured',
   recipe___foodTypeTags___recipe___ingredientTags = 'recipe.foodTypeTags.recipe.ingredientTags',
   recipe___foodTypeTags___recipe___foodTypeTags = 'recipe.foodTypeTags.recipe.foodTypeTags',
   recipe___foodTypeTags___recipe___gatsbyPath = 'recipe.foodTypeTags.recipe.gatsbyPath',
@@ -10338,72 +10497,6 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___foodTypeTags___internal___mediaType = 'recipe.foodTypeTags.internal.mediaType',
   recipe___foodTypeTags___internal___owner = 'recipe.foodTypeTags.internal.owner',
   recipe___foodTypeTags___internal___type = 'recipe.foodTypeTags.internal.type',
-  recipe___mainImage___contentful_id = 'recipe.mainImage.contentful_id',
-  recipe___mainImage___id = 'recipe.mainImage.id',
-  recipe___mainImage___spaceId = 'recipe.mainImage.spaceId',
-  recipe___mainImage___createdAt = 'recipe.mainImage.createdAt',
-  recipe___mainImage___updatedAt = 'recipe.mainImage.updatedAt',
-  recipe___mainImage___file___url = 'recipe.mainImage.file.url',
-  recipe___mainImage___file___fileName = 'recipe.mainImage.file.fileName',
-  recipe___mainImage___file___contentType = 'recipe.mainImage.file.contentType',
-  recipe___mainImage___title = 'recipe.mainImage.title',
-  recipe___mainImage___description = 'recipe.mainImage.description',
-  recipe___mainImage___node_locale = 'recipe.mainImage.node_locale',
-  recipe___mainImage___sys___type = 'recipe.mainImage.sys.type',
-  recipe___mainImage___sys___revision = 'recipe.mainImage.sys.revision',
-  recipe___mainImage___fixed___base64 = 'recipe.mainImage.fixed.base64',
-  recipe___mainImage___fixed___tracedSVG = 'recipe.mainImage.fixed.tracedSVG',
-  recipe___mainImage___fixed___aspectRatio = 'recipe.mainImage.fixed.aspectRatio',
-  recipe___mainImage___fixed___width = 'recipe.mainImage.fixed.width',
-  recipe___mainImage___fixed___height = 'recipe.mainImage.fixed.height',
-  recipe___mainImage___fixed___src = 'recipe.mainImage.fixed.src',
-  recipe___mainImage___fixed___srcSet = 'recipe.mainImage.fixed.srcSet',
-  recipe___mainImage___fixed___srcWebp = 'recipe.mainImage.fixed.srcWebp',
-  recipe___mainImage___fixed___srcSetWebp = 'recipe.mainImage.fixed.srcSetWebp',
-  recipe___mainImage___resolutions___base64 = 'recipe.mainImage.resolutions.base64',
-  recipe___mainImage___resolutions___tracedSVG = 'recipe.mainImage.resolutions.tracedSVG',
-  recipe___mainImage___resolutions___aspectRatio = 'recipe.mainImage.resolutions.aspectRatio',
-  recipe___mainImage___resolutions___width = 'recipe.mainImage.resolutions.width',
-  recipe___mainImage___resolutions___height = 'recipe.mainImage.resolutions.height',
-  recipe___mainImage___resolutions___src = 'recipe.mainImage.resolutions.src',
-  recipe___mainImage___resolutions___srcSet = 'recipe.mainImage.resolutions.srcSet',
-  recipe___mainImage___resolutions___srcWebp = 'recipe.mainImage.resolutions.srcWebp',
-  recipe___mainImage___resolutions___srcSetWebp = 'recipe.mainImage.resolutions.srcSetWebp',
-  recipe___mainImage___fluid___base64 = 'recipe.mainImage.fluid.base64',
-  recipe___mainImage___fluid___tracedSVG = 'recipe.mainImage.fluid.tracedSVG',
-  recipe___mainImage___fluid___aspectRatio = 'recipe.mainImage.fluid.aspectRatio',
-  recipe___mainImage___fluid___src = 'recipe.mainImage.fluid.src',
-  recipe___mainImage___fluid___srcSet = 'recipe.mainImage.fluid.srcSet',
-  recipe___mainImage___fluid___srcWebp = 'recipe.mainImage.fluid.srcWebp',
-  recipe___mainImage___fluid___srcSetWebp = 'recipe.mainImage.fluid.srcSetWebp',
-  recipe___mainImage___fluid___sizes = 'recipe.mainImage.fluid.sizes',
-  recipe___mainImage___sizes___base64 = 'recipe.mainImage.sizes.base64',
-  recipe___mainImage___sizes___tracedSVG = 'recipe.mainImage.sizes.tracedSVG',
-  recipe___mainImage___sizes___aspectRatio = 'recipe.mainImage.sizes.aspectRatio',
-  recipe___mainImage___sizes___src = 'recipe.mainImage.sizes.src',
-  recipe___mainImage___sizes___srcSet = 'recipe.mainImage.sizes.srcSet',
-  recipe___mainImage___sizes___srcWebp = 'recipe.mainImage.sizes.srcWebp',
-  recipe___mainImage___sizes___srcSetWebp = 'recipe.mainImage.sizes.srcSetWebp',
-  recipe___mainImage___sizes___sizes = 'recipe.mainImage.sizes.sizes',
-  recipe___mainImage___resize___base64 = 'recipe.mainImage.resize.base64',
-  recipe___mainImage___resize___tracedSVG = 'recipe.mainImage.resize.tracedSVG',
-  recipe___mainImage___resize___src = 'recipe.mainImage.resize.src',
-  recipe___mainImage___resize___width = 'recipe.mainImage.resize.width',
-  recipe___mainImage___resize___height = 'recipe.mainImage.resize.height',
-  recipe___mainImage___resize___aspectRatio = 'recipe.mainImage.resize.aspectRatio',
-  recipe___mainImage___parent___id = 'recipe.mainImage.parent.id',
-  recipe___mainImage___parent___children = 'recipe.mainImage.parent.children',
-  recipe___mainImage___children = 'recipe.mainImage.children',
-  recipe___mainImage___children___id = 'recipe.mainImage.children.id',
-  recipe___mainImage___children___children = 'recipe.mainImage.children.children',
-  recipe___mainImage___internal___content = 'recipe.mainImage.internal.content',
-  recipe___mainImage___internal___contentDigest = 'recipe.mainImage.internal.contentDigest',
-  recipe___mainImage___internal___description = 'recipe.mainImage.internal.description',
-  recipe___mainImage___internal___fieldOwners = 'recipe.mainImage.internal.fieldOwners',
-  recipe___mainImage___internal___ignoreType = 'recipe.mainImage.internal.ignoreType',
-  recipe___mainImage___internal___mediaType = 'recipe.mainImage.internal.mediaType',
-  recipe___mainImage___internal___owner = 'recipe.mainImage.internal.owner',
-  recipe___mainImage___internal___type = 'recipe.mainImage.internal.type',
   recipe___gatsbyPath = 'recipe.gatsbyPath',
   recipe___childrenContentfulRecipeNotesTextNode = 'recipe.childrenContentfulRecipeNotesTextNode',
   recipe___childrenContentfulRecipeNotesTextNode___id = 'recipe.childrenContentfulRecipeNotesTextNode.id',
@@ -16865,6 +16958,8 @@ type ContentfulRecipe = ContentfulReference & ContentfulEntry & Node & {
   readonly yield: Maybe<Scalars['String']>;
   readonly prepTime: Maybe<Scalars['Int']>;
   readonly totalTime: Maybe<Scalars['Int']>;
+  readonly featured: Maybe<Scalars['Boolean']>;
+  readonly mainImage: Maybe<ContentfulAsset>;
   readonly description: Maybe<contentfulRecipeDescriptionTextNode>;
   readonly ingredients: Maybe<contentfulRecipeIngredientsTextNode>;
   readonly prepDirections: Maybe<contentfulRecipePrepDirectionsTextNode>;
@@ -16874,10 +16969,8 @@ type ContentfulRecipe = ContentfulReference & ContentfulEntry & Node & {
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
   readonly sys: Maybe<ContentfulRecipeSys>;
-  readonly featured: Maybe<Scalars['Boolean']>;
   readonly ingredientTags: Maybe<ReadonlyArray<Maybe<ContentfulIngredientTag>>>;
   readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<ContentfulFoodTypeTag>>>;
-  readonly mainImage: Maybe<ContentfulAsset>;
   readonly gatsbyPath: Maybe<Scalars['String']>;
   /** Returns all children nodes filtered by type contentfulRecipeNotesTextNode */
   readonly childrenContentfulRecipeNotesTextNode: Maybe<ReadonlyArray<Maybe<contentfulRecipeNotesTextNode>>>;
@@ -17525,6 +17618,98 @@ enum ContentfulRecipeFieldsEnum {
   yield = 'yield',
   prepTime = 'prepTime',
   totalTime = 'totalTime',
+  featured = 'featured',
+  mainImage___contentful_id = 'mainImage.contentful_id',
+  mainImage___id = 'mainImage.id',
+  mainImage___spaceId = 'mainImage.spaceId',
+  mainImage___createdAt = 'mainImage.createdAt',
+  mainImage___updatedAt = 'mainImage.updatedAt',
+  mainImage___file___url = 'mainImage.file.url',
+  mainImage___file___details___size = 'mainImage.file.details.size',
+  mainImage___file___fileName = 'mainImage.file.fileName',
+  mainImage___file___contentType = 'mainImage.file.contentType',
+  mainImage___title = 'mainImage.title',
+  mainImage___description = 'mainImage.description',
+  mainImage___node_locale = 'mainImage.node_locale',
+  mainImage___sys___type = 'mainImage.sys.type',
+  mainImage___sys___revision = 'mainImage.sys.revision',
+  mainImage___fixed___base64 = 'mainImage.fixed.base64',
+  mainImage___fixed___tracedSVG = 'mainImage.fixed.tracedSVG',
+  mainImage___fixed___aspectRatio = 'mainImage.fixed.aspectRatio',
+  mainImage___fixed___width = 'mainImage.fixed.width',
+  mainImage___fixed___height = 'mainImage.fixed.height',
+  mainImage___fixed___src = 'mainImage.fixed.src',
+  mainImage___fixed___srcSet = 'mainImage.fixed.srcSet',
+  mainImage___fixed___srcWebp = 'mainImage.fixed.srcWebp',
+  mainImage___fixed___srcSetWebp = 'mainImage.fixed.srcSetWebp',
+  mainImage___resolutions___base64 = 'mainImage.resolutions.base64',
+  mainImage___resolutions___tracedSVG = 'mainImage.resolutions.tracedSVG',
+  mainImage___resolutions___aspectRatio = 'mainImage.resolutions.aspectRatio',
+  mainImage___resolutions___width = 'mainImage.resolutions.width',
+  mainImage___resolutions___height = 'mainImage.resolutions.height',
+  mainImage___resolutions___src = 'mainImage.resolutions.src',
+  mainImage___resolutions___srcSet = 'mainImage.resolutions.srcSet',
+  mainImage___resolutions___srcWebp = 'mainImage.resolutions.srcWebp',
+  mainImage___resolutions___srcSetWebp = 'mainImage.resolutions.srcSetWebp',
+  mainImage___fluid___base64 = 'mainImage.fluid.base64',
+  mainImage___fluid___tracedSVG = 'mainImage.fluid.tracedSVG',
+  mainImage___fluid___aspectRatio = 'mainImage.fluid.aspectRatio',
+  mainImage___fluid___src = 'mainImage.fluid.src',
+  mainImage___fluid___srcSet = 'mainImage.fluid.srcSet',
+  mainImage___fluid___srcWebp = 'mainImage.fluid.srcWebp',
+  mainImage___fluid___srcSetWebp = 'mainImage.fluid.srcSetWebp',
+  mainImage___fluid___sizes = 'mainImage.fluid.sizes',
+  mainImage___sizes___base64 = 'mainImage.sizes.base64',
+  mainImage___sizes___tracedSVG = 'mainImage.sizes.tracedSVG',
+  mainImage___sizes___aspectRatio = 'mainImage.sizes.aspectRatio',
+  mainImage___sizes___src = 'mainImage.sizes.src',
+  mainImage___sizes___srcSet = 'mainImage.sizes.srcSet',
+  mainImage___sizes___srcWebp = 'mainImage.sizes.srcWebp',
+  mainImage___sizes___srcSetWebp = 'mainImage.sizes.srcSetWebp',
+  mainImage___sizes___sizes = 'mainImage.sizes.sizes',
+  mainImage___resize___base64 = 'mainImage.resize.base64',
+  mainImage___resize___tracedSVG = 'mainImage.resize.tracedSVG',
+  mainImage___resize___src = 'mainImage.resize.src',
+  mainImage___resize___width = 'mainImage.resize.width',
+  mainImage___resize___height = 'mainImage.resize.height',
+  mainImage___resize___aspectRatio = 'mainImage.resize.aspectRatio',
+  mainImage___parent___id = 'mainImage.parent.id',
+  mainImage___parent___parent___id = 'mainImage.parent.parent.id',
+  mainImage___parent___parent___children = 'mainImage.parent.parent.children',
+  mainImage___parent___children = 'mainImage.parent.children',
+  mainImage___parent___children___id = 'mainImage.parent.children.id',
+  mainImage___parent___children___children = 'mainImage.parent.children.children',
+  mainImage___parent___internal___content = 'mainImage.parent.internal.content',
+  mainImage___parent___internal___contentDigest = 'mainImage.parent.internal.contentDigest',
+  mainImage___parent___internal___description = 'mainImage.parent.internal.description',
+  mainImage___parent___internal___fieldOwners = 'mainImage.parent.internal.fieldOwners',
+  mainImage___parent___internal___ignoreType = 'mainImage.parent.internal.ignoreType',
+  mainImage___parent___internal___mediaType = 'mainImage.parent.internal.mediaType',
+  mainImage___parent___internal___owner = 'mainImage.parent.internal.owner',
+  mainImage___parent___internal___type = 'mainImage.parent.internal.type',
+  mainImage___children = 'mainImage.children',
+  mainImage___children___id = 'mainImage.children.id',
+  mainImage___children___parent___id = 'mainImage.children.parent.id',
+  mainImage___children___parent___children = 'mainImage.children.parent.children',
+  mainImage___children___children = 'mainImage.children.children',
+  mainImage___children___children___id = 'mainImage.children.children.id',
+  mainImage___children___children___children = 'mainImage.children.children.children',
+  mainImage___children___internal___content = 'mainImage.children.internal.content',
+  mainImage___children___internal___contentDigest = 'mainImage.children.internal.contentDigest',
+  mainImage___children___internal___description = 'mainImage.children.internal.description',
+  mainImage___children___internal___fieldOwners = 'mainImage.children.internal.fieldOwners',
+  mainImage___children___internal___ignoreType = 'mainImage.children.internal.ignoreType',
+  mainImage___children___internal___mediaType = 'mainImage.children.internal.mediaType',
+  mainImage___children___internal___owner = 'mainImage.children.internal.owner',
+  mainImage___children___internal___type = 'mainImage.children.internal.type',
+  mainImage___internal___content = 'mainImage.internal.content',
+  mainImage___internal___contentDigest = 'mainImage.internal.contentDigest',
+  mainImage___internal___description = 'mainImage.internal.description',
+  mainImage___internal___fieldOwners = 'mainImage.internal.fieldOwners',
+  mainImage___internal___ignoreType = 'mainImage.internal.ignoreType',
+  mainImage___internal___mediaType = 'mainImage.internal.mediaType',
+  mainImage___internal___owner = 'mainImage.internal.owner',
+  mainImage___internal___type = 'mainImage.internal.type',
   description___id = 'description.id',
   description___parent___id = 'description.parent.id',
   description___parent___parent___id = 'description.parent.parent.id',
@@ -18028,7 +18213,6 @@ enum ContentfulRecipeFieldsEnum {
   sys___contentType___sys___type = 'sys.contentType.sys.type',
   sys___contentType___sys___linkType = 'sys.contentType.sys.linkType',
   sys___contentType___sys___id = 'sys.contentType.sys.id',
-  featured = 'featured',
   ingredientTags = 'ingredientTags',
   ingredientTags___contentful_id = 'ingredientTags.contentful_id',
   ingredientTags___id = 'ingredientTags.id',
@@ -18043,6 +18227,16 @@ enum ContentfulRecipeFieldsEnum {
   ingredientTags___recipe___yield = 'ingredientTags.recipe.yield',
   ingredientTags___recipe___prepTime = 'ingredientTags.recipe.prepTime',
   ingredientTags___recipe___totalTime = 'ingredientTags.recipe.totalTime',
+  ingredientTags___recipe___featured = 'ingredientTags.recipe.featured',
+  ingredientTags___recipe___mainImage___contentful_id = 'ingredientTags.recipe.mainImage.contentful_id',
+  ingredientTags___recipe___mainImage___id = 'ingredientTags.recipe.mainImage.id',
+  ingredientTags___recipe___mainImage___spaceId = 'ingredientTags.recipe.mainImage.spaceId',
+  ingredientTags___recipe___mainImage___createdAt = 'ingredientTags.recipe.mainImage.createdAt',
+  ingredientTags___recipe___mainImage___updatedAt = 'ingredientTags.recipe.mainImage.updatedAt',
+  ingredientTags___recipe___mainImage___title = 'ingredientTags.recipe.mainImage.title',
+  ingredientTags___recipe___mainImage___description = 'ingredientTags.recipe.mainImage.description',
+  ingredientTags___recipe___mainImage___node_locale = 'ingredientTags.recipe.mainImage.node_locale',
+  ingredientTags___recipe___mainImage___children = 'ingredientTags.recipe.mainImage.children',
   ingredientTags___recipe___description___id = 'ingredientTags.recipe.description.id',
   ingredientTags___recipe___description___children = 'ingredientTags.recipe.description.children',
   ingredientTags___recipe___description___description = 'ingredientTags.recipe.description.description',
@@ -18068,7 +18262,6 @@ enum ContentfulRecipeFieldsEnum {
   ingredientTags___recipe___updatedAt = 'ingredientTags.recipe.updatedAt',
   ingredientTags___recipe___sys___type = 'ingredientTags.recipe.sys.type',
   ingredientTags___recipe___sys___revision = 'ingredientTags.recipe.sys.revision',
-  ingredientTags___recipe___featured = 'ingredientTags.recipe.featured',
   ingredientTags___recipe___ingredientTags = 'ingredientTags.recipe.ingredientTags',
   ingredientTags___recipe___ingredientTags___contentful_id = 'ingredientTags.recipe.ingredientTags.contentful_id',
   ingredientTags___recipe___ingredientTags___id = 'ingredientTags.recipe.ingredientTags.id',
@@ -18091,15 +18284,6 @@ enum ContentfulRecipeFieldsEnum {
   ingredientTags___recipe___foodTypeTags___createdAt = 'ingredientTags.recipe.foodTypeTags.createdAt',
   ingredientTags___recipe___foodTypeTags___updatedAt = 'ingredientTags.recipe.foodTypeTags.updatedAt',
   ingredientTags___recipe___foodTypeTags___children = 'ingredientTags.recipe.foodTypeTags.children',
-  ingredientTags___recipe___mainImage___contentful_id = 'ingredientTags.recipe.mainImage.contentful_id',
-  ingredientTags___recipe___mainImage___id = 'ingredientTags.recipe.mainImage.id',
-  ingredientTags___recipe___mainImage___spaceId = 'ingredientTags.recipe.mainImage.spaceId',
-  ingredientTags___recipe___mainImage___createdAt = 'ingredientTags.recipe.mainImage.createdAt',
-  ingredientTags___recipe___mainImage___updatedAt = 'ingredientTags.recipe.mainImage.updatedAt',
-  ingredientTags___recipe___mainImage___title = 'ingredientTags.recipe.mainImage.title',
-  ingredientTags___recipe___mainImage___description = 'ingredientTags.recipe.mainImage.description',
-  ingredientTags___recipe___mainImage___node_locale = 'ingredientTags.recipe.mainImage.node_locale',
-  ingredientTags___recipe___mainImage___children = 'ingredientTags.recipe.mainImage.children',
   ingredientTags___recipe___gatsbyPath = 'ingredientTags.recipe.gatsbyPath',
   ingredientTags___recipe___childrenContentfulRecipeNotesTextNode = 'ingredientTags.recipe.childrenContentfulRecipeNotesTextNode',
   ingredientTags___recipe___childrenContentfulRecipeNotesTextNode___id = 'ingredientTags.recipe.childrenContentfulRecipeNotesTextNode.id',
@@ -18215,6 +18399,16 @@ enum ContentfulRecipeFieldsEnum {
   foodTypeTags___recipe___yield = 'foodTypeTags.recipe.yield',
   foodTypeTags___recipe___prepTime = 'foodTypeTags.recipe.prepTime',
   foodTypeTags___recipe___totalTime = 'foodTypeTags.recipe.totalTime',
+  foodTypeTags___recipe___featured = 'foodTypeTags.recipe.featured',
+  foodTypeTags___recipe___mainImage___contentful_id = 'foodTypeTags.recipe.mainImage.contentful_id',
+  foodTypeTags___recipe___mainImage___id = 'foodTypeTags.recipe.mainImage.id',
+  foodTypeTags___recipe___mainImage___spaceId = 'foodTypeTags.recipe.mainImage.spaceId',
+  foodTypeTags___recipe___mainImage___createdAt = 'foodTypeTags.recipe.mainImage.createdAt',
+  foodTypeTags___recipe___mainImage___updatedAt = 'foodTypeTags.recipe.mainImage.updatedAt',
+  foodTypeTags___recipe___mainImage___title = 'foodTypeTags.recipe.mainImage.title',
+  foodTypeTags___recipe___mainImage___description = 'foodTypeTags.recipe.mainImage.description',
+  foodTypeTags___recipe___mainImage___node_locale = 'foodTypeTags.recipe.mainImage.node_locale',
+  foodTypeTags___recipe___mainImage___children = 'foodTypeTags.recipe.mainImage.children',
   foodTypeTags___recipe___description___id = 'foodTypeTags.recipe.description.id',
   foodTypeTags___recipe___description___children = 'foodTypeTags.recipe.description.children',
   foodTypeTags___recipe___description___description = 'foodTypeTags.recipe.description.description',
@@ -18240,7 +18434,6 @@ enum ContentfulRecipeFieldsEnum {
   foodTypeTags___recipe___updatedAt = 'foodTypeTags.recipe.updatedAt',
   foodTypeTags___recipe___sys___type = 'foodTypeTags.recipe.sys.type',
   foodTypeTags___recipe___sys___revision = 'foodTypeTags.recipe.sys.revision',
-  foodTypeTags___recipe___featured = 'foodTypeTags.recipe.featured',
   foodTypeTags___recipe___ingredientTags = 'foodTypeTags.recipe.ingredientTags',
   foodTypeTags___recipe___ingredientTags___contentful_id = 'foodTypeTags.recipe.ingredientTags.contentful_id',
   foodTypeTags___recipe___ingredientTags___id = 'foodTypeTags.recipe.ingredientTags.id',
@@ -18263,15 +18456,6 @@ enum ContentfulRecipeFieldsEnum {
   foodTypeTags___recipe___foodTypeTags___createdAt = 'foodTypeTags.recipe.foodTypeTags.createdAt',
   foodTypeTags___recipe___foodTypeTags___updatedAt = 'foodTypeTags.recipe.foodTypeTags.updatedAt',
   foodTypeTags___recipe___foodTypeTags___children = 'foodTypeTags.recipe.foodTypeTags.children',
-  foodTypeTags___recipe___mainImage___contentful_id = 'foodTypeTags.recipe.mainImage.contentful_id',
-  foodTypeTags___recipe___mainImage___id = 'foodTypeTags.recipe.mainImage.id',
-  foodTypeTags___recipe___mainImage___spaceId = 'foodTypeTags.recipe.mainImage.spaceId',
-  foodTypeTags___recipe___mainImage___createdAt = 'foodTypeTags.recipe.mainImage.createdAt',
-  foodTypeTags___recipe___mainImage___updatedAt = 'foodTypeTags.recipe.mainImage.updatedAt',
-  foodTypeTags___recipe___mainImage___title = 'foodTypeTags.recipe.mainImage.title',
-  foodTypeTags___recipe___mainImage___description = 'foodTypeTags.recipe.mainImage.description',
-  foodTypeTags___recipe___mainImage___node_locale = 'foodTypeTags.recipe.mainImage.node_locale',
-  foodTypeTags___recipe___mainImage___children = 'foodTypeTags.recipe.mainImage.children',
   foodTypeTags___recipe___gatsbyPath = 'foodTypeTags.recipe.gatsbyPath',
   foodTypeTags___recipe___childrenContentfulRecipeNotesTextNode = 'foodTypeTags.recipe.childrenContentfulRecipeNotesTextNode',
   foodTypeTags___recipe___childrenContentfulRecipeNotesTextNode___id = 'foodTypeTags.recipe.childrenContentfulRecipeNotesTextNode.id',
@@ -18373,97 +18557,6 @@ enum ContentfulRecipeFieldsEnum {
   foodTypeTags___internal___mediaType = 'foodTypeTags.internal.mediaType',
   foodTypeTags___internal___owner = 'foodTypeTags.internal.owner',
   foodTypeTags___internal___type = 'foodTypeTags.internal.type',
-  mainImage___contentful_id = 'mainImage.contentful_id',
-  mainImage___id = 'mainImage.id',
-  mainImage___spaceId = 'mainImage.spaceId',
-  mainImage___createdAt = 'mainImage.createdAt',
-  mainImage___updatedAt = 'mainImage.updatedAt',
-  mainImage___file___url = 'mainImage.file.url',
-  mainImage___file___details___size = 'mainImage.file.details.size',
-  mainImage___file___fileName = 'mainImage.file.fileName',
-  mainImage___file___contentType = 'mainImage.file.contentType',
-  mainImage___title = 'mainImage.title',
-  mainImage___description = 'mainImage.description',
-  mainImage___node_locale = 'mainImage.node_locale',
-  mainImage___sys___type = 'mainImage.sys.type',
-  mainImage___sys___revision = 'mainImage.sys.revision',
-  mainImage___fixed___base64 = 'mainImage.fixed.base64',
-  mainImage___fixed___tracedSVG = 'mainImage.fixed.tracedSVG',
-  mainImage___fixed___aspectRatio = 'mainImage.fixed.aspectRatio',
-  mainImage___fixed___width = 'mainImage.fixed.width',
-  mainImage___fixed___height = 'mainImage.fixed.height',
-  mainImage___fixed___src = 'mainImage.fixed.src',
-  mainImage___fixed___srcSet = 'mainImage.fixed.srcSet',
-  mainImage___fixed___srcWebp = 'mainImage.fixed.srcWebp',
-  mainImage___fixed___srcSetWebp = 'mainImage.fixed.srcSetWebp',
-  mainImage___resolutions___base64 = 'mainImage.resolutions.base64',
-  mainImage___resolutions___tracedSVG = 'mainImage.resolutions.tracedSVG',
-  mainImage___resolutions___aspectRatio = 'mainImage.resolutions.aspectRatio',
-  mainImage___resolutions___width = 'mainImage.resolutions.width',
-  mainImage___resolutions___height = 'mainImage.resolutions.height',
-  mainImage___resolutions___src = 'mainImage.resolutions.src',
-  mainImage___resolutions___srcSet = 'mainImage.resolutions.srcSet',
-  mainImage___resolutions___srcWebp = 'mainImage.resolutions.srcWebp',
-  mainImage___resolutions___srcSetWebp = 'mainImage.resolutions.srcSetWebp',
-  mainImage___fluid___base64 = 'mainImage.fluid.base64',
-  mainImage___fluid___tracedSVG = 'mainImage.fluid.tracedSVG',
-  mainImage___fluid___aspectRatio = 'mainImage.fluid.aspectRatio',
-  mainImage___fluid___src = 'mainImage.fluid.src',
-  mainImage___fluid___srcSet = 'mainImage.fluid.srcSet',
-  mainImage___fluid___srcWebp = 'mainImage.fluid.srcWebp',
-  mainImage___fluid___srcSetWebp = 'mainImage.fluid.srcSetWebp',
-  mainImage___fluid___sizes = 'mainImage.fluid.sizes',
-  mainImage___sizes___base64 = 'mainImage.sizes.base64',
-  mainImage___sizes___tracedSVG = 'mainImage.sizes.tracedSVG',
-  mainImage___sizes___aspectRatio = 'mainImage.sizes.aspectRatio',
-  mainImage___sizes___src = 'mainImage.sizes.src',
-  mainImage___sizes___srcSet = 'mainImage.sizes.srcSet',
-  mainImage___sizes___srcWebp = 'mainImage.sizes.srcWebp',
-  mainImage___sizes___srcSetWebp = 'mainImage.sizes.srcSetWebp',
-  mainImage___sizes___sizes = 'mainImage.sizes.sizes',
-  mainImage___resize___base64 = 'mainImage.resize.base64',
-  mainImage___resize___tracedSVG = 'mainImage.resize.tracedSVG',
-  mainImage___resize___src = 'mainImage.resize.src',
-  mainImage___resize___width = 'mainImage.resize.width',
-  mainImage___resize___height = 'mainImage.resize.height',
-  mainImage___resize___aspectRatio = 'mainImage.resize.aspectRatio',
-  mainImage___parent___id = 'mainImage.parent.id',
-  mainImage___parent___parent___id = 'mainImage.parent.parent.id',
-  mainImage___parent___parent___children = 'mainImage.parent.parent.children',
-  mainImage___parent___children = 'mainImage.parent.children',
-  mainImage___parent___children___id = 'mainImage.parent.children.id',
-  mainImage___parent___children___children = 'mainImage.parent.children.children',
-  mainImage___parent___internal___content = 'mainImage.parent.internal.content',
-  mainImage___parent___internal___contentDigest = 'mainImage.parent.internal.contentDigest',
-  mainImage___parent___internal___description = 'mainImage.parent.internal.description',
-  mainImage___parent___internal___fieldOwners = 'mainImage.parent.internal.fieldOwners',
-  mainImage___parent___internal___ignoreType = 'mainImage.parent.internal.ignoreType',
-  mainImage___parent___internal___mediaType = 'mainImage.parent.internal.mediaType',
-  mainImage___parent___internal___owner = 'mainImage.parent.internal.owner',
-  mainImage___parent___internal___type = 'mainImage.parent.internal.type',
-  mainImage___children = 'mainImage.children',
-  mainImage___children___id = 'mainImage.children.id',
-  mainImage___children___parent___id = 'mainImage.children.parent.id',
-  mainImage___children___parent___children = 'mainImage.children.parent.children',
-  mainImage___children___children = 'mainImage.children.children',
-  mainImage___children___children___id = 'mainImage.children.children.id',
-  mainImage___children___children___children = 'mainImage.children.children.children',
-  mainImage___children___internal___content = 'mainImage.children.internal.content',
-  mainImage___children___internal___contentDigest = 'mainImage.children.internal.contentDigest',
-  mainImage___children___internal___description = 'mainImage.children.internal.description',
-  mainImage___children___internal___fieldOwners = 'mainImage.children.internal.fieldOwners',
-  mainImage___children___internal___ignoreType = 'mainImage.children.internal.ignoreType',
-  mainImage___children___internal___mediaType = 'mainImage.children.internal.mediaType',
-  mainImage___children___internal___owner = 'mainImage.children.internal.owner',
-  mainImage___children___internal___type = 'mainImage.children.internal.type',
-  mainImage___internal___content = 'mainImage.internal.content',
-  mainImage___internal___contentDigest = 'mainImage.internal.contentDigest',
-  mainImage___internal___description = 'mainImage.internal.description',
-  mainImage___internal___fieldOwners = 'mainImage.internal.fieldOwners',
-  mainImage___internal___ignoreType = 'mainImage.internal.ignoreType',
-  mainImage___internal___mediaType = 'mainImage.internal.mediaType',
-  mainImage___internal___owner = 'mainImage.internal.owner',
-  mainImage___internal___type = 'mainImage.internal.type',
   gatsbyPath = 'gatsbyPath',
   childrenContentfulRecipeNotesTextNode = 'childrenContentfulRecipeNotesTextNode',
   childrenContentfulRecipeNotesTextNode___id = 'childrenContentfulRecipeNotesTextNode.id',
@@ -19555,6 +19648,8 @@ type ContentfulRecipeFilterInput = {
   readonly yield: Maybe<StringQueryOperatorInput>;
   readonly prepTime: Maybe<IntQueryOperatorInput>;
   readonly totalTime: Maybe<IntQueryOperatorInput>;
+  readonly featured: Maybe<BooleanQueryOperatorInput>;
+  readonly mainImage: Maybe<ContentfulAssetFilterInput>;
   readonly description: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
   readonly ingredients: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
   readonly prepDirections: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
@@ -19564,10 +19659,8 @@ type ContentfulRecipeFilterInput = {
   readonly createdAt: Maybe<DateQueryOperatorInput>;
   readonly updatedAt: Maybe<DateQueryOperatorInput>;
   readonly sys: Maybe<ContentfulRecipeSysFilterInput>;
-  readonly featured: Maybe<BooleanQueryOperatorInput>;
   readonly ingredientTags: Maybe<ContentfulIngredientTagFilterListInput>;
   readonly foodTypeTags: Maybe<ContentfulFoodTypeTagFilterListInput>;
-  readonly mainImage: Maybe<ContentfulAssetFilterInput>;
   readonly gatsbyPath: Maybe<StringQueryOperatorInput>;
   readonly childrenContentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNodeFilterListInput>;
   readonly childContentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNodeFilterInput>;
@@ -24080,24 +24173,14 @@ type Query = {
   readonly allContentfulErrorPage: ContentfulErrorPageConnection;
   readonly contentfulHeaderSection: Maybe<ContentfulHeaderSection>;
   readonly allContentfulHeaderSection: ContentfulHeaderSectionConnection;
-  readonly contentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNode>;
-  readonly allContentfulRecipeNotesTextNode: contentfulRecipeNotesTextNodeConnection;
-  readonly contentfulRecipeDirectionsTextNode: Maybe<contentfulRecipeDirectionsTextNode>;
-  readonly allContentfulRecipeDirectionsTextNode: contentfulRecipeDirectionsTextNodeConnection;
-  readonly contentfulRecipePrepDirectionsTextNode: Maybe<contentfulRecipePrepDirectionsTextNode>;
-  readonly allContentfulRecipePrepDirectionsTextNode: contentfulRecipePrepDirectionsTextNodeConnection;
-  readonly contentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNode>;
-  readonly allContentfulRecipeIngredientsTextNode: contentfulRecipeIngredientsTextNodeConnection;
-  readonly contentfulRecipeDescriptionTextNode: Maybe<contentfulRecipeDescriptionTextNode>;
-  readonly allContentfulRecipeDescriptionTextNode: contentfulRecipeDescriptionTextNodeConnection;
+  readonly contentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
+  readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
   readonly contentfulResourceCardBodyTextNode: Maybe<contentfulResourceCardBodyTextNode>;
   readonly allContentfulResourceCardBodyTextNode: contentfulResourceCardBodyTextNodeConnection;
   readonly contentfulLinkDocSectionBodyTextNode: Maybe<contentfulLinkDocSectionBodyTextNode>;
   readonly allContentfulLinkDocSectionBodyTextNode: contentfulLinkDocSectionBodyTextNodeConnection;
   readonly contentfulDonationDetailSectionDescriptionTextNode: Maybe<contentfulDonationDetailSectionDescriptionTextNode>;
   readonly allContentfulDonationDetailSectionDescriptionTextNode: contentfulDonationDetailSectionDescriptionTextNodeConnection;
-  readonly contentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
-  readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
   readonly contentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNode>;
   readonly allContentfulDonateSectionBodyTextNode: contentfulDonateSectionBodyTextNodeConnection;
   readonly contentfulAboutBannerBodyTextNode: Maybe<contentfulAboutBannerBodyTextNode>;
@@ -24112,6 +24195,16 @@ type Query = {
   readonly allContentfulOurWorkCardDescriptionTextNode: contentfulOurWorkCardDescriptionTextNodeConnection;
   readonly contentfulAboutUsBannerDescriptionTextNode: Maybe<contentfulAboutUsBannerDescriptionTextNode>;
   readonly allContentfulAboutUsBannerDescriptionTextNode: contentfulAboutUsBannerDescriptionTextNodeConnection;
+  readonly contentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNode>;
+  readonly allContentfulRecipeNotesTextNode: contentfulRecipeNotesTextNodeConnection;
+  readonly contentfulRecipeDirectionsTextNode: Maybe<contentfulRecipeDirectionsTextNode>;
+  readonly allContentfulRecipeDirectionsTextNode: contentfulRecipeDirectionsTextNodeConnection;
+  readonly contentfulRecipePrepDirectionsTextNode: Maybe<contentfulRecipePrepDirectionsTextNode>;
+  readonly allContentfulRecipePrepDirectionsTextNode: contentfulRecipePrepDirectionsTextNodeConnection;
+  readonly contentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNode>;
+  readonly allContentfulRecipeIngredientsTextNode: contentfulRecipeIngredientsTextNodeConnection;
+  readonly contentfulRecipeDescriptionTextNode: Maybe<contentfulRecipeDescriptionTextNode>;
+  readonly allContentfulRecipeDescriptionTextNode: contentfulRecipeDescriptionTextNodeConnection;
   readonly contentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNode>;
   readonly allContentfulBlogPostBodyTextNode: contentfulBlogPostBodyTextNodeConnection;
   readonly contentfulBlogPostDescriptionTextNode: Maybe<contentfulBlogPostDescriptionTextNode>;
@@ -24441,6 +24534,8 @@ type Query_contentfulRecipeArgs = {
   yield: Maybe<StringQueryOperatorInput>;
   prepTime: Maybe<IntQueryOperatorInput>;
   totalTime: Maybe<IntQueryOperatorInput>;
+  featured: Maybe<BooleanQueryOperatorInput>;
+  mainImage: Maybe<ContentfulAssetFilterInput>;
   description: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
   ingredients: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
   prepDirections: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
@@ -24450,10 +24545,8 @@ type Query_contentfulRecipeArgs = {
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
   sys: Maybe<ContentfulRecipeSysFilterInput>;
-  featured: Maybe<BooleanQueryOperatorInput>;
   ingredientTags: Maybe<ContentfulIngredientTagFilterListInput>;
   foodTypeTags: Maybe<ContentfulFoodTypeTagFilterListInput>;
-  mainImage: Maybe<ContentfulAssetFilterInput>;
   gatsbyPath: Maybe<StringQueryOperatorInput>;
   childrenContentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNodeFilterListInput>;
   childContentfulRecipeNotesTextNode: Maybe<contentfulRecipeNotesTextNodeFilterInput>;
@@ -24855,6 +24948,7 @@ type Query_contentfulHomeBannerArgs = {
   titleLine2: Maybe<StringQueryOperatorInput>;
   ctaLink: Maybe<StringQueryOperatorInput>;
   ctaText: Maybe<StringQueryOperatorInput>;
+  image: Maybe<ContentfulAssetFilterInput>;
   body: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
@@ -25100,101 +25194,21 @@ type Query_allContentfulHeaderSectionArgs = {
 };
 
 
-type Query_contentfulRecipeNotesTextNodeArgs = {
+type Query_contentfulHomeBannerBodyTextNodeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  notes: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulRecipeNotesTextNodeSysFilterInput>;
+  body: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulHomeBannerBodyTextNodeSysFilterInput>;
   childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
 };
 
 
-type Query_allContentfulRecipeNotesTextNodeArgs = {
-  filter: Maybe<contentfulRecipeNotesTextNodeFilterInput>;
-  sort: Maybe<contentfulRecipeNotesTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulRecipeDirectionsTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  directions: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulRecipeDirectionsTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulRecipeDirectionsTextNodeArgs = {
-  filter: Maybe<contentfulRecipeDirectionsTextNodeFilterInput>;
-  sort: Maybe<contentfulRecipeDirectionsTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulRecipePrepDirectionsTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  prepDirections: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulRecipePrepDirectionsTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulRecipePrepDirectionsTextNodeArgs = {
-  filter: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
-  sort: Maybe<contentfulRecipePrepDirectionsTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulRecipeIngredientsTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  ingredients: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulRecipeIngredientsTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulRecipeIngredientsTextNodeArgs = {
-  filter: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
-  sort: Maybe<contentfulRecipeIngredientsTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulRecipeDescriptionTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  description: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulRecipeDescriptionTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulRecipeDescriptionTextNodeArgs = {
-  filter: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
-  sort: Maybe<contentfulRecipeDescriptionTextNodeSortInput>;
+type Query_allContentfulHomeBannerBodyTextNodeArgs = {
+  filter: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulHomeBannerBodyTextNodeSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -25255,26 +25269,6 @@ type Query_contentfulDonationDetailSectionDescriptionTextNodeArgs = {
 type Query_allContentfulDonationDetailSectionDescriptionTextNodeArgs = {
   filter: Maybe<contentfulDonationDetailSectionDescriptionTextNodeFilterInput>;
   sort: Maybe<contentfulDonationDetailSectionDescriptionTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulHomeBannerBodyTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  body: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulHomeBannerBodyTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulHomeBannerBodyTextNodeArgs = {
-  filter: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
-  sort: Maybe<contentfulHomeBannerBodyTextNodeSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -25415,6 +25409,106 @@ type Query_contentfulAboutUsBannerDescriptionTextNodeArgs = {
 type Query_allContentfulAboutUsBannerDescriptionTextNodeArgs = {
   filter: Maybe<contentfulAboutUsBannerDescriptionTextNodeFilterInput>;
   sort: Maybe<contentfulAboutUsBannerDescriptionTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulRecipeNotesTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  notes: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulRecipeNotesTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulRecipeNotesTextNodeArgs = {
+  filter: Maybe<contentfulRecipeNotesTextNodeFilterInput>;
+  sort: Maybe<contentfulRecipeNotesTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulRecipeDirectionsTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  directions: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulRecipeDirectionsTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulRecipeDirectionsTextNodeArgs = {
+  filter: Maybe<contentfulRecipeDirectionsTextNodeFilterInput>;
+  sort: Maybe<contentfulRecipeDirectionsTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulRecipePrepDirectionsTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  prepDirections: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulRecipePrepDirectionsTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulRecipePrepDirectionsTextNodeArgs = {
+  filter: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
+  sort: Maybe<contentfulRecipePrepDirectionsTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulRecipeIngredientsTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  ingredients: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulRecipeIngredientsTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulRecipeIngredientsTextNodeArgs = {
+  filter: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
+  sort: Maybe<contentfulRecipeIngredientsTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulRecipeDescriptionTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  description: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulRecipeDescriptionTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulRecipeDescriptionTextNodeArgs = {
+  filter: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
+  sort: Maybe<contentfulRecipeDescriptionTextNodeSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -26573,14 +26667,6 @@ type GetInvolvedCardFragment = (
   & { readonly icon: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
 );
 
-type OurWorkCardFragment = (
-  Pick<ContentfulOurWorkCard, 'displayIndex' | 'title' | 'ctaLink' | 'ctaText'>
-  & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> }
-);
-
 type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -26589,9 +26675,12 @@ type HeaderQuery = { readonly contentfulAsset: Maybe<(
     & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
   )> };
 
-type VideoCardFragment = (
-  Pick<ContentfulVideoCard, 'title' | 'videoLink' | 'description'>
-  & { readonly thumbnail: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
+type OurWorkCardFragment = (
+  Pick<ContentfulOurWorkCard, 'displayIndex' | 'title' | 'ctaLink' | 'ctaText'>
+  & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> }
 );
 
 type RecipeCardFragment = (
@@ -26605,6 +26694,11 @@ type RecipeCardFragment = (
 type PhotoCardFragment = (
   Pick<ContentfulPhotoCard, 'title' | 'description'>
   & { readonly image: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
+);
+
+type VideoCardFragment = (
+  Pick<ContentfulVideoCard, 'title' | 'videoLink' | 'description'>
+  & { readonly thumbnail: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
 );
 
 type ResourceCardFragment = (
@@ -26631,18 +26725,6 @@ type AboutPageQuery = (
   & NewsletterBannerFragment
 );
 
-type EventsPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type EventsPageQuery = (
-  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulHeaderSection: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulHeaderSection, 'node_locale'>
-      & BasicBannerFragment
-    )> } }
-  & DonateBannerFragment
-  & NewsletterBannerFragment
-);
-
 type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -26662,6 +26744,18 @@ type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+type EventsPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type EventsPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulHeaderSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulHeaderSection, 'node_locale'>
+      & BasicBannerFragment
+    )> } }
+  & DonateBannerFragment
+  & NewsletterBannerFragment
+);
 
 type GetInvolvedPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -26728,6 +26822,14 @@ type ResourcesPageQuery = (
   & NewsletterBannerFragment
 );
 
+type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulDonationDetailSection, 'title' | 'node_locale'>
+      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )> } };
+
 type DonateBannerFragment = { readonly allContentfulDonateSection: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulDonateSection, 'ctaLink' | 'ctaText' | 'title' | 'node_locale'>
       & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
@@ -26737,18 +26839,6 @@ type DonateBannerFragment = { readonly allContentfulDonateSection: { readonly no
         Pick<ContentfulAsset, 'description'>
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
-    )> } };
-
-type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulRecipe, 'node_locale'>
-      & RecipeCardFragment
-    )> } };
-
-type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
-
-type HomeBannerFragment = { readonly allContentfulHomeBanner: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText' | 'node_locale'>
-      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
     )> } };
 
 type AboutBannerFragment = { readonly allContentfulAboutBanner: { readonly nodes: ReadonlyArray<(
@@ -26761,6 +26851,13 @@ type AboutBannerFragment = { readonly allContentfulAboutBanner: { readonly nodes
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
     )> } };
+
+type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulRecipe, 'node_locale'>
+      & RecipeCardFragment
+    )> } };
+
+type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
 
 type LinkDocFragment = { readonly allContentfulLinkDocSection: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulLinkDocSection, 'title' | 'node_locale'>
@@ -26778,15 +26875,23 @@ type MediaGalleryFragment = { readonly allContentfulPhotoCard: { readonly nodes:
       & VideoCardFragment
     )> } };
 
-type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulDonationDetailSection, 'title' | 'node_locale'>
-      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+type NewsletterBannerFragment = { readonly allContentfulNewsletterSection: { readonly nodes: ReadonlyArray<Pick<ContentfulNewsletterSection, 'headline' | 'ctaLink' | 'ctaText' | 'node_locale'>> } };
+
+type HomeBannerFragment = { readonly allContentfulHomeBanner: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
         Pick<ContentfulAsset, 'description'>
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
     )> } };
 
-type NewsletterBannerFragment = { readonly allContentfulNewsletterSection: { readonly nodes: ReadonlyArray<Pick<ContentfulNewsletterSection, 'headline' | 'ctaLink' | 'ctaText' | 'node_locale'>> } };
+type OurFounderSectionFragment = { readonly allContentfulOurFounder: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText' | 'node_locale'>
+      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )> } };
 
 type OurWorkSectionFragment = { readonly allContentfulOurWorkCard: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulOurWorkCard, 'node_locale'>
@@ -26811,54 +26916,6 @@ type OurStorySectionFragment = { readonly allContentfulOurStory: { readonly node
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
     )> } };
-
-type OurFounderSectionFragment = { readonly allContentfulOurFounder: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText' | 'node_locale'>
-      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )> }
-    )> } };
-
-type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_withWebpFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyContentfulResolutionsFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulResolutions_tracedSVGFragment = Pick<ContentfulResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulResolutions_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulResolutions_withWebpFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulResolutions_withWebp_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulSizesFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_tracedSVGFragment = Pick<ContentfulSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -26909,5 +26966,45 @@ type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 't
 type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebpFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulResolutionsFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_tracedSVGFragment = Pick<ContentfulResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulResolutions_withWebpFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulResolutions_withWebp_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulSizesFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_tracedSVGFragment = Pick<ContentfulSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 }
