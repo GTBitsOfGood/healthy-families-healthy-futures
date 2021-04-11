@@ -43,8 +43,7 @@ function RecipeCard({ data, hideTime }: Props): JSX.Element {
       </Box>
 
       <Text textStyle="body3" fontWeight="semibold">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore
+        {data.description?.description ?? 'Missing description'}
       </Text>
     </Box>
   );
@@ -57,6 +56,9 @@ export const fragment = graphql`
     prepTime
     title
     totalTime
+    description {
+      description
+    }
     ingredients {
       ingredients
     }

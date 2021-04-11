@@ -26702,7 +26702,7 @@ type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly
 
 type RecipeCardFragment = (
   Pick<ContentfulRecipe, 'id' | 'prepTime' | 'title' | 'totalTime' | 'updatedAt' | 'yield'>
-  & { readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly mainImage: Maybe<(
+  & { readonly description: Maybe<Pick<contentfulRecipeDescriptionTextNode, 'description'>>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly mainImage: Maybe<(
     Pick<ContentfulAsset, 'description'>
     & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
   )>, readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulFoodTypeTag, 'key' | 'tagName'>>>>, readonly ingredientTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulIngredientTag, 'key' | 'tagName'>>>> }
@@ -26720,17 +26720,35 @@ type HomePageQuery = (
   & NewsletterBannerFragment
 );
 
+type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+
+type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HeaderQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+
+
 type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulRecipe, 'node_locale'>
+      & { readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>> }
       & RecipeCardFragment
     )> }, readonly allContentfulIngredientTag: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulIngredientTag, 'tagName' | 'node_locale'>
+      Pick<ContentfulIngredientTag, 'tagName' | 'key' | 'node_locale'>
       & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
     )> }, readonly allContentfulFoodTypeTag: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulFoodTypeTag, 'tagName' | 'node_locale'>
+      Pick<ContentfulFoodTypeTag, 'tagName' | 'key' | 'node_locale'>
       & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
     )> }, readonly contentfulTimeList: Maybe<Pick<ContentfulTimeList, 'timeList'>> };
 
@@ -26753,23 +26771,6 @@ type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
     Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
     & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
   )> };
-
-type FooterQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> };
-
-type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HeaderQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> };
-  
 
 type LinkDocFragment = { readonly allContentfulLinkDocSection: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulLinkDocSection, 'title' | 'node_locale'>

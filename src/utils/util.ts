@@ -12,3 +12,7 @@ export function removeNulls<T>(arr: (T | null | undefined)[]) {
 export function entries<T>(obj: T) {
   return Object.entries(obj) as Entries<T>;
 }
+
+export function keys<T>(obj: T) {
+  return Object.keys(obj) as (keyof T)[];
+}
