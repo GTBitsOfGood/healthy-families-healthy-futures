@@ -19,7 +19,7 @@ function EventsPage(props: Props): JSX.Element {
       <EventCalendarSection />
       <UpcomingEventsSection />
       <DonateBanner data={props.data} />
-      <NewsletterBanner />
+      <NewsletterBanner data={props.data} />
     </Layout>
   );
 }
@@ -34,5 +34,6 @@ export const pageQuery = graphql`
       }
     }
     ...DonateBanner
+    ...NewsletterBanner
   }
 `;
