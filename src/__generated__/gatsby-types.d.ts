@@ -26154,16 +26154,6 @@ type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe
     & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
   )> };
 
-type RecipeByTitleQueryVariables = Exact<{
-  title: Scalars['String'];
-}>;
-
-
-type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
-    Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
-    & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
-  )> };
-
 type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -26179,5 +26169,57 @@ type HeaderQuery = { readonly contentfulAsset: Maybe<(
     Pick<ContentfulAsset, 'description'>
     & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
   )> };
+
+type RecipeByTitleQueryVariables = Exact<{
+  title: Scalars['String'];
+}>;
+
+
+type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
+    Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
+    & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
+  )> };
+
+type LinkDocFragment = { readonly allContentfulLinkDocSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulLinkDocSection, 'title' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
+    )> }, readonly allContentfulResourceCard: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulResourceCard, 'node_locale'>
+      & ResourceCardFragment
+    )> } };
+
+type ResourceCardFragment = (
+  Pick<ContentfulResourceCard, 'title' | 'link'>
+  & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
+);
+
+type MediaGalleryFragment = { readonly allContentfulPhotoCard: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulPhotoCard, 'node_locale'>
+      & PhotoCardFragment
+    )> }, readonly allContentfulVideoCard: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulVideoCard, 'node_locale'>
+      & VideoCardFragment
+    )> } };
+
+type PhotoCardFragment = (
+  Pick<ContentfulPhotoCard, 'title' | 'description'>
+  & { readonly image: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
+);
+
+type VideoCardFragment = (
+  Pick<ContentfulVideoCard, 'title' | 'videoLink' | 'description'>
+  & { readonly thumbnail: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
+);
+
+type ResourcesPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ResourcesPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & LinkDocFragment
+  & MediaGalleryFragment
+  & DonateBannerFragment
+  & NewsletterBannerFragment
+);
 
 }
