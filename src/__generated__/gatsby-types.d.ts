@@ -19137,6 +19137,7 @@ type ContentfulResourceCard = ContentfulReference & ContentfulEntry & Node & {
   readonly id: Scalars['ID'];
   readonly node_locale: Scalars['String'];
   readonly title: Maybe<Scalars['String']>;
+  readonly link: Maybe<Scalars['String']>;
   readonly body: Maybe<contentfulResourceCardBodyTextNode>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
@@ -19477,6 +19478,7 @@ enum ContentfulResourceCardFieldsEnum {
   id = 'id',
   node_locale = 'node_locale',
   title = 'title',
+  link = 'link',
   body___id = 'body.id',
   body___parent___id = 'body.parent.id',
   body___parent___parent___id = 'body.parent.parent.id',
@@ -19875,6 +19877,7 @@ type ContentfulResourceCardFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly node_locale: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
+  readonly link: Maybe<StringQueryOperatorInput>;
   readonly body: Maybe<contentfulResourceCardBodyTextNodeFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
@@ -20586,8 +20589,9 @@ type ContentfulVideoCard = ContentfulReference & ContentfulEntry & Node & {
   readonly id: Scalars['ID'];
   readonly node_locale: Scalars['String'];
   readonly title: Maybe<Scalars['String']>;
+  readonly videoLink: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
-  readonly video: Maybe<ContentfulAsset>;
+  readonly thumbnail: Maybe<ContentfulAsset>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -20645,98 +20649,99 @@ enum ContentfulVideoCardFieldsEnum {
   id = 'id',
   node_locale = 'node_locale',
   title = 'title',
+  videoLink = 'videoLink',
   description = 'description',
-  video___contentful_id = 'video.contentful_id',
-  video___id = 'video.id',
-  video___spaceId = 'video.spaceId',
-  video___createdAt = 'video.createdAt',
-  video___updatedAt = 'video.updatedAt',
-  video___file___url = 'video.file.url',
-  video___file___details___size = 'video.file.details.size',
-  video___file___fileName = 'video.file.fileName',
-  video___file___contentType = 'video.file.contentType',
-  video___title = 'video.title',
-  video___description = 'video.description',
-  video___node_locale = 'video.node_locale',
-  video___sys___type = 'video.sys.type',
-  video___sys___revision = 'video.sys.revision',
-  video___fixed___base64 = 'video.fixed.base64',
-  video___fixed___tracedSVG = 'video.fixed.tracedSVG',
-  video___fixed___aspectRatio = 'video.fixed.aspectRatio',
-  video___fixed___width = 'video.fixed.width',
-  video___fixed___height = 'video.fixed.height',
-  video___fixed___src = 'video.fixed.src',
-  video___fixed___srcSet = 'video.fixed.srcSet',
-  video___fixed___srcWebp = 'video.fixed.srcWebp',
-  video___fixed___srcSetWebp = 'video.fixed.srcSetWebp',
-  video___resolutions___base64 = 'video.resolutions.base64',
-  video___resolutions___tracedSVG = 'video.resolutions.tracedSVG',
-  video___resolutions___aspectRatio = 'video.resolutions.aspectRatio',
-  video___resolutions___width = 'video.resolutions.width',
-  video___resolutions___height = 'video.resolutions.height',
-  video___resolutions___src = 'video.resolutions.src',
-  video___resolutions___srcSet = 'video.resolutions.srcSet',
-  video___resolutions___srcWebp = 'video.resolutions.srcWebp',
-  video___resolutions___srcSetWebp = 'video.resolutions.srcSetWebp',
-  video___fluid___base64 = 'video.fluid.base64',
-  video___fluid___tracedSVG = 'video.fluid.tracedSVG',
-  video___fluid___aspectRatio = 'video.fluid.aspectRatio',
-  video___fluid___src = 'video.fluid.src',
-  video___fluid___srcSet = 'video.fluid.srcSet',
-  video___fluid___srcWebp = 'video.fluid.srcWebp',
-  video___fluid___srcSetWebp = 'video.fluid.srcSetWebp',
-  video___fluid___sizes = 'video.fluid.sizes',
-  video___sizes___base64 = 'video.sizes.base64',
-  video___sizes___tracedSVG = 'video.sizes.tracedSVG',
-  video___sizes___aspectRatio = 'video.sizes.aspectRatio',
-  video___sizes___src = 'video.sizes.src',
-  video___sizes___srcSet = 'video.sizes.srcSet',
-  video___sizes___srcWebp = 'video.sizes.srcWebp',
-  video___sizes___srcSetWebp = 'video.sizes.srcSetWebp',
-  video___sizes___sizes = 'video.sizes.sizes',
-  video___resize___base64 = 'video.resize.base64',
-  video___resize___tracedSVG = 'video.resize.tracedSVG',
-  video___resize___src = 'video.resize.src',
-  video___resize___width = 'video.resize.width',
-  video___resize___height = 'video.resize.height',
-  video___resize___aspectRatio = 'video.resize.aspectRatio',
-  video___parent___id = 'video.parent.id',
-  video___parent___parent___id = 'video.parent.parent.id',
-  video___parent___parent___children = 'video.parent.parent.children',
-  video___parent___children = 'video.parent.children',
-  video___parent___children___id = 'video.parent.children.id',
-  video___parent___children___children = 'video.parent.children.children',
-  video___parent___internal___content = 'video.parent.internal.content',
-  video___parent___internal___contentDigest = 'video.parent.internal.contentDigest',
-  video___parent___internal___description = 'video.parent.internal.description',
-  video___parent___internal___fieldOwners = 'video.parent.internal.fieldOwners',
-  video___parent___internal___ignoreType = 'video.parent.internal.ignoreType',
-  video___parent___internal___mediaType = 'video.parent.internal.mediaType',
-  video___parent___internal___owner = 'video.parent.internal.owner',
-  video___parent___internal___type = 'video.parent.internal.type',
-  video___children = 'video.children',
-  video___children___id = 'video.children.id',
-  video___children___parent___id = 'video.children.parent.id',
-  video___children___parent___children = 'video.children.parent.children',
-  video___children___children = 'video.children.children',
-  video___children___children___id = 'video.children.children.id',
-  video___children___children___children = 'video.children.children.children',
-  video___children___internal___content = 'video.children.internal.content',
-  video___children___internal___contentDigest = 'video.children.internal.contentDigest',
-  video___children___internal___description = 'video.children.internal.description',
-  video___children___internal___fieldOwners = 'video.children.internal.fieldOwners',
-  video___children___internal___ignoreType = 'video.children.internal.ignoreType',
-  video___children___internal___mediaType = 'video.children.internal.mediaType',
-  video___children___internal___owner = 'video.children.internal.owner',
-  video___children___internal___type = 'video.children.internal.type',
-  video___internal___content = 'video.internal.content',
-  video___internal___contentDigest = 'video.internal.contentDigest',
-  video___internal___description = 'video.internal.description',
-  video___internal___fieldOwners = 'video.internal.fieldOwners',
-  video___internal___ignoreType = 'video.internal.ignoreType',
-  video___internal___mediaType = 'video.internal.mediaType',
-  video___internal___owner = 'video.internal.owner',
-  video___internal___type = 'video.internal.type',
+  thumbnail___contentful_id = 'thumbnail.contentful_id',
+  thumbnail___id = 'thumbnail.id',
+  thumbnail___spaceId = 'thumbnail.spaceId',
+  thumbnail___createdAt = 'thumbnail.createdAt',
+  thumbnail___updatedAt = 'thumbnail.updatedAt',
+  thumbnail___file___url = 'thumbnail.file.url',
+  thumbnail___file___details___size = 'thumbnail.file.details.size',
+  thumbnail___file___fileName = 'thumbnail.file.fileName',
+  thumbnail___file___contentType = 'thumbnail.file.contentType',
+  thumbnail___title = 'thumbnail.title',
+  thumbnail___description = 'thumbnail.description',
+  thumbnail___node_locale = 'thumbnail.node_locale',
+  thumbnail___sys___type = 'thumbnail.sys.type',
+  thumbnail___sys___revision = 'thumbnail.sys.revision',
+  thumbnail___fixed___base64 = 'thumbnail.fixed.base64',
+  thumbnail___fixed___tracedSVG = 'thumbnail.fixed.tracedSVG',
+  thumbnail___fixed___aspectRatio = 'thumbnail.fixed.aspectRatio',
+  thumbnail___fixed___width = 'thumbnail.fixed.width',
+  thumbnail___fixed___height = 'thumbnail.fixed.height',
+  thumbnail___fixed___src = 'thumbnail.fixed.src',
+  thumbnail___fixed___srcSet = 'thumbnail.fixed.srcSet',
+  thumbnail___fixed___srcWebp = 'thumbnail.fixed.srcWebp',
+  thumbnail___fixed___srcSetWebp = 'thumbnail.fixed.srcSetWebp',
+  thumbnail___resolutions___base64 = 'thumbnail.resolutions.base64',
+  thumbnail___resolutions___tracedSVG = 'thumbnail.resolutions.tracedSVG',
+  thumbnail___resolutions___aspectRatio = 'thumbnail.resolutions.aspectRatio',
+  thumbnail___resolutions___width = 'thumbnail.resolutions.width',
+  thumbnail___resolutions___height = 'thumbnail.resolutions.height',
+  thumbnail___resolutions___src = 'thumbnail.resolutions.src',
+  thumbnail___resolutions___srcSet = 'thumbnail.resolutions.srcSet',
+  thumbnail___resolutions___srcWebp = 'thumbnail.resolutions.srcWebp',
+  thumbnail___resolutions___srcSetWebp = 'thumbnail.resolutions.srcSetWebp',
+  thumbnail___fluid___base64 = 'thumbnail.fluid.base64',
+  thumbnail___fluid___tracedSVG = 'thumbnail.fluid.tracedSVG',
+  thumbnail___fluid___aspectRatio = 'thumbnail.fluid.aspectRatio',
+  thumbnail___fluid___src = 'thumbnail.fluid.src',
+  thumbnail___fluid___srcSet = 'thumbnail.fluid.srcSet',
+  thumbnail___fluid___srcWebp = 'thumbnail.fluid.srcWebp',
+  thumbnail___fluid___srcSetWebp = 'thumbnail.fluid.srcSetWebp',
+  thumbnail___fluid___sizes = 'thumbnail.fluid.sizes',
+  thumbnail___sizes___base64 = 'thumbnail.sizes.base64',
+  thumbnail___sizes___tracedSVG = 'thumbnail.sizes.tracedSVG',
+  thumbnail___sizes___aspectRatio = 'thumbnail.sizes.aspectRatio',
+  thumbnail___sizes___src = 'thumbnail.sizes.src',
+  thumbnail___sizes___srcSet = 'thumbnail.sizes.srcSet',
+  thumbnail___sizes___srcWebp = 'thumbnail.sizes.srcWebp',
+  thumbnail___sizes___srcSetWebp = 'thumbnail.sizes.srcSetWebp',
+  thumbnail___sizes___sizes = 'thumbnail.sizes.sizes',
+  thumbnail___resize___base64 = 'thumbnail.resize.base64',
+  thumbnail___resize___tracedSVG = 'thumbnail.resize.tracedSVG',
+  thumbnail___resize___src = 'thumbnail.resize.src',
+  thumbnail___resize___width = 'thumbnail.resize.width',
+  thumbnail___resize___height = 'thumbnail.resize.height',
+  thumbnail___resize___aspectRatio = 'thumbnail.resize.aspectRatio',
+  thumbnail___parent___id = 'thumbnail.parent.id',
+  thumbnail___parent___parent___id = 'thumbnail.parent.parent.id',
+  thumbnail___parent___parent___children = 'thumbnail.parent.parent.children',
+  thumbnail___parent___children = 'thumbnail.parent.children',
+  thumbnail___parent___children___id = 'thumbnail.parent.children.id',
+  thumbnail___parent___children___children = 'thumbnail.parent.children.children',
+  thumbnail___parent___internal___content = 'thumbnail.parent.internal.content',
+  thumbnail___parent___internal___contentDigest = 'thumbnail.parent.internal.contentDigest',
+  thumbnail___parent___internal___description = 'thumbnail.parent.internal.description',
+  thumbnail___parent___internal___fieldOwners = 'thumbnail.parent.internal.fieldOwners',
+  thumbnail___parent___internal___ignoreType = 'thumbnail.parent.internal.ignoreType',
+  thumbnail___parent___internal___mediaType = 'thumbnail.parent.internal.mediaType',
+  thumbnail___parent___internal___owner = 'thumbnail.parent.internal.owner',
+  thumbnail___parent___internal___type = 'thumbnail.parent.internal.type',
+  thumbnail___children = 'thumbnail.children',
+  thumbnail___children___id = 'thumbnail.children.id',
+  thumbnail___children___parent___id = 'thumbnail.children.parent.id',
+  thumbnail___children___parent___children = 'thumbnail.children.parent.children',
+  thumbnail___children___children = 'thumbnail.children.children',
+  thumbnail___children___children___id = 'thumbnail.children.children.id',
+  thumbnail___children___children___children = 'thumbnail.children.children.children',
+  thumbnail___children___internal___content = 'thumbnail.children.internal.content',
+  thumbnail___children___internal___contentDigest = 'thumbnail.children.internal.contentDigest',
+  thumbnail___children___internal___description = 'thumbnail.children.internal.description',
+  thumbnail___children___internal___fieldOwners = 'thumbnail.children.internal.fieldOwners',
+  thumbnail___children___internal___ignoreType = 'thumbnail.children.internal.ignoreType',
+  thumbnail___children___internal___mediaType = 'thumbnail.children.internal.mediaType',
+  thumbnail___children___internal___owner = 'thumbnail.children.internal.owner',
+  thumbnail___children___internal___type = 'thumbnail.children.internal.type',
+  thumbnail___internal___content = 'thumbnail.internal.content',
+  thumbnail___internal___contentDigest = 'thumbnail.internal.contentDigest',
+  thumbnail___internal___description = 'thumbnail.internal.description',
+  thumbnail___internal___fieldOwners = 'thumbnail.internal.fieldOwners',
+  thumbnail___internal___ignoreType = 'thumbnail.internal.ignoreType',
+  thumbnail___internal___mediaType = 'thumbnail.internal.mediaType',
+  thumbnail___internal___owner = 'thumbnail.internal.owner',
+  thumbnail___internal___type = 'thumbnail.internal.type',
   spaceId = 'spaceId',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
@@ -20837,8 +20842,9 @@ type ContentfulVideoCardFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly node_locale: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
+  readonly videoLink: Maybe<StringQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
-  readonly video: Maybe<ContentfulAssetFilterInput>;
+  readonly thumbnail: Maybe<ContentfulAssetFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
   readonly updatedAt: Maybe<DateQueryOperatorInput>;
@@ -23588,6 +23594,7 @@ type Query_contentfulResourceCardArgs = {
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
+  link: Maybe<StringQueryOperatorInput>;
   body: Maybe<contentfulResourceCardBodyTextNodeFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
@@ -23639,8 +23646,9 @@ type Query_contentfulVideoCardArgs = {
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
+  videoLink: Maybe<StringQueryOperatorInput>;
   description: Maybe<StringQueryOperatorInput>;
-  video: Maybe<ContentfulAssetFilterInput>;
+  thumbnail: Maybe<ContentfulAssetFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
@@ -25096,6 +25104,14 @@ type ArticlePreviewFragment = (
   & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
 );
 
+type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
+
 type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -25104,13 +25120,10 @@ type HeaderQuery = { readonly contentfulAsset: Maybe<(
     & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
   )> };
 
-type FooterQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> };
+type PhotoCardFragment = (
+  Pick<ContentfulPhotoCard, 'title' | 'description'>
+  & { readonly image: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
+);
 
 type OurWorkCardFragment = (
   Pick<ContentfulOurWorkCard, 'displayIndex' | 'title' | 'ctaLink' | 'ctaText'>
@@ -25120,12 +25133,14 @@ type OurWorkCardFragment = (
   )> }
 );
 
-type RecipeCardFragment = (
-  Pick<ContentfulRecipe, 'id' | 'prepTime' | 'title' | 'totalTime' | 'updatedAt' | 'yield'>
-  & { readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly mainImage: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )>, readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulFoodTypeTag, 'key' | 'tagName'>>>>, readonly ingredientTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulIngredientTag, 'key' | 'tagName'>>>> }
+type ResourceCardFragment = (
+  Pick<ContentfulResourceCard, 'title' | 'link'>
+  & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
+);
+
+type VideoCardFragment = (
+  Pick<ContentfulVideoCard, 'title' | 'videoLink' | 'description'>
+  & { readonly thumbnail: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
 );
 
 type BlogPostBySlugQueryVariables = Exact<{
@@ -25138,10 +25153,13 @@ type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe
     & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
   )> };
 
-type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type BlogIndexQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<ArticlePreviewFragment> } };
+type RecipeCardFragment = (
+  Pick<ContentfulRecipe, 'id' | 'prepTime' | 'title' | 'totalTime' | 'updatedAt' | 'yield'>
+  & { readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly mainImage: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )>, readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulFoodTypeTag, 'key' | 'tagName'>>>>, readonly ingredientTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulIngredientTag, 'key' | 'tagName'>>>> }
+);
 
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -25157,6 +25175,20 @@ type AboutPageQuery = (
   & NewsletterBannerFragment
 );
 
+type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type BlogIndexQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<ArticlePreviewFragment> } };
+
+type EventsPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type EventsPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & DonateBannerFragment
+  & NewsletterBannerFragment
+);
+
 type GetInvolvedPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -25168,10 +25200,27 @@ type GetInvolvedPageQuery = (
   & NewsletterBannerFragment
 );
 
-type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type RecipeByTitleQueryVariables = Exact<{
+  title: Scalars['String'];
+}>;
 
 
-type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
+    Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
+    & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
+  )> };
+
+type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HomePageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & HomeBannerFragment
+  & FeaturedRecipesSectionFragment
+  & OurWorkSectionFragment
+  & DonateBannerFragment
+  & NewsletterBannerFragment
+);
 
 type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -25187,55 +25236,10 @@ type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pi
       & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
     )> }, readonly contentfulTimeList: Maybe<Pick<ContentfulTimeList, 'timeList'>> };
 
-type EventsPageQueryVariables = Exact<{ [key: string]: never; }>;
+type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type EventsPageQuery = (
-  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
-  & DonateBannerFragment
-  & NewsletterBannerFragment
-);
-
-type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HomePageQuery = (
-  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
-  & HomeBannerFragment
-  & FeaturedRecipesSectionFragment
-  & OurWorkSectionFragment
-  & DonateBannerFragment
-  & NewsletterBannerFragment
-);
-
-type RecipeByTitleQueryVariables = Exact<{
-  title: Scalars['String'];
-}>;
-
-
-type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
-    Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
-    & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
-  )> };
-
-type DonateBannerFragment = { readonly allContentfulDonateSection: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulDonateSection, 'ctaLink' | 'ctaText' | 'title' | 'node_locale'>
-      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )>, readonly logo: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )> }
-    )> } };
-
-type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulDonationDetailSection, 'title' | 'node_locale'>
-      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )> }
-    )> } };
+type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 type AboutBannerFragment = { readonly allContentfulAboutBanner: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulAboutBanner, 'title' | 'node_locale'>
@@ -25248,31 +25252,77 @@ type AboutBannerFragment = { readonly allContentfulAboutBanner: { readonly nodes
       )> }
     )> } };
 
+type ResourcesPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ResourcesPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & LinkDocFragment
+  & MediaGalleryFragment
+  & DonateBannerFragment
+  & NewsletterBannerFragment
+);
+
+type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulDonationDetailSection, 'title' | 'node_locale'>
+      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )> } };
+
 type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulRecipe, 'node_locale'>
       & RecipeCardFragment
     )> } };
 
-type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
+type DonateBannerFragment = { readonly allContentfulDonateSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulDonateSection, 'ctaLink' | 'ctaText' | 'title' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )>, readonly logo: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )> } };
 
 type HomeBannerFragment = { readonly allContentfulHomeBanner: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText' | 'node_locale'>
       & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
     )> } };
 
-type OurStorySectionFragment = { readonly allContentfulOurStory: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulOurStory, 'title' | 'node_locale'>
-      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
+
+type OurFounderSectionFragment = { readonly allContentfulOurFounder: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText' | 'node_locale'>
+      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
         Pick<ContentfulAsset, 'description'>
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
     )> } };
 
+type MediaGalleryFragment = { readonly allContentfulPhotoCard: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulPhotoCard, 'node_locale'>
+      & PhotoCardFragment
+    )> }, readonly allContentfulVideoCard: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulVideoCard, 'node_locale'>
+      & VideoCardFragment
+    )> } };
+
 type NewsletterBannerFragment = { readonly allContentfulNewsletterSection: { readonly nodes: ReadonlyArray<Pick<ContentfulNewsletterSection, 'headline' | 'ctaLink' | 'ctaText' | 'node_locale'>> } };
 
-type OurFounderSectionFragment = { readonly allContentfulOurFounder: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText' | 'node_locale'>
-      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+type LinkDocFragment = { readonly allContentfulLinkDocSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulLinkDocSection, 'title' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
+    )> }, readonly allContentfulResourceCard: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulResourceCard, 'node_locale'>
+      & ResourceCardFragment
+    )> } };
+
+type OurStorySectionFragment = { readonly allContentfulOurStory: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulOurStory, 'title' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
         Pick<ContentfulAsset, 'description'>
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
