@@ -22,13 +22,18 @@ const GetInvolvedSection = ({ data }: Props) => {
       </Box>
       <Center>
         {variant === 'flex' ? (
-          <Flex justify="space-evenly" direction={['column', null, null, 'row']} w="100%">
+          <Flex
+            justify="space-evenly"
+            direction={['column', null, null, 'row']}
+            w="100%"
+            align="center"
+          >
             {involvementCards.map(card => (
               <GetInvolvedCard key={card.title} data={card} />
             ))}
           </Flex>
         ) : (
-          <Grid w="100%" templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)">
+          <Grid w="100%" templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)" rowGap={8}>
             {involvementCards.map(card => (
               <GridItem align="center" key={card.title} rowSpan={1} colSpan={1}>
                 <GetInvolvedCard data={card} />

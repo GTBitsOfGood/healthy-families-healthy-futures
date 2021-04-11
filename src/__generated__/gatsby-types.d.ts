@@ -7726,6 +7726,7 @@ type ContentfulGetInvolvedCard = ContentfulReference & ContentfulEntry & Node & 
   readonly node_locale: Scalars['String'];
   readonly title: Maybe<Scalars['String']>;
   readonly link: Maybe<Scalars['String']>;
+  readonly description: Maybe<Scalars['String']>;
   readonly icon: Maybe<ContentfulAsset>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
@@ -7785,6 +7786,7 @@ enum ContentfulGetInvolvedCardFieldsEnum {
   node_locale = 'node_locale',
   title = 'title',
   link = 'link',
+  description = 'description',
   icon___contentful_id = 'icon.contentful_id',
   icon___id = 'icon.id',
   icon___spaceId = 'icon.spaceId',
@@ -7977,6 +7979,7 @@ type ContentfulGetInvolvedCardFilterInput = {
   readonly node_locale: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly link: Maybe<StringQueryOperatorInput>;
+  readonly description: Maybe<StringQueryOperatorInput>;
   readonly icon: Maybe<ContentfulAssetFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
@@ -8354,6 +8357,7 @@ type ContentfulHomeBanner = ContentfulReference & ContentfulEntry & Node & {
   readonly titleLine2: Maybe<Scalars['String']>;
   readonly ctaLink: Maybe<Scalars['String']>;
   readonly ctaText: Maybe<Scalars['String']>;
+  readonly image: Maybe<ContentfulAsset>;
   readonly body: Maybe<contentfulHomeBannerBodyTextNode>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
@@ -8697,6 +8701,97 @@ enum ContentfulHomeBannerFieldsEnum {
   titleLine2 = 'titleLine2',
   ctaLink = 'ctaLink',
   ctaText = 'ctaText',
+  image___contentful_id = 'image.contentful_id',
+  image___id = 'image.id',
+  image___spaceId = 'image.spaceId',
+  image___createdAt = 'image.createdAt',
+  image___updatedAt = 'image.updatedAt',
+  image___file___url = 'image.file.url',
+  image___file___details___size = 'image.file.details.size',
+  image___file___fileName = 'image.file.fileName',
+  image___file___contentType = 'image.file.contentType',
+  image___title = 'image.title',
+  image___description = 'image.description',
+  image___node_locale = 'image.node_locale',
+  image___sys___type = 'image.sys.type',
+  image___sys___revision = 'image.sys.revision',
+  image___fixed___base64 = 'image.fixed.base64',
+  image___fixed___tracedSVG = 'image.fixed.tracedSVG',
+  image___fixed___aspectRatio = 'image.fixed.aspectRatio',
+  image___fixed___width = 'image.fixed.width',
+  image___fixed___height = 'image.fixed.height',
+  image___fixed___src = 'image.fixed.src',
+  image___fixed___srcSet = 'image.fixed.srcSet',
+  image___fixed___srcWebp = 'image.fixed.srcWebp',
+  image___fixed___srcSetWebp = 'image.fixed.srcSetWebp',
+  image___resolutions___base64 = 'image.resolutions.base64',
+  image___resolutions___tracedSVG = 'image.resolutions.tracedSVG',
+  image___resolutions___aspectRatio = 'image.resolutions.aspectRatio',
+  image___resolutions___width = 'image.resolutions.width',
+  image___resolutions___height = 'image.resolutions.height',
+  image___resolutions___src = 'image.resolutions.src',
+  image___resolutions___srcSet = 'image.resolutions.srcSet',
+  image___resolutions___srcWebp = 'image.resolutions.srcWebp',
+  image___resolutions___srcSetWebp = 'image.resolutions.srcSetWebp',
+  image___fluid___base64 = 'image.fluid.base64',
+  image___fluid___tracedSVG = 'image.fluid.tracedSVG',
+  image___fluid___aspectRatio = 'image.fluid.aspectRatio',
+  image___fluid___src = 'image.fluid.src',
+  image___fluid___srcSet = 'image.fluid.srcSet',
+  image___fluid___srcWebp = 'image.fluid.srcWebp',
+  image___fluid___srcSetWebp = 'image.fluid.srcSetWebp',
+  image___fluid___sizes = 'image.fluid.sizes',
+  image___sizes___base64 = 'image.sizes.base64',
+  image___sizes___tracedSVG = 'image.sizes.tracedSVG',
+  image___sizes___aspectRatio = 'image.sizes.aspectRatio',
+  image___sizes___src = 'image.sizes.src',
+  image___sizes___srcSet = 'image.sizes.srcSet',
+  image___sizes___srcWebp = 'image.sizes.srcWebp',
+  image___sizes___srcSetWebp = 'image.sizes.srcSetWebp',
+  image___sizes___sizes = 'image.sizes.sizes',
+  image___resize___base64 = 'image.resize.base64',
+  image___resize___tracedSVG = 'image.resize.tracedSVG',
+  image___resize___src = 'image.resize.src',
+  image___resize___width = 'image.resize.width',
+  image___resize___height = 'image.resize.height',
+  image___resize___aspectRatio = 'image.resize.aspectRatio',
+  image___parent___id = 'image.parent.id',
+  image___parent___parent___id = 'image.parent.parent.id',
+  image___parent___parent___children = 'image.parent.parent.children',
+  image___parent___children = 'image.parent.children',
+  image___parent___children___id = 'image.parent.children.id',
+  image___parent___children___children = 'image.parent.children.children',
+  image___parent___internal___content = 'image.parent.internal.content',
+  image___parent___internal___contentDigest = 'image.parent.internal.contentDigest',
+  image___parent___internal___description = 'image.parent.internal.description',
+  image___parent___internal___fieldOwners = 'image.parent.internal.fieldOwners',
+  image___parent___internal___ignoreType = 'image.parent.internal.ignoreType',
+  image___parent___internal___mediaType = 'image.parent.internal.mediaType',
+  image___parent___internal___owner = 'image.parent.internal.owner',
+  image___parent___internal___type = 'image.parent.internal.type',
+  image___children = 'image.children',
+  image___children___id = 'image.children.id',
+  image___children___parent___id = 'image.children.parent.id',
+  image___children___parent___children = 'image.children.parent.children',
+  image___children___children = 'image.children.children',
+  image___children___children___id = 'image.children.children.id',
+  image___children___children___children = 'image.children.children.children',
+  image___children___internal___content = 'image.children.internal.content',
+  image___children___internal___contentDigest = 'image.children.internal.contentDigest',
+  image___children___internal___description = 'image.children.internal.description',
+  image___children___internal___fieldOwners = 'image.children.internal.fieldOwners',
+  image___children___internal___ignoreType = 'image.children.internal.ignoreType',
+  image___children___internal___mediaType = 'image.children.internal.mediaType',
+  image___children___internal___owner = 'image.children.internal.owner',
+  image___children___internal___type = 'image.children.internal.type',
+  image___internal___content = 'image.internal.content',
+  image___internal___contentDigest = 'image.internal.contentDigest',
+  image___internal___description = 'image.internal.description',
+  image___internal___fieldOwners = 'image.internal.fieldOwners',
+  image___internal___ignoreType = 'image.internal.ignoreType',
+  image___internal___mediaType = 'image.internal.mediaType',
+  image___internal___owner = 'image.internal.owner',
+  image___internal___type = 'image.internal.type',
   body___id = 'body.id',
   body___parent___id = 'body.parent.id',
   body___parent___parent___id = 'body.parent.parent.id',
@@ -9098,6 +9193,7 @@ type ContentfulHomeBannerFilterInput = {
   readonly titleLine2: Maybe<StringQueryOperatorInput>;
   readonly ctaLink: Maybe<StringQueryOperatorInput>;
   readonly ctaText: Maybe<StringQueryOperatorInput>;
+  readonly image: Maybe<ContentfulAssetFilterInput>;
   readonly body: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
@@ -24080,14 +24176,14 @@ type Query = {
   readonly allContentfulErrorPage: ContentfulErrorPageConnection;
   readonly contentfulHeaderSection: Maybe<ContentfulHeaderSection>;
   readonly allContentfulHeaderSection: ContentfulHeaderSectionConnection;
+  readonly contentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
+  readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
   readonly contentfulResourceCardBodyTextNode: Maybe<contentfulResourceCardBodyTextNode>;
   readonly allContentfulResourceCardBodyTextNode: contentfulResourceCardBodyTextNodeConnection;
   readonly contentfulLinkDocSectionBodyTextNode: Maybe<contentfulLinkDocSectionBodyTextNode>;
   readonly allContentfulLinkDocSectionBodyTextNode: contentfulLinkDocSectionBodyTextNodeConnection;
   readonly contentfulDonationDetailSectionDescriptionTextNode: Maybe<contentfulDonationDetailSectionDescriptionTextNode>;
   readonly allContentfulDonationDetailSectionDescriptionTextNode: contentfulDonationDetailSectionDescriptionTextNodeConnection;
-  readonly contentfulHomeBannerBodyTextNode: Maybe<contentfulHomeBannerBodyTextNode>;
-  readonly allContentfulHomeBannerBodyTextNode: contentfulHomeBannerBodyTextNodeConnection;
   readonly contentfulDonateSectionBodyTextNode: Maybe<contentfulDonateSectionBodyTextNode>;
   readonly allContentfulDonateSectionBodyTextNode: contentfulDonateSectionBodyTextNodeConnection;
   readonly contentfulAboutBannerBodyTextNode: Maybe<contentfulAboutBannerBodyTextNode>;
@@ -24857,6 +24953,7 @@ type Query_contentfulHomeBannerArgs = {
   titleLine2: Maybe<StringQueryOperatorInput>;
   ctaLink: Maybe<StringQueryOperatorInput>;
   ctaText: Maybe<StringQueryOperatorInput>;
+  image: Maybe<ContentfulAssetFilterInput>;
   body: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
@@ -24884,6 +24981,7 @@ type Query_contentfulGetInvolvedCardArgs = {
   node_locale: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
   link: Maybe<StringQueryOperatorInput>;
+  description: Maybe<StringQueryOperatorInput>;
   icon: Maybe<ContentfulAssetFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
@@ -25102,6 +25200,26 @@ type Query_allContentfulHeaderSectionArgs = {
 };
 
 
+type Query_contentfulHomeBannerBodyTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  body: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulHomeBannerBodyTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulHomeBannerBodyTextNodeArgs = {
+  filter: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
+  sort: Maybe<contentfulHomeBannerBodyTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
 type Query_contentfulResourceCardBodyTextNodeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -25157,26 +25275,6 @@ type Query_contentfulDonationDetailSectionDescriptionTextNodeArgs = {
 type Query_allContentfulDonationDetailSectionDescriptionTextNodeArgs = {
   filter: Maybe<contentfulDonationDetailSectionDescriptionTextNodeFilterInput>;
   sort: Maybe<contentfulDonationDetailSectionDescriptionTextNodeSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentfulHomeBannerBodyTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  body: Maybe<StringQueryOperatorInput>;
-  sys: Maybe<contentfulHomeBannerBodyTextNodeSysFilterInput>;
-  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-type Query_allContentfulHomeBannerBodyTextNodeArgs = {
-  filter: Maybe<contentfulHomeBannerBodyTextNodeFilterInput>;
-  sort: Maybe<contentfulHomeBannerBodyTextNodeSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -26691,7 +26789,7 @@ type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { r
 type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
 
 type GetInvolvedCardFragment = (
-  Pick<ContentfulGetInvolvedCard, 'title' | 'link' | 'node_locale'>
+  Pick<ContentfulGetInvolvedCard, 'title' | 'link' | 'node_locale' | 'description'>
   & { readonly icon: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
 );
 
@@ -26817,22 +26915,6 @@ type RecipeByTitleQueryVariables = Exact<{
 type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
     Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
     & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
-  )> };
-
-type FooterQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> };
-
-type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HeaderQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
   )> };
 
 }
