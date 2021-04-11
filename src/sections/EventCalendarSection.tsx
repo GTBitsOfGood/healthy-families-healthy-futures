@@ -86,7 +86,7 @@ function EventCalendarSection(): JSX.Element {
         gridTemplateAreas={[`"calendar"\n"chips"`, null, `"calendar chips"`]}
         gridTemplateColumns={['1fr', null, '1fr 250px']}
       >
-        <Grid ml={'50px'} gridArea="calendar">
+        <Grid ml={[0, null, '50px']} gridArea="calendar">
           <Calendar
             eventDates={events.map(event => event.eventDate)}
             onDateClick={openEventModal}

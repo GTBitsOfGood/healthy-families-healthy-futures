@@ -47,7 +47,7 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
 
       week.push(
         <Box
-          h="130px"
+          h={['70px', null, '130px']}
           py="4px"
           px="8px"
           backgroundColor="white"
