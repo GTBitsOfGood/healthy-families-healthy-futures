@@ -18,6 +18,7 @@ const CalendarHeader = ({ startDate }: CalendarHeaderProps) => {
         borderBottom="solid"
         borderBottomColor="gray.light"
         borderBottomWidth="thin"
+        key={format(day, 'EEEE')}
       >
         <Text textStyle="heading2" color="gray.dark" textAlign="center">
           {format(day, 'EEEEE')}

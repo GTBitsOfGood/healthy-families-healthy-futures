@@ -30,13 +30,16 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
   while (day <= endDate) {
     const week = [];
     for (let i = 0; i < 7; i++) {
-      const currentDay = (
+      // When day is passed directly for onClick, it sets to the latest value of day
+      const selectDay = new Date(day);
+
+      const currentDayDisplay = (
         <Text
           textStyle="body1"
           color="gray.dark"
           opacity={isSameMonth(day, currDate) ? 1 : 0.5}
           cursor="pointer"
-          onClick={() => onDateClick(day)}
+          onClick={() => onDateClick(new Date(selectDay))}
         >
           {format(day, 'd')}
         </Text>
@@ -52,13 +55,14 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
           display="flex"
           justifyContent="center"
           alignItems="center"
+          key={format(day, 'yyyy-MM-dd')}
         >
           {eventDates.filter(eventDay => isSameDay(eventDay, day)).length > 0 ? (
             <Circle size="40px" bg="green.500" cursor="pointer">
-              {currentDay}
+              {currentDayDisplay}
             </Circle>
           ) : (
-            currentDay
+            currentDayDisplay
           )}
         </Box>,
       );

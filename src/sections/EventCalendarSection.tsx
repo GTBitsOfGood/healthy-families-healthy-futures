@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Box, Grid, SimpleGrid, VStack } from '@chakra-ui/react';
-import { format, parse } from 'date-fns';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  Grid,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalOverlay,
+  SimpleGrid,
+  useDisclosure,
+  VStack,
+  Text,
+  Link,
+} from '@chakra-ui/react';
+import { format, isSameDay, parse } from 'date-fns';
 import Calendar from 'src/components/calendar';
 import SectionHeader from 'src/components/SectionHeader';
 
@@ -11,22 +26,50 @@ const TEMP_EVENTS = [
     title: 'Healthy Cooking Class',
     eventDate: 'Wednesday, April 17th',
     link: '#',
+    description:
+      'Spicy jalapeno bacon ipsum dolor amet jowl bresaola cow flank burgdoggen tail pancetta tenderloin corned beef. Landjaeger beef ribs tri-tip biltong andouille cow spare ribs. Ribeye jerky jowl ground round alcatra beef. Sausage biltong shankle, bresaola ribeye bacon pancetta cupim meatball shoulder andouille turkey strip steak salami. Ribeye leberkas prosciutto, pork loin ground round corned beef short ribs landjaeger brisket pork belly. Rump meatloaf salami, prosciutto boudin pork hamburger ground round bresaola frankfurter biltong.',
   },
   {
     id: 2,
     title: 'Healthy Cooking Class',
     eventDate: 'Wednesday, April 24th',
     link: '#',
+    description:
+      'Sausage leberkas tenderloin pancetta andouille short ribs venison pork belly drumstick cow ribeye pastrami. Short loin kielbasa ribeye spare ribs short ribs. Shankle chislic landjaeger shank. Chicken meatloaf hamburger alcatra shank.',
   },
 ];
 
 function EventCalendarSection(): JSX.Element {
+  const [currentEvent, setCurrentEvent] = useState<typeof events[0] | null>();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const events = TEMP_EVENTS.map(event => {
     return { ...event, eventDate: parse(event.eventDate, 'EEEE, MMMM do', new Date()) };
   });
 
+  const openEventModal = (selectedDate: Date) => {
+    const eventsOnSelectedDate = events.filter(event => isSameDay(event.eventDate, selectedDate));
+    if (eventsOnSelectedDate.length > 0) {
+      setCurrentEvent(eventsOnSelectedDate[0]);
+      onOpen();
+    }
+  };
+
+  const closeEventModal = () => {
+    setCurrentEvent(null);
+    onClose();
+  };
+
   const eventChips = events.map((e, i) => (
-    <Box key={i} bg="green.500" borderRadius="5px" py="2px" px="8px">
+    <Box
+      key={i}
+      bg="green.500"
+      borderRadius="5px"
+      py="2px"
+      px="8px"
+      onClick={() => openEventModal(e.eventDate)}
+      cursor="pointer"
+    >
       {e.title} - {format(e.eventDate, 'M/dd/yyyy')}
     </Box>
   ));
@@ -45,13 +88,35 @@ function EventCalendarSection(): JSX.Element {
         <Grid ml="50px" gridArea="calendar">
           <Calendar
             eventDates={events.map(event => event.eventDate)}
-            onDateClick={(selectedDate: Date) => console.log(selectedDate)}
+            onDateClick={openEventModal}
           />
         </Grid>
         <VStack w="200px" spacing={5} gridArea="chips">
           {eventChips}
         </VStack>
       </SimpleGrid>
+
+      <Modal isOpen={isOpen} onClose={closeEventModal} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text textStyle="heading2">{currentEvent?.title}</Text>
+            <Text textStyle="subheading1">
+              {currentEvent?.eventDate && format(currentEvent?.eventDate, 'EEEE, d MMMM')}
+            </Text>
+            <Text my={5}>{currentEvent?.description}</Text>
+          </ModalBody>
+
+          <ModalFooter>
+            <Link to={currentEvent?.link}>
+              <Text textAlign="right" _hover={{ color: '#65BF73' }} textTransform="uppercase">
+                Learn more <ArrowForwardIcon />
+              </Text>
+            </Link>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }
