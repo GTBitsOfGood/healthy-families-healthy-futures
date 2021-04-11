@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
   Box,
   Grid,
@@ -8,16 +7,14 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalOverlay,
   SimpleGrid,
   useDisclosure,
   VStack,
-  Text,
-  Link,
 } from '@chakra-ui/react';
 import { format, isSameDay, parse } from 'date-fns';
 import Calendar from 'src/components/calendar';
+import EventModalCard from 'src/components/EventModalCard';
 import SectionHeader from 'src/components/SectionHeader';
 
 const TEMP_EVENTS = [
@@ -37,26 +34,43 @@ const TEMP_EVENTS = [
     description:
       'Sausage leberkas tenderloin pancetta andouille short ribs venison pork belly drumstick cow ribeye pastrami. Short loin kielbasa ribeye spare ribs short ribs. Shankle chislic landjaeger shank. Chicken meatloaf hamburger alcatra shank.',
   },
+  {
+    id: 3,
+    title: 'Healthy Cooking Class 2',
+    eventDate: 'Wednesday, April 24th',
+    link: '#',
+    description:
+      'Bacon ipsum dolor amet meatloaf short ribs shank pork bresaola. Filet mignon frankfurter beef, buffalo pancetta brisket cupim pork chop turkey hamburger capicola chicken cow sausage. Ribeye bresaola burgdoggen beef ribs shank kielbasa chislic chuck tail ham hock pork jowl, pork belly meatball. Short ribs beef ribs turducken tenderloin sausage picanha boudin kielbasa andouille cow.',
+  },
 ];
 
 function EventCalendarSection(): JSX.Element {
-  const [currentEvent, setCurrentEvent] = useState<typeof events[0] | null>();
+  const [selectedEvents, setSelectedEvents] = useState<typeof events>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const events = TEMP_EVENTS.map(event => {
     return { ...event, eventDate: parse(event.eventDate, 'EEEE, MMMM do', new Date()) };
   });
 
-  const openEventModal = (selectedDate: Date) => {
-    const eventsOnSelectedDate = events.filter(event => isSameDay(event.eventDate, selectedDate));
-    if (eventsOnSelectedDate.length > 0) {
-      setCurrentEvent(eventsOnSelectedDate[0]);
+  const openEventModal = (eventsToShow: typeof events) => {
+    if (eventsToShow.length > 0) {
+      setSelectedEvents(eventsToShow);
       onOpen();
     }
   };
 
+  const openEventModalByDate = (selectedDate: Date) => {
+    const eventsOnSelectedDate = events.filter(event => isSameDay(event.eventDate, selectedDate));
+    openEventModal(eventsOnSelectedDate);
+  };
+
+  const openEventModalById = (eventId: number) => {
+    const matchingEvents = events.filter(event => event.id == eventId);
+    openEventModal(matchingEvents);
+  };
+
   const closeEventModal = () => {
-    setCurrentEvent(null);
+    setSelectedEvents([]);
     onClose();
   };
 
@@ -67,7 +81,7 @@ function EventCalendarSection(): JSX.Element {
       borderRadius="5px"
       py={['10px', null, '2px']}
       px="8px"
-      onClick={() => openEventModal(e.eventDate)}
+      onClick={() => openEventModalById(e.id)}
       cursor="pointer"
       w="100%"
     >
@@ -89,7 +103,7 @@ function EventCalendarSection(): JSX.Element {
         <Grid ml={[0, null, '50px']} gridArea="calendar">
           <Calendar
             eventDates={events.map(event => event.eventDate)}
-            onDateClick={openEventModal}
+            onDateClick={openEventModalByDate}
           />
         </Grid>
         <VStack spacing={5} gridArea="chips" mt={[0, null, '100px']}>
@@ -102,20 +116,10 @@ function EventCalendarSection(): JSX.Element {
         <ModalContent>
           <ModalCloseButton />
           <ModalBody p={5}>
-            <Text textStyle="heading2">{currentEvent?.title}</Text>
-            <Text textStyle="subheading1">
-              {currentEvent?.eventDate && format(currentEvent?.eventDate, 'EEEE, d MMMM')}
-            </Text>
-            <Text my={5}>{currentEvent?.description}</Text>
+            {selectedEvents.map(event => {
+              return <EventModalCard event={event} key={event?.id} />;
+            })}
           </ModalBody>
-
-          <ModalFooter>
-            <Link to={currentEvent?.link}>
-              <Text textAlign="right" _hover={{ color: '#65BF73' }} textTransform="uppercase">
-                Learn more <ArrowForwardIcon />
-              </Text>
-            </Link>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </Box>
