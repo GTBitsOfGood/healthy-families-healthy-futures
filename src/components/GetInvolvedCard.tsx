@@ -16,16 +16,14 @@ const GetInvolvedCard = ({ data }: Props) => {
 
   return (
     <Link to={link ?? '#'}>
-      <Box w="auto" my={10}>
-        <Flex direction="column" align="center">
-          <Box w={312} h={246}>
-            {imageEl}
-          </Box>
-          <Text color="charcoal" textTransform="uppercase" textStyle="heading2">
-            {title}
-          </Text>
-        </Flex>
-      </Box>
+      <Flex direction="column" align="center" w={{ base: '30vw', md: 'auto' }} my={10}>
+        <Box w={{ base: '40vw', md: 312 }} mb={30}>
+          {imageEl}
+        </Box>
+        <Text color="charcoal" textTransform="uppercase" textStyle="heading2">
+          {title}
+        </Text>
+      </Flex>
     </Link>
   );
 };
