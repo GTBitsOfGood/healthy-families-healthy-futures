@@ -6576,6 +6576,43 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___yield = 'recipe.yield',
   recipe___prepTime = 'recipe.prepTime',
   recipe___totalTime = 'recipe.totalTime',
+  recipe___description___id = 'recipe.description.id',
+  recipe___description___parent___id = 'recipe.description.parent.id',
+  recipe___description___parent___children = 'recipe.description.parent.children',
+  recipe___description___children = 'recipe.description.children',
+  recipe___description___children___id = 'recipe.description.children.id',
+  recipe___description___children___children = 'recipe.description.children.children',
+  recipe___description___internal___content = 'recipe.description.internal.content',
+  recipe___description___internal___contentDigest = 'recipe.description.internal.contentDigest',
+  recipe___description___internal___description = 'recipe.description.internal.description',
+  recipe___description___internal___fieldOwners = 'recipe.description.internal.fieldOwners',
+  recipe___description___internal___ignoreType = 'recipe.description.internal.ignoreType',
+  recipe___description___internal___mediaType = 'recipe.description.internal.mediaType',
+  recipe___description___internal___owner = 'recipe.description.internal.owner',
+  recipe___description___internal___type = 'recipe.description.internal.type',
+  recipe___description___description = 'recipe.description.description',
+  recipe___description___sys___type = 'recipe.description.sys.type',
+  recipe___description___childrenMarkdownRemark = 'recipe.description.childrenMarkdownRemark',
+  recipe___description___childrenMarkdownRemark___id = 'recipe.description.childrenMarkdownRemark.id',
+  recipe___description___childrenMarkdownRemark___excerpt = 'recipe.description.childrenMarkdownRemark.excerpt',
+  recipe___description___childrenMarkdownRemark___rawMarkdownBody = 'recipe.description.childrenMarkdownRemark.rawMarkdownBody',
+  recipe___description___childrenMarkdownRemark___html = 'recipe.description.childrenMarkdownRemark.html',
+  recipe___description___childrenMarkdownRemark___htmlAst = 'recipe.description.childrenMarkdownRemark.htmlAst',
+  recipe___description___childrenMarkdownRemark___excerptAst = 'recipe.description.childrenMarkdownRemark.excerptAst',
+  recipe___description___childrenMarkdownRemark___headings = 'recipe.description.childrenMarkdownRemark.headings',
+  recipe___description___childrenMarkdownRemark___timeToRead = 'recipe.description.childrenMarkdownRemark.timeToRead',
+  recipe___description___childrenMarkdownRemark___tableOfContents = 'recipe.description.childrenMarkdownRemark.tableOfContents',
+  recipe___description___childrenMarkdownRemark___children = 'recipe.description.childrenMarkdownRemark.children',
+  recipe___description___childMarkdownRemark___id = 'recipe.description.childMarkdownRemark.id',
+  recipe___description___childMarkdownRemark___excerpt = 'recipe.description.childMarkdownRemark.excerpt',
+  recipe___description___childMarkdownRemark___rawMarkdownBody = 'recipe.description.childMarkdownRemark.rawMarkdownBody',
+  recipe___description___childMarkdownRemark___html = 'recipe.description.childMarkdownRemark.html',
+  recipe___description___childMarkdownRemark___htmlAst = 'recipe.description.childMarkdownRemark.htmlAst',
+  recipe___description___childMarkdownRemark___excerptAst = 'recipe.description.childMarkdownRemark.excerptAst',
+  recipe___description___childMarkdownRemark___headings = 'recipe.description.childMarkdownRemark.headings',
+  recipe___description___childMarkdownRemark___timeToRead = 'recipe.description.childMarkdownRemark.timeToRead',
+  recipe___description___childMarkdownRemark___tableOfContents = 'recipe.description.childMarkdownRemark.tableOfContents',
+  recipe___description___childMarkdownRemark___children = 'recipe.description.childMarkdownRemark.children',
   recipe___ingredients___id = 'recipe.ingredients.id',
   recipe___ingredients___parent___id = 'recipe.ingredients.parent.id',
   recipe___ingredients___parent___children = 'recipe.ingredients.parent.children',
@@ -6755,6 +6792,7 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___ingredientTags___recipe___childrenContentfulRecipeDirectionsTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeDirectionsTextNode',
   recipe___ingredientTags___recipe___childrenContentfulRecipePrepDirectionsTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipePrepDirectionsTextNode',
   recipe___ingredientTags___recipe___childrenContentfulRecipeIngredientsTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeIngredientsTextNode',
+  recipe___ingredientTags___recipe___childrenContentfulRecipeDescriptionTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeDescriptionTextNode',
   recipe___ingredientTags___recipe___children = 'recipe.ingredientTags.recipe.children',
   recipe___ingredientTags___spaceId = 'recipe.ingredientTags.spaceId',
   recipe___ingredientTags___createdAt = 'recipe.ingredientTags.createdAt',
@@ -6799,6 +6837,7 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___foodTypeTags___recipe___childrenContentfulRecipeDirectionsTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeDirectionsTextNode',
   recipe___foodTypeTags___recipe___childrenContentfulRecipePrepDirectionsTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipePrepDirectionsTextNode',
   recipe___foodTypeTags___recipe___childrenContentfulRecipeIngredientsTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeIngredientsTextNode',
+  recipe___foodTypeTags___recipe___childrenContentfulRecipeDescriptionTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeDescriptionTextNode',
   recipe___foodTypeTags___recipe___children = 'recipe.foodTypeTags.recipe.children',
   recipe___foodTypeTags___spaceId = 'recipe.foodTypeTags.spaceId',
   recipe___foodTypeTags___createdAt = 'recipe.foodTypeTags.createdAt',
@@ -7185,6 +7224,81 @@ enum ContentfulFoodTypeTagFieldsEnum {
   recipe___childContentfulRecipeIngredientsTextNode___childMarkdownRemark___timeToRead = 'recipe.childContentfulRecipeIngredientsTextNode.childMarkdownRemark.timeToRead',
   recipe___childContentfulRecipeIngredientsTextNode___childMarkdownRemark___tableOfContents = 'recipe.childContentfulRecipeIngredientsTextNode.childMarkdownRemark.tableOfContents',
   recipe___childContentfulRecipeIngredientsTextNode___childMarkdownRemark___children = 'recipe.childContentfulRecipeIngredientsTextNode.childMarkdownRemark.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode = 'recipe.childrenContentfulRecipeDescriptionTextNode',
+  recipe___childrenContentfulRecipeDescriptionTextNode___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___parent___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.parent.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___parent___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.parent.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode___children___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.children.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___children___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.children.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___content = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.content',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___contentDigest = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.contentDigest',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___description = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.description',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___fieldOwners = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.fieldOwners',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___ignoreType = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.ignoreType',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___mediaType = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.mediaType',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___owner = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.owner',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___type = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.type',
+  recipe___childrenContentfulRecipeDescriptionTextNode___description = 'recipe.childrenContentfulRecipeDescriptionTextNode.description',
+  recipe___childrenContentfulRecipeDescriptionTextNode___sys___type = 'recipe.childrenContentfulRecipeDescriptionTextNode.sys.type',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerpt = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerpt',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___rawMarkdownBody = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___html = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.html',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___htmlAst = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.htmlAst',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerptAst = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerptAst',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___timeToRead = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.timeToRead',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___tableOfContents = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.tableOfContents',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerpt = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerpt',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___rawMarkdownBody = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.rawMarkdownBody',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___html = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.html',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___htmlAst = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.htmlAst',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerptAst = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerptAst',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___timeToRead = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.timeToRead',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___tableOfContents = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.tableOfContents',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.children',
+  recipe___childContentfulRecipeDescriptionTextNode___id = 'recipe.childContentfulRecipeDescriptionTextNode.id',
+  recipe___childContentfulRecipeDescriptionTextNode___parent___id = 'recipe.childContentfulRecipeDescriptionTextNode.parent.id',
+  recipe___childContentfulRecipeDescriptionTextNode___parent___children = 'recipe.childContentfulRecipeDescriptionTextNode.parent.children',
+  recipe___childContentfulRecipeDescriptionTextNode___children = 'recipe.childContentfulRecipeDescriptionTextNode.children',
+  recipe___childContentfulRecipeDescriptionTextNode___children___id = 'recipe.childContentfulRecipeDescriptionTextNode.children.id',
+  recipe___childContentfulRecipeDescriptionTextNode___children___children = 'recipe.childContentfulRecipeDescriptionTextNode.children.children',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___content = 'recipe.childContentfulRecipeDescriptionTextNode.internal.content',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___contentDigest = 'recipe.childContentfulRecipeDescriptionTextNode.internal.contentDigest',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___description = 'recipe.childContentfulRecipeDescriptionTextNode.internal.description',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___fieldOwners = 'recipe.childContentfulRecipeDescriptionTextNode.internal.fieldOwners',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___ignoreType = 'recipe.childContentfulRecipeDescriptionTextNode.internal.ignoreType',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___mediaType = 'recipe.childContentfulRecipeDescriptionTextNode.internal.mediaType',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___owner = 'recipe.childContentfulRecipeDescriptionTextNode.internal.owner',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___type = 'recipe.childContentfulRecipeDescriptionTextNode.internal.type',
+  recipe___childContentfulRecipeDescriptionTextNode___description = 'recipe.childContentfulRecipeDescriptionTextNode.description',
+  recipe___childContentfulRecipeDescriptionTextNode___sys___type = 'recipe.childContentfulRecipeDescriptionTextNode.sys.type',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___id = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.id',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerpt = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerpt',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___rawMarkdownBody = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___html = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.html',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___htmlAst = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.htmlAst',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerptAst = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerptAst',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___timeToRead = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.timeToRead',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___tableOfContents = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.tableOfContents',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___id = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.id',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerpt = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerpt',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___rawMarkdownBody = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.rawMarkdownBody',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___html = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.html',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___htmlAst = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.htmlAst',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerptAst = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerptAst',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___timeToRead = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.timeToRead',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___tableOfContents = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.tableOfContents',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___children = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.children',
   recipe___parent___id = 'recipe.parent.id',
   recipe___parent___parent___id = 'recipe.parent.parent.id',
   recipe___parent___parent___children = 'recipe.parent.parent.children',
@@ -9407,6 +9521,43 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___yield = 'recipe.yield',
   recipe___prepTime = 'recipe.prepTime',
   recipe___totalTime = 'recipe.totalTime',
+  recipe___description___id = 'recipe.description.id',
+  recipe___description___parent___id = 'recipe.description.parent.id',
+  recipe___description___parent___children = 'recipe.description.parent.children',
+  recipe___description___children = 'recipe.description.children',
+  recipe___description___children___id = 'recipe.description.children.id',
+  recipe___description___children___children = 'recipe.description.children.children',
+  recipe___description___internal___content = 'recipe.description.internal.content',
+  recipe___description___internal___contentDigest = 'recipe.description.internal.contentDigest',
+  recipe___description___internal___description = 'recipe.description.internal.description',
+  recipe___description___internal___fieldOwners = 'recipe.description.internal.fieldOwners',
+  recipe___description___internal___ignoreType = 'recipe.description.internal.ignoreType',
+  recipe___description___internal___mediaType = 'recipe.description.internal.mediaType',
+  recipe___description___internal___owner = 'recipe.description.internal.owner',
+  recipe___description___internal___type = 'recipe.description.internal.type',
+  recipe___description___description = 'recipe.description.description',
+  recipe___description___sys___type = 'recipe.description.sys.type',
+  recipe___description___childrenMarkdownRemark = 'recipe.description.childrenMarkdownRemark',
+  recipe___description___childrenMarkdownRemark___id = 'recipe.description.childrenMarkdownRemark.id',
+  recipe___description___childrenMarkdownRemark___excerpt = 'recipe.description.childrenMarkdownRemark.excerpt',
+  recipe___description___childrenMarkdownRemark___rawMarkdownBody = 'recipe.description.childrenMarkdownRemark.rawMarkdownBody',
+  recipe___description___childrenMarkdownRemark___html = 'recipe.description.childrenMarkdownRemark.html',
+  recipe___description___childrenMarkdownRemark___htmlAst = 'recipe.description.childrenMarkdownRemark.htmlAst',
+  recipe___description___childrenMarkdownRemark___excerptAst = 'recipe.description.childrenMarkdownRemark.excerptAst',
+  recipe___description___childrenMarkdownRemark___headings = 'recipe.description.childrenMarkdownRemark.headings',
+  recipe___description___childrenMarkdownRemark___timeToRead = 'recipe.description.childrenMarkdownRemark.timeToRead',
+  recipe___description___childrenMarkdownRemark___tableOfContents = 'recipe.description.childrenMarkdownRemark.tableOfContents',
+  recipe___description___childrenMarkdownRemark___children = 'recipe.description.childrenMarkdownRemark.children',
+  recipe___description___childMarkdownRemark___id = 'recipe.description.childMarkdownRemark.id',
+  recipe___description___childMarkdownRemark___excerpt = 'recipe.description.childMarkdownRemark.excerpt',
+  recipe___description___childMarkdownRemark___rawMarkdownBody = 'recipe.description.childMarkdownRemark.rawMarkdownBody',
+  recipe___description___childMarkdownRemark___html = 'recipe.description.childMarkdownRemark.html',
+  recipe___description___childMarkdownRemark___htmlAst = 'recipe.description.childMarkdownRemark.htmlAst',
+  recipe___description___childMarkdownRemark___excerptAst = 'recipe.description.childMarkdownRemark.excerptAst',
+  recipe___description___childMarkdownRemark___headings = 'recipe.description.childMarkdownRemark.headings',
+  recipe___description___childMarkdownRemark___timeToRead = 'recipe.description.childMarkdownRemark.timeToRead',
+  recipe___description___childMarkdownRemark___tableOfContents = 'recipe.description.childMarkdownRemark.tableOfContents',
+  recipe___description___childMarkdownRemark___children = 'recipe.description.childMarkdownRemark.children',
   recipe___ingredients___id = 'recipe.ingredients.id',
   recipe___ingredients___parent___id = 'recipe.ingredients.parent.id',
   recipe___ingredients___parent___children = 'recipe.ingredients.parent.children',
@@ -9586,6 +9737,7 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___ingredientTags___recipe___childrenContentfulRecipeDirectionsTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeDirectionsTextNode',
   recipe___ingredientTags___recipe___childrenContentfulRecipePrepDirectionsTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipePrepDirectionsTextNode',
   recipe___ingredientTags___recipe___childrenContentfulRecipeIngredientsTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeIngredientsTextNode',
+  recipe___ingredientTags___recipe___childrenContentfulRecipeDescriptionTextNode = 'recipe.ingredientTags.recipe.childrenContentfulRecipeDescriptionTextNode',
   recipe___ingredientTags___recipe___children = 'recipe.ingredientTags.recipe.children',
   recipe___ingredientTags___spaceId = 'recipe.ingredientTags.spaceId',
   recipe___ingredientTags___createdAt = 'recipe.ingredientTags.createdAt',
@@ -9630,6 +9782,7 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___foodTypeTags___recipe___childrenContentfulRecipeDirectionsTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeDirectionsTextNode',
   recipe___foodTypeTags___recipe___childrenContentfulRecipePrepDirectionsTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipePrepDirectionsTextNode',
   recipe___foodTypeTags___recipe___childrenContentfulRecipeIngredientsTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeIngredientsTextNode',
+  recipe___foodTypeTags___recipe___childrenContentfulRecipeDescriptionTextNode = 'recipe.foodTypeTags.recipe.childrenContentfulRecipeDescriptionTextNode',
   recipe___foodTypeTags___recipe___children = 'recipe.foodTypeTags.recipe.children',
   recipe___foodTypeTags___spaceId = 'recipe.foodTypeTags.spaceId',
   recipe___foodTypeTags___createdAt = 'recipe.foodTypeTags.createdAt',
@@ -10016,6 +10169,81 @@ enum ContentfulIngredientTagFieldsEnum {
   recipe___childContentfulRecipeIngredientsTextNode___childMarkdownRemark___timeToRead = 'recipe.childContentfulRecipeIngredientsTextNode.childMarkdownRemark.timeToRead',
   recipe___childContentfulRecipeIngredientsTextNode___childMarkdownRemark___tableOfContents = 'recipe.childContentfulRecipeIngredientsTextNode.childMarkdownRemark.tableOfContents',
   recipe___childContentfulRecipeIngredientsTextNode___childMarkdownRemark___children = 'recipe.childContentfulRecipeIngredientsTextNode.childMarkdownRemark.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode = 'recipe.childrenContentfulRecipeDescriptionTextNode',
+  recipe___childrenContentfulRecipeDescriptionTextNode___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___parent___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.parent.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___parent___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.parent.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode___children___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.children.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___children___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.children.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___content = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.content',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___contentDigest = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.contentDigest',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___description = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.description',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___fieldOwners = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.fieldOwners',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___ignoreType = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.ignoreType',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___mediaType = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.mediaType',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___owner = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.owner',
+  recipe___childrenContentfulRecipeDescriptionTextNode___internal___type = 'recipe.childrenContentfulRecipeDescriptionTextNode.internal.type',
+  recipe___childrenContentfulRecipeDescriptionTextNode___description = 'recipe.childrenContentfulRecipeDescriptionTextNode.description',
+  recipe___childrenContentfulRecipeDescriptionTextNode___sys___type = 'recipe.childrenContentfulRecipeDescriptionTextNode.sys.type',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerpt = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerpt',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___rawMarkdownBody = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___html = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.html',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___htmlAst = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.htmlAst',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerptAst = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerptAst',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___timeToRead = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.timeToRead',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___tableOfContents = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.tableOfContents',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___id = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.id',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerpt = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerpt',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___rawMarkdownBody = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.rawMarkdownBody',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___html = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.html',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___htmlAst = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.htmlAst',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerptAst = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerptAst',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___timeToRead = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.timeToRead',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___tableOfContents = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.tableOfContents',
+  recipe___childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___children = 'recipe.childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.children',
+  recipe___childContentfulRecipeDescriptionTextNode___id = 'recipe.childContentfulRecipeDescriptionTextNode.id',
+  recipe___childContentfulRecipeDescriptionTextNode___parent___id = 'recipe.childContentfulRecipeDescriptionTextNode.parent.id',
+  recipe___childContentfulRecipeDescriptionTextNode___parent___children = 'recipe.childContentfulRecipeDescriptionTextNode.parent.children',
+  recipe___childContentfulRecipeDescriptionTextNode___children = 'recipe.childContentfulRecipeDescriptionTextNode.children',
+  recipe___childContentfulRecipeDescriptionTextNode___children___id = 'recipe.childContentfulRecipeDescriptionTextNode.children.id',
+  recipe___childContentfulRecipeDescriptionTextNode___children___children = 'recipe.childContentfulRecipeDescriptionTextNode.children.children',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___content = 'recipe.childContentfulRecipeDescriptionTextNode.internal.content',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___contentDigest = 'recipe.childContentfulRecipeDescriptionTextNode.internal.contentDigest',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___description = 'recipe.childContentfulRecipeDescriptionTextNode.internal.description',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___fieldOwners = 'recipe.childContentfulRecipeDescriptionTextNode.internal.fieldOwners',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___ignoreType = 'recipe.childContentfulRecipeDescriptionTextNode.internal.ignoreType',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___mediaType = 'recipe.childContentfulRecipeDescriptionTextNode.internal.mediaType',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___owner = 'recipe.childContentfulRecipeDescriptionTextNode.internal.owner',
+  recipe___childContentfulRecipeDescriptionTextNode___internal___type = 'recipe.childContentfulRecipeDescriptionTextNode.internal.type',
+  recipe___childContentfulRecipeDescriptionTextNode___description = 'recipe.childContentfulRecipeDescriptionTextNode.description',
+  recipe___childContentfulRecipeDescriptionTextNode___sys___type = 'recipe.childContentfulRecipeDescriptionTextNode.sys.type',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___id = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.id',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerpt = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerpt',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___rawMarkdownBody = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___html = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.html',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___htmlAst = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.htmlAst',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerptAst = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerptAst',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___timeToRead = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.timeToRead',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___tableOfContents = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.tableOfContents',
+  recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children = 'recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___id = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.id',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerpt = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerpt',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___rawMarkdownBody = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.rawMarkdownBody',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___html = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.html',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___htmlAst = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.htmlAst',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerptAst = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerptAst',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___timeToRead = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.timeToRead',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___tableOfContents = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.tableOfContents',
+  recipe___childContentfulRecipeDescriptionTextNode___childMarkdownRemark___children = 'recipe.childContentfulRecipeDescriptionTextNode.childMarkdownRemark.children',
   recipe___parent___id = 'recipe.parent.id',
   recipe___parent___parent___id = 'recipe.parent.parent.id',
   recipe___parent___parent___children = 'recipe.parent.parent.children',
@@ -16101,6 +16329,7 @@ type ContentfulRecipe = ContentfulReference & ContentfulEntry & Node & {
   readonly yield: Maybe<Scalars['String']>;
   readonly prepTime: Maybe<Scalars['Int']>;
   readonly totalTime: Maybe<Scalars['Int']>;
+  readonly description: Maybe<contentfulRecipeDescriptionTextNode>;
   readonly ingredients: Maybe<contentfulRecipeIngredientsTextNode>;
   readonly prepDirections: Maybe<contentfulRecipePrepDirectionsTextNode>;
   readonly directions: Maybe<contentfulRecipeDirectionsTextNode>;
@@ -16142,6 +16371,13 @@ type ContentfulRecipe = ContentfulReference & ContentfulEntry & Node & {
    * null if there are no children of given type on this node
    */
   readonly childContentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNode>;
+  /** Returns all children nodes filtered by type contentfulRecipeDescriptionTextNode */
+  readonly childrenContentfulRecipeDescriptionTextNode: Maybe<ReadonlyArray<Maybe<contentfulRecipeDescriptionTextNode>>>;
+  /**
+   * Returns the first child node of type contentfulRecipeDescriptionTextNode or
+   * null if there are no children of given type on this node
+   */
+  readonly childContentfulRecipeDescriptionTextNode: Maybe<contentfulRecipeDescriptionTextNode>;
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
@@ -16187,6 +16423,281 @@ type ContentfulRecipeConnection_groupArgs = {
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
   field: ContentfulRecipeFieldsEnum;
+};
+
+type contentfulRecipeDescriptionTextNode = Node & {
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+  readonly description: Maybe<Scalars['String']>;
+  readonly sys: Maybe<contentfulRecipeDescriptionTextNodeSys>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  readonly childMarkdownRemark: Maybe<MarkdownRemark>;
+};
+
+type contentfulRecipeDescriptionTextNodeConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<contentfulRecipeDescriptionTextNodeEdge>;
+  readonly nodes: ReadonlyArray<contentfulRecipeDescriptionTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<contentfulRecipeDescriptionTextNodeGroupConnection>;
+};
+
+
+type contentfulRecipeDescriptionTextNodeConnection_distinctArgs = {
+  field: contentfulRecipeDescriptionTextNodeFieldsEnum;
+};
+
+
+type contentfulRecipeDescriptionTextNodeConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: contentfulRecipeDescriptionTextNodeFieldsEnum;
+};
+
+type contentfulRecipeDescriptionTextNodeEdge = {
+  readonly next: Maybe<contentfulRecipeDescriptionTextNode>;
+  readonly node: contentfulRecipeDescriptionTextNode;
+  readonly previous: Maybe<contentfulRecipeDescriptionTextNode>;
+};
+
+enum contentfulRecipeDescriptionTextNodeFieldsEnum {
+  id = 'id',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type',
+  description = 'description',
+  sys___type = 'sys.type',
+  childrenMarkdownRemark = 'childrenMarkdownRemark',
+  childrenMarkdownRemark___id = 'childrenMarkdownRemark.id',
+  childrenMarkdownRemark___frontmatter___title = 'childrenMarkdownRemark.frontmatter.title',
+  childrenMarkdownRemark___excerpt = 'childrenMarkdownRemark.excerpt',
+  childrenMarkdownRemark___rawMarkdownBody = 'childrenMarkdownRemark.rawMarkdownBody',
+  childrenMarkdownRemark___html = 'childrenMarkdownRemark.html',
+  childrenMarkdownRemark___htmlAst = 'childrenMarkdownRemark.htmlAst',
+  childrenMarkdownRemark___excerptAst = 'childrenMarkdownRemark.excerptAst',
+  childrenMarkdownRemark___headings = 'childrenMarkdownRemark.headings',
+  childrenMarkdownRemark___headings___id = 'childrenMarkdownRemark.headings.id',
+  childrenMarkdownRemark___headings___value = 'childrenMarkdownRemark.headings.value',
+  childrenMarkdownRemark___headings___depth = 'childrenMarkdownRemark.headings.depth',
+  childrenMarkdownRemark___timeToRead = 'childrenMarkdownRemark.timeToRead',
+  childrenMarkdownRemark___tableOfContents = 'childrenMarkdownRemark.tableOfContents',
+  childrenMarkdownRemark___wordCount___paragraphs = 'childrenMarkdownRemark.wordCount.paragraphs',
+  childrenMarkdownRemark___wordCount___sentences = 'childrenMarkdownRemark.wordCount.sentences',
+  childrenMarkdownRemark___wordCount___words = 'childrenMarkdownRemark.wordCount.words',
+  childrenMarkdownRemark___parent___id = 'childrenMarkdownRemark.parent.id',
+  childrenMarkdownRemark___parent___parent___id = 'childrenMarkdownRemark.parent.parent.id',
+  childrenMarkdownRemark___parent___parent___children = 'childrenMarkdownRemark.parent.parent.children',
+  childrenMarkdownRemark___parent___children = 'childrenMarkdownRemark.parent.children',
+  childrenMarkdownRemark___parent___children___id = 'childrenMarkdownRemark.parent.children.id',
+  childrenMarkdownRemark___parent___children___children = 'childrenMarkdownRemark.parent.children.children',
+  childrenMarkdownRemark___parent___internal___content = 'childrenMarkdownRemark.parent.internal.content',
+  childrenMarkdownRemark___parent___internal___contentDigest = 'childrenMarkdownRemark.parent.internal.contentDigest',
+  childrenMarkdownRemark___parent___internal___description = 'childrenMarkdownRemark.parent.internal.description',
+  childrenMarkdownRemark___parent___internal___fieldOwners = 'childrenMarkdownRemark.parent.internal.fieldOwners',
+  childrenMarkdownRemark___parent___internal___ignoreType = 'childrenMarkdownRemark.parent.internal.ignoreType',
+  childrenMarkdownRemark___parent___internal___mediaType = 'childrenMarkdownRemark.parent.internal.mediaType',
+  childrenMarkdownRemark___parent___internal___owner = 'childrenMarkdownRemark.parent.internal.owner',
+  childrenMarkdownRemark___parent___internal___type = 'childrenMarkdownRemark.parent.internal.type',
+  childrenMarkdownRemark___children = 'childrenMarkdownRemark.children',
+  childrenMarkdownRemark___children___id = 'childrenMarkdownRemark.children.id',
+  childrenMarkdownRemark___children___parent___id = 'childrenMarkdownRemark.children.parent.id',
+  childrenMarkdownRemark___children___parent___children = 'childrenMarkdownRemark.children.parent.children',
+  childrenMarkdownRemark___children___children = 'childrenMarkdownRemark.children.children',
+  childrenMarkdownRemark___children___children___id = 'childrenMarkdownRemark.children.children.id',
+  childrenMarkdownRemark___children___children___children = 'childrenMarkdownRemark.children.children.children',
+  childrenMarkdownRemark___children___internal___content = 'childrenMarkdownRemark.children.internal.content',
+  childrenMarkdownRemark___children___internal___contentDigest = 'childrenMarkdownRemark.children.internal.contentDigest',
+  childrenMarkdownRemark___children___internal___description = 'childrenMarkdownRemark.children.internal.description',
+  childrenMarkdownRemark___children___internal___fieldOwners = 'childrenMarkdownRemark.children.internal.fieldOwners',
+  childrenMarkdownRemark___children___internal___ignoreType = 'childrenMarkdownRemark.children.internal.ignoreType',
+  childrenMarkdownRemark___children___internal___mediaType = 'childrenMarkdownRemark.children.internal.mediaType',
+  childrenMarkdownRemark___children___internal___owner = 'childrenMarkdownRemark.children.internal.owner',
+  childrenMarkdownRemark___children___internal___type = 'childrenMarkdownRemark.children.internal.type',
+  childrenMarkdownRemark___internal___content = 'childrenMarkdownRemark.internal.content',
+  childrenMarkdownRemark___internal___contentDigest = 'childrenMarkdownRemark.internal.contentDigest',
+  childrenMarkdownRemark___internal___description = 'childrenMarkdownRemark.internal.description',
+  childrenMarkdownRemark___internal___fieldOwners = 'childrenMarkdownRemark.internal.fieldOwners',
+  childrenMarkdownRemark___internal___ignoreType = 'childrenMarkdownRemark.internal.ignoreType',
+  childrenMarkdownRemark___internal___mediaType = 'childrenMarkdownRemark.internal.mediaType',
+  childrenMarkdownRemark___internal___owner = 'childrenMarkdownRemark.internal.owner',
+  childrenMarkdownRemark___internal___type = 'childrenMarkdownRemark.internal.type',
+  childMarkdownRemark___id = 'childMarkdownRemark.id',
+  childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
+  childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
+  childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
+  childMarkdownRemark___html = 'childMarkdownRemark.html',
+  childMarkdownRemark___htmlAst = 'childMarkdownRemark.htmlAst',
+  childMarkdownRemark___excerptAst = 'childMarkdownRemark.excerptAst',
+  childMarkdownRemark___headings = 'childMarkdownRemark.headings',
+  childMarkdownRemark___headings___id = 'childMarkdownRemark.headings.id',
+  childMarkdownRemark___headings___value = 'childMarkdownRemark.headings.value',
+  childMarkdownRemark___headings___depth = 'childMarkdownRemark.headings.depth',
+  childMarkdownRemark___timeToRead = 'childMarkdownRemark.timeToRead',
+  childMarkdownRemark___tableOfContents = 'childMarkdownRemark.tableOfContents',
+  childMarkdownRemark___wordCount___paragraphs = 'childMarkdownRemark.wordCount.paragraphs',
+  childMarkdownRemark___wordCount___sentences = 'childMarkdownRemark.wordCount.sentences',
+  childMarkdownRemark___wordCount___words = 'childMarkdownRemark.wordCount.words',
+  childMarkdownRemark___parent___id = 'childMarkdownRemark.parent.id',
+  childMarkdownRemark___parent___parent___id = 'childMarkdownRemark.parent.parent.id',
+  childMarkdownRemark___parent___parent___children = 'childMarkdownRemark.parent.parent.children',
+  childMarkdownRemark___parent___children = 'childMarkdownRemark.parent.children',
+  childMarkdownRemark___parent___children___id = 'childMarkdownRemark.parent.children.id',
+  childMarkdownRemark___parent___children___children = 'childMarkdownRemark.parent.children.children',
+  childMarkdownRemark___parent___internal___content = 'childMarkdownRemark.parent.internal.content',
+  childMarkdownRemark___parent___internal___contentDigest = 'childMarkdownRemark.parent.internal.contentDigest',
+  childMarkdownRemark___parent___internal___description = 'childMarkdownRemark.parent.internal.description',
+  childMarkdownRemark___parent___internal___fieldOwners = 'childMarkdownRemark.parent.internal.fieldOwners',
+  childMarkdownRemark___parent___internal___ignoreType = 'childMarkdownRemark.parent.internal.ignoreType',
+  childMarkdownRemark___parent___internal___mediaType = 'childMarkdownRemark.parent.internal.mediaType',
+  childMarkdownRemark___parent___internal___owner = 'childMarkdownRemark.parent.internal.owner',
+  childMarkdownRemark___parent___internal___type = 'childMarkdownRemark.parent.internal.type',
+  childMarkdownRemark___children = 'childMarkdownRemark.children',
+  childMarkdownRemark___children___id = 'childMarkdownRemark.children.id',
+  childMarkdownRemark___children___parent___id = 'childMarkdownRemark.children.parent.id',
+  childMarkdownRemark___children___parent___children = 'childMarkdownRemark.children.parent.children',
+  childMarkdownRemark___children___children = 'childMarkdownRemark.children.children',
+  childMarkdownRemark___children___children___id = 'childMarkdownRemark.children.children.id',
+  childMarkdownRemark___children___children___children = 'childMarkdownRemark.children.children.children',
+  childMarkdownRemark___children___internal___content = 'childMarkdownRemark.children.internal.content',
+  childMarkdownRemark___children___internal___contentDigest = 'childMarkdownRemark.children.internal.contentDigest',
+  childMarkdownRemark___children___internal___description = 'childMarkdownRemark.children.internal.description',
+  childMarkdownRemark___children___internal___fieldOwners = 'childMarkdownRemark.children.internal.fieldOwners',
+  childMarkdownRemark___children___internal___ignoreType = 'childMarkdownRemark.children.internal.ignoreType',
+  childMarkdownRemark___children___internal___mediaType = 'childMarkdownRemark.children.internal.mediaType',
+  childMarkdownRemark___children___internal___owner = 'childMarkdownRemark.children.internal.owner',
+  childMarkdownRemark___children___internal___type = 'childMarkdownRemark.children.internal.type',
+  childMarkdownRemark___internal___content = 'childMarkdownRemark.internal.content',
+  childMarkdownRemark___internal___contentDigest = 'childMarkdownRemark.internal.contentDigest',
+  childMarkdownRemark___internal___description = 'childMarkdownRemark.internal.description',
+  childMarkdownRemark___internal___fieldOwners = 'childMarkdownRemark.internal.fieldOwners',
+  childMarkdownRemark___internal___ignoreType = 'childMarkdownRemark.internal.ignoreType',
+  childMarkdownRemark___internal___mediaType = 'childMarkdownRemark.internal.mediaType',
+  childMarkdownRemark___internal___owner = 'childMarkdownRemark.internal.owner',
+  childMarkdownRemark___internal___type = 'childMarkdownRemark.internal.type'
+}
+
+type contentfulRecipeDescriptionTextNodeFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+  readonly description: Maybe<StringQueryOperatorInput>;
+  readonly sys: Maybe<contentfulRecipeDescriptionTextNodeSysFilterInput>;
+  readonly childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  readonly childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+type contentfulRecipeDescriptionTextNodeFilterListInput = {
+  readonly elemMatch: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
+};
+
+type contentfulRecipeDescriptionTextNodeGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<contentfulRecipeDescriptionTextNodeEdge>;
+  readonly nodes: ReadonlyArray<contentfulRecipeDescriptionTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type contentfulRecipeDescriptionTextNodeSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<contentfulRecipeDescriptionTextNodeFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type contentfulRecipeDescriptionTextNodeSys = {
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type contentfulRecipeDescriptionTextNodeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
 };
 
 type contentfulRecipeDirectionsTextNode = Node & {
@@ -16478,6 +16989,105 @@ enum ContentfulRecipeFieldsEnum {
   yield = 'yield',
   prepTime = 'prepTime',
   totalTime = 'totalTime',
+  description___id = 'description.id',
+  description___parent___id = 'description.parent.id',
+  description___parent___parent___id = 'description.parent.parent.id',
+  description___parent___parent___children = 'description.parent.parent.children',
+  description___parent___children = 'description.parent.children',
+  description___parent___children___id = 'description.parent.children.id',
+  description___parent___children___children = 'description.parent.children.children',
+  description___parent___internal___content = 'description.parent.internal.content',
+  description___parent___internal___contentDigest = 'description.parent.internal.contentDigest',
+  description___parent___internal___description = 'description.parent.internal.description',
+  description___parent___internal___fieldOwners = 'description.parent.internal.fieldOwners',
+  description___parent___internal___ignoreType = 'description.parent.internal.ignoreType',
+  description___parent___internal___mediaType = 'description.parent.internal.mediaType',
+  description___parent___internal___owner = 'description.parent.internal.owner',
+  description___parent___internal___type = 'description.parent.internal.type',
+  description___children = 'description.children',
+  description___children___id = 'description.children.id',
+  description___children___parent___id = 'description.children.parent.id',
+  description___children___parent___children = 'description.children.parent.children',
+  description___children___children = 'description.children.children',
+  description___children___children___id = 'description.children.children.id',
+  description___children___children___children = 'description.children.children.children',
+  description___children___internal___content = 'description.children.internal.content',
+  description___children___internal___contentDigest = 'description.children.internal.contentDigest',
+  description___children___internal___description = 'description.children.internal.description',
+  description___children___internal___fieldOwners = 'description.children.internal.fieldOwners',
+  description___children___internal___ignoreType = 'description.children.internal.ignoreType',
+  description___children___internal___mediaType = 'description.children.internal.mediaType',
+  description___children___internal___owner = 'description.children.internal.owner',
+  description___children___internal___type = 'description.children.internal.type',
+  description___internal___content = 'description.internal.content',
+  description___internal___contentDigest = 'description.internal.contentDigest',
+  description___internal___description = 'description.internal.description',
+  description___internal___fieldOwners = 'description.internal.fieldOwners',
+  description___internal___ignoreType = 'description.internal.ignoreType',
+  description___internal___mediaType = 'description.internal.mediaType',
+  description___internal___owner = 'description.internal.owner',
+  description___internal___type = 'description.internal.type',
+  description___description = 'description.description',
+  description___sys___type = 'description.sys.type',
+  description___childrenMarkdownRemark = 'description.childrenMarkdownRemark',
+  description___childrenMarkdownRemark___id = 'description.childrenMarkdownRemark.id',
+  description___childrenMarkdownRemark___frontmatter___title = 'description.childrenMarkdownRemark.frontmatter.title',
+  description___childrenMarkdownRemark___excerpt = 'description.childrenMarkdownRemark.excerpt',
+  description___childrenMarkdownRemark___rawMarkdownBody = 'description.childrenMarkdownRemark.rawMarkdownBody',
+  description___childrenMarkdownRemark___html = 'description.childrenMarkdownRemark.html',
+  description___childrenMarkdownRemark___htmlAst = 'description.childrenMarkdownRemark.htmlAst',
+  description___childrenMarkdownRemark___excerptAst = 'description.childrenMarkdownRemark.excerptAst',
+  description___childrenMarkdownRemark___headings = 'description.childrenMarkdownRemark.headings',
+  description___childrenMarkdownRemark___headings___id = 'description.childrenMarkdownRemark.headings.id',
+  description___childrenMarkdownRemark___headings___value = 'description.childrenMarkdownRemark.headings.value',
+  description___childrenMarkdownRemark___headings___depth = 'description.childrenMarkdownRemark.headings.depth',
+  description___childrenMarkdownRemark___timeToRead = 'description.childrenMarkdownRemark.timeToRead',
+  description___childrenMarkdownRemark___tableOfContents = 'description.childrenMarkdownRemark.tableOfContents',
+  description___childrenMarkdownRemark___wordCount___paragraphs = 'description.childrenMarkdownRemark.wordCount.paragraphs',
+  description___childrenMarkdownRemark___wordCount___sentences = 'description.childrenMarkdownRemark.wordCount.sentences',
+  description___childrenMarkdownRemark___wordCount___words = 'description.childrenMarkdownRemark.wordCount.words',
+  description___childrenMarkdownRemark___parent___id = 'description.childrenMarkdownRemark.parent.id',
+  description___childrenMarkdownRemark___parent___children = 'description.childrenMarkdownRemark.parent.children',
+  description___childrenMarkdownRemark___children = 'description.childrenMarkdownRemark.children',
+  description___childrenMarkdownRemark___children___id = 'description.childrenMarkdownRemark.children.id',
+  description___childrenMarkdownRemark___children___children = 'description.childrenMarkdownRemark.children.children',
+  description___childrenMarkdownRemark___internal___content = 'description.childrenMarkdownRemark.internal.content',
+  description___childrenMarkdownRemark___internal___contentDigest = 'description.childrenMarkdownRemark.internal.contentDigest',
+  description___childrenMarkdownRemark___internal___description = 'description.childrenMarkdownRemark.internal.description',
+  description___childrenMarkdownRemark___internal___fieldOwners = 'description.childrenMarkdownRemark.internal.fieldOwners',
+  description___childrenMarkdownRemark___internal___ignoreType = 'description.childrenMarkdownRemark.internal.ignoreType',
+  description___childrenMarkdownRemark___internal___mediaType = 'description.childrenMarkdownRemark.internal.mediaType',
+  description___childrenMarkdownRemark___internal___owner = 'description.childrenMarkdownRemark.internal.owner',
+  description___childrenMarkdownRemark___internal___type = 'description.childrenMarkdownRemark.internal.type',
+  description___childMarkdownRemark___id = 'description.childMarkdownRemark.id',
+  description___childMarkdownRemark___frontmatter___title = 'description.childMarkdownRemark.frontmatter.title',
+  description___childMarkdownRemark___excerpt = 'description.childMarkdownRemark.excerpt',
+  description___childMarkdownRemark___rawMarkdownBody = 'description.childMarkdownRemark.rawMarkdownBody',
+  description___childMarkdownRemark___html = 'description.childMarkdownRemark.html',
+  description___childMarkdownRemark___htmlAst = 'description.childMarkdownRemark.htmlAst',
+  description___childMarkdownRemark___excerptAst = 'description.childMarkdownRemark.excerptAst',
+  description___childMarkdownRemark___headings = 'description.childMarkdownRemark.headings',
+  description___childMarkdownRemark___headings___id = 'description.childMarkdownRemark.headings.id',
+  description___childMarkdownRemark___headings___value = 'description.childMarkdownRemark.headings.value',
+  description___childMarkdownRemark___headings___depth = 'description.childMarkdownRemark.headings.depth',
+  description___childMarkdownRemark___timeToRead = 'description.childMarkdownRemark.timeToRead',
+  description___childMarkdownRemark___tableOfContents = 'description.childMarkdownRemark.tableOfContents',
+  description___childMarkdownRemark___wordCount___paragraphs = 'description.childMarkdownRemark.wordCount.paragraphs',
+  description___childMarkdownRemark___wordCount___sentences = 'description.childMarkdownRemark.wordCount.sentences',
+  description___childMarkdownRemark___wordCount___words = 'description.childMarkdownRemark.wordCount.words',
+  description___childMarkdownRemark___parent___id = 'description.childMarkdownRemark.parent.id',
+  description___childMarkdownRemark___parent___children = 'description.childMarkdownRemark.parent.children',
+  description___childMarkdownRemark___children = 'description.childMarkdownRemark.children',
+  description___childMarkdownRemark___children___id = 'description.childMarkdownRemark.children.id',
+  description___childMarkdownRemark___children___children = 'description.childMarkdownRemark.children.children',
+  description___childMarkdownRemark___internal___content = 'description.childMarkdownRemark.internal.content',
+  description___childMarkdownRemark___internal___contentDigest = 'description.childMarkdownRemark.internal.contentDigest',
+  description___childMarkdownRemark___internal___description = 'description.childMarkdownRemark.internal.description',
+  description___childMarkdownRemark___internal___fieldOwners = 'description.childMarkdownRemark.internal.fieldOwners',
+  description___childMarkdownRemark___internal___ignoreType = 'description.childMarkdownRemark.internal.ignoreType',
+  description___childMarkdownRemark___internal___mediaType = 'description.childMarkdownRemark.internal.mediaType',
+  description___childMarkdownRemark___internal___owner = 'description.childMarkdownRemark.internal.owner',
+  description___childMarkdownRemark___internal___type = 'description.childMarkdownRemark.internal.type',
   ingredients___id = 'ingredients.id',
   ingredients___parent___id = 'ingredients.parent.id',
   ingredients___parent___parent___id = 'ingredients.parent.parent.id',
@@ -16897,6 +17507,10 @@ enum ContentfulRecipeFieldsEnum {
   ingredientTags___recipe___yield = 'ingredientTags.recipe.yield',
   ingredientTags___recipe___prepTime = 'ingredientTags.recipe.prepTime',
   ingredientTags___recipe___totalTime = 'ingredientTags.recipe.totalTime',
+  ingredientTags___recipe___description___id = 'ingredientTags.recipe.description.id',
+  ingredientTags___recipe___description___children = 'ingredientTags.recipe.description.children',
+  ingredientTags___recipe___description___description = 'ingredientTags.recipe.description.description',
+  ingredientTags___recipe___description___childrenMarkdownRemark = 'ingredientTags.recipe.description.childrenMarkdownRemark',
   ingredientTags___recipe___ingredients___id = 'ingredientTags.recipe.ingredients.id',
   ingredientTags___recipe___ingredients___children = 'ingredientTags.recipe.ingredients.children',
   ingredientTags___recipe___ingredients___ingredients = 'ingredientTags.recipe.ingredients.ingredients',
@@ -16987,6 +17601,15 @@ enum ContentfulRecipeFieldsEnum {
   ingredientTags___recipe___childContentfulRecipeIngredientsTextNode___children = 'ingredientTags.recipe.childContentfulRecipeIngredientsTextNode.children',
   ingredientTags___recipe___childContentfulRecipeIngredientsTextNode___ingredients = 'ingredientTags.recipe.childContentfulRecipeIngredientsTextNode.ingredients',
   ingredientTags___recipe___childContentfulRecipeIngredientsTextNode___childrenMarkdownRemark = 'ingredientTags.recipe.childContentfulRecipeIngredientsTextNode.childrenMarkdownRemark',
+  ingredientTags___recipe___childrenContentfulRecipeDescriptionTextNode = 'ingredientTags.recipe.childrenContentfulRecipeDescriptionTextNode',
+  ingredientTags___recipe___childrenContentfulRecipeDescriptionTextNode___id = 'ingredientTags.recipe.childrenContentfulRecipeDescriptionTextNode.id',
+  ingredientTags___recipe___childrenContentfulRecipeDescriptionTextNode___children = 'ingredientTags.recipe.childrenContentfulRecipeDescriptionTextNode.children',
+  ingredientTags___recipe___childrenContentfulRecipeDescriptionTextNode___description = 'ingredientTags.recipe.childrenContentfulRecipeDescriptionTextNode.description',
+  ingredientTags___recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'ingredientTags.recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
+  ingredientTags___recipe___childContentfulRecipeDescriptionTextNode___id = 'ingredientTags.recipe.childContentfulRecipeDescriptionTextNode.id',
+  ingredientTags___recipe___childContentfulRecipeDescriptionTextNode___children = 'ingredientTags.recipe.childContentfulRecipeDescriptionTextNode.children',
+  ingredientTags___recipe___childContentfulRecipeDescriptionTextNode___description = 'ingredientTags.recipe.childContentfulRecipeDescriptionTextNode.description',
+  ingredientTags___recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'ingredientTags.recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
   ingredientTags___recipe___parent___id = 'ingredientTags.recipe.parent.id',
   ingredientTags___recipe___parent___children = 'ingredientTags.recipe.parent.children',
   ingredientTags___recipe___children = 'ingredientTags.recipe.children',
@@ -17056,6 +17679,10 @@ enum ContentfulRecipeFieldsEnum {
   foodTypeTags___recipe___yield = 'foodTypeTags.recipe.yield',
   foodTypeTags___recipe___prepTime = 'foodTypeTags.recipe.prepTime',
   foodTypeTags___recipe___totalTime = 'foodTypeTags.recipe.totalTime',
+  foodTypeTags___recipe___description___id = 'foodTypeTags.recipe.description.id',
+  foodTypeTags___recipe___description___children = 'foodTypeTags.recipe.description.children',
+  foodTypeTags___recipe___description___description = 'foodTypeTags.recipe.description.description',
+  foodTypeTags___recipe___description___childrenMarkdownRemark = 'foodTypeTags.recipe.description.childrenMarkdownRemark',
   foodTypeTags___recipe___ingredients___id = 'foodTypeTags.recipe.ingredients.id',
   foodTypeTags___recipe___ingredients___children = 'foodTypeTags.recipe.ingredients.children',
   foodTypeTags___recipe___ingredients___ingredients = 'foodTypeTags.recipe.ingredients.ingredients',
@@ -17146,6 +17773,15 @@ enum ContentfulRecipeFieldsEnum {
   foodTypeTags___recipe___childContentfulRecipeIngredientsTextNode___children = 'foodTypeTags.recipe.childContentfulRecipeIngredientsTextNode.children',
   foodTypeTags___recipe___childContentfulRecipeIngredientsTextNode___ingredients = 'foodTypeTags.recipe.childContentfulRecipeIngredientsTextNode.ingredients',
   foodTypeTags___recipe___childContentfulRecipeIngredientsTextNode___childrenMarkdownRemark = 'foodTypeTags.recipe.childContentfulRecipeIngredientsTextNode.childrenMarkdownRemark',
+  foodTypeTags___recipe___childrenContentfulRecipeDescriptionTextNode = 'foodTypeTags.recipe.childrenContentfulRecipeDescriptionTextNode',
+  foodTypeTags___recipe___childrenContentfulRecipeDescriptionTextNode___id = 'foodTypeTags.recipe.childrenContentfulRecipeDescriptionTextNode.id',
+  foodTypeTags___recipe___childrenContentfulRecipeDescriptionTextNode___children = 'foodTypeTags.recipe.childrenContentfulRecipeDescriptionTextNode.children',
+  foodTypeTags___recipe___childrenContentfulRecipeDescriptionTextNode___description = 'foodTypeTags.recipe.childrenContentfulRecipeDescriptionTextNode.description',
+  foodTypeTags___recipe___childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'foodTypeTags.recipe.childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
+  foodTypeTags___recipe___childContentfulRecipeDescriptionTextNode___id = 'foodTypeTags.recipe.childContentfulRecipeDescriptionTextNode.id',
+  foodTypeTags___recipe___childContentfulRecipeDescriptionTextNode___children = 'foodTypeTags.recipe.childContentfulRecipeDescriptionTextNode.children',
+  foodTypeTags___recipe___childContentfulRecipeDescriptionTextNode___description = 'foodTypeTags.recipe.childContentfulRecipeDescriptionTextNode.description',
+  foodTypeTags___recipe___childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'foodTypeTags.recipe.childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
   foodTypeTags___recipe___parent___id = 'foodTypeTags.recipe.parent.id',
   foodTypeTags___recipe___parent___children = 'foodTypeTags.recipe.parent.children',
   foodTypeTags___recipe___children = 'foodTypeTags.recipe.children',
@@ -18089,6 +18725,205 @@ enum ContentfulRecipeFieldsEnum {
   childContentfulRecipeIngredientsTextNode___childMarkdownRemark___internal___mediaType = 'childContentfulRecipeIngredientsTextNode.childMarkdownRemark.internal.mediaType',
   childContentfulRecipeIngredientsTextNode___childMarkdownRemark___internal___owner = 'childContentfulRecipeIngredientsTextNode.childMarkdownRemark.internal.owner',
   childContentfulRecipeIngredientsTextNode___childMarkdownRemark___internal___type = 'childContentfulRecipeIngredientsTextNode.childMarkdownRemark.internal.type',
+  childrenContentfulRecipeDescriptionTextNode = 'childrenContentfulRecipeDescriptionTextNode',
+  childrenContentfulRecipeDescriptionTextNode___id = 'childrenContentfulRecipeDescriptionTextNode.id',
+  childrenContentfulRecipeDescriptionTextNode___parent___id = 'childrenContentfulRecipeDescriptionTextNode.parent.id',
+  childrenContentfulRecipeDescriptionTextNode___parent___parent___id = 'childrenContentfulRecipeDescriptionTextNode.parent.parent.id',
+  childrenContentfulRecipeDescriptionTextNode___parent___parent___children = 'childrenContentfulRecipeDescriptionTextNode.parent.parent.children',
+  childrenContentfulRecipeDescriptionTextNode___parent___children = 'childrenContentfulRecipeDescriptionTextNode.parent.children',
+  childrenContentfulRecipeDescriptionTextNode___parent___children___id = 'childrenContentfulRecipeDescriptionTextNode.parent.children.id',
+  childrenContentfulRecipeDescriptionTextNode___parent___children___children = 'childrenContentfulRecipeDescriptionTextNode.parent.children.children',
+  childrenContentfulRecipeDescriptionTextNode___parent___internal___content = 'childrenContentfulRecipeDescriptionTextNode.parent.internal.content',
+  childrenContentfulRecipeDescriptionTextNode___parent___internal___contentDigest = 'childrenContentfulRecipeDescriptionTextNode.parent.internal.contentDigest',
+  childrenContentfulRecipeDescriptionTextNode___parent___internal___description = 'childrenContentfulRecipeDescriptionTextNode.parent.internal.description',
+  childrenContentfulRecipeDescriptionTextNode___parent___internal___fieldOwners = 'childrenContentfulRecipeDescriptionTextNode.parent.internal.fieldOwners',
+  childrenContentfulRecipeDescriptionTextNode___parent___internal___ignoreType = 'childrenContentfulRecipeDescriptionTextNode.parent.internal.ignoreType',
+  childrenContentfulRecipeDescriptionTextNode___parent___internal___mediaType = 'childrenContentfulRecipeDescriptionTextNode.parent.internal.mediaType',
+  childrenContentfulRecipeDescriptionTextNode___parent___internal___owner = 'childrenContentfulRecipeDescriptionTextNode.parent.internal.owner',
+  childrenContentfulRecipeDescriptionTextNode___parent___internal___type = 'childrenContentfulRecipeDescriptionTextNode.parent.internal.type',
+  childrenContentfulRecipeDescriptionTextNode___children = 'childrenContentfulRecipeDescriptionTextNode.children',
+  childrenContentfulRecipeDescriptionTextNode___children___id = 'childrenContentfulRecipeDescriptionTextNode.children.id',
+  childrenContentfulRecipeDescriptionTextNode___children___parent___id = 'childrenContentfulRecipeDescriptionTextNode.children.parent.id',
+  childrenContentfulRecipeDescriptionTextNode___children___parent___children = 'childrenContentfulRecipeDescriptionTextNode.children.parent.children',
+  childrenContentfulRecipeDescriptionTextNode___children___children = 'childrenContentfulRecipeDescriptionTextNode.children.children',
+  childrenContentfulRecipeDescriptionTextNode___children___children___id = 'childrenContentfulRecipeDescriptionTextNode.children.children.id',
+  childrenContentfulRecipeDescriptionTextNode___children___children___children = 'childrenContentfulRecipeDescriptionTextNode.children.children.children',
+  childrenContentfulRecipeDescriptionTextNode___children___internal___content = 'childrenContentfulRecipeDescriptionTextNode.children.internal.content',
+  childrenContentfulRecipeDescriptionTextNode___children___internal___contentDigest = 'childrenContentfulRecipeDescriptionTextNode.children.internal.contentDigest',
+  childrenContentfulRecipeDescriptionTextNode___children___internal___description = 'childrenContentfulRecipeDescriptionTextNode.children.internal.description',
+  childrenContentfulRecipeDescriptionTextNode___children___internal___fieldOwners = 'childrenContentfulRecipeDescriptionTextNode.children.internal.fieldOwners',
+  childrenContentfulRecipeDescriptionTextNode___children___internal___ignoreType = 'childrenContentfulRecipeDescriptionTextNode.children.internal.ignoreType',
+  childrenContentfulRecipeDescriptionTextNode___children___internal___mediaType = 'childrenContentfulRecipeDescriptionTextNode.children.internal.mediaType',
+  childrenContentfulRecipeDescriptionTextNode___children___internal___owner = 'childrenContentfulRecipeDescriptionTextNode.children.internal.owner',
+  childrenContentfulRecipeDescriptionTextNode___children___internal___type = 'childrenContentfulRecipeDescriptionTextNode.children.internal.type',
+  childrenContentfulRecipeDescriptionTextNode___internal___content = 'childrenContentfulRecipeDescriptionTextNode.internal.content',
+  childrenContentfulRecipeDescriptionTextNode___internal___contentDigest = 'childrenContentfulRecipeDescriptionTextNode.internal.contentDigest',
+  childrenContentfulRecipeDescriptionTextNode___internal___description = 'childrenContentfulRecipeDescriptionTextNode.internal.description',
+  childrenContentfulRecipeDescriptionTextNode___internal___fieldOwners = 'childrenContentfulRecipeDescriptionTextNode.internal.fieldOwners',
+  childrenContentfulRecipeDescriptionTextNode___internal___ignoreType = 'childrenContentfulRecipeDescriptionTextNode.internal.ignoreType',
+  childrenContentfulRecipeDescriptionTextNode___internal___mediaType = 'childrenContentfulRecipeDescriptionTextNode.internal.mediaType',
+  childrenContentfulRecipeDescriptionTextNode___internal___owner = 'childrenContentfulRecipeDescriptionTextNode.internal.owner',
+  childrenContentfulRecipeDescriptionTextNode___internal___type = 'childrenContentfulRecipeDescriptionTextNode.internal.type',
+  childrenContentfulRecipeDescriptionTextNode___description = 'childrenContentfulRecipeDescriptionTextNode.description',
+  childrenContentfulRecipeDescriptionTextNode___sys___type = 'childrenContentfulRecipeDescriptionTextNode.sys.type',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___id = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.id',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___frontmatter___title = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.frontmatter.title',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerpt = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerpt',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___rawMarkdownBody = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___html = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.html',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___htmlAst = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.htmlAst',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerptAst = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerptAst',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings___id = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings.id',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings___value = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings.value',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings___depth = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings.depth',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___timeToRead = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.timeToRead',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___tableOfContents = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.tableOfContents',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___wordCount___paragraphs = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.wordCount.paragraphs',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___wordCount___sentences = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.wordCount.sentences',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___wordCount___words = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.wordCount.words',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___parent___id = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.parent.id',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___parent___children = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.parent.children',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children___id = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children.id',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children___children = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children.children',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___content = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.content',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___contentDigest = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.contentDigest',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___description = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.description',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___fieldOwners = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.fieldOwners',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___ignoreType = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.ignoreType',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___mediaType = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.mediaType',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___owner = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.owner',
+  childrenContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___type = 'childrenContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.type',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___id = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.id',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___frontmatter___title = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.frontmatter.title',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerpt = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerpt',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___rawMarkdownBody = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.rawMarkdownBody',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___html = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.html',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___htmlAst = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.htmlAst',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerptAst = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerptAst',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings___id = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings.id',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings___value = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings.value',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings___depth = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings.depth',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___timeToRead = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.timeToRead',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___tableOfContents = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.tableOfContents',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___wordCount___paragraphs = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.wordCount.paragraphs',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___wordCount___sentences = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.wordCount.sentences',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___wordCount___words = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.wordCount.words',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___parent___id = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.parent.id',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___parent___children = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.parent.children',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___children = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.children',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___children___id = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.children.id',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___children___children = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.children.children',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___content = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.content',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___contentDigest = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.contentDigest',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___description = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.description',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___fieldOwners = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.fieldOwners',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___ignoreType = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.ignoreType',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___mediaType = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.mediaType',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___owner = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.owner',
+  childrenContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___type = 'childrenContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.type',
+  childContentfulRecipeDescriptionTextNode___id = 'childContentfulRecipeDescriptionTextNode.id',
+  childContentfulRecipeDescriptionTextNode___parent___id = 'childContentfulRecipeDescriptionTextNode.parent.id',
+  childContentfulRecipeDescriptionTextNode___parent___parent___id = 'childContentfulRecipeDescriptionTextNode.parent.parent.id',
+  childContentfulRecipeDescriptionTextNode___parent___parent___children = 'childContentfulRecipeDescriptionTextNode.parent.parent.children',
+  childContentfulRecipeDescriptionTextNode___parent___children = 'childContentfulRecipeDescriptionTextNode.parent.children',
+  childContentfulRecipeDescriptionTextNode___parent___children___id = 'childContentfulRecipeDescriptionTextNode.parent.children.id',
+  childContentfulRecipeDescriptionTextNode___parent___children___children = 'childContentfulRecipeDescriptionTextNode.parent.children.children',
+  childContentfulRecipeDescriptionTextNode___parent___internal___content = 'childContentfulRecipeDescriptionTextNode.parent.internal.content',
+  childContentfulRecipeDescriptionTextNode___parent___internal___contentDigest = 'childContentfulRecipeDescriptionTextNode.parent.internal.contentDigest',
+  childContentfulRecipeDescriptionTextNode___parent___internal___description = 'childContentfulRecipeDescriptionTextNode.parent.internal.description',
+  childContentfulRecipeDescriptionTextNode___parent___internal___fieldOwners = 'childContentfulRecipeDescriptionTextNode.parent.internal.fieldOwners',
+  childContentfulRecipeDescriptionTextNode___parent___internal___ignoreType = 'childContentfulRecipeDescriptionTextNode.parent.internal.ignoreType',
+  childContentfulRecipeDescriptionTextNode___parent___internal___mediaType = 'childContentfulRecipeDescriptionTextNode.parent.internal.mediaType',
+  childContentfulRecipeDescriptionTextNode___parent___internal___owner = 'childContentfulRecipeDescriptionTextNode.parent.internal.owner',
+  childContentfulRecipeDescriptionTextNode___parent___internal___type = 'childContentfulRecipeDescriptionTextNode.parent.internal.type',
+  childContentfulRecipeDescriptionTextNode___children = 'childContentfulRecipeDescriptionTextNode.children',
+  childContentfulRecipeDescriptionTextNode___children___id = 'childContentfulRecipeDescriptionTextNode.children.id',
+  childContentfulRecipeDescriptionTextNode___children___parent___id = 'childContentfulRecipeDescriptionTextNode.children.parent.id',
+  childContentfulRecipeDescriptionTextNode___children___parent___children = 'childContentfulRecipeDescriptionTextNode.children.parent.children',
+  childContentfulRecipeDescriptionTextNode___children___children = 'childContentfulRecipeDescriptionTextNode.children.children',
+  childContentfulRecipeDescriptionTextNode___children___children___id = 'childContentfulRecipeDescriptionTextNode.children.children.id',
+  childContentfulRecipeDescriptionTextNode___children___children___children = 'childContentfulRecipeDescriptionTextNode.children.children.children',
+  childContentfulRecipeDescriptionTextNode___children___internal___content = 'childContentfulRecipeDescriptionTextNode.children.internal.content',
+  childContentfulRecipeDescriptionTextNode___children___internal___contentDigest = 'childContentfulRecipeDescriptionTextNode.children.internal.contentDigest',
+  childContentfulRecipeDescriptionTextNode___children___internal___description = 'childContentfulRecipeDescriptionTextNode.children.internal.description',
+  childContentfulRecipeDescriptionTextNode___children___internal___fieldOwners = 'childContentfulRecipeDescriptionTextNode.children.internal.fieldOwners',
+  childContentfulRecipeDescriptionTextNode___children___internal___ignoreType = 'childContentfulRecipeDescriptionTextNode.children.internal.ignoreType',
+  childContentfulRecipeDescriptionTextNode___children___internal___mediaType = 'childContentfulRecipeDescriptionTextNode.children.internal.mediaType',
+  childContentfulRecipeDescriptionTextNode___children___internal___owner = 'childContentfulRecipeDescriptionTextNode.children.internal.owner',
+  childContentfulRecipeDescriptionTextNode___children___internal___type = 'childContentfulRecipeDescriptionTextNode.children.internal.type',
+  childContentfulRecipeDescriptionTextNode___internal___content = 'childContentfulRecipeDescriptionTextNode.internal.content',
+  childContentfulRecipeDescriptionTextNode___internal___contentDigest = 'childContentfulRecipeDescriptionTextNode.internal.contentDigest',
+  childContentfulRecipeDescriptionTextNode___internal___description = 'childContentfulRecipeDescriptionTextNode.internal.description',
+  childContentfulRecipeDescriptionTextNode___internal___fieldOwners = 'childContentfulRecipeDescriptionTextNode.internal.fieldOwners',
+  childContentfulRecipeDescriptionTextNode___internal___ignoreType = 'childContentfulRecipeDescriptionTextNode.internal.ignoreType',
+  childContentfulRecipeDescriptionTextNode___internal___mediaType = 'childContentfulRecipeDescriptionTextNode.internal.mediaType',
+  childContentfulRecipeDescriptionTextNode___internal___owner = 'childContentfulRecipeDescriptionTextNode.internal.owner',
+  childContentfulRecipeDescriptionTextNode___internal___type = 'childContentfulRecipeDescriptionTextNode.internal.type',
+  childContentfulRecipeDescriptionTextNode___description = 'childContentfulRecipeDescriptionTextNode.description',
+  childContentfulRecipeDescriptionTextNode___sys___type = 'childContentfulRecipeDescriptionTextNode.sys.type',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___id = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.id',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___frontmatter___title = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.frontmatter.title',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerpt = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerpt',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___rawMarkdownBody = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.rawMarkdownBody',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___html = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.html',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___htmlAst = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.htmlAst',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___excerptAst = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.excerptAst',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings___id = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings.id',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings___value = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings.value',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___headings___depth = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.headings.depth',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___timeToRead = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.timeToRead',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___tableOfContents = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.tableOfContents',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___wordCount___paragraphs = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.wordCount.paragraphs',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___wordCount___sentences = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.wordCount.sentences',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___wordCount___words = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.wordCount.words',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___parent___id = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.parent.id',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___parent___children = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.parent.children',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children___id = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children.id',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___children___children = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.children.children',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___content = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.content',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___contentDigest = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.contentDigest',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___description = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.description',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___fieldOwners = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.fieldOwners',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___ignoreType = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.ignoreType',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___mediaType = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.mediaType',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___owner = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.owner',
+  childContentfulRecipeDescriptionTextNode___childrenMarkdownRemark___internal___type = 'childContentfulRecipeDescriptionTextNode.childrenMarkdownRemark.internal.type',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___id = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.id',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___frontmatter___title = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.frontmatter.title',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerpt = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerpt',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___rawMarkdownBody = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.rawMarkdownBody',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___html = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.html',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___htmlAst = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.htmlAst',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___excerptAst = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.excerptAst',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings___id = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings.id',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings___value = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings.value',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___headings___depth = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.headings.depth',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___timeToRead = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.timeToRead',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___tableOfContents = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.tableOfContents',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___wordCount___paragraphs = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.wordCount.paragraphs',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___wordCount___sentences = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.wordCount.sentences',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___wordCount___words = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.wordCount.words',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___parent___id = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.parent.id',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___parent___children = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.parent.children',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___children = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.children',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___children___id = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.children.id',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___children___children = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.children.children',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___content = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.content',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___contentDigest = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.contentDigest',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___description = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.description',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___fieldOwners = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.fieldOwners',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___ignoreType = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.ignoreType',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___mediaType = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.mediaType',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___owner = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.owner',
+  childContentfulRecipeDescriptionTextNode___childMarkdownRemark___internal___type = 'childContentfulRecipeDescriptionTextNode.childMarkdownRemark.internal.type',
   parent___id = 'parent.id',
   parent___parent___id = 'parent.parent.id',
   parent___parent___parent___id = 'parent.parent.parent.id',
@@ -18184,6 +19019,7 @@ type ContentfulRecipeFilterInput = {
   readonly yield: Maybe<StringQueryOperatorInput>;
   readonly prepTime: Maybe<IntQueryOperatorInput>;
   readonly totalTime: Maybe<IntQueryOperatorInput>;
+  readonly description: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
   readonly ingredients: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
   readonly prepDirections: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
   readonly directions: Maybe<contentfulRecipeDirectionsTextNodeFilterInput>;
@@ -18205,6 +19041,8 @@ type ContentfulRecipeFilterInput = {
   readonly childContentfulRecipePrepDirectionsTextNode: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
   readonly childrenContentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNodeFilterListInput>;
   readonly childContentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
+  readonly childrenContentfulRecipeDescriptionTextNode: Maybe<contentfulRecipeDescriptionTextNodeFilterListInput>;
+  readonly childContentfulRecipeDescriptionTextNode: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
@@ -19137,6 +19975,7 @@ type ContentfulResourceCard = ContentfulReference & ContentfulEntry & Node & {
   readonly id: Scalars['ID'];
   readonly node_locale: Scalars['String'];
   readonly title: Maybe<Scalars['String']>;
+  readonly link: Maybe<Scalars['String']>;
   readonly body: Maybe<contentfulResourceCardBodyTextNode>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
@@ -19477,6 +20316,7 @@ enum ContentfulResourceCardFieldsEnum {
   id = 'id',
   node_locale = 'node_locale',
   title = 'title',
+  link = 'link',
   body___id = 'body.id',
   body___parent___id = 'body.parent.id',
   body___parent___parent___id = 'body.parent.parent.id',
@@ -19875,6 +20715,7 @@ type ContentfulResourceCardFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly node_locale: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
+  readonly link: Maybe<StringQueryOperatorInput>;
   readonly body: Maybe<contentfulResourceCardBodyTextNodeFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
@@ -20586,8 +21427,9 @@ type ContentfulVideoCard = ContentfulReference & ContentfulEntry & Node & {
   readonly id: Scalars['ID'];
   readonly node_locale: Scalars['String'];
   readonly title: Maybe<Scalars['String']>;
+  readonly videoLink: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
-  readonly video: Maybe<ContentfulAsset>;
+  readonly thumbnail: Maybe<ContentfulAsset>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -20645,98 +21487,99 @@ enum ContentfulVideoCardFieldsEnum {
   id = 'id',
   node_locale = 'node_locale',
   title = 'title',
+  videoLink = 'videoLink',
   description = 'description',
-  video___contentful_id = 'video.contentful_id',
-  video___id = 'video.id',
-  video___spaceId = 'video.spaceId',
-  video___createdAt = 'video.createdAt',
-  video___updatedAt = 'video.updatedAt',
-  video___file___url = 'video.file.url',
-  video___file___details___size = 'video.file.details.size',
-  video___file___fileName = 'video.file.fileName',
-  video___file___contentType = 'video.file.contentType',
-  video___title = 'video.title',
-  video___description = 'video.description',
-  video___node_locale = 'video.node_locale',
-  video___sys___type = 'video.sys.type',
-  video___sys___revision = 'video.sys.revision',
-  video___fixed___base64 = 'video.fixed.base64',
-  video___fixed___tracedSVG = 'video.fixed.tracedSVG',
-  video___fixed___aspectRatio = 'video.fixed.aspectRatio',
-  video___fixed___width = 'video.fixed.width',
-  video___fixed___height = 'video.fixed.height',
-  video___fixed___src = 'video.fixed.src',
-  video___fixed___srcSet = 'video.fixed.srcSet',
-  video___fixed___srcWebp = 'video.fixed.srcWebp',
-  video___fixed___srcSetWebp = 'video.fixed.srcSetWebp',
-  video___resolutions___base64 = 'video.resolutions.base64',
-  video___resolutions___tracedSVG = 'video.resolutions.tracedSVG',
-  video___resolutions___aspectRatio = 'video.resolutions.aspectRatio',
-  video___resolutions___width = 'video.resolutions.width',
-  video___resolutions___height = 'video.resolutions.height',
-  video___resolutions___src = 'video.resolutions.src',
-  video___resolutions___srcSet = 'video.resolutions.srcSet',
-  video___resolutions___srcWebp = 'video.resolutions.srcWebp',
-  video___resolutions___srcSetWebp = 'video.resolutions.srcSetWebp',
-  video___fluid___base64 = 'video.fluid.base64',
-  video___fluid___tracedSVG = 'video.fluid.tracedSVG',
-  video___fluid___aspectRatio = 'video.fluid.aspectRatio',
-  video___fluid___src = 'video.fluid.src',
-  video___fluid___srcSet = 'video.fluid.srcSet',
-  video___fluid___srcWebp = 'video.fluid.srcWebp',
-  video___fluid___srcSetWebp = 'video.fluid.srcSetWebp',
-  video___fluid___sizes = 'video.fluid.sizes',
-  video___sizes___base64 = 'video.sizes.base64',
-  video___sizes___tracedSVG = 'video.sizes.tracedSVG',
-  video___sizes___aspectRatio = 'video.sizes.aspectRatio',
-  video___sizes___src = 'video.sizes.src',
-  video___sizes___srcSet = 'video.sizes.srcSet',
-  video___sizes___srcWebp = 'video.sizes.srcWebp',
-  video___sizes___srcSetWebp = 'video.sizes.srcSetWebp',
-  video___sizes___sizes = 'video.sizes.sizes',
-  video___resize___base64 = 'video.resize.base64',
-  video___resize___tracedSVG = 'video.resize.tracedSVG',
-  video___resize___src = 'video.resize.src',
-  video___resize___width = 'video.resize.width',
-  video___resize___height = 'video.resize.height',
-  video___resize___aspectRatio = 'video.resize.aspectRatio',
-  video___parent___id = 'video.parent.id',
-  video___parent___parent___id = 'video.parent.parent.id',
-  video___parent___parent___children = 'video.parent.parent.children',
-  video___parent___children = 'video.parent.children',
-  video___parent___children___id = 'video.parent.children.id',
-  video___parent___children___children = 'video.parent.children.children',
-  video___parent___internal___content = 'video.parent.internal.content',
-  video___parent___internal___contentDigest = 'video.parent.internal.contentDigest',
-  video___parent___internal___description = 'video.parent.internal.description',
-  video___parent___internal___fieldOwners = 'video.parent.internal.fieldOwners',
-  video___parent___internal___ignoreType = 'video.parent.internal.ignoreType',
-  video___parent___internal___mediaType = 'video.parent.internal.mediaType',
-  video___parent___internal___owner = 'video.parent.internal.owner',
-  video___parent___internal___type = 'video.parent.internal.type',
-  video___children = 'video.children',
-  video___children___id = 'video.children.id',
-  video___children___parent___id = 'video.children.parent.id',
-  video___children___parent___children = 'video.children.parent.children',
-  video___children___children = 'video.children.children',
-  video___children___children___id = 'video.children.children.id',
-  video___children___children___children = 'video.children.children.children',
-  video___children___internal___content = 'video.children.internal.content',
-  video___children___internal___contentDigest = 'video.children.internal.contentDigest',
-  video___children___internal___description = 'video.children.internal.description',
-  video___children___internal___fieldOwners = 'video.children.internal.fieldOwners',
-  video___children___internal___ignoreType = 'video.children.internal.ignoreType',
-  video___children___internal___mediaType = 'video.children.internal.mediaType',
-  video___children___internal___owner = 'video.children.internal.owner',
-  video___children___internal___type = 'video.children.internal.type',
-  video___internal___content = 'video.internal.content',
-  video___internal___contentDigest = 'video.internal.contentDigest',
-  video___internal___description = 'video.internal.description',
-  video___internal___fieldOwners = 'video.internal.fieldOwners',
-  video___internal___ignoreType = 'video.internal.ignoreType',
-  video___internal___mediaType = 'video.internal.mediaType',
-  video___internal___owner = 'video.internal.owner',
-  video___internal___type = 'video.internal.type',
+  thumbnail___contentful_id = 'thumbnail.contentful_id',
+  thumbnail___id = 'thumbnail.id',
+  thumbnail___spaceId = 'thumbnail.spaceId',
+  thumbnail___createdAt = 'thumbnail.createdAt',
+  thumbnail___updatedAt = 'thumbnail.updatedAt',
+  thumbnail___file___url = 'thumbnail.file.url',
+  thumbnail___file___details___size = 'thumbnail.file.details.size',
+  thumbnail___file___fileName = 'thumbnail.file.fileName',
+  thumbnail___file___contentType = 'thumbnail.file.contentType',
+  thumbnail___title = 'thumbnail.title',
+  thumbnail___description = 'thumbnail.description',
+  thumbnail___node_locale = 'thumbnail.node_locale',
+  thumbnail___sys___type = 'thumbnail.sys.type',
+  thumbnail___sys___revision = 'thumbnail.sys.revision',
+  thumbnail___fixed___base64 = 'thumbnail.fixed.base64',
+  thumbnail___fixed___tracedSVG = 'thumbnail.fixed.tracedSVG',
+  thumbnail___fixed___aspectRatio = 'thumbnail.fixed.aspectRatio',
+  thumbnail___fixed___width = 'thumbnail.fixed.width',
+  thumbnail___fixed___height = 'thumbnail.fixed.height',
+  thumbnail___fixed___src = 'thumbnail.fixed.src',
+  thumbnail___fixed___srcSet = 'thumbnail.fixed.srcSet',
+  thumbnail___fixed___srcWebp = 'thumbnail.fixed.srcWebp',
+  thumbnail___fixed___srcSetWebp = 'thumbnail.fixed.srcSetWebp',
+  thumbnail___resolutions___base64 = 'thumbnail.resolutions.base64',
+  thumbnail___resolutions___tracedSVG = 'thumbnail.resolutions.tracedSVG',
+  thumbnail___resolutions___aspectRatio = 'thumbnail.resolutions.aspectRatio',
+  thumbnail___resolutions___width = 'thumbnail.resolutions.width',
+  thumbnail___resolutions___height = 'thumbnail.resolutions.height',
+  thumbnail___resolutions___src = 'thumbnail.resolutions.src',
+  thumbnail___resolutions___srcSet = 'thumbnail.resolutions.srcSet',
+  thumbnail___resolutions___srcWebp = 'thumbnail.resolutions.srcWebp',
+  thumbnail___resolutions___srcSetWebp = 'thumbnail.resolutions.srcSetWebp',
+  thumbnail___fluid___base64 = 'thumbnail.fluid.base64',
+  thumbnail___fluid___tracedSVG = 'thumbnail.fluid.tracedSVG',
+  thumbnail___fluid___aspectRatio = 'thumbnail.fluid.aspectRatio',
+  thumbnail___fluid___src = 'thumbnail.fluid.src',
+  thumbnail___fluid___srcSet = 'thumbnail.fluid.srcSet',
+  thumbnail___fluid___srcWebp = 'thumbnail.fluid.srcWebp',
+  thumbnail___fluid___srcSetWebp = 'thumbnail.fluid.srcSetWebp',
+  thumbnail___fluid___sizes = 'thumbnail.fluid.sizes',
+  thumbnail___sizes___base64 = 'thumbnail.sizes.base64',
+  thumbnail___sizes___tracedSVG = 'thumbnail.sizes.tracedSVG',
+  thumbnail___sizes___aspectRatio = 'thumbnail.sizes.aspectRatio',
+  thumbnail___sizes___src = 'thumbnail.sizes.src',
+  thumbnail___sizes___srcSet = 'thumbnail.sizes.srcSet',
+  thumbnail___sizes___srcWebp = 'thumbnail.sizes.srcWebp',
+  thumbnail___sizes___srcSetWebp = 'thumbnail.sizes.srcSetWebp',
+  thumbnail___sizes___sizes = 'thumbnail.sizes.sizes',
+  thumbnail___resize___base64 = 'thumbnail.resize.base64',
+  thumbnail___resize___tracedSVG = 'thumbnail.resize.tracedSVG',
+  thumbnail___resize___src = 'thumbnail.resize.src',
+  thumbnail___resize___width = 'thumbnail.resize.width',
+  thumbnail___resize___height = 'thumbnail.resize.height',
+  thumbnail___resize___aspectRatio = 'thumbnail.resize.aspectRatio',
+  thumbnail___parent___id = 'thumbnail.parent.id',
+  thumbnail___parent___parent___id = 'thumbnail.parent.parent.id',
+  thumbnail___parent___parent___children = 'thumbnail.parent.parent.children',
+  thumbnail___parent___children = 'thumbnail.parent.children',
+  thumbnail___parent___children___id = 'thumbnail.parent.children.id',
+  thumbnail___parent___children___children = 'thumbnail.parent.children.children',
+  thumbnail___parent___internal___content = 'thumbnail.parent.internal.content',
+  thumbnail___parent___internal___contentDigest = 'thumbnail.parent.internal.contentDigest',
+  thumbnail___parent___internal___description = 'thumbnail.parent.internal.description',
+  thumbnail___parent___internal___fieldOwners = 'thumbnail.parent.internal.fieldOwners',
+  thumbnail___parent___internal___ignoreType = 'thumbnail.parent.internal.ignoreType',
+  thumbnail___parent___internal___mediaType = 'thumbnail.parent.internal.mediaType',
+  thumbnail___parent___internal___owner = 'thumbnail.parent.internal.owner',
+  thumbnail___parent___internal___type = 'thumbnail.parent.internal.type',
+  thumbnail___children = 'thumbnail.children',
+  thumbnail___children___id = 'thumbnail.children.id',
+  thumbnail___children___parent___id = 'thumbnail.children.parent.id',
+  thumbnail___children___parent___children = 'thumbnail.children.parent.children',
+  thumbnail___children___children = 'thumbnail.children.children',
+  thumbnail___children___children___id = 'thumbnail.children.children.id',
+  thumbnail___children___children___children = 'thumbnail.children.children.children',
+  thumbnail___children___internal___content = 'thumbnail.children.internal.content',
+  thumbnail___children___internal___contentDigest = 'thumbnail.children.internal.contentDigest',
+  thumbnail___children___internal___description = 'thumbnail.children.internal.description',
+  thumbnail___children___internal___fieldOwners = 'thumbnail.children.internal.fieldOwners',
+  thumbnail___children___internal___ignoreType = 'thumbnail.children.internal.ignoreType',
+  thumbnail___children___internal___mediaType = 'thumbnail.children.internal.mediaType',
+  thumbnail___children___internal___owner = 'thumbnail.children.internal.owner',
+  thumbnail___children___internal___type = 'thumbnail.children.internal.type',
+  thumbnail___internal___content = 'thumbnail.internal.content',
+  thumbnail___internal___contentDigest = 'thumbnail.internal.contentDigest',
+  thumbnail___internal___description = 'thumbnail.internal.description',
+  thumbnail___internal___fieldOwners = 'thumbnail.internal.fieldOwners',
+  thumbnail___internal___ignoreType = 'thumbnail.internal.ignoreType',
+  thumbnail___internal___mediaType = 'thumbnail.internal.mediaType',
+  thumbnail___internal___owner = 'thumbnail.internal.owner',
+  thumbnail___internal___type = 'thumbnail.internal.type',
   spaceId = 'spaceId',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
@@ -20837,8 +21680,9 @@ type ContentfulVideoCardFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly node_locale: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
+  readonly videoLink: Maybe<StringQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
-  readonly video: Maybe<ContentfulAssetFilterInput>;
+  readonly thumbnail: Maybe<ContentfulAssetFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
   readonly updatedAt: Maybe<DateQueryOperatorInput>;
@@ -22726,6 +23570,8 @@ type Query = {
   readonly allContentfulRecipePrepDirectionsTextNode: contentfulRecipePrepDirectionsTextNodeConnection;
   readonly contentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNode>;
   readonly allContentfulRecipeIngredientsTextNode: contentfulRecipeIngredientsTextNodeConnection;
+  readonly contentfulRecipeDescriptionTextNode: Maybe<contentfulRecipeDescriptionTextNode>;
+  readonly allContentfulRecipeDescriptionTextNode: contentfulRecipeDescriptionTextNodeConnection;
   readonly contentfulBlogPostBodyTextNode: Maybe<contentfulBlogPostBodyTextNode>;
   readonly allContentfulBlogPostBodyTextNode: contentfulBlogPostBodyTextNodeConnection;
   readonly contentfulBlogPostDescriptionTextNode: Maybe<contentfulBlogPostDescriptionTextNode>;
@@ -22855,6 +23701,8 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  port: Maybe<IntQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -23055,6 +23903,7 @@ type Query_contentfulRecipeArgs = {
   yield: Maybe<StringQueryOperatorInput>;
   prepTime: Maybe<IntQueryOperatorInput>;
   totalTime: Maybe<IntQueryOperatorInput>;
+  description: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
   ingredients: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
   prepDirections: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
   directions: Maybe<contentfulRecipeDirectionsTextNodeFilterInput>;
@@ -23076,6 +23925,8 @@ type Query_contentfulRecipeArgs = {
   childContentfulRecipePrepDirectionsTextNode: Maybe<contentfulRecipePrepDirectionsTextNodeFilterInput>;
   childrenContentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNodeFilterListInput>;
   childContentfulRecipeIngredientsTextNode: Maybe<contentfulRecipeIngredientsTextNodeFilterInput>;
+  childrenContentfulRecipeDescriptionTextNode: Maybe<contentfulRecipeDescriptionTextNodeFilterListInput>;
+  childContentfulRecipeDescriptionTextNode: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
@@ -23588,6 +24439,7 @@ type Query_contentfulResourceCardArgs = {
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
+  link: Maybe<StringQueryOperatorInput>;
   body: Maybe<contentfulResourceCardBodyTextNodeFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
@@ -23639,8 +24491,9 @@ type Query_contentfulVideoCardArgs = {
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
+  videoLink: Maybe<StringQueryOperatorInput>;
   description: Maybe<StringQueryOperatorInput>;
-  video: Maybe<ContentfulAssetFilterInput>;
+  thumbnail: Maybe<ContentfulAssetFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
@@ -23959,6 +24812,26 @@ type Query_allContentfulRecipeIngredientsTextNodeArgs = {
 };
 
 
+type Query_contentfulRecipeDescriptionTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  description: Maybe<StringQueryOperatorInput>;
+  sys: Maybe<contentfulRecipeDescriptionTextNodeSysFilterInput>;
+  childrenMarkdownRemark: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+type Query_allContentfulRecipeDescriptionTextNodeArgs = {
+  filter: Maybe<contentfulRecipeDescriptionTextNodeFilterInput>;
+  sort: Maybe<contentfulRecipeDescriptionTextNodeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
 type Query_contentfulBlogPostBodyTextNodeArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -24083,6 +24956,8 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -24285,6 +25160,8 @@ enum SiteFieldsEnum {
   buildTime = 'buildTime',
   siteMetadata___title = 'siteMetadata.title',
   siteMetadata___description = 'siteMetadata.description',
+  port = 'port',
+  host = 'host',
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -24378,6 +25255,8 @@ enum SiteFieldsEnum {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  readonly port: Maybe<IntQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -25086,156 +25965,10 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
-type GetInvolvedCardFragment = (
-  Pick<ContentfulGetInvolvedCard, 'title' | 'link' | 'node_locale'>
-  & { readonly icon: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
-);
-
-type ArticlePreviewFragment = (
-  Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
-  & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
-);
-
-type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HeaderQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> };
-
-type FooterQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterQuery = { readonly contentfulAsset: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> };
-
-type OurWorkCardFragment = (
-  Pick<ContentfulOurWorkCard, 'displayIndex' | 'title' | 'ctaLink' | 'ctaText'>
-  & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )> }
-);
-
-type RecipeCardFragment = (
-  Pick<ContentfulRecipe, 'id' | 'prepTime' | 'title' | 'totalTime' | 'updatedAt' | 'yield'>
-  & { readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly mainImage: Maybe<(
-    Pick<ContentfulAsset, 'description'>
-    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-  )>, readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulFoodTypeTag, 'key' | 'tagName'>>>>, readonly ingredientTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulIngredientTag, 'key' | 'tagName'>>>> }
-);
-
-type BlogPostBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
-
-
-type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
-    Pick<ContentfulBlogPost, 'title' | 'publishDate'>
-    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
-  )> };
-
-type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type BlogIndexQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<ArticlePreviewFragment> } };
-
-type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AboutPageQuery = (
-  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
-  & AboutBannerFragment
-  & OurWorkSectionFragment
-  & OurStorySectionFragment
-  & OurFounderSectionFragment
-  & OurSponsorSectionFragment
-  & DonateBannerFragment
-  & NewsletterBannerFragment
-);
-
-type GetInvolvedPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type GetInvolvedPageQuery = (
-  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
-  & DonationDetailFragment
-  & DonateBannerFragment
-  & GetInvolvedSectionFragment
-  & NewsletterBannerFragment
-);
-
-type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
-
-type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulRecipe, 'node_locale'>
-      & RecipeCardFragment
-    )> }, readonly allContentfulIngredientTag: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulIngredientTag, 'tagName' | 'node_locale'>
-      & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
-    )> }, readonly allContentfulFoodTypeTag: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulFoodTypeTag, 'tagName' | 'node_locale'>
-      & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
-    )> }, readonly contentfulTimeList: Maybe<Pick<ContentfulTimeList, 'timeList'>> };
-
-type EventsPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type EventsPageQuery = (
-  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
-  & DonateBannerFragment
-  & NewsletterBannerFragment
-);
-
-type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HomePageQuery = (
-  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
-  & HomeBannerFragment
-  & FeaturedRecipesSectionFragment
-  & OurWorkSectionFragment
-  & DonateBannerFragment
-  & NewsletterBannerFragment
-);
-
-type RecipeByTitleQueryVariables = Exact<{
-  title: Scalars['String'];
-}>;
-
-
-type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
-    Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
-    & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
-  )> };
-
-type DonateBannerFragment = { readonly allContentfulDonateSection: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulDonateSection, 'ctaLink' | 'ctaText' | 'title' | 'node_locale'>
-      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )>, readonly logo: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )> }
-    )> } };
-
-type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulDonationDetailSection, 'title' | 'node_locale'>
-      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
-        Pick<ContentfulAsset, 'description'>
-        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
-      )> }
-    )> } };
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 type AboutBannerFragment = { readonly allContentfulAboutBanner: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulAboutBanner, 'title' | 'node_locale'>
@@ -25248,17 +25981,20 @@ type AboutBannerFragment = { readonly allContentfulAboutBanner: { readonly nodes
       )> }
     )> } };
 
-type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulRecipe, 'node_locale'>
-      & RecipeCardFragment
+type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type OurWorkSectionFragment = { readonly allContentfulOurWorkCard: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulOurWorkCard, 'node_locale'>
+      & OurWorkCardFragment
     )> } };
 
-type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
-
-type HomeBannerFragment = { readonly allContentfulHomeBanner: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText' | 'node_locale'>
-      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
-    )> } };
+type OurWorkCardFragment = (
+  Pick<ContentfulOurWorkCard, 'displayIndex' | 'title' | 'ctaLink' | 'ctaText'>
+  & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> }
+);
 
 type OurStorySectionFragment = { readonly allContentfulOurStory: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulOurStory, 'title' | 'node_locale'>
@@ -25267,8 +26003,6 @@ type OurStorySectionFragment = { readonly allContentfulOurStory: { readonly node
         & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
       )> }
     )> } };
-
-type NewsletterBannerFragment = { readonly allContentfulNewsletterSection: { readonly nodes: ReadonlyArray<Pick<ContentfulNewsletterSection, 'headline' | 'ctaLink' | 'ctaText' | 'node_locale'>> } };
 
 type OurFounderSectionFragment = { readonly allContentfulOurFounder: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulOurFounder, 'title' | 'ctaLink' | 'ctaText' | 'node_locale'>
@@ -25289,99 +26023,161 @@ type OurSponsorSectionFragment = { readonly allContentfulOurSponsor: { readonly 
       )>>> }
     )> } };
 
-type OurWorkSectionFragment = { readonly allContentfulOurWorkCard: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulOurWorkCard, 'node_locale'>
-      & OurWorkCardFragment
+type DonateBannerFragment = { readonly allContentfulDonateSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulDonateSection, 'ctaLink' | 'ctaText' | 'title' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )>, readonly logo: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
     )> } };
 
-type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+type NewsletterBannerFragment = { readonly allContentfulNewsletterSection: { readonly nodes: ReadonlyArray<Pick<ContentfulNewsletterSection, 'headline' | 'ctaLink' | 'ctaText' | 'node_locale'>> } };
 
-type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+type AboutPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & AboutBannerFragment
+  & OurWorkSectionFragment
+  & OurStorySectionFragment
+  & OurFounderSectionFragment
+  & OurSponsorSectionFragment
+  & DonateBannerFragment
+  & NewsletterBannerFragment
+);
 
-type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+type ArticlePreviewFragment = (
+  Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
+  & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+);
 
-type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+type BlogIndexQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<ArticlePreviewFragment> } };
 
-type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+type DonationQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+type DonationQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
-type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+type EventsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type GatsbyImageSharpResolutionsFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+type EventsPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & DonateBannerFragment
+  & NewsletterBannerFragment
+);
 
-type GatsbyImageSharpResolutions_tracedSVGFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+type DonationDetailFragment = { readonly allContentfulDonationDetailSection: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulDonationDetailSection, 'title' | 'node_locale'>
+      & { readonly description: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }>, readonly image: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+      )> }
+    )> } };
 
-type GatsbyImageSharpResolutions_withWebpFragment = Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+type GetInvolvedSectionFragment = { readonly allContentfulGetInvolvedCard: { readonly nodes: ReadonlyArray<GetInvolvedCardFragment> } };
 
-type GatsbyImageSharpResolutions_withWebp_tracedSVGFragment = Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+type GetInvolvedCardFragment = (
+  Pick<ContentfulGetInvolvedCard, 'title' | 'link' | 'node_locale'>
+  & { readonly icon: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }> }
+);
 
-type GatsbyImageSharpResolutions_noBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+type GetInvolvedPageQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyImageSharpResolutions_withWebp_noBase64Fragment = Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-type GatsbyImageSharpSizesFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+type GetInvolvedPageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & DonationDetailFragment
+  & DonateBannerFragment
+  & GetInvolvedSectionFragment
+  & NewsletterBannerFragment
+);
 
-type GatsbyImageSharpSizes_tracedSVGFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+type HomeBannerFragment = { readonly allContentfulHomeBanner: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulHomeBanner, 'titleLine1' | 'titleLine2' | 'ctaLink' | 'ctaText' | 'node_locale'>
+      & { readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'rawMarkdownBody'>> }> }
+    )> } };
 
-type GatsbyImageSharpSizes_withWebpFragment = Pick<ImageSharpSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+type FeaturedRecipesSectionFragment = { readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulRecipe, 'node_locale'>
+      & RecipeCardFragment
+    )> } };
 
-type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+type RecipeCardFragment = (
+  Pick<ContentfulRecipe, 'id' | 'prepTime' | 'title' | 'totalTime' | 'updatedAt' | 'yield'>
+  & { readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly mainImage: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )>, readonly foodTypeTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulFoodTypeTag, 'key' | 'tagName'>>>>, readonly ingredientTags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulIngredientTag, 'key' | 'tagName'>>>> }
+);
 
-type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+type HomePageQuery = (
+  { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> }
+  & HomeBannerFragment
+  & FeaturedRecipesSectionFragment
+  & OurWorkSectionFragment
+  & DonateBannerFragment
+  & NewsletterBannerFragment
+);
 
-type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+type RecipeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
-type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+type RecipeQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly allContentfulRecipe: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulRecipe, 'node_locale'>
+      & RecipeCardFragment
+    )> }, readonly allContentfulIngredientTag: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulIngredientTag, 'tagName' | 'node_locale'>
+      & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
+    )> }, readonly allContentfulFoodTypeTag: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulFoodTypeTag, 'tagName' | 'node_locale'>
+      & { readonly recipe: Maybe<ReadonlyArray<Maybe<Pick<ContentfulRecipe, 'id'>>>> }
+    )> }, readonly contentfulTimeList: Maybe<Pick<ContentfulTimeList, 'timeList'>> };
 
-type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+type BlogPostBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
 
-type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
-type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly contentfulBlogPost: Maybe<(
+    Pick<ContentfulBlogPost, 'title' | 'publishDate'>
+    & { readonly heroImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly body: Maybe<{ readonly childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+  )> };
 
-type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+type RecipeByTitleQueryVariables = Exact<{
+  title: Scalars['String'];
+}>;
 
-type GatsbyContentfulFluid_withWebpFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+type RecipeByTitleQuery = { readonly contentfulRecipe: Maybe<(
+    Pick<ContentfulRecipe, 'title' | 'totalTime' | 'prepTime' | 'yield'>
+    & { readonly mainImage: Maybe<{ readonly fluid: Maybe<GatsbyContentfulFluidFragment> }>, readonly ingredients: Maybe<Pick<contentfulRecipeIngredientsTextNode, 'ingredients'>>, readonly directions: Maybe<Pick<contentfulRecipeDirectionsTextNode, 'directions'>>, readonly prepDirections: Maybe<Pick<contentfulRecipePrepDirectionsTextNode, 'prepDirections'>>, readonly notes: Maybe<Pick<contentfulRecipeNotesTextNode, 'notes'>> }
+  )> };
 
-type GatsbyContentfulResolutionsFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyContentfulResolutions_tracedSVGFragment = Pick<ContentfulResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
 
-type GatsbyContentfulResolutions_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+type FooterQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
 
-type GatsbyContentfulResolutions_withWebpFragment = Pick<ContentfulResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
 
-type GatsbyContentfulResolutions_withWebp_noBase64Fragment = Pick<ContentfulResolutions, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
-type GatsbyContentfulSizesFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_tracedSVGFragment = Pick<ContentfulSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulSizes_withWebpFragment = Pick<ContentfulSizes, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyContentfulSizes_withWebp_noBase64Fragment = Pick<ContentfulSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+type HeaderQuery = { readonly contentfulAsset: Maybe<(
+    Pick<ContentfulAsset, 'description'>
+    & { readonly fluid: Maybe<GatsbyContentfulFluidFragment> }
+  )> };
 
 }
