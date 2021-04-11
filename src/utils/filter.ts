@@ -127,7 +127,8 @@ function checkSearch(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], sea
   return (
     recipe.title?.toLowerCase().includes(search) ||
     recipe.directions?.directions?.toLowerCase().includes(search) ||
-    recipe.ingredients?.ingredients?.toLowerCase().includes(search)
+    recipe.ingredients?.ingredients?.toLowerCase().includes(search) ||
+    recipe.description?.description?.toLowerCase().includes(search)
   );
 }
 
