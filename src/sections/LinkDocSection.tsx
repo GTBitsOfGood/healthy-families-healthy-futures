@@ -20,11 +20,11 @@ function LinkDocSection({ data }: Props): JSX.Element {
 
   return (
     <Box mb="160px">
-      <Box marginBottom={100}>
+      <Box mt={{ base: '60px', md: 'none' }} marginBottom={{ base: '53px', md: '100px' }}>
         <SectionHeader text="Links &amp; Documents" textPosition="right" />
       </Box>
       <VStack spacing={20}>
-        <Box bgColor="creamsicle" p={10} maxW={700}>
+        <Box bgColor="creamsicle" w={{ base: '338px', md: '795px' }} p={10} maxW={700}>
           <VStack>
             <Text textStyle="heading1">{title}</Text>
             <Text textStyle="body1" textAlign="center">
@@ -32,7 +32,7 @@ function LinkDocSection({ data }: Props): JSX.Element {
             </Text>
           </VStack>
         </Box>
-        <SimpleGrid columns={{ base: 1, md: 2 }}>
+        <SimpleGrid w={{ base: '380px', md: 'full' }} columns={{ base: 1, md: 2 }}>
           {resourceCards.map((card, i) => (
             <ResourceCard key={i} data={card} />
           ))}
