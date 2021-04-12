@@ -17,7 +17,7 @@ import { entries, keys, removeNulls } from 'src/utils/util';
 import { NoSearchIcon } from '../components/Icons';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.RecipeQueryQuery;
+  data: GatsbyTypes.RecipePageQuery;
 }
 
 function RecipesIndex(props: Props): JSX.Element {
@@ -89,7 +89,7 @@ function RecipesIndex(props: Props): JSX.Element {
   const pageCount = Math.ceil(filteredRecipes.length / recipesPerPage);
 
   return (
-    <Layout location={props.location}>
+    <Layout data={props.data}>
       <Helmet title={siteTitle} />
 
       <Grid templateColumns={{ base: '1fr', md: '250px 1px 1fr' }} mb={10}>
@@ -151,12 +151,13 @@ function RecipesIndex(props: Props): JSX.Element {
 export default RecipesIndex;
 
 export const pageQuery = graphql`
-  query RecipeQuery {
+  query RecipePage {
     site {
       siteMetadata {
         title
       }
     }
+    ...Layout
     allContentfulRecipe {
       nodes {
         ...RecipeCard

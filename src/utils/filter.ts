@@ -1,7 +1,7 @@
 import { Category, RecipeFilters, SelectedRecipeFilters, Tag } from './types';
 import { removeNulls } from './util';
 
-type RecipeQuery = GatsbyTypes.RecipeQueryQuery;
+type RecipeQuery = GatsbyTypes.RecipePageQuery;
 
 // Initializes tags in sidebar based on all Contentful tags of each category
 export function initRecipeFilters(
