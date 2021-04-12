@@ -1,6 +1,9 @@
 import React from 'react';
 
+import { Button } from '@chakra-ui/button';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { Box, SimpleGrid, Text, VStack } from '@chakra-ui/layout';
+import { Collapse } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import ResourceCard from 'src/components/ResourceCard';
 import SectionHeader from 'src/components/SectionHeader';
@@ -16,14 +19,19 @@ function LinkDocSection({ data }: Props): JSX.Element {
   const title = section?.title;
   const body = section?.body?.childMarkdownRemark?.rawMarkdownBody;
 
+  const [show, setShow] = React.useState(false);
+  const handleToggle = () => setShow(!show);
+
   const resourceCards = filterLocale(data.allContentfulResourceCard.nodes);
+  const resourceCardsFirstChunk = resourceCards.slice(0, 3);
+  const resourceCardsSecChunk = resourceCards.slice(3, resourceCards.length);
 
   return (
-    <Box mb="160px">
+    <Box mb={{ base: '73px', md: '160px' }}>
       <Box mt={{ base: '60px', md: 'none' }} marginBottom={{ base: '53px', md: '100px' }}>
         <SectionHeader text="Links &amp; Documents" textPosition="right" />
       </Box>
-      <VStack spacing={20}>
+      <VStack spacing={20} display={{ base: 'none', md: 'flex' }}>
         <Box bgColor="creamsicle" w={{ base: '338px', md: '795px' }} p={10} maxW={700}>
           <VStack>
             <Text textStyle="heading1">{title}</Text>
@@ -37,6 +45,32 @@ function LinkDocSection({ data }: Props): JSX.Element {
             <ResourceCard key={i} data={card} />
           ))}
         </SimpleGrid>
+      </VStack>
+      <VStack display={{ base: 'flex', md: 'none' }}>
+        <SimpleGrid
+          display={{ base: 'grid', md: 'none' }}
+          w={{ base: '380px', md: 'full' }}
+          columns={{ base: 1, md: 2 }}
+        >
+          {resourceCardsFirstChunk.map((card, i) => (
+            <ResourceCard key={i} data={card} />
+          ))}
+        </SimpleGrid>
+        <Collapse in={show}>
+          <SimpleGrid w="380px" columns={{ base: 1, md: 2 }}>
+            {resourceCardsSecChunk.map((card, i) => (
+              <ResourceCard key={i} data={card} />
+            ))}
+          </SimpleGrid>
+        </Collapse>
+        <Button
+          rightIcon={show ? <ChevronUpIcon /> : <ChevronDownIcon />}
+          onClick={handleToggle}
+          textStyle="heading1"
+          variant="ghost"
+        >
+          {show ? 'VIEW LESS' : 'VIEW MORE'}
+        </Button>
       </VStack>
     </Box>
   );
