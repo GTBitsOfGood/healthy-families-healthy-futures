@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useDisclosure } from '@chakra-ui/hooks';
 import { Text, VStack } from '@chakra-ui/layout';
+import { useBreakpointValue } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -17,11 +18,13 @@ function VideoCard({ data }: Props): JSX.Element {
   const video = data.videoLink;
   const description = data.description;
 
+  const cardHeight = useBreakpointValue({ base: '144px', md: '200px' });
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <VStack
-      minW={{ base: '155px', md: '300px' }}
+      w={{ base: '155px', md: '300px' }}
       align="stretch"
       _hover={{ cursor: 'pointer' }}
       onClick={onOpen}
@@ -30,7 +33,7 @@ function VideoCard({ data }: Props): JSX.Element {
       <Text textStyle="body2" color="creamsicle">
         {title}
       </Text>
-      {thumbnail && <Img fluid={thumbnail} style={{ height: '200px' }} />}
+      {thumbnail && <Img fluid={thumbnail} style={{ height: cardHeight }} />}
       <Text textStyle="body2" fontWeight="bold">
         {description}
       </Text>
