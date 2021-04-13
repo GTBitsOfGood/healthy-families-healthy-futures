@@ -16,12 +16,10 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react';
-import { PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { MdChevronLeft, MdSearch } from 'react-icons/md';
 
 import Layout from '../components/Layout';
-
-type Props = PageProps;
 
 function ColorTile({
   hex,
@@ -50,9 +48,13 @@ function ColorTile({
   );
 }
 
+interface Props extends PageProps {
+  data: GatsbyTypes.DemoPageQuery;
+}
+
 function DemoPage(props: Props): JSX.Element {
   return (
-    <Layout location={props.location}>
+    <Layout data={props.data}>
       <Heading textStyle="heading1" mb={5}>
         Colors
       </Heading>
@@ -133,3 +135,9 @@ function DemoPage(props: Props): JSX.Element {
 }
 
 export default DemoPage;
+
+export const query = graphql`
+  query DemoPage {
+    ...Layout
+  }
+`;

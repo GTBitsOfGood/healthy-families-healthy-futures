@@ -26,7 +26,7 @@ function UpcomingEventsSection(): JSX.Element {
       <Box marginBottom={50}>
         <SectionHeader text="Upcoming Events" textPosition="left" />
       </Box>
-      <Flex direction="column">
+      <Flex direction="column" align="center">
         {events.map(event => (
           <EventCard key={event.id} data={event} />
         ))}

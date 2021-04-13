@@ -14,21 +14,21 @@ interface Props extends PageProps {
   data: GatsbyTypes.AboutPageQuery;
 }
 
-function AboutPage(props: Props): JSX.Element {
+function AboutPage({ data }: Props): JSX.Element {
   return (
-    <Layout location={props.location}>
-      <AboutBanner data={props.data} />
+    <Layout data={data}>
+      <AboutBanner data={data} />
 
-      <OurStorySection data={props.data} />
+      <OurStorySection data={data} />
 
-      <OurWorkSection data={props.data} />
+      <OurWorkSection data={data} />
 
-      <OurFounderSection data={props.data} />
+      <OurFounderSection data={data} />
 
-      <OurSponsorSection data={props.data} />
+      <OurSponsorSection data={data} />
 
-      <DonateSection data={props.data} />
-      <NewsletterBanner data={props.data} />
+      <DonateSection data={data} />
+      <NewsletterBanner data={data} />
     </Layout>
   );
 }
@@ -37,11 +37,7 @@ export default AboutPage;
 
 export const pageQuery = graphql`
   query AboutPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+    ...Layout
     ...AboutBanner
     ...OurWorkSection
     ...OurStorySection

@@ -69,7 +69,7 @@ export const fragment = graphql`
         ctaLink
         ctaText
         image {
-          fluid(quality: 100) {
+          fluid(quality: 100, maxWidth: 1440) {
             ...GatsbyContentfulFluid
           }
           description
