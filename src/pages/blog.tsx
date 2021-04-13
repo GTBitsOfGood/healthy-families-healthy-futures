@@ -16,7 +16,7 @@ function BlogIndex(props: Props): JSX.Element {
   const posts = props.data?.allContentfulBlogPost?.nodes;
 
   return (
-    <Layout location={props.location}>
+    <Layout data={props.data}>
       <div style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
         <div className={styles.hero}>Blog</div>
@@ -47,6 +47,7 @@ export const pageQuery = graphql`
         title
       }
     }
+    ...Layout
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       nodes {
         ...ArticlePreview

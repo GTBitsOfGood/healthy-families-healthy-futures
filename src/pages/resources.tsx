@@ -13,13 +13,13 @@ interface Props extends PageProps {
   data: GatsbyTypes.ResourcesPageQuery;
 }
 
-function ResourcesPage({ data, location }: Props): JSX.Element {
+function ResourcesPage({ data }: Props): JSX.Element {
   const { findLocale } = useLocale();
 
   const header = findLocale(data.allContentfulHeaderSection.nodes);
 
   return (
-    <Layout location={location}>
+    <Layout data={data}>
       <BasicBanner data={header} />
       <LinkDocSection data={data} />
       <MediaGallerySection data={data} />
@@ -44,6 +44,7 @@ export const pageQuery = graphql`
         node_locale
       }
     }
+    ...Layout
     ...LinkDoc
     ...MediaGallery
     ...DonateBanner

@@ -13,14 +13,13 @@ interface Props extends PageProps {
   data: GatsbyTypes.GetInvolvedPageQuery;
 }
 
-const GetInvolvedPage = (props: Props) => {
-  const { data, location } = props;
+const GetInvolvedPage = ({ data }: Props) => {
   const { findLocale } = useLocale();
 
   const header = findLocale(data.allContentfulHeaderSection.nodes);
 
   return (
-    <Layout location={location}>
+    <Layout data={data}>
       <BasicBanner data={header} />
       <GetInvolvedSection data={data} />
       <DonationDetailSection data={data} />
@@ -45,6 +44,7 @@ export const pageQuery = graphql`
         node_locale
       }
     }
+    ...Layout
     ...DonationDetail
     ...DonateBanner
     ...GetInvolvedSection
