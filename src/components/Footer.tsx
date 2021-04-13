@@ -11,25 +11,18 @@ import {
   HStack,
   Select,
 } from '@chakra-ui/react';
-import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby';
+import { Link as GatsbyLink, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { useLocale } from 'src/contexts/LocaleContext';
 import { Locale } from 'src/utils/types';
 
 import { FacebookIcon, InstagramIcon, EmailIcon } from './Icons';
 
-function Footer(): JSX.Element {
-  const data: GatsbyTypes.FooterQuery = useStaticQuery<GatsbyTypes.FooterQuery>(graphql`
-    query Footer {
-      contentfulAsset(title: { eq: "Logo Transparent" }) {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
-        }
-        description
-      }
-    }
-  `);
+interface Props {
+  data: GatsbyTypes.FooterFragment;
+}
 
+function Footer({ data }: Props): JSX.Element {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
@@ -43,10 +36,10 @@ function Footer(): JSX.Element {
   const { locale, setLocale } = useLocale();
 
   const logo =
-    data.contentfulAsset?.fluid != null ? (
+    data.footerImage?.fluid != null ? (
       <Img
-        fluid={data.contentfulAsset.fluid}
-        alt={data.contentfulAsset.description}
+        fluid={data.footerImage.fluid}
+        alt={data.footerImage.description}
         imgStyle={{ objectFit: 'contain' }}
         style={{ maxHeight: `158px` }}
       />
@@ -269,3 +262,14 @@ function Footer(): JSX.Element {
 }
 
 export default Footer;
+
+export const fragment = graphql`
+  fragment Footer on Query {
+    footerImage: contentfulAsset(title: { eq: "Logo Transparent" }) {
+      fluid(quality: 100) {
+        ...GatsbyContentfulFluid
+      }
+      description
+    }
+  }
+`;

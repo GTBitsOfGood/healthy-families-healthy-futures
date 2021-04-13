@@ -2,33 +2,21 @@ import React from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { NavLink } from 'src/components/Navigation';
 
-interface HeaderProps {
+interface Props {
+  data: GatsbyTypes.HeaderFragment;
   onHamburgerClick: () => void;
 }
 
-function Header({ onHamburgerClick }: HeaderProps): JSX.Element {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const data: GatsbyTypes.HeaderQuery = useStaticQuery<GatsbyTypes.HeaderQuery>(graphql`
-    query Header {
-      contentfulAsset(title: { eq: "Logo" }) {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
-        }
-        description
-      }
-    }
-  `);
-
+function Header({ data, onHamburgerClick }: Props): JSX.Element {
   const hfhfLogo =
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    data.contentfulAsset?.fluid != null ? (
+    data.headerImage?.fluid != null ? (
       <Img
-        fluid={data.contentfulAsset.fluid}
-        alt={data.contentfulAsset.description}
+        fluid={data.headerImage.fluid}
+        alt={data.headerImage.description}
         imgStyle={{ objectFit: 'contain' }}
       />
     ) : null;
@@ -85,3 +73,14 @@ function Header({ onHamburgerClick }: HeaderProps): JSX.Element {
 }
 
 export default Header;
+
+export const fragment = graphql`
+  fragment Header on Query {
+    headerImage: contentfulAsset(title: { eq: "Logo" }) {
+      fluid(quality: 100) {
+        ...GatsbyContentfulFluid
+      }
+      description
+    }
+  }
+`;
