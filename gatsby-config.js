@@ -26,14 +26,14 @@ module.exports = {
     title: 'Healthy Families Healthy Futures',
   },
   plugins: [
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-    //     anonymize: true,
-    //     respectDNT: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        anonymize: true,
+        respectDNT: true,
+      },
+    },
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
