@@ -17,9 +17,13 @@ function PhotoCard({ data }: Props): JSX.Element {
   const description = data.description;
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
-    <VStack minW="300px" align="stretch" _hover={{ cursor: 'pointer' }} onClick={onOpen}>
+    <VStack
+      minW={{ base: '155px', md: '300px' }}
+      align="stretch"
+      _hover={{ cursor: 'pointer' }}
+      onClick={onOpen}
+    >
       {image && <MediaModal isOpen={isOpen} onClose={onClose} media={image} />}
       <Text textStyle="body2" color="creamsicle">
         {title}

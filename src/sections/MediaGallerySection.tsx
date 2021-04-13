@@ -20,11 +20,16 @@ function MediaGallerySection({ data }: Props): JSX.Element {
 
   return (
     <Box bg="gray.extralight" pb="100px">
-      <Box mb="45px">
+      <Box mb={{ base: '35px', md: '54px' }}>
         <SectionHeader text="Media Gallery" textPosition="left" />
       </Box>
-      <VStack align={{ base: 'center', md: 'start' }} spacing="45px">
-        <Text textStyle="heading2" color="creamsicle" pl="70px" textTransform="uppercase">
+      <VStack align={{ base: 'start', md: 'start' }} spacing="45px">
+        <Text
+          textStyle="heading2"
+          color="creamsicle"
+          pl={{ base: '17px', md: '70px' }}
+          textTransform="uppercase"
+        >
           Photos
         </Text>
         <CardList>
@@ -32,7 +37,12 @@ function MediaGallerySection({ data }: Props): JSX.Element {
             <PhotoCard key={card.title} data={card} />
           ))}
         </CardList>
-        <Text textStyle="heading2" color="creamsicle" pl="70px" textTransform="uppercase">
+        <Text
+          textStyle="heading2"
+          color="creamsicle"
+          pl={{ base: '17px', md: '70px' }}
+          textTransform="uppercase"
+        >
           Videos
         </Text>
         <CardList>

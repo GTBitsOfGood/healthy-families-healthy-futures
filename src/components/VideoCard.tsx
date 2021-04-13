@@ -20,7 +20,12 @@ function VideoCard({ data }: Props): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <VStack minW="300px" align="stretch" _hover={{ cursor: 'pointer' }} onClick={onOpen}>
+    <VStack
+      minW={{ base: '155px', md: '300px' }}
+      align="stretch"
+      _hover={{ cursor: 'pointer' }}
+      onClick={onOpen}
+    >
       {video && <MediaModal isOpen={isOpen} onClose={onClose} media={video} />}
       <Text textStyle="body2" color="creamsicle">
         {title}

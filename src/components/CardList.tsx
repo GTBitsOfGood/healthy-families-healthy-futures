@@ -26,9 +26,9 @@ const CardList = ({ children }: Props) => {
     <Flex w="full" justifyContent="center" alignItems="center">
       {hasPrev && (
         <Center
-          w="60px"
-          h="100px"
-          mr="-30px"
+          w={{ base: '27px', md: '60px' }}
+          h={{ base: '52px', md: '100px' }}
+          mr={{ base: '-15px', md: '-30px' }}
           bg="charcoal"
           cursor="pointer"
           zIndex={3}
@@ -44,9 +44,9 @@ const CardList = ({ children }: Props) => {
       </HStack>
       {hasNext && (
         <Center
-          w="60px"
-          h="100px"
-          ml="-30px"
+          w={{ base: '27px', md: '60px' }}
+          h={{ base: '52px', md: '100px' }}
+          ml={{ base: '-15px', md: '-30px' }}
           zIndex={3}
           bg="charcoal"
           cursor="pointer"
