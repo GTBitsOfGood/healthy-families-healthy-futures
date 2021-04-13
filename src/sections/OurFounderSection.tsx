@@ -4,6 +4,7 @@ import { Stack, Box, VStack, Text, Button, useTheme } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.OurFounderSectionFragment;
@@ -11,7 +12,9 @@ interface Props {
 
 const OurFounderSection = ({ data }: Props) => {
   const theme = useTheme();
-  const founder = data.contentfulOurFounder;
+  const { findLocale } = useLocale();
+
+  const founder = findLocale(data.allContentfulOurFounder.nodes);
 
   return (
     <>
@@ -64,20 +67,23 @@ export default OurFounderSection;
 
 export const fragment = graphql`
   fragment OurFounderSection on Query {
-    contentfulOurFounder {
-      title
-      ctaLink
-      ctaText
-      description {
-        childMarkdownRemark {
-          rawMarkdownBody
+    allContentfulOurFounder {
+      nodes {
+        title
+        ctaLink
+        ctaText
+        description {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
         }
-      }
-      image {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
+        image {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
+          description
         }
-        description
+        node_locale
       }
     }
   }

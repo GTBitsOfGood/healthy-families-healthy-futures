@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import { NavLink } from 'src/components/Navigation';
 
 interface HeaderProps {
   onHamburgerClick: () => void;
@@ -54,11 +53,10 @@ function Header({ onHamburgerClick }: HeaderProps): JSX.Element {
         </Flex>
 
         <Spacer />
+
         <Flex align="center" flexDir="row">
-          <Button variant="secondary" fontSize="16px" _hover={{ color: '#65BF73' }}>
-            Get Involved
-          </Button>
-          <Spacer />
+          <NavLink text="Get Involved" link="/get-involved" />
+          <Spacer mr={5} />
           <Button variant="primary" fontSize="16px">
             Donate
           </Button>

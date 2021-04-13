@@ -2,13 +2,17 @@ import React from 'react';
 
 import { Box, Heading, Button } from '@chakra-ui/react';
 import { graphql, Link } from 'gatsby';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.HomeBannerFragment;
 }
 
 const HomeBanner = ({ data }: Props) => {
-  const banner = data.contentfulHomeBanner;
+  const { findLocale } = useLocale();
+
+  const banner = findLocale(data?.allContentfulHomeBanner?.nodes);
+
   return (
     <Box
       w={{ base: '90vw', md: 560 }}
@@ -39,16 +43,19 @@ export default HomeBanner;
 
 export const fragment = graphql`
   fragment HomeBanner on Query {
-    contentfulHomeBanner {
-      titleLine1
-      titleLine2
-      body {
-        childMarkdownRemark {
-          rawMarkdownBody
+    allContentfulHomeBanner {
+      nodes {
+        titleLine1
+        titleLine2
+        body {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
         }
+        ctaLink
+        ctaText
+        node_locale
       }
-      ctaLink
-      ctaText
     }
   }
 `;

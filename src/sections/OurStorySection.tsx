@@ -4,18 +4,23 @@ import { Box, Text, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.OurStorySectionFragment;
 }
 
 const OurStorySection = ({ data }: Props) => {
-  const image = data.contentfulOurStory?.image;
+  const { findLocale } = useLocale();
+
+  const section = findLocale(data.allContentfulOurStory.nodes);
+
+  const image = section?.image;
 
   return (
     <>
       <Box mt={{ base: 70, md: 150 }} mb={{ base: 70, md: 110 }}>
-        <SectionHeader text={data.contentfulOurStory?.title ?? 'Our Story'} textPosition="right" />
+        <SectionHeader text={section?.title ?? 'Our Story'} textPosition="right" />
       </Box>
 
       <Flex
@@ -38,7 +43,7 @@ const OurStorySection = ({ data }: Props) => {
             fontSize={[18, null, 18]}
             lineHeight={[1.3666, null, 1.3666]}
           >
-            {data.contentfulOurStory?.body?.childMarkdownRemark?.rawMarkdownBody}
+            {section?.body?.childMarkdownRemark?.rawMarkdownBody}
           </Text>
         </Box>
       </Flex>
@@ -50,18 +55,21 @@ export default OurStorySection;
 
 export const fragment = graphql`
   fragment OurStorySection on Query {
-    contentfulOurStory {
-      title
-      body {
-        childMarkdownRemark {
-          rawMarkdownBody
+    allContentfulOurStory {
+      nodes {
+        title
+        body {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
         }
-      }
-      image {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
+        image {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
+          description
         }
-        description
+        node_locale
       }
     }
   }

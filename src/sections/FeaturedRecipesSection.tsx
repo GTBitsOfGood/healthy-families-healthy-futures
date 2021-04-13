@@ -6,13 +6,16 @@ import slugify from '@sindresorhus/slugify';
 import { graphql, Link } from 'gatsby';
 import RecipeCard from 'src/components/RecipeCard';
 import SectionHeader from 'src/components/SectionHeader';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.FeaturedRecipesSectionFragment;
 }
 
 const FeaturedRecipesSection = (props: Props) => {
-  const recipes = props.data?.allContentfulRecipe?.nodes;
+  const { filterLocale } = useLocale();
+
+  const recipes = filterLocale(props.data?.allContentfulRecipe?.nodes);
 
   return (
     <Box>
@@ -92,6 +95,7 @@ export const fragment = graphql`
     allContentfulRecipe(filter: { featured: { eq: true } }) {
       nodes {
         ...RecipeCard
+        node_locale
       }
     }
   }
