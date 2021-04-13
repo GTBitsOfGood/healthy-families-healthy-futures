@@ -5,13 +5,15 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Box, Center, Flex, Heading, Text, VStack } from '@chakra-ui/layout';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.BlogsBannerFragment;
 }
 
 function BlogsBanner({ data }: Props): JSX.Element {
-  const featuredBlog = data?.contentfulBlogPost;
+  const { findLocale } = useLocale();
+  const featuredBlog = findLocale(data?.featuredBlogs?.nodes);
   const title = featuredBlog?.title;
   const image = featuredBlog?.heroImage?.fluid;
   const description = featuredBlog?.description?.childMarkdownRemark?.rawMarkdownBody;
@@ -65,19 +67,22 @@ export default BlogsBanner;
 
 export const fragment = graphql`
   fragment BlogsBanner on Query {
-    contentfulBlogPost(featured: { eq: true }) {
-      title
-      heroImage {
-        fluid(quality: 100) {
-          ...GatsbyContentfulFluid
+    featuredBlogs: allContentfulBlogPost(filter: { featured: { eq: true } }, limit: 1) {
+      nodes {
+        title
+        heroImage {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
         }
-      }
-      description {
-        childMarkdownRemark {
-          rawMarkdownBody
+        description {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
         }
+        slug
+        node_locale
       }
-      slug
     }
   }
 `;
