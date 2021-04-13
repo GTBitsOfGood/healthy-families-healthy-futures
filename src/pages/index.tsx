@@ -14,7 +14,7 @@ interface Props extends PageProps {
 
 function RootIndex(props: Props): JSX.Element {
   return (
-    <Layout location={props.location}>
+    <Layout data={props.data}>
       <HomeBanner data={props.data} />
 
       <OurWorkSection data={props.data} />
@@ -30,11 +30,7 @@ export default RootIndex;
 
 export const pageQuery = graphql`
   query HomePage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+    ...Layout
     ...HomeBanner
     ...FeaturedRecipesSection
     ...OurWorkSection

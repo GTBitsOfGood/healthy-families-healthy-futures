@@ -2,19 +2,16 @@ import React from 'react';
 
 import { Container, Heading } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
-import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.DonationQueryQuery;
+  data: GatsbyTypes.DonationPageQuery;
 }
 
 function DonationIndex(props: Props): JSX.Element {
-  const siteTitle = props.data.site?.siteMetadata?.title || '';
   return (
-    <Layout location={props.location}>
+    <Layout data={props.data}>
       <Container alignItems="center">
-        <Helmet title={`Donations | ${siteTitle}`} />
         <Heading as="h1" size="3xl">
           Donations
         </Heading>
@@ -26,11 +23,12 @@ function DonationIndex(props: Props): JSX.Element {
 export default DonationIndex;
 
 export const pageQuery = graphql`
-  query DonationQuery {
+  query DonationPage {
     site {
       siteMetadata {
         title
       }
     }
+    ...Layout
   }
 `;
