@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Text, Flex, Center } from '@chakra-ui/react';
+import { Box, Text, Flex } from '@chakra-ui/react';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 
