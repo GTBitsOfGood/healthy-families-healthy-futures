@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
@@ -27,6 +27,7 @@ function Header({ onHamburgerClick }: HeaderProps): JSX.Element {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     data.contentfulAsset?.fluid != null ? (
       <Img
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         fluid={data.contentfulAsset.fluid}
         alt={data.contentfulAsset.description}
         imgStyle={{ objectFit: 'contain' }}
