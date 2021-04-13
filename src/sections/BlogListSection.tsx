@@ -12,7 +12,7 @@ function BlogListSection({ data }: Props): JSX.Element {
   const blogCards = data?.allContentfulBlogPost?.nodes;
 
   return (
-    <SimpleGrid columns={2}>
+    <SimpleGrid columns={2} justifyItems="center" spacing={10} my={10}>
       {blogCards.map(card => (
         <BlogCard key={card.title} data={card} />
       ))}
