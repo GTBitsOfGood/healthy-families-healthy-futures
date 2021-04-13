@@ -1,7 +1,17 @@
 import React from 'react';
 
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Flex, Heading, Text, HStack, VStack, Box, Button, Grid } from '@chakra-ui/react';
+import {
+  Flex,
+  Heading,
+  Text,
+  HStack,
+  VStack,
+  Box,
+  Button,
+  Grid,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
 
@@ -17,8 +27,10 @@ function RecipeTemplate(props: Props): JSX.Element {
   const contentfulRecipe = props.data.contentfulRecipe;
   const recipe = parseRecipe(contentfulRecipe as GatsbyTypes.ContentfulRecipe);
 
+  const titleTextStyle = useBreakpointValue({ base: 'subheading1', md: 'heading1' });
+
   return (
-    <Layout location={props.location}>
+    <Layout data={props.data}>
       <Box w={{ base: '89%', md: 'none' }} margin={{ base: 5, md: 10 }}>
         <Link to="/recipes">
           <Button
@@ -31,7 +43,7 @@ function RecipeTemplate(props: Props): JSX.Element {
           </Button>
         </Link>
         <Heading
-          textStyle={{ base: 'subheading1', md: 'heading1' }}
+          textStyle={titleTextStyle}
           textAlign={{ base: 'center', md: 'start' }}
           marginBottom={5}
         >
@@ -153,6 +165,7 @@ export default RecipeTemplate;
 
 export const pageQuery = graphql`
   query RecipeByTitle($title: String!) {
+    ...Layout
     contentfulRecipe(title: { eq: $title }) {
       title
       mainImage {

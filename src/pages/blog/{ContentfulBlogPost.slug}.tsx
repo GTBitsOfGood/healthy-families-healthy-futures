@@ -21,7 +21,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
   }
 
   return (
-    <Layout location={props.location}>
+    <Layout data={props.data}>
       <div style={{ background: '#fff' }}>
         <Helmet title={`${post?.title ?? ''} | ${siteTitle ?? ''}`} />
         <div className={heroStyles.hero}>
@@ -56,6 +56,7 @@ export const pageQuery = graphql`
         title
       }
     }
+    ...Layout
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
