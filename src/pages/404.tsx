@@ -10,14 +10,14 @@ interface Props extends PageProps {
   data: GatsbyTypes.ErrorPageQuery;
 }
 
-const ErrorPage = ({ data, location }: Props) => {
+const ErrorPage = ({ data }: Props) => {
   const { findLocale } = useLocale();
   const theme = useTheme();
 
   const page = findLocale(data.allContentfulErrorPage.nodes);
 
   return (
-    <Layout location={location}>
+    <Layout data={data}>
       <Flex h="790px" alignItems="center" justifyContent="space-evenly">
         <Box w="709px">
           <Heading fontSize="50px" lineHeight="78px" fontWeight={850}>
@@ -54,6 +54,7 @@ export default ErrorPage;
 
 export const fragment = graphql`
   query ErrorPage {
+    ...Layout
     site {
       siteMetadata {
         title

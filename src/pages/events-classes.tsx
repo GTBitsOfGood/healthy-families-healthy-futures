@@ -19,7 +19,7 @@ function EventsPage(props: Props): JSX.Element {
   const header = findLocale(props.data.allContentfulHeaderSection.nodes);
 
   return (
-    <Layout location={props.location}>
+    <Layout data={props.data}>
       <BasicBanner data={header} />
       <EventCalendarSection />
       <UpcomingEventsSection />
@@ -44,6 +44,7 @@ export const pageQuery = graphql`
         node_locale
       }
     }
+    ...Layout
     ...DonateBanner
     ...NewsletterBanner
   }
