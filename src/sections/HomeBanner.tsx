@@ -15,7 +15,7 @@ const HomeBanner = ({ data }: Props) => {
   const banner = findLocale(data?.allContentfulHomeBanner?.nodes);
 
   return (
-    <Flex position="relative" h={{ base: 356, md: 785 }} alignItems="center">
+    <Flex position="relative" h={{ base: 600, md: 785 }} alignItems="center">
       {banner?.image?.fluid != null && (
         <Img
           fluid={banner?.image.fluid}
@@ -25,7 +25,6 @@ const HomeBanner = ({ data }: Props) => {
       )}
       <Box
         w={{ base: '90vw', md: 560 }}
-        // marginTop={{ base: 20, md: 240 }}
         marginLeft={{ base: 5, md: 180 }}
         zIndex={2}
         bgColor="white"

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from '@chakra-ui/button';
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
-import { Box, SimpleGrid, Text, VStack } from '@chakra-ui/layout';
+import { Box, Center, SimpleGrid, Text, VStack } from '@chakra-ui/layout';
 import { Collapse } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import ResourceCard from 'src/components/ResourceCard';
@@ -28,7 +28,7 @@ function LinkDocSection({ data }: Props): JSX.Element {
 
   return (
     <Box mb={{ base: '73px', md: '160px' }}>
-      <Box mt={{ base: '60px', md: 'none' }} marginBottom={{ base: '53px', md: '100px' }}>
+      <Box marginBottom={{ base: '53px', md: '100px' }}>
         <SectionHeader text="Links &amp; Documents" textPosition="right" />
       </Box>
       <VStack spacing={20} display={{ base: 'none', md: 'flex' }}>
@@ -42,7 +42,9 @@ function LinkDocSection({ data }: Props): JSX.Element {
         </Box>
         <SimpleGrid w={{ base: '380px', md: 'full' }} columns={{ base: 1, md: 2 }}>
           {resourceCards.map((card, i) => (
-            <ResourceCard key={i} data={card} />
+            <Center key={i}>
+              <ResourceCard data={card} />
+            </Center>
           ))}
         </SimpleGrid>
       </VStack>

@@ -9,7 +9,7 @@ interface Props {
 
 const SectionHeader = ({ text, textPosition }: Props) => {
   return (
-    <Flex>
+    <Flex pt={{ base: '25px', md: '80px' }}>
       {textPosition === 'right' && <Box flex="1" bg="creamsicle" w="100%" />}
       <Heading
         textAlign={'center'}

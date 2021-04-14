@@ -98,7 +98,7 @@ function EventCalendarSection(): JSX.Element {
   ));
 
   return (
-    <Box pb="160px">
+    <Box pb={{ base: '65px', md: 0 }}>
       <Box marginBottom={50}>
         <SectionHeader text="Calendar" textPosition="right" />
       </Box>
