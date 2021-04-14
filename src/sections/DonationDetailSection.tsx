@@ -17,7 +17,9 @@ function DonationDetailSection({ data }: Props): JSX.Element {
 
   return (
     <Box bg="white" mb="117px">
-      <SectionHeader text="Where do donations go" textPosition="left" />
+      <Box mb={{ base: '25px', md: '80px' }}>
+        <SectionHeader text="Where do donations go" textPosition="left" />
+      </Box>
       <Grid bg="charcoal" templateColumns={{ base: '1fr', md: '1fr 1fr' }}>
         {variant == 'inorder' && section?.image?.fluid != null && (
           <Img

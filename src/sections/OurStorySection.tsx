@@ -18,8 +18,8 @@ const OurStorySection = ({ data }: Props) => {
   const image = section?.image;
 
   return (
-    <>
-      <Box mt={{ base: 70, md: 150 }} mb={{ base: 70, md: 110 }}>
+    <Box>
+      <Box mb={{ base: 70, md: 110 }}>
         <SectionHeader text={section?.title ?? 'Our Story'} textPosition="right" />
       </Box>
 
@@ -47,7 +47,7 @@ const OurStorySection = ({ data }: Props) => {
           </Text>
         </Box>
       </Flex>
-    </>
+    </Box>
   );
 };
 
