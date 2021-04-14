@@ -16,6 +16,8 @@ const theme = extendTheme({
       extralight: 'rgba(196, 196, 196, 0.1)',
     },
     creamsicle: '#FF9C59',
+    darkcreamsicle: '#FF8533',
+    darkercreamsicle: '#FF6C0A',
   },
   shadows: {
     card: '0px 3px 14px rgba(0, 0, 0, 0.25)',
@@ -65,6 +67,13 @@ const theme = extendTheme({
     body3: {
       fontSize: [14, null, 14],
       lineHeight: ['22px', null, '22px'],
+    },
+    caption: {
+      fontSize: [14, null, 14],
+      fontWeight: 400,
+      lineHeight: ['19px', null, '19px'],
+      fontStyle: 'italic',
+      color: 'gray.mid',
     },
   },
   components: {
@@ -149,6 +158,20 @@ const theme = extendTheme({
             _placeholder: {
               color: 'gray.light',
             },
+          },
+        },
+      },
+    },
+    Link: {
+      variants: {
+        blog: {
+          color: 'creamsicle',
+          _hover: {
+            textDecoration: 'none',
+            color: 'darkcreamsicle',
+          },
+          _active: {
+            color: 'darkercreamsicle',
           },
         },
       },

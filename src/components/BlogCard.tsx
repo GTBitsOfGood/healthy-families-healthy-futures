@@ -32,7 +32,7 @@ function BlogCard({ data }: Props): JSX.Element {
         {description}
       </Text>
       <Box align="end">
-        <Link to={`/blogs/${slug ?? ''}`}>
+        <Link to={`/blog/${slug ?? ''}`}>
           <Button textStyle="body1" variant="secondary" rightIcon={<ArrowForwardIcon />}>
             READ MORE
           </Button>

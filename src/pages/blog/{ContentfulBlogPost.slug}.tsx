@@ -1,48 +1,68 @@
 import React from 'react';
 
-import { graphql, PageProps } from 'gatsby';
+import { ChevronLeftIcon } from '@chakra-ui/icons';
+import { Box, Button, Container, Heading, Text } from '@chakra-ui/react';
+import { format, parseISO } from 'date-fns';
+import { es } from 'date-fns/locale';
+import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
-import { Helmet } from 'react-helmet';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 import Layout from '../../components/Layout';
 import RichText from '../../components/RichText';
-import heroStyles from '../../css/Hero.module.css';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.BlogPostBySlugQuery;
+  data: GatsbyTypes.BlogPostPageQuery;
 }
 
 function BlogPostTemplate(props: Props): JSX.Element {
-  const post = props.data.contentfulBlogPost;
-  const siteTitle = props.data.site?.siteMetadata?.title;
+  const { locale, findLocale } = useLocale();
 
-  if (post?.heroImage?.fluid == null) {
-    return <></>;
-  }
+  const post = findLocale(props.data.allContentfulBlogPost.nodes);
+
+  const dateObj = parseISO(post?.publishDate ?? '');
+
+  const date =
+    locale === 'en-US'
+      ? format(dateObj, 'MM/dd/yyyy')
+      : format(dateObj, 'dd/MM/yyyy', { locale: es });
 
   return (
     <Layout data={props.data}>
-      <div style={{ background: '#fff' }}>
-        <Helmet title={`${post?.title ?? ''} | ${siteTitle ?? ''}`} />
-        <div className={heroStyles.hero}>
-          <Img
-            className={heroStyles.heroImage}
-            alt={post?.title ?? ''}
-            fluid={post?.heroImage?.fluid}
-          />
-        </div>
-        <div className="wrapper">
-          <h1 className="section-headline">{post?.title}</h1>
-          <p
-            style={{
-              display: 'block',
-            }}
+      <Container maxW="740px" px={0} pt="50px">
+        <Link to="/blog">
+          <Button
+            display={{ base: 'none', md: 'flex' }}
+            variant="back"
+            leftIcon={<ChevronLeftIcon />}
+            mb="50px"
           >
-            {post.publishDate}
-          </p>
-          <RichText data={post.body?.childMarkdownRemark?.html} />
-        </div>
-      </div>
+            Back to Recipes
+          </Button>
+        </Link>
+
+        <Box mb="30px">
+          <Heading textStyle="heading1">{post?.title}</Heading>
+          <Text textStyle="body1" fontWeight={800}>
+            {post?.author?.name}
+          </Text>
+          <Text mt="6px">{date}</Text>
+        </Box>
+
+        <Heading textStyle="heading3" fontSize={{ base: 16, md: 22 }} mb="50px">
+          {post?.description?.childMarkdownRemark?.rawMarkdownBody}
+        </Heading>
+
+        {post?.heroImage?.fluid != null && <Img fluid={post.heroImage.fluid} />}
+        {post?.heroCaption != null && (
+          <Text textStyle="caption" w="full" textAlign="center" mt="32px">
+            {post.heroCaption}
+          </Text>
+        )}
+        <Box mt="32px">
+          <RichText data={post?.body2?.raw} />
+        </Box>
+      </Container>
     </Layout>
   );
 }
@@ -50,25 +70,35 @@ function BlogPostTemplate(props: Props): JSX.Element {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query BlogPostPage($slug: String!) {
     ...Layout
-    contentfulBlogPost(slug: { eq: $slug }) {
-      title
-      publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid
+    allContentfulBlogPost(filter: { slug: { eq: $slug } }) {
+      nodes {
+        title
+        publishDate
+        heroImage {
+          fluid(maxWidth: 1180) {
+            ...GatsbyContentfulFluid
+          }
         }
-      }
-      body {
-        childMarkdownRemark {
-          html
+        heroCaption
+        author {
+          name
         }
+        description {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
+        }
+        body {
+          childMarkdownRemark {
+            html
+          }
+        }
+        body2 {
+          raw
+        }
+        node_locale
       }
     }
   }
