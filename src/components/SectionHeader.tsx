@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 
 interface Props {
   text: string;
@@ -9,11 +9,16 @@ interface Props {
 
 const SectionHeader = ({ text, textPosition }: Props) => {
   return (
-    <Flex>
+    <Flex pt={{ base: '25px', md: '80px' }}>
       {textPosition === 'right' && <Box flex="1" bg="creamsicle" w="100%" />}
-      <Text textAlign={'center'} textStyle="heading1" textTransform="uppercase" mx="84px">
+      <Heading
+        textAlign={'center'}
+        textStyle="heading1"
+        textTransform="uppercase"
+        mx={['20px', null, '84px']}
+      >
         {text}
-      </Text>
+      </Heading>
       {textPosition === 'left' && <Box flex="1" bg="creamsicle" w="100%" />}
     </Flex>
   );

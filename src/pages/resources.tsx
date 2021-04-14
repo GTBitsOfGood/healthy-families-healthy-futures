@@ -5,46 +5,48 @@ import BasicBanner from 'src/components/BasicBanner';
 import Layout from 'src/components/Layout';
 import { useLocale } from 'src/contexts/LocaleContext';
 import DonateBanner from 'src/sections/DonateBanner';
-import EventCalendarSection from 'src/sections/EventCalendarSection';
+import LinkDocSection from 'src/sections/LinkDocSection';
+import MediaGallerySection from 'src/sections/MediaGallerySection';
 import NewsletterBanner from 'src/sections/NewsletterBanner';
-import UpcomingEventsSection from 'src/sections/UpcomingEventsSection';
 
 interface Props extends PageProps {
-  data: GatsbyTypes.EventsPageQuery;
+  data: GatsbyTypes.ResourcesPageQuery;
 }
 
-function EventsPage(props: Props): JSX.Element {
+function ResourcesPage({ data }: Props): JSX.Element {
   const { findLocale } = useLocale();
 
-  const header = findLocale(props.data.allContentfulHeaderSection.nodes);
+  const header = findLocale(data.allContentfulHeaderSection.nodes);
 
   return (
-    <Layout data={props.data}>
+    <Layout data={data}>
       <BasicBanner data={header} />
-      <EventCalendarSection />
-      <UpcomingEventsSection />
-      <DonateBanner data={props.data} />
-      <NewsletterBanner data={props.data} />
+      <LinkDocSection data={data} />
+      <MediaGallerySection data={data} />
+      <DonateBanner data={data} />
+      <NewsletterBanner data={data} />
     </Layout>
   );
 }
 
-export default EventsPage;
+export default ResourcesPage;
 
 export const pageQuery = graphql`
-  query EventsPage {
+  query ResourcesPage {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulHeaderSection(filter: { key: { eq: "events-classes" } }) {
+    allContentfulHeaderSection(filter: { key: { eq: "resources" } }) {
       nodes {
         ...BasicBanner
         node_locale
       }
     }
     ...Layout
+    ...LinkDoc
+    ...MediaGallery
     ...DonateBanner
     ...NewsletterBanner
   }

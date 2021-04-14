@@ -17,7 +17,7 @@ const OurFounderSection = ({ data }: Props) => {
   const founder = findLocale(data.allContentfulOurFounder.nodes);
 
   return (
-    <>
+    <Box>
       <Box>
         <SectionHeader text={founder?.title ?? 'Our Founder'} textPosition="right" />
       </Box>
@@ -30,7 +30,6 @@ const OurFounderSection = ({ data }: Props) => {
           align={{ base: 'center' }}
         >
           <Box
-            // mt={{ md: 30 }}
             w="272px"
             h="272px"
             borderRadius="50%"
@@ -59,7 +58,7 @@ const OurFounderSection = ({ data }: Props) => {
         </Stack>
         <Button variant="neutral">{founder?.ctaText}</Button>
       </VStack>
-    </>
+    </Box>
   );
 };
 

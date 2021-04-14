@@ -16,7 +16,7 @@ const OurSponsorSection = ({ data }: Props) => {
   const info = findLocale(data.allContentfulOurSponsor.nodes);
 
   return (
-    <>
+    <Box mb="277px">
       <Box mb="189px">
         <SectionHeader text={info?.title ?? 'Our Sponsors & Partners'} textPosition="left" />
       </Box>
@@ -25,7 +25,6 @@ const OurSponsorSection = ({ data }: Props) => {
         positive margin on children */}
       <Flex
         mt="-56px"
-        mb="277px"
         mx={{ base: 0, md: `20%` }}
         justifyContent="space-evenly"
         direction={{ base: 'row', md: 'row' }}
@@ -47,7 +46,7 @@ const OurSponsorSection = ({ data }: Props) => {
               ),
           )}
       </Flex>
-    </>
+    </Box>
   );
 };
 

@@ -9,23 +9,30 @@ interface Props {
 }
 
 const GetInvolvedCard = ({ data }: Props) => {
-  const { title, icon, link } = data;
+  const { title, icon, link, description } = data;
 
   const imageEl =
-    icon?.fluid != null ? <Img fluid={icon.fluid} imgStyle={{ objectFit: 'contain' }} /> : null;
+    icon?.fluid != null ? (
+      <Img
+        style={{ marginTop: '50%', transform: 'translateY(-70%)' }}
+        fluid={icon.fluid}
+        imgStyle={{ objectFit: 'contain' }}
+      />
+    ) : null;
 
   return (
     <Link to={link ?? '#'}>
-      <Box w="auto" my={10}>
-        <Flex direction="column" align="center">
-          <Box w={312} h={246}>
-            {imageEl}
-          </Box>
-          <Text color="charcoal" textTransform="uppercase" textStyle="heading2">
-            {title}
-          </Text>
-        </Flex>
-      </Box>
+      <Flex direction="column" align="center" w={{ base: '30vw', md: 'auto' }} my="auto">
+        <Box w={{ base: 150, md: 312 }} h={{ base: 100, md: 246 }} mb={{ base: 30, md: 0 }}>
+          {imageEl}
+        </Box>
+        <Text color="charcoal" textTransform="uppercase" textStyle="heading2">
+          {title}
+        </Text>
+        <Text color="charcoal" textStyle="heading3">
+          {description}
+        </Text>
+      </Flex>
     </Link>
   );
 };
@@ -42,5 +49,6 @@ export const fragment = graphql`
       }
     }
     node_locale
+    description
   }
 `;
