@@ -39,7 +39,7 @@ function DonateBanner({ data }: Props): JSX.Element {
           </Heading>
           <Box w={{ base: 190, md: 320 }}>
             <Text textAlign="left" textStyle="body1" color="charcoal">
-              {section?.body?.childMarkdownRemark?.rawMarkdownBody}
+              {section?.body?.body}
             </Text>
           </Box>
           <Link to={section?.ctaLink ?? '/donate'}>
@@ -60,9 +60,7 @@ export const fragment = graphql`
         ctaLink
         ctaText
         body {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
+          body
         }
         title
         image {

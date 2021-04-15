@@ -11,7 +11,7 @@ interface Props {
 
 function ResourceCard({ data }: Props): JSX.Element {
   const title = data.title;
-  const body = data.body?.childMarkdownRemark?.rawMarkdownBody;
+  const body = data.body?.body;
   const link = data.link;
 
   return (
@@ -41,9 +41,7 @@ export const fragment = graphql`
   fragment ResourceCard on ContentfulResourceCard {
     title
     body {
-      childMarkdownRemark {
-        rawMarkdownBody
-      }
+      body
     }
     link
   }

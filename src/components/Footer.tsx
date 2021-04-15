@@ -90,13 +90,13 @@ function Footer({ data }: Props): JSX.Element {
   const socialLinks = (size: string) => (
     <>
       <Link href="https://www.facebook.com/healthyfamilieshealthyfutures/" isExternal>
-        <FacebookIcon w={size} h={size} />
+        <FacebookIcon w={size} h={size} fill="white" />
       </Link>
       <Link href="https://www.instagram.com/healthy_futures/" isExternal>
-        <InstagramIcon w={size} h={size} />
+        <InstagramIcon w={size} h={size} fill="white" />
       </Link>
       <Link href="mailto:jrlatour37@gmail.com" isExternal>
-        <EmailIcon w={size} h={size} />
+        <EmailIcon w={size} h={size} fill="white" />
       </Link>
     </>
   );

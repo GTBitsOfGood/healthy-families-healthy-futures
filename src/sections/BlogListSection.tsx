@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import { Flex, SimpleGrid, VStack } from '@chakra-ui/layout';
+import { Flex, VStack } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import BlogCard from 'src/components/BlogCard';
 import Pagination from 'src/components/Pagination';
@@ -22,11 +23,13 @@ function BlogListSection({ data }: Props): JSX.Element {
 
   return (
     <VStack my={10} spacing={10}>
-      <SimpleGrid columns={2} justifyItems="center" spacing={10}>
+      <Flex w="full" wrap="wrap" justifyContent="space-evenly">
         {blogCards.slice(blogsStart, blogsEnd).map(card => (
-          <BlogCard key={card.title} data={card} />
+          <Box px="5px" pb={{ base: '36px', md: '60px' }} key={card.title}>
+            <BlogCard data={card} />
+          </Box>
         ))}
-      </SimpleGrid>
+      </Flex>
       <Flex justify="center">
         <Pagination
           currentPage={currentPage}

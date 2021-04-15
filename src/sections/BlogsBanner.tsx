@@ -13,18 +13,20 @@ interface Props {
 
 function BlogsBanner({ data }: Props): JSX.Element {
   const { findLocale } = useLocale();
-  const featuredBlog = findLocale(data?.featuredBlogs?.nodes);
+  const featuredBlog = findLocale(data.allContentfulFeaturedBlogPost.nodes)?.blogPost;
+
   const title = featuredBlog?.title;
   const image = featuredBlog?.heroImage?.fluid;
-  const description = featuredBlog?.description?.childMarkdownRemark?.rawMarkdownBody;
+  const description = featuredBlog?.description?.description;
   const slug = featuredBlog?.slug;
 
   return (
     <Flex
-      minH={627}
+      minH={{ base: 0, md: 627 }}
+      py={{ base: '30px', md: 0 }}
       direction="column"
       justify="center"
-      align={{ base: 'center', md: 'start' }}
+      align="start"
       position="relative"
     >
       {image && (
@@ -35,18 +37,16 @@ function BlogsBanner({ data }: Props): JSX.Element {
       )}
       <Center
         bg="creamsicle"
-        pt={10}
-        pb={5}
-        px={5}
-        marginLeft={{ base: 0, md: 20 }}
+        p={5}
+        ml={{ base: '20px', md: '120px' }}
         zIndex={2}
-        w="lg"
+        w={{ base: '300px', md: '540px' }}
       >
         <VStack align="stretch">
           <Heading textStyle="heading1">{title}</Heading>
           <Text textStyle="body2">{description}</Text>
           <Box align="end">
-            <Link to={`/blogs/${slug ?? ''}`}>
+            <Link to={`/blog/${slug ?? ''}`}>
               <Button
                 textStyle="body1"
                 variant="secondary"
@@ -67,20 +67,20 @@ export default BlogsBanner;
 
 export const fragment = graphql`
   fragment BlogsBanner on Query {
-    featuredBlogs: allContentfulBlogPost(filter: { featured: { eq: true } }, limit: 1) {
+    allContentfulFeaturedBlogPost {
       nodes {
-        title
-        heroImage {
-          fluid(quality: 100) {
-            ...GatsbyContentfulFluid
+        blogPost {
+          title
+          heroImage {
+            fluid(quality: 100) {
+              ...GatsbyContentfulFluid
+            }
           }
-        }
-        description {
-          childMarkdownRemark {
-            rawMarkdownBody
+          description {
+            description
           }
+          slug
         }
-        slug
         node_locale
       }
     }

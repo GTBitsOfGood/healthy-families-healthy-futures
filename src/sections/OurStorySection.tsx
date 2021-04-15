@@ -43,7 +43,7 @@ const OurStorySection = ({ data }: Props) => {
             fontSize={[18, null, 18]}
             lineHeight={[1.3666, null, 1.3666]}
           >
-            {section?.body?.childMarkdownRemark?.rawMarkdownBody}
+            {section?.body?.body}
           </Text>
         </Box>
       </Flex>
@@ -59,9 +59,7 @@ export const fragment = graphql`
       nodes {
         title
         body {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
+          body
         }
         image {
           fluid(quality: 100) {

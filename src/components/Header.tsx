@@ -45,9 +45,12 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
         <Flex align="center" flexDir="row">
           <NavLink text="Get Involved" link="/get-involved" />
           <Spacer mr={5} />
-          <Button variant="primary" fontSize="16px">
-            Donate
-          </Button>
+          <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value="897VXU4F73VQE" />
+            <Button type="submit" variant="primary" fontSize="16px">
+              Donate
+            </Button>
+          </form>
         </Flex>
       </Flex>
 

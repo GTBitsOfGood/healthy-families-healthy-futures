@@ -12,7 +12,7 @@ interface Props {
 const OurWorkCard = ({ data }: Props) => {
   const { title, ctaText, ctaLink, description, image } = data;
 
-  const bodyText = description?.childMarkdownRemark?.rawMarkdownBody ?? '';
+  const bodyText = description?.description ?? '';
 
   const imageEl =
     image?.fluid != null ? (
@@ -62,9 +62,7 @@ export const fragment = graphql`
     ctaLink
     ctaText
     description {
-      childMarkdownRemark {
-        rawMarkdownBody
-      }
+      description
     }
     image {
       fluid(quality: 100) {

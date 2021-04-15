@@ -25,7 +25,7 @@ const HomeBanner = ({ data }: Props) => {
       )}
       <Box
         w={{ base: '90vw', md: 560 }}
-        marginLeft={{ base: 5, md: 180 }}
+        ml={{ base: 5, md: `8.33vw`, lg: `12.5vw` }}
         zIndex={2}
         bgColor="white"
         p={8}
@@ -38,7 +38,7 @@ const HomeBanner = ({ data }: Props) => {
           {banner?.titleLine2}
         </Heading>
         <Heading mt="13px" fontWeight="light" textStyle="subheading1" fontSize="16px">
-          {banner?.body?.childMarkdownRemark?.rawMarkdownBody}
+          {banner?.body?.body}
         </Heading>
         <Box marginTop={31}>
           <Link to={banner?.ctaLink ?? '/about'}>
@@ -61,9 +61,7 @@ export const fragment = graphql`
         titleLine1
         titleLine2
         body {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
+          body
         }
         ctaLink
         ctaText

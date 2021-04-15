@@ -41,7 +41,7 @@ function DonationDetailSection({ data }: Props): JSX.Element {
             </Heading>
             <Box>
               <Text textAlign={{ base: 'left', md: 'center' }} textStyle="body1" color="white">
-                {section?.description?.childMarkdownRemark?.rawMarkdownBody}
+                {section?.description?.description}
               </Text>
             </Box>
           </Stack>
@@ -66,9 +66,7 @@ export const fragment = graphql`
       nodes {
         title
         description {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
+          description
         }
         image {
           fluid(quality: 100) {
