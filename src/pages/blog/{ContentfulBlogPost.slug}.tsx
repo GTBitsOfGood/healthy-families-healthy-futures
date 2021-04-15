@@ -78,7 +78,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
         </Box>
 
         <Heading textStyle="heading3" fontSize={{ base: 16, md: 22 }} mb="50px">
-          {post?.description?.childMarkdownRemark?.rawMarkdownBody}
+          {post?.description?.description}
         </Heading>
 
         {post?.heroImage?.fluid != null && <Img fluid={post.heroImage.fluid} />}
@@ -156,14 +156,7 @@ export const pageQuery = graphql`
           name
         }
         description {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
-        }
-        body {
-          childMarkdownRemark {
-            html
-          }
+          description
         }
         ...BlogBody
         node_locale

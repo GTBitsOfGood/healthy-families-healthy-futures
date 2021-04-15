@@ -52,7 +52,7 @@ const OurFounderSection = ({ data }: Props) => {
             py={{ base: 10, md: 30 }}
           >
             <Text textAlign="left" textStyle="body1">
-              {founder?.description?.childMarkdownRemark?.rawMarkdownBody}
+              {founder?.description?.description}
             </Text>
           </Box>
         </Stack>
@@ -72,9 +72,7 @@ export const fragment = graphql`
         ctaLink
         ctaText
         description {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
+          description
         }
         image {
           fluid(quality: 100) {

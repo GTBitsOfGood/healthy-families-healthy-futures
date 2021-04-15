@@ -19,7 +19,7 @@ interface Props {
 function RichText({ data }: Props): JSX.Element {
   const quoteRefs = useRef<(HTMLParagraphElement | null)[]>([]);
   let quoteIdx = 0;
-  const body = data.body2;
+  const { body } = data;
 
   const [, forceRefresh] = useState(false);
   useEffect(() => {
@@ -160,7 +160,7 @@ export default RichText;
 
 export const fragment = graphql`
   fragment BlogBody on ContentfulBlogPost {
-    body2 {
+    body {
       raw
       references {
         contentful_id

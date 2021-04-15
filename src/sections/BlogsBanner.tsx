@@ -16,7 +16,7 @@ function BlogsBanner({ data }: Props): JSX.Element {
   const featuredBlog = findLocale(data?.featuredBlogs?.nodes);
   const title = featuredBlog?.title;
   const image = featuredBlog?.heroImage?.fluid;
-  const description = featuredBlog?.description?.childMarkdownRemark?.rawMarkdownBody;
+  const description = featuredBlog?.description?.description;
   const slug = featuredBlog?.slug;
 
   return (
@@ -67,7 +67,7 @@ export default BlogsBanner;
 
 export const fragment = graphql`
   fragment BlogsBanner on Query {
-    featuredBlogs: allContentfulBlogPost(filter: { featured: { eq: true } }, limit: 1) {
+    featuredBlogs: allContentfulBlogPost(limit: 1) {
       nodes {
         title
         heroImage {
@@ -76,9 +76,7 @@ export const fragment = graphql`
           }
         }
         description {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
+          description
         }
         slug
         node_locale

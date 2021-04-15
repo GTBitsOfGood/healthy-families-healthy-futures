@@ -14,7 +14,7 @@ const AboutBanner = ({ data }: Props) => {
 
   const banner = findLocale(data.allContentfulAboutBanner.nodes);
   const title = banner?.title;
-  const bodyText = banner?.body?.childMarkdownRemark?.rawMarkdownBody;
+  const bodyText = banner?.body?.body;
   const mainImage = banner?.image;
   const logoImage = banner?.logo;
 
@@ -59,9 +59,7 @@ export const fragment = graphql`
       nodes {
         title
         body {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
+          body
         }
         logo {
           fluid(quality: 100) {

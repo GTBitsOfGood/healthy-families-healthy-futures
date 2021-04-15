@@ -17,7 +17,7 @@ function LinkDocSection({ data }: Props): JSX.Element {
   const { findLocale, filterLocale } = useLocale();
   const section = findLocale(data.allContentfulLinkDocSection.nodes);
   const title = section?.title;
-  const body = section?.body?.childMarkdownRemark?.rawMarkdownBody;
+  const body = section?.body?.body;
 
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
@@ -86,9 +86,7 @@ export const fragment = graphql`
       nodes {
         title
         body {
-          childMarkdownRemark {
-            rawMarkdownBody
-          }
+          body
         }
         node_locale
       }

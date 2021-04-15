@@ -34,7 +34,6 @@ module.exports = {
         respectDNT: true,
       },
     },
-    'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',

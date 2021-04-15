@@ -22,7 +22,7 @@ function BlogCard({ data, altLayout }: Props): JSX.Element {
   );
   const description = (
     <Text textStyle="body2" fontWeight={500}>
-      {data.description?.childMarkdownRemark?.rawMarkdownBody}
+      {data.description?.description}
     </Text>
   );
   const author = (
@@ -84,9 +84,7 @@ export const fragment = graphql`
     }
     publishDate(formatString: "MM/DD/YYYY")
     description {
-      childMarkdownRemark {
-        rawMarkdownBody
-      }
+      description
     }
     author {
       name
