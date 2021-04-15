@@ -59,12 +59,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
     <Layout data={props.data}>
       <Container maxW="740px" px={{ base: '15px', md: 0 }} pt={{ base: '0px', md: '50px' }}>
         <Link to="/blog">
-          <Button
-            display={{ base: 'none', md: 'flex' }}
-            variant="back"
-            leftIcon={<ChevronLeftIcon />}
-            mb="50px"
-          >
+          <Button variant="back" leftIcon={<ChevronLeftIcon />} mb={{ base: '15px', md: '50px' }}>
             Back to Blog
           </Button>
         </Link>
@@ -135,13 +130,15 @@ function BlogPostTemplate(props: Props): JSX.Element {
       </Container>
       <VStack
         mt={{ base: '100px', md: '135px' }}
-        spacing={{ base: '50px', md: '90px' }}
-        mb={{ base: '90px', md: '150px' }}
+        spacing={{ base: '24px', md: '90px' }}
+        mb={{ base: '50px', md: '90px' }}
       >
         <Heading textStyle="heading2">Check out these other posts</Heading>
-        <Flex justifyContent="space-evenly" w="full">
+        <Flex justifyContent="space-evenly" w="full" flexWrap="wrap">
           {relatedPosts.map(post => (
-            <BlogCard altLayout key={post.slug} data={post} />
+            <Box key={post.slug} m="10px">
+              <BlogCard altLayout data={post} />
+            </Box>
           ))}
         </Flex>
       </VStack>

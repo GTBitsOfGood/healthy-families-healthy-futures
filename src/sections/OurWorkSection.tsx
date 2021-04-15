@@ -22,12 +22,15 @@ function OurWorkSection({ data }: Props): JSX.Element {
         <SectionHeader text="Our Work" textPosition="left" />
       </Box>
       <Flex
-        justify="space-between"
+        justify="space-evenly"
         py={{ base: 0, md: 50 }}
         direction={{ base: 'column', md: 'row' }}
+        flexWrap="wrap"
       >
         {sortedCards.map(card => (
-          <OurWorkCard key={card.title} data={card} />
+          <Box key={card.title} mx="10px">
+            <OurWorkCard data={card} />
+          </Box>
         ))}
       </Flex>
     </Box>

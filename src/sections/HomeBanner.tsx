@@ -25,7 +25,7 @@ const HomeBanner = ({ data }: Props) => {
       )}
       <Box
         w={{ base: '90vw', md: 560 }}
-        marginLeft={{ base: 5, md: 180 }}
+        ml={{ base: 5, md: `8.33vw`, lg: `12.5vw` }}
         zIndex={2}
         bgColor="white"
         p={8}
