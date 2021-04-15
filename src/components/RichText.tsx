@@ -1,21 +1,10 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 
-import {
-  Box,
-  Heading,
-  HStack,
-  Link,
-  Text,
-  VStack,
-  Image,
-  useBreakpointValue,
-  Center,
-  Skeleton,
-} from '@chakra-ui/react';
+import { Box, Heading, HStack, Link, Text, VStack, Center } from '@chakra-ui/react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Block, BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
-import client from 'src/utils/contentful';
-import { Asset } from 'contentful';
+import { Block, BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 /**
  * Not sure why the given types are missing this value, but here we go
@@ -24,39 +13,20 @@ interface ExtraBlock extends Block {
   value: string;
 }
 interface Props {
-  data?: string;
+  data: GatsbyTypes.BlogBodyFragment;
 }
 
 function RichText({ data }: Props): JSX.Element {
   const quoteRefs = useRef<(HTMLParagraphElement | null)[]>([]);
   let quoteIdx = 0;
-  const imageWidth = useBreakpointValue({ base: 700, md: 800 }) ?? 800;
+  const body = data.body2;
 
   const [, forceRefresh] = useState(false);
-  const assets = useRef<{ [id: string]: Asset | null }>({});
   useEffect(() => {
-    void (async () => {
-      const { items } = await fetchImages(Object.keys(assets.current));
-      for (const id in assets.current) {
-        const curr = items.find(item => item.sys.id === id);
-        if (curr != null) {
-          assets.current[id] = curr;
-        }
-      }
-      forceRefresh(true);
-    })();
+    forceRefresh(true);
   }, []);
 
-  const [loaded, setLoaded] = useState<string[]>([]);
-
-  const fetchImages = async (assetIds: string[]) => {
-    const response = await client.getAssets({
-      'sys.id[in]': `${assetIds.join(',')}`,
-    });
-    return response;
-  };
-
-  if (data == null) {
+  if (body?.raw == null) {
     return <></>;
   }
 
@@ -89,10 +59,9 @@ function RichText({ data }: Props): JSX.Element {
           </>
         );
       },
-      [BLOCKS.QUOTE]: (node, children) => {
+      [BLOCKS.QUOTE]: node => {
         const currQuoteIdx = quoteIdx++;
         const barHeight = quoteRefs.current[currQuoteIdx]?.clientHeight;
-        console.log(quoteRefs.current);
         return (
           <HStack spacing="20px" h="full">
             <Box w="2px" h={barHeight != null ? `${barHeight}px` : 'full'} bg="creamsicle" />
@@ -109,51 +78,77 @@ function RichText({ data }: Props): JSX.Element {
           </HStack>
         );
       },
-      [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,  @typescript-eslint/no-unsafe-assignment
         const assetId: string = node.data.target.sys.id;
-        const asset = assets.current[assetId];
-        if (asset == null) {
-          assets.current[assetId] = null;
+        const currFluid = body?.references?.find(
+          ref => ref != null && ref.contentful_id === assetId,
+        )?.fluid;
+
+        if (currFluid != null) {
           return (
-            <Skeleton h="500px" w="full">
-              Image here!
-            </Skeleton>
-          );
-        } else {
-          return (
-            <Skeleton isLoaded={loaded.includes(assetId)} h="500px" w="full">
-              <Center w="full">
-                <Box maxH="500px">
-                  <Image
-                    onLoad={e => {
-                      console.log(`loaded ${assetId}`);
-                      setLoaded(prevLoaded => [...prevLoaded, assetId]);
-                    }}
-                    maxH="inherit"
-                    maxW="100%"
-                    objectFit="contain"
-                    src={`${asset.fields.file.url}?fm=jpg&fl=progressive&h=${Math.floor(
-                      (imageWidth * 2) / 3,
-                    )}&w=${imageWidth}`}
-                  />
-                </Box>
-              </Center>
-            </Skeleton>
+            <Center w="full">
+              <Img
+                fluid={currFluid}
+                style={{ maxHeight: '500px', width: '740px' }}
+                imgStyle={{ objectFit: 'contain' }}
+              />
+            </Center>
           );
         }
+        return <Text>Image error!</Text>;
       },
       [INLINES.HYPERLINK]: (node, children) => {
+        const text = (children as string[])[0];
+        const url = node.data.uri as string;
+
+        if (url.toLowerCase().includes('www.facebook.com/plugins')) {
+          return (
+            <Center w="full">
+              <iframe
+                title="embed video"
+                src={url}
+                width="476"
+                height="476"
+                style={{ border: 'none' }}
+                scrolling="no"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              />
+            </Center>
+          );
+        }
+
+        if (
+          url.toLowerCase().includes('www.youtube.com/embed') ||
+          url.toLowerCase().includes('www.youtube-nocookie.com/embed')
+        ) {
+          return (
+            <Center w="full">
+              <iframe
+                width="560"
+                height="315"
+                src={url}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </Center>
+          );
+        }
+
         return (
-          <Link href={(node.data.uri as string) ?? '#'} variant="blog" isExternal>
-            {(children as string[])[0]}
+          <Link href={url} variant="blog" isExternal>
+            {text}
           </Link>
         );
       },
     },
   };
 
-  const component = documentToReactComponents(JSON.parse(data), options);
+  const component = documentToReactComponents(JSON.parse(body?.raw ?? ''), options);
   return (
     <VStack alignItems="start" spacing="35px">
       {component}
@@ -162,3 +157,17 @@ function RichText({ data }: Props): JSX.Element {
 }
 
 export default RichText;
+
+export const fragment = graphql`
+  fragment BlogBody on ContentfulBlogPost {
+    body2 {
+      raw
+      references {
+        contentful_id
+        fluid(maxWidth: 1180) {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  }
+`;
