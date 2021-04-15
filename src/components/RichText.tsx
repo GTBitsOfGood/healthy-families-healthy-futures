@@ -110,7 +110,7 @@ function RichText({ data }: Props): JSX.Element {
                 src={url}
                 width="476"
                 height="476"
-                style={{ border: 'none' }}
+                style={{ border: 'none', maxHeight: 'calc(100vw - 20px)' }}
                 scrolling="no"
                 frameBorder="0"
                 allowFullScreen
@@ -150,7 +150,7 @@ function RichText({ data }: Props): JSX.Element {
 
   const component = documentToReactComponents(JSON.parse(body?.raw ?? ''), options);
   return (
-    <VStack alignItems="start" spacing="35px">
+    <VStack alignItems="start" spacing={{ base: '22px', md: '35px' }}>
       {component}
     </VStack>
   );

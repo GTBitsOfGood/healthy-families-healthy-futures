@@ -33,8 +33,8 @@ function BlogPostTemplate(props: Props): JSX.Element {
 
   const post = findLocale(props.data.allContentfulBlogPost.nodes);
   const allPosts = filterLocale(props.data.relatedPosts.nodes);
-  const currPostIdx = allPosts.findIndex(post => post.publishDate === post.publishDate);
-  const relatedPosts = allPosts.slice(currPostIdx, currPostIdx + 2);
+  const currPostIdx = allPosts.findIndex(p => p.publishDate === post?.publishDate);
+  const relatedPosts = allPosts.slice(currPostIdx + 1, currPostIdx + 3);
   let i = 0;
   while (relatedPosts.length < 2) {
     relatedPosts.push(allPosts[i++]);
@@ -57,7 +57,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
 
   return (
     <Layout data={props.data}>
-      <Container maxW="740px" px={0} pt="50px">
+      <Container maxW="740px" px={{ base: '15px', md: 0 }} pt={{ base: '0px', md: '50px' }}>
         <Link to="/blog">
           <Button
             display={{ base: 'none', md: 'flex' }}
@@ -65,19 +65,27 @@ function BlogPostTemplate(props: Props): JSX.Element {
             leftIcon={<ChevronLeftIcon />}
             mb="50px"
           >
-            Back to Recipes
+            Back to Blog
           </Button>
         </Link>
 
-        <Box mb="30px">
+        <VStack
+          spacing={{ base: '5px', md: '0px' }}
+          alignItems={{ base: 'center', md: 'start' }}
+          mb={{ base: '20px', md: '30px' }}
+        >
           <Heading textStyle="heading1">{post?.title}</Heading>
           <Text textStyle="body1" fontWeight={800}>
             {post?.author?.name}
           </Text>
-          <Text mt="6px">{date}</Text>
-        </Box>
+          <Text mt={{ base: 0, md: '10px' }}>{date}</Text>
+        </VStack>
 
-        <Heading textStyle="heading3" fontSize={{ base: 16, md: 22 }} mb="50px">
+        <Heading
+          textStyle="heading3"
+          fontSize={{ base: 16, md: 22 }}
+          mb={{ base: '30px', md: '50px' }}
+        >
           {post?.description?.description}
         </Heading>
 
@@ -125,7 +133,11 @@ function BlogPostTemplate(props: Props): JSX.Element {
           </VStack>
         </Center>
       </Container>
-      <VStack mt="135px" spacing="90px" mb="150px">
+      <VStack
+        mt={{ base: '100px', md: '135px' }}
+        spacing={{ base: '50px', md: '90px' }}
+        mb={{ base: '90px', md: '150px' }}
+      >
         <Heading textStyle="heading2">Check out these other posts</Heading>
         <Flex justifyContent="space-evenly" w="full">
           {relatedPosts.map(post => (
