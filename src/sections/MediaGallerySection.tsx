@@ -19,7 +19,7 @@ function MediaGallerySection({ data }: Props): JSX.Element {
   const videoCards = filterLocale(data.allContentfulVideoCard.nodes);
 
   return (
-    <Box bg="gray.extralight" pb="100px">
+    <Box id="media" bg="gray.extralight" pb="100px">
       <Box mb={{ base: '35px', md: '54px' }}>
         <SectionHeader text="Media Gallery" textPosition="left" />
       </Box>

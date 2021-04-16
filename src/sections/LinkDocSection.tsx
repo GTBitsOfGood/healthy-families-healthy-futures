@@ -27,7 +27,7 @@ function LinkDocSection({ data }: Props): JSX.Element {
   const resourceCardsSecChunk = resourceCards.slice(3, resourceCards.length);
 
   return (
-    <Box mb={{ base: '73px', md: '160px' }}>
+    <Box id="links-documents" mb={{ base: '73px', md: '160px' }}>
       <Box marginBottom={{ base: '53px', md: '100px' }}>
         <SectionHeader text="Links &amp; Documents" textPosition="right" />
       </Box>

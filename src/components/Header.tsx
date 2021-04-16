@@ -2,7 +2,7 @@ import React from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { NavLink } from 'src/components/Navigation';
 
@@ -25,32 +25,25 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
     <>
       <Flex h="55px" w="full" px="40px" wrap="nowrap" flexDir="row">
         <Flex align="center" flexDir="row">
-          <Box w="135px" maxH="50px" mr="20px" display={['none', null, 'block']}>
-            {hfhfLogo}
-          </Box>
-          {/* <Input
-          type="text"
-          id="header-search"
-          placeholder="search website"
-          name="s"
-          variant="outline"
-          w="300px"
-          size="sm"
-          borderRadius="30px"
-        /> */}
+          <Link to="/">
+            <Box w="135px" maxH="50px" mr="20px" display={['none', null, 'block']}>
+              {hfhfLogo}
+            </Box>
+          </Link>
         </Flex>
 
         <Spacer />
 
         <Flex align="center" flexDir="row">
           <NavLink text="Get Involved" link="/get-involved" />
-          <Spacer mr={5} />
-          <form action="https://www.paypal.com/donate" method="post" target="_blank">
-            <input type="hidden" name="hosted_button_id" value="897VXU4F73VQE" />
-            <Button type="submit" variant="primary" fontSize="16px">
-              Donate
-            </Button>
-          </form>
+          <Box ml={5}>
+            <form action="https://www.paypal.com/donate" method="post" target="_blank">
+              <input type="hidden" name="hosted_button_id" value="897VXU4F73VQE" />
+              <Button type="submit" variant="primary" fontSize="16px">
+                Donate
+              </Button>
+            </form>
+          </Box>
         </Flex>
       </Flex>
 
@@ -68,7 +61,7 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
       >
         <HamburgerIcon h={6} w={6} color="gray.700" onClick={onHamburgerClick} />
         <Box w="178px" display={['block', null, 'none']} margin="auto">
-          {hfhfLogo}
+          <Link to="/">{hfhfLogo}</Link>
         </Box>
       </Flex>
     </>

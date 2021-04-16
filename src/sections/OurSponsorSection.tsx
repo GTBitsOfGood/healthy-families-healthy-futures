@@ -16,7 +16,7 @@ const OurSponsorSection = ({ data }: Props) => {
   const info = findLocale(data.allContentfulOurSponsor.nodes);
 
   return (
-    <Box mb="277px">
+    <Box id="our-sponsor" mb="277px">
       <Box mb="189px">
         <SectionHeader text={info?.title ?? 'Our Sponsors & Partners'} textPosition="left" />
       </Box>
