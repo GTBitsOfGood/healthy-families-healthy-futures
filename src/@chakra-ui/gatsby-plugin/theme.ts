@@ -120,7 +120,11 @@ const theme = extendTheme({
           textTransform: 'none',
           px: '19px',
           py: '8px',
+
           _hover: {
+            _disabled: {
+              bg: 'tangerine.500',
+            },
             bg: 'tangerine.600',
           },
           _active: {

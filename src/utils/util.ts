@@ -16,3 +16,11 @@ export function entries<T>(obj: T) {
 export function keys<T>(obj: T) {
   return Object.keys(obj) as (keyof T)[];
 }
+
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#basic_validation */
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+export function validateEmail(email: string) {
+  console.log(email);
+  return EMAIL_REGEX.test(email);
+}
