@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { NavLink } from 'src/components/Navigation';
@@ -21,16 +22,49 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
       />
     ) : null;
 
+  const [logoStyle, setLogoStyle] = useState({
+    width: '209px',
+    height: '76px',
+    transition: 'all 200ms linear',
+  });
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isLarge = currPos.y > prevPos.y || currPos.y > -55;
+
+      const shouldBeStyle = {
+        transition: `all 200ms linear`,
+        width: isLarge ? '209px' : '135px',
+        height: isLarge ? '76px' : '50px',
+        marginTop: isLarge ? '10px' : '0px',
+      };
+
+      if (JSON.stringify(shouldBeStyle) === JSON.stringify(logoStyle)) return;
+
+      setLogoStyle(shouldBeStyle);
+    },
+    [logoStyle],
+  );
+
   return (
     <>
-      <Flex h="55px" w="full" px="40px" wrap="nowrap" flexDir="row">
-        <Flex align="center" flexDir="row">
-          <Link to="/">
-            <Box w="135px" maxH="50px" mr="20px" display={['none', null, 'block']}>
-              {hfhfLogo}
-            </Box>
-          </Link>
-        </Flex>
+      <Flex
+        h="55px"
+        w="full"
+        px="40px"
+        wrap="nowrap"
+        flexDir="row"
+        position={{ base: 'static', md: 'sticky' }}
+        top="0px"
+        bg="white"
+        zIndex={10}
+        align="center"
+      >
+        <Link to="/">
+          <Box style={{ ...logoStyle }} display={['none', null, 'block']}>
+            {hfhfLogo}
+          </Box>
+        </Link>
 
         <Spacer />
 
@@ -54,10 +88,11 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
         w="full"
         alignItems="center"
         display={['flex', null, 'none']}
+        position={{ base: 'sticky', md: 'static' }}
+        top="0px"
         px={6}
-        my={3}
-        borderTop="1px"
-        borderTopColor="gray.400"
+        bg="white"
+        zIndex="10"
       >
         <HamburgerIcon h={6} w={6} color="gray.700" onClick={onHamburgerClick} />
         <Box w="178px" display={['block', null, 'none']} margin="auto">
