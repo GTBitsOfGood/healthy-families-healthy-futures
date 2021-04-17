@@ -17,7 +17,7 @@ const OurFounderSection = ({ data }: Props) => {
   const founder = findLocale(data.allContentfulOurFounder.nodes);
 
   return (
-    <Box>
+    <Box id="our-founder">
       <Box>
         <SectionHeader text={founder?.title ?? 'Our Founder'} textPosition="right" />
       </Box>

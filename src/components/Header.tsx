@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
-import { graphql } from 'gatsby';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { NavLink } from 'src/components/Navigation';
 
@@ -21,36 +22,62 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
       />
     ) : null;
 
+  const [logoStyle, setLogoStyle] = useState({
+    width: '209px',
+    height: '76px',
+    transition: 'all 200ms linear',
+  });
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isLarge = currPos.y > prevPos.y || currPos.y > -55;
+
+      const shouldBeStyle = {
+        transition: `all 200ms linear`,
+        width: isLarge ? '209px' : '135px',
+        height: isLarge ? '76px' : '50px',
+        marginTop: isLarge ? '10px' : '0px',
+      };
+
+      if (JSON.stringify(shouldBeStyle) === JSON.stringify(logoStyle)) return;
+
+      setLogoStyle(shouldBeStyle);
+    },
+    [logoStyle],
+  );
+
   return (
     <>
-      <Flex h="55px" w="full" px="40px" wrap="nowrap" flexDir="row">
-        <Flex align="center" flexDir="row">
-          <Box w="135px" maxH="50px" mr="20px" display={['none', null, 'block']}>
+      <Flex
+        h="55px"
+        w="full"
+        px="40px"
+        wrap="nowrap"
+        flexDir="row"
+        position={{ base: 'static', md: 'sticky' }}
+        top="0px"
+        bg="white"
+        zIndex={10}
+        align="center"
+      >
+        <Link to="/">
+          <Box style={{ ...logoStyle }} display={['none', null, 'block']}>
             {hfhfLogo}
           </Box>
-          {/* <Input
-          type="text"
-          id="header-search"
-          placeholder="search website"
-          name="s"
-          variant="outline"
-          w="300px"
-          size="sm"
-          borderRadius="30px"
-        /> */}
-        </Flex>
+        </Link>
 
         <Spacer />
 
         <Flex align="center" flexDir="row">
           <NavLink text="Get Involved" link="/get-involved" />
-          <Spacer mr={5} />
-          <form action="https://www.paypal.com/donate" method="post" target="_blank">
-            <input type="hidden" name="hosted_button_id" value="897VXU4F73VQE" />
-            <Button type="submit" variant="primary" fontSize="16px">
-              Donate
-            </Button>
-          </form>
+          <Box ml={5}>
+            <form action="https://www.paypal.com/donate" method="post" target="_blank">
+              <input type="hidden" name="hosted_button_id" value="897VXU4F73VQE" />
+              <Button type="submit" variant="primary" fontSize="16px">
+                Donate
+              </Button>
+            </form>
+          </Box>
         </Flex>
       </Flex>
 
@@ -61,14 +88,15 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
         w="full"
         alignItems="center"
         display={['flex', null, 'none']}
+        position={{ base: 'sticky', md: 'static' }}
+        top="0px"
         px={6}
-        my={3}
-        borderTop="1px"
-        borderTopColor="gray.400"
+        bg="white"
+        zIndex="10"
       >
         <HamburgerIcon h={6} w={6} color="gray.700" onClick={onHamburgerClick} />
         <Box w="178px" display={['block', null, 'none']} margin="auto">
-          {hfhfLogo}
+          <Link to="/">{hfhfLogo}</Link>
         </Box>
       </Flex>
     </>
