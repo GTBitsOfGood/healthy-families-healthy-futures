@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Box, Heading, Text, Stack, Center, Grid } from '@chakra-ui/react';
+import { Heading, Text, Center, Flex } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
-import SectionHeader from 'src/components/SectionHeader';
 import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
@@ -14,31 +13,14 @@ function DonationDetailSection({ data }: Props): JSX.Element {
   const section = findLocale(data.allContentfulDonationDetailSection.nodes);
 
   return (
-    <Box bg="white" mb="117px">
-      <Box mb={{ base: '25px', md: '80px' }}>
-        <SectionHeader text="Where do donations go" textPosition="left" />
-      </Box>
-      <Grid bg="charcoal" templateColumns={{ base: '1fr', md: '1fr 1fr' }}>
-        <Center>
-          <Stack spacing={5} px={{ base: 10, md: 20, lg: '20%' }} py={10} direction="column">
-            <Heading
-              textAlign={{ base: 'left', md: 'center' }}
-              m="auto"
-              mb={10}
-              textStyle="heading1"
-              color="white"
-            >
-              {section?.title}
-            </Heading>
-            <Box>
-              <Text textAlign={{ base: 'left', md: 'center' }} textStyle="body1" color="white">
-                {section?.description?.description}
-              </Text>
-            </Box>
-          </Stack>
-        </Center>
-      </Grid>
-    </Box>
+    <Center bg="white" h="428px">
+      <Flex direction={{ base: 'column', lg: 'row' }} justifyContent="center">
+        <Heading fontSize="50px" lineHeight="68px" maxW={{ base: 'none', lg: '370px' }}>
+          {section?.title}
+        </Heading>
+        <Text maxW="622px">{section?.description?.description}</Text>
+      </Flex>
+    </Center>
   );
 }
 

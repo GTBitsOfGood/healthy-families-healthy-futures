@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Box, Center, Heading } from '@chakra-ui/react';
+import { Box, Button, Center, Heading, Text, VStack } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { PayPalIcon } from 'src/components/Icons';
 import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
@@ -29,15 +30,31 @@ const DonateHeader = ({ data }: Props) => {
         />
       )}
       <Center zIndex={2}>
-        <Center w="507px" h="354px" bg="white" boxShadow="card">
-          <Heading
-            color="creamsicle.500"
-            fontSize="50px"
-            lineHeight="68px"
-            textTransform="uppercase"
-          >
-            {banner?.title ?? 'Title Missing'}
-          </Heading>
+        <Center w="507px" h="354px" bg="white" boxShadow="card" px="50px">
+          <VStack spacing="18px">
+            <Heading
+              color="creamsicle.500"
+              fontSize="50px"
+              lineHeight="68px"
+              textTransform="uppercase"
+            >
+              {banner?.title ?? 'Title Missing'}
+            </Heading>
+            <Text textStyle="body1" textAlign="center">
+              {banner?.description}
+            </Text>
+            <form action="https://www.paypal.com/donate" method="post" target="_blank">
+              <input type="hidden" name="hosted_button_id" value="897VXU4F73VQE" />
+              <Button
+                rightIcon={<PayPalIcon h="22.5px" />}
+                variant="neutral"
+                textTransform="none"
+                type="submit"
+              >
+                {banner?.ctaText}
+              </Button>
+            </form>
+          </VStack>
         </Center>
       </Center>
     </Box>
