@@ -125,7 +125,7 @@ function Footer({ data }: Props): JSX.Element {
             onClick={handleToggle1}
             variant="unstyled"
             bg="charcoal"
-            color="creamsicle"
+            color="creamsicle.500"
             textStyle="heading1"
           >
             ABOUT US +
@@ -138,7 +138,7 @@ function Footer({ data }: Props): JSX.Element {
             onClick={handleToggle2}
             variant="unstyled"
             bg="charcoal"
-            color="creamsicle"
+            color="creamsicle.500"
             textStyle="heading1"
           >
             GET INVOLVED +
@@ -151,7 +151,7 @@ function Footer({ data }: Props): JSX.Element {
             onClick={handleToggle3}
             variant="unstyled"
             bg="charcoal"
-            color="creamsicle"
+            color="creamsicle.500"
             textStyle="heading1"
           >
             RESOURCES AND BLOG +
@@ -164,7 +164,7 @@ function Footer({ data }: Props): JSX.Element {
             onClick={handleToggle4}
             variant="unstyled"
             bg="charcoal"
-            color="creamsicle"
+            color="creamsicle.500"
             textStyle="heading1"
           >
             LANGUAGE +
@@ -202,7 +202,7 @@ function Footer({ data }: Props): JSX.Element {
       >
         <VStack m="22px" spacing="22px">
           <VStack alignItems="flex-start" spacing="15px">
-            <Heading color="creamsicle" textStyle="subheading1">
+            <Heading color="creamsicle.500" textStyle="subheading1">
               About Us
             </Heading>
             {aboutUsLinks}
@@ -211,7 +211,7 @@ function Footer({ data }: Props): JSX.Element {
 
         <VStack m="22px" spacing="22px">
           <VStack alignItems="flex-start" spacing="15px">
-            <Heading color="creamsicle" textStyle="subheading1">
+            <Heading color="creamsicle.500" textStyle="subheading1">
               Get Involved
             </Heading>
             {getInvolvedLinks}
@@ -220,7 +220,7 @@ function Footer({ data }: Props): JSX.Element {
 
         <VStack m="22px" spacing="22px">
           <VStack alignItems="flex-start" spacing="15px">
-            <Heading color="creamsicle" textStyle="subheading1">
+            <Heading color="creamsicle.500" textStyle="subheading1">
               Resources and Blog
             </Heading>
             {resourcesLinks}
@@ -235,14 +235,14 @@ function Footer({ data }: Props): JSX.Element {
         justifyContent="space-between"
       >
         <VStack mt="22px" alignItems="flex-start">
-          <Heading color="creamsicle" textStyle="subheading1">
+          <Heading color="creamsicle.500" textStyle="subheading1">
             Stay Connected
           </Heading>
           <HStack spacing={5}>{socialLinks('32px')}</HStack>
         </VStack>
 
         <VStack m="22px" alignItems="flex-start">
-          <Heading color="creamsicle" textStyle="subheading1">
+          <Heading color="creamsicle.500" textStyle="subheading1">
             Language
           </Heading>
           <Select

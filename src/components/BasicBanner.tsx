@@ -25,7 +25,7 @@ const BasicBanner = ({ data }: Props) => {
         />
       )}
       <Center
-        bg="creamsicle"
+        bg="creamsicle.500"
         p={[2, null, 10]}
         marginLeft={[5, null, 20]}
         w="fit-content"

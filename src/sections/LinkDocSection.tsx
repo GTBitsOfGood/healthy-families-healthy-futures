@@ -32,7 +32,7 @@ function LinkDocSection({ data }: Props): JSX.Element {
         <SectionHeader text="Links &amp; Documents" textPosition="right" />
       </Box>
       <VStack spacing={20} display={{ base: 'none', md: 'flex' }}>
-        <Box bgColor="creamsicle" w={{ base: '338px', md: '795px' }} p={10} maxW={700}>
+        <Box bgColor="creamsicle.500" w={{ base: '338px', md: '795px' }} p={10} maxW={700}>
           <VStack>
             <Text textStyle="heading1">{title}</Text>
             <Text textStyle="body1" textAlign="center">
