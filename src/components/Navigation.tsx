@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { CloseIcon } from '@chakra-ui/icons';
 import {
@@ -11,6 +11,7 @@ import {
   Link,
   useStyleConfig,
 } from '@chakra-ui/react';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { Link as GatsbyLink } from 'gatsby';
 
 interface NavLinkProps {
@@ -45,6 +46,27 @@ function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Eleme
     '/resources': 'Resources',
   };
 
+  const [headerStyle, setHeaderStyle] = useState({
+    transition: 'all 200ms linear',
+  });
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isVisible = currPos.y > prevPos.y || currPos.y > -55;
+
+      const shouldBeStyle = {
+        visibility: isVisible ? 'visible' : 'hidden',
+        transition: `all 200ms linear`,
+        transform: isVisible ? 'none' : 'translate(0, -100%)',
+      };
+
+      if (JSON.stringify(shouldBeStyle) === JSON.stringify(headerStyle)) return;
+
+      setHeaderStyle(shouldBeStyle);
+    },
+    [headerStyle],
+  );
+
   return (
     <>
       <Flex
@@ -56,6 +78,11 @@ function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Eleme
         justifyContent="space-evenly"
         alignItems="center"
         display={['none', null, 'flex']}
+        position="sticky"
+        top="55px"
+        bg="white"
+        style={{ ...headerStyle }}
+        zIndex={9}
       >
         {Object.keys(navigationItems).map(link => {
           return <NavLink link={link} text={navigationItems[link]} key={link} />;

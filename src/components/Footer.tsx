@@ -53,7 +53,7 @@ function Footer({ data }: Props): JSX.Element {
       <Link color="white" to="/about#our-work" textStyle="body3" as={GatsbyLink}>
         Our Work
       </Link>
-      <Link color="white" to="/about#founder" textStyle="body3" as={GatsbyLink}>
+      <Link color="white" to="/about#our-founder" textStyle="body3" as={GatsbyLink}>
         Founder
       </Link>
     </>
@@ -79,10 +79,10 @@ function Footer({ data }: Props): JSX.Element {
       <Link color="white" to="/blog" textStyle="body3" as={GatsbyLink}>
         Blog
       </Link>
-      <Link color="white" to="/links-documents" textStyle="body3" as={GatsbyLink}>
+      <Link color="white" to="/resources#links-documents" textStyle="body3" as={GatsbyLink}>
         Links/Documents
       </Link>
-      <Link color="white" to="/media" textStyle="body3" as={GatsbyLink}>
+      <Link color="white" to="/resources#media" textStyle="body3" as={GatsbyLink}>
         Media
       </Link>
     </>
@@ -116,71 +116,79 @@ function Footer({ data }: Props): JSX.Element {
       <VStack display={{ base: 'flex', md: 'none' }}>
         <Flex align="center" flexDir="row">
           <Box w="150px" maxH="158px">
-            {logo}
+            <GatsbyLink to="/">{logo}</GatsbyLink>
           </Box>
         </Flex>
 
-        <VStack>
-          <Button
-            onClick={handleToggle1}
-            variant="unstyled"
-            bg="charcoal"
-            color="creamsicle.500"
-            textStyle="heading1"
-          >
-            ABOUT US +
-          </Button>
-          <Collapse in={show1} animateOpacity>
-            <VStack>{aboutUsLinks}</VStack>
-          </Collapse>
-
-          <Button
-            onClick={handleToggle2}
-            variant="unstyled"
-            bg="charcoal"
-            color="creamsicle.500"
-            textStyle="heading1"
-          >
-            GET INVOLVED +
-          </Button>
-          <Collapse in={show2} animateOpacity>
-            <VStack>{getInvolvedLinks}</VStack>
-          </Collapse>
-
-          <Button
-            onClick={handleToggle3}
-            variant="unstyled"
-            bg="charcoal"
-            color="creamsicle.500"
-            textStyle="heading1"
-          >
-            RESOURCES AND BLOG +
-          </Button>
-          <Collapse in={show3} animateOpacity>
-            <VStack>{resourcesLinks}</VStack>
-          </Collapse>
-
-          <Button
-            onClick={handleToggle4}
-            variant="unstyled"
-            bg="charcoal"
-            color="creamsicle.500"
-            textStyle="heading1"
-          >
-            LANGUAGE +
-          </Button>
-          <Collapse in={show4} animateOpacity>
-            <Select
+        <VStack spacing="15px">
+          <Box>
+            <Button
+              onClick={handleToggle1}
               variant="unstyled"
-              color="white"
-              sx={{ '>option': { background: 'charcoal' } }}
-              onChange={e => setLocale(e.target.value as Locale)}
-              defaultValue={locale}
+              bg="charcoal"
+              color="creamsicle.500"
+              textStyle="heading1"
             >
-              <option value="en-US">English</option>
-              <option value="es-US">Español</option>
-            </Select>
-          </Collapse>
+              ABOUT US {show1 ? '-' : '+'}
+            </Button>
+            <Collapse in={show1} animateOpacity>
+              <VStack>{aboutUsLinks}</VStack>
+            </Collapse>
+          </Box>
+
+          <Box>
+            <Button
+              onClick={handleToggle2}
+              variant="unstyled"
+              bg="charcoal"
+              color="creamsicle.500"
+              textStyle="heading1"
+            >
+              GET INVOLVED {show2 ? '-' : '+'}
+            </Button>
+            <Collapse in={show2} animateOpacity>
+              <VStack>{getInvolvedLinks}</VStack>
+            </Collapse>
+          </Box>
+
+          <Box>
+            <Button
+              onClick={handleToggle3}
+              variant="unstyled"
+              bg="charcoal"
+              color="creamsicle.500"
+              textStyle="heading1"
+            >
+              RESOURCES AND BLOG {show3 ? '-' : '+'}
+            </Button>
+            <Collapse in={show3} animateOpacity>
+              <VStack>{resourcesLinks}</VStack>
+            </Collapse>
+          </Box>
+
+          <Box>
+            <Button
+              onClick={handleToggle4}
+              variant="unstyled"
+              bg="charcoal"
+              color="creamsicle.500"
+              textStyle="heading1"
+            >
+              LANGUAGE {show4 ? '-' : '+'}
+            </Button>
+            <Collapse in={show4} animateOpacity>
+              <Select
+                variant="unstyled"
+                color="white"
+                sx={{ '>option': { background: 'charcoal' } }}
+                onChange={e => setLocale(e.target.value as Locale)}
+                defaultValue={locale}
+              >
+                <option value="en-US">English</option>
+                <option value="es-US">Español</option>
+              </Select>
+            </Collapse>
+          </Box>
         </VStack>
 
         <HStack spacing={5} paddingTop="44px">
@@ -190,7 +198,7 @@ function Footer({ data }: Props): JSX.Element {
 
       <Flex display={{ base: 'none', md: 'flex' }} align="center" flexDir="row">
         <Box m="22px" w="170px" maxH="158px">
-          {logo}
+          <GatsbyLink to="/">{logo}</GatsbyLink>
         </Box>
       </Flex>
 
