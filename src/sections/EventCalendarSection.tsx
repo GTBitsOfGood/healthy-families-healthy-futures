@@ -18,32 +18,40 @@ import {
 } from '@chakra-ui/react';
 import { format, isSameDay } from 'date-fns';
 import { parseISO } from 'date-fns/esm';
+import { graphql } from 'gatsby';
 import Calendar from 'src/components/calendar';
 import EventModalCard from 'src/components/EventModalCard';
 import SectionHeader from 'src/components/SectionHeader';
 import { Event } from 'src/utils/types';
 
-function EventCalendarSection(): JSX.Element {
+interface Props {
+  data: GatsbyTypes.EventCalendarSectionFragment;
+}
+
+function EventCalendarSection({ data }: Props): JSX.Element {
   const [events, setEvents] = useState<Event[]>([]);
   const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const shouldShowFacebookEvents = data?.contentfulEventSourceConfig?.getFromFacebook ?? false;
+
   useEffect(() => {
+    if (!shouldShowFacebookEvents) return;
     void (async () => {
       const res = await fetch(
         `https://graph.facebook.com/v10.0/232144604765679/events?access_token=${
           process.env.FB_PAGE_AUTH_TOKEN ?? ''
         }`,
       );
-      const { data } = await res.json();
-      const parsed = data.map((e: { start_time: string; end_time: string }) => ({
+      const { unparsed } = await res.json();
+      const parsed = unparsed.map((e: { start_time: string; end_time: string }) => ({
         ...e,
         start_time: parseISO(e.start_time),
         end_time: parseISO(e.end_time),
       }));
       setEvents(parsed);
     })();
-  }, []);
+  }, [shouldShowFacebookEvents]);
 
   const openEventModal = (eventsToShow: typeof events) => {
     if (eventsToShow.length > 0) {
@@ -120,3 +128,11 @@ function EventCalendarSection(): JSX.Element {
 }
 
 export default EventCalendarSection;
+
+export const fragment = graphql`
+  fragment EventCalendarSection on Query {
+    contentfulEventSourceConfig {
+      getFromFacebook
+    }
+  }
+`;
