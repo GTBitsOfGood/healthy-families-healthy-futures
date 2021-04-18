@@ -64,7 +64,7 @@ function RichText({ data }: Props): JSX.Element {
         const barHeight = quoteRefs.current[currQuoteIdx]?.clientHeight;
         return (
           <HStack spacing="20px" h="full">
-            <Box w="2px" h={barHeight != null ? `${barHeight}px` : 'full'} bg="creamsicle" />
+            <Box w="2px" h={barHeight != null ? `${barHeight}px` : 'full'} bg="creamsicle.500" />
             <Text
               ref={el =>
                 el != null &&

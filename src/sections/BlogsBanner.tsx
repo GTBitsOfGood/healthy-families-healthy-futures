@@ -36,7 +36,7 @@ function BlogsBanner({ data }: Props): JSX.Element {
         />
       )}
       <Center
-        bg="creamsicle"
+        bg="creamsicle.500"
         p={5}
         ml={{ base: '20px', md: '120px' }}
         zIndex={2}

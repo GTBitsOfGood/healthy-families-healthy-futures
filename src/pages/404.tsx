@@ -21,7 +21,7 @@ const ErrorPage = ({ data }: Props) => {
       <Flex h="790px" alignItems="center" justifyContent="space-evenly">
         <Box w="709px">
           <Heading fontSize="50px" lineHeight="78px" fontWeight={850}>
-            <span style={{ color: `${theme.colors.creamsicle}` }}>
+            <span style={{ color: `${theme.colors.creamsicle[500]}` }}>
               {page?.heading?.split(' ')[0]}
             </span>{' '}
             {page?.heading?.split(' ').slice(1).join(' ')}
@@ -32,7 +32,7 @@ const ErrorPage = ({ data }: Props) => {
         </Box>
         <Box>
           <Text
-            color="creamsicle"
+            color="creamsicle.500"
             fontSize="150px"
             lineHeight="205px"
             textDecoration="underline"

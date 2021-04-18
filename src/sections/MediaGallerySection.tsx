@@ -26,7 +26,7 @@ function MediaGallerySection({ data }: Props): JSX.Element {
       <VStack align={{ base: 'start', md: 'start' }} spacing="45px">
         <Text
           textStyle="heading2"
-          color="creamsicle"
+          color="creamsicle.500"
           pl={{ base: '17px', md: '70px' }}
           textTransform="uppercase"
         >
@@ -39,7 +39,7 @@ function MediaGallerySection({ data }: Props): JSX.Element {
         </CardList>
         <Text
           textStyle="heading2"
-          color="creamsicle"
+          color="creamsicle.500"
           pl={{ base: '17px', md: '70px' }}
           textTransform="uppercase"
         >
