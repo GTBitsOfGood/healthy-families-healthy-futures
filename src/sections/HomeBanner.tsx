@@ -31,10 +31,10 @@ const HomeBanner = ({ data }: Props) => {
         p={8}
         boxShadow="card"
       >
-        <Heading textStyle="heading1" color="creamsicle">
+        <Heading textStyle="heading1" color="creamsicle.500">
           {banner?.titleLine1}
         </Heading>
-        <Heading textStyle="heading1" color="creamsicle">
+        <Heading textStyle="heading1" color="creamsicle.500">
           {banner?.titleLine2}
         </Heading>
         <Heading mt="13px" fontWeight="light" textStyle="subheading1" fontSize="16px">

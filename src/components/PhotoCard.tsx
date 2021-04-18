@@ -28,7 +28,7 @@ function PhotoCard({ data }: Props): JSX.Element {
       onClick={onOpen}
     >
       {image && <MediaModal isOpen={isOpen} onClose={onClose} media={image} />}
-      <Text textStyle="body2" color="creamsicle">
+      <Text textStyle="body2" color="creamsicle.500">
         {title}
       </Text>
       {image && <Img fluid={image} style={{ height: cardHeight }} />}

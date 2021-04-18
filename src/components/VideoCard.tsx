@@ -30,7 +30,7 @@ function VideoCard({ data }: Props): JSX.Element {
       onClick={onOpen}
     >
       {video && <MediaModal isOpen={isOpen} onClose={onClose} media={video} />}
-      <Text textStyle="body2" color="creamsicle">
+      <Text textStyle="body2" color="creamsicle.500">
         {title}
       </Text>
       {thumbnail && <Img fluid={thumbnail} style={{ height: cardHeight }} />}

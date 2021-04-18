@@ -27,7 +27,7 @@ function DonateBanner({ data }: Props): JSX.Element {
           )}
         </Box>
       </Box>
-      <Center p={5} flex="1" h={{ md: 480 }} bg="creamsicle">
+      <Center p={5} flex="1" h={{ md: 480 }} bg="creamsicle.500">
         <Box w={{ base: '32vw', md: 183 }} h={{ base: 'auto', md: 158 }}>
           {section?.logo?.fluid != null && (
             <Img fluid={section?.logo.fluid} alt={section?.logo.description} />

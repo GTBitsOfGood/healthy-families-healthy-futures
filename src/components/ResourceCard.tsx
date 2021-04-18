@@ -16,8 +16,8 @@ function ResourceCard({ data }: Props): JSX.Element {
 
   return (
     <Box maxW="xl" p={{ base: 3, md: 10 }}>
-      <VStack align="stretch" borderLeft="solid" borderLeftColor="creamsicle" pl={5}>
-        <Text textStyle="body2" color="creamsicle">
+      <VStack align="stretch" borderLeft="solid" borderLeftColor="creamsicle.500" pl={5}>
+        <Text textStyle="body2" color="creamsicle.500">
           {title}
         </Text>
         <Text textStyle="body3">{body}</Text>
