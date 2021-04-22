@@ -18,15 +18,29 @@ const ErrorPage = ({ data }: Props) => {
 
   return (
     <Layout data={data}>
-      <Flex h="790px" alignItems="center" justifyContent="space-evenly">
-        <Box w="709px">
-          <Heading fontSize="50px" lineHeight="78px" fontWeight={850}>
+      <Flex
+        h={{ base: '600px', md: '790px' }}
+        alignItems="center"
+        justifyContent="space-evenly"
+        flexDir={{ base: 'column', md: 'row' }}
+      >
+        <Box maxW={{ base: '380px', md: '709px' }} mx="17px">
+          <Heading
+            fontSize={{ base: '30px', md: '50px' }}
+            lineHeight={{ base: '46px', md: '78px' }}
+            fontWeight={850}
+            textAlign={{ base: 'center', md: 'start' }}
+          >
             <span style={{ color: `${theme.colors.creamsicle[500]}` }}>
               {page?.heading?.split(' ')[0]}
             </span>{' '}
             {page?.heading?.split(' ').slice(1).join(' ')}
           </Heading>
-          <Heading textStyle="heading2" color="gray.mid">
+          <Heading
+            textStyle="heading2"
+            color="gray.mid"
+            textAlign={{ base: 'center', md: 'start' }}
+          >
             {page?.subheading}
           </Heading>
         </Box>
@@ -36,6 +50,7 @@ const ErrorPage = ({ data }: Props) => {
             fontSize="150px"
             lineHeight="205px"
             textDecoration="underline"
+            fontWeight={800}
             style={{
               textUnderlineOffset: '20px',
               textDecorationColor: `${theme.colors.green[500]}`,
@@ -43,7 +58,6 @@ const ErrorPage = ({ data }: Props) => {
           >
             404
           </Text>
-          {/* <Box h="20px" bg="green.500" w="full" /> */}
         </Box>
       </Flex>
     </Layout>
