@@ -106,7 +106,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
                 )}`}
                 isExternal
               >
-                <FacebookIcon fill="creamsicle" boxSize="32px" />
+                <FacebookIcon fill="creamsicle.500" boxSize="32px" />
               </ChakraLink>
               <ChakraLink
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
@@ -114,7 +114,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
                 )}`}
                 isExternal
               >
-                <LinkedInIcon fill="creamsicle" boxSize="32px" />
+                <LinkedInIcon fill="creamsicle.500" boxSize="32px" />
               </ChakraLink>
               <ChakraLink
                 href={`mailto:?body=Here's%20an%20article%20from%20Healthy%20Families%20Healthy%20Futures%3A${encodeURIComponent(
@@ -122,7 +122,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
                 )}`}
                 isExternal
               >
-                <EmailIcon fill="creamsicle" boxSize="32px" />
+                <EmailIcon fill="creamsicle.500" boxSize="32px" />
               </ChakraLink>
             </HStack>
           </VStack>

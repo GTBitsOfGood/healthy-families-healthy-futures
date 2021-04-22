@@ -28,7 +28,6 @@ const ErrorPage = ({ data }: Props) => {
           <Heading
             fontSize={{ base: '30px', md: '50px' }}
             lineHeight={{ base: '46px', md: '78px' }}
-            textAlign={{ base: 'center', md: 'start' }}
             fontWeight={850}
           >
             <span style={{ color: `${theme.colors.creamsicle}` }}>
@@ -46,7 +45,7 @@ const ErrorPage = ({ data }: Props) => {
         </Box>
         <Box>
           <Text
-            color="creamsicle"
+            color="creamsicle.500"
             fontSize="150px"
             lineHeight="205px"
             textDecoration="underline"

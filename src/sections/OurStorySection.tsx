@@ -18,7 +18,7 @@ const OurStorySection = ({ data }: Props) => {
   const image = section?.image;
 
   return (
-    <Box>
+    <Box id="our-story">
       <Box mb={{ base: 70, md: 110 }}>
         <SectionHeader text={section?.title ?? 'Our Story'} textPosition="right" />
       </Box>
