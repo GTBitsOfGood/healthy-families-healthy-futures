@@ -29,6 +29,7 @@ const ErrorPage = ({ data }: Props) => {
             fontSize={{ base: '30px', md: '50px' }}
             lineHeight={{ base: '46px', md: '78px' }}
             fontWeight={850}
+            textAlign={{ base: 'center', md: 'start' }}
           >
             <span style={{ color: `${theme.colors.creamsicle[500]}` }}>
               {page?.heading?.split(' ')[0]}
