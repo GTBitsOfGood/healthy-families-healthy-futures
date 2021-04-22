@@ -30,7 +30,7 @@ const ErrorPage = ({ data }: Props) => {
             lineHeight={{ base: '46px', md: '78px' }}
             fontWeight={850}
           >
-            <span style={{ color: `${theme.colors.creamsicle}` }}>
+            <span style={{ color: `${theme.colors.creamsicle[500]}` }}>
               {page?.heading?.split(' ')[0]}
             </span>{' '}
             {page?.heading?.split(' ').slice(1).join(' ')}
