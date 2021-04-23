@@ -19,14 +19,14 @@ function MediaGallerySection({ data }: Props): JSX.Element {
   const videoCards = filterLocale(data.allContentfulVideoCard.nodes);
 
   return (
-    <Box bg="gray.extralight" pb="100px">
+    <Box id="media" bg="gray.extralight" pb="100px">
       <Box mb={{ base: '35px', md: '54px' }}>
         <SectionHeader text="Media Gallery" textPosition="left" />
       </Box>
       <VStack align={{ base: 'start', md: 'start' }} spacing="45px">
         <Text
           textStyle="heading2"
-          color="creamsicle"
+          color="creamsicle.500"
           pl={{ base: '17px', md: '70px' }}
           textTransform="uppercase"
         >
@@ -39,7 +39,7 @@ function MediaGallerySection({ data }: Props): JSX.Element {
         </CardList>
         <Text
           textStyle="heading2"
-          color="creamsicle"
+          color="creamsicle.500"
           pl={{ base: '17px', md: '70px' }}
           textTransform="uppercase"
         >

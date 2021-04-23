@@ -7,7 +7,7 @@ const theme = extendTheme({
       600: '#3A8245',
       700: '#23512A',
     },
-    tangerine: { 500: '#FF9737', 600: '#E57A16', 700: '#BA5F0C' },
+    // creamsicle: { 500: '#FF9737', 600: '#E57A16', 700: '#BA5F0C' },
     charcoal: '#404040',
     gray: {
       dark: '#404040',
@@ -15,9 +15,7 @@ const theme = extendTheme({
       light: '#C4C4C4',
       extralight: 'rgba(196, 196, 196, 0.1)',
     },
-    creamsicle: '#FF9C59',
-    darkcreamsicle: '#FF8533',
-    darkercreamsicle: '#FF6C0A',
+    creamsicle: { 500: '#FF9C59', 600: '#FF8533', 700: '#FF6C0A' },
   },
   shadows: {
     card: '0px 3px 14px rgba(0, 0, 0, 0.25)',
@@ -109,26 +107,23 @@ const theme = extendTheme({
         },
         secondary: {
           _hover: {
-            color: 'tangerine.500',
+            color: 'creamsicle.500',
           },
           _active: {
-            color: 'tangerine.600',
+            color: 'creamsicle.600',
           },
         },
         neutral: {
-          bg: 'tangerine.500',
+          bg: 'creamsicle.500',
           textTransform: 'none',
           px: '19px',
           py: '8px',
 
           _hover: {
-            _disabled: {
-              bg: 'tangerine.500',
-            },
-            bg: 'tangerine.600',
+            bg: 'creamsicle.600',
           },
           _active: {
-            bg: 'tangerine.700',
+            bg: 'creamsicle.700',
           },
         },
         back: {
@@ -136,10 +131,10 @@ const theme = extendTheme({
           px: 0,
           textTransform: 'none',
           _hover: {
-            color: 'tangerine.500',
+            color: 'creamsicle.500',
           },
           _active: {
-            color: 'tangerine.600',
+            color: 'creamsicle.600',
           },
         },
       },
@@ -169,13 +164,13 @@ const theme = extendTheme({
     Link: {
       variants: {
         blog: {
-          color: 'creamsicle',
+          color: 'creamsicle.500',
           _hover: {
             textDecoration: 'none',
-            color: 'darkcreamsicle',
+            color: 'creamsicle.600',
           },
           _active: {
-            color: 'darkercreamsicle',
+            color: 'creamsicle.700',
           },
         },
       },

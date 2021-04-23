@@ -27,12 +27,12 @@ function LinkDocSection({ data }: Props): JSX.Element {
   const resourceCardsSecChunk = resourceCards.slice(3, resourceCards.length);
 
   return (
-    <Box mb={{ base: '73px', md: '160px' }}>
+    <Box id="links-documents" mb={{ base: '73px', md: '160px' }}>
       <Box marginBottom={{ base: '53px', md: '100px' }}>
         <SectionHeader text="Links &amp; Documents" textPosition="right" />
       </Box>
       <VStack spacing={20} display={{ base: 'none', md: 'flex' }}>
-        <Box bgColor="creamsicle" w={{ base: '338px', md: '795px' }} p={10} maxW={700}>
+        <Box bgColor="creamsicle.500" w={{ base: '338px', md: '795px' }} p={10} maxW={700}>
           <VStack>
             <Text textStyle="heading1">{title}</Text>
             <Text textStyle="body1" textAlign="center">

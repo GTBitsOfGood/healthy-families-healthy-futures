@@ -10,7 +10,7 @@ interface Props {
 const SectionHeader = ({ text, textPosition }: Props) => {
   return (
     <Flex pt={{ base: '25px', md: '80px' }}>
-      {textPosition === 'right' && <Box flex="1" bg="creamsicle" w="100%" />}
+      {textPosition === 'right' && <Box flex="1" bg="creamsicle.500" w="100%" />}
       <Heading
         textAlign={'center'}
         textStyle="heading1"
@@ -19,7 +19,7 @@ const SectionHeader = ({ text, textPosition }: Props) => {
       >
         {text}
       </Heading>
-      {textPosition === 'left' && <Box flex="1" bg="creamsicle" w="100%" />}
+      {textPosition === 'left' && <Box flex="1" bg="creamsicle.500" w="100%" />}
     </Flex>
   );
 };

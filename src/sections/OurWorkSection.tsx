@@ -17,7 +17,7 @@ function OurWorkSection({ data }: Props): JSX.Element {
   const sortedCards = [...cards].sort((a, b) => (a.displayIndex ?? 0) - (b.displayIndex ?? 0));
 
   return (
-    <Box bg="gray.extralight">
+    <Box id="our-work" bg="gray.extralight">
       <Box>
         <SectionHeader text="Our Work" textPosition="left" />
       </Box>
