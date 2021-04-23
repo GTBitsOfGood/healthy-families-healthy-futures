@@ -1,8 +1,21 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
-import { Box, Text, Stack, Center, Input, Button } from '@chakra-ui/react';
+import {
+  Text,
+  Stack,
+  Center,
+  Input,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  HStack,
+  Spinner,
+  Link,
+} from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import { useLocale } from 'src/contexts/LocaleContext';
+import { Status, useMailChimp } from 'src/utils/useMailchimp';
 import { validateEmail } from 'src/utils/util';
 
 interface Props {
@@ -10,80 +23,132 @@ interface Props {
 }
 
 function NewsletterBanner({ data }: Props): JSX.Element {
-  const [email, setEmail] = useState('');
-  const formRef = useRef<HTMLFormElement>(null);
+  const [form, setForm] = useState({ firstName: '', lastName: '', email: '' });
+  const { subscribe, status, error } = useMailChimp(process.env.MAILCHIMP_URL ?? '');
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    setForm(form => ({
+      ...form,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    subscribe({
+      FNAME: form.firstName,
+      LNAME: form.lastName,
+      EMAIL: form.email,
+    });
+  };
+
+  const validData =
+    validateEmail(form.email) && form.firstName.length > 0 && form.lastName.length > 0;
 
   const { findLocale } = useLocale();
   const banner = findLocale(data.allContentfulNewsletterSection.nodes);
+  let rightContent;
+  let errorText;
+
+  switch (status) {
+    case Status.LOADING:
+      rightContent = <Spinner />;
+      break;
+    case Status.SUCCESS:
+      rightContent = <Text color="green.500">Thanks for signing up!</Text>;
+      break;
+    case Status.ERROR:
+    case Status.IDLE:
+      if (status === Status.ERROR) {
+        if (typeof error === 'string' && error.includes('already subscribed')) {
+          const match = /href="(.+)"/.exec(error);
+
+          if (match == null) {
+            errorText = (
+              <Center>
+                <Text color="red">There was an error. Please try again later.</Text>
+              </Center>
+            );
+          } else {
+            errorText = (
+              <Flex flexDir="column" alignItems="center" maxW="400px">
+                <Text textAlign="center" color="red">
+                  This email is already signed up. Click this link to modify your email preferences:
+                </Text>
+                <Link href={match[1]} isExternal>
+                  Click here
+                </Link>
+              </Flex>
+            );
+          }
+        } else {
+          errorText = (
+            <Center>
+              <Text color="red">There was an error. Please try again later.</Text>
+            </Center>
+          );
+        }
+      }
+
+      rightContent = (
+        <Stack spacing="20px">
+          <Stack>
+            <HStack>
+              <FormControl isRequired>
+                <FormLabel>First name</FormLabel>
+                <Input
+                  variant="form"
+                  onChange={handleInputChange}
+                  value={form.firstName}
+                  placeholder="First name"
+                  name="firstName"
+                />
+              </FormControl>
+              <FormControl isRequired>
+                <FormLabel>Last name</FormLabel>
+                <Input
+                  variant="form"
+                  onChange={handleInputChange}
+                  value={form.lastName}
+                  placeholder="Last name"
+                  name="lastName"
+                />
+              </FormControl>
+            </HStack>
+            <FormControl isRequired>
+              <FormLabel>Email</FormLabel>
+              <Input
+                variant="form"
+                onChange={handleInputChange}
+                value={form.email}
+                placeholder="Email"
+                name="email"
+              />
+            </FormControl>
+          </Stack>
+          <Center>
+            <Button variant="neutral" type="submit" disabled={!validData} onClick={handleSubmit}>
+              {banner?.ctaText}
+            </Button>
+          </Center>
+          {errorText}
+        </Stack>
+      );
+      break;
+    default:
+      break;
+  }
 
   return (
-    <Box h={275} pt={75} bg="gray.extralight">
+    <Flex h={332} bg="gray.extralight" justifyContent="space-evenly" alignItems="center">
       <Text color="charcoal" textAlign={'center'} textStyle="heading2">
         {banner?.headline}
       </Text>
-      <Center>
-        <form
-          action="//mc.us17.list-manage.com/signup-form/subscribe?u=035989d48b7aeb1260f8b2efb&amp;id=00e96fe1f0"
-          acceptCharset="UTF-8"
-          method="post"
-          encType="multipart/form-data"
-          target="_blank"
-          onSubmit={e => {
-            e.preventDefault();
-            console.log(e);
-            if (formRef.current) {
-              const formData = new FormData(formRef.current);
-              void fetch(
-                '//mc.us17.list-manage.com/signup-form/subscribe?u=035989d48b7aeb1260f8b2efb&amp;id=00e96fe1f0',
-                {
-                  method: 'POST',
-                  body: formData,
-                  // referrerPolicy: 'strict-origin-when-cross-origin',
-                  mode: 'no-cors',
-                  // mode: 'cors',
-                  // credentials: 'omit',
-                  // headers: {
-                  // accept: '*/*',
-                  // 'accept-language': 'en-US,en;q=0.9',
-                  // 'cache-control': 'no-cache',
-                  // 'Content-Type': 'application/x-www-form-urlencoded',
-                  // },
-                },
-              ).then(res => console.log(res));
-              console.log(formData);
-            }
-          }}
-          ref={formRef}
-        >
-          <Stack direction="row" spacing={4} marginTop={30}>
-            <Input
-              h="40px"
-              borderColor="black"
-              borderRadius="none"
-              onChange={e => setEmail(e.target.value)}
-              value={email}
-              placeholder="Email"
-              name="EMAIL"
-              id="mc-EMAIL"
-            />
-            <input type="hidden" name="b_035989d48b7aeb1260f8b2efb_227062" value="" />
-            <input
-              type="hidden"
-              name="c"
-              value="dojo_request_script_callbacks.dojo_request_script3"
-            />
-            <input
-              type="hidden"
-              name="ht"
-              value="1f6c7519f9c391763bbf0569e6ab285077af9eb7:MTYxODYyOTQ3MC43MzY2"
-            />
-            <Button variant="neutral" type="submit" disabled={!validateEmail(email)}>
-              {banner?.ctaText}
-            </Button>
-          </Stack>
-        </form>
-      </Center>
-    </Box>
+      {rightContent}
+    </Flex>
   );
 }
 
