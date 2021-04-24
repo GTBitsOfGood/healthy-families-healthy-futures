@@ -24,7 +24,7 @@ interface Props {
 
 function NewsletterBanner({ data }: Props): JSX.Element {
   const [form, setForm] = useState({ firstName: '', lastName: '', email: '' });
-  const { subscribe, status, error } = useMailChimp(process.env.MAILCHIMP_URL ?? '');
+  const { subscribe, status, error } = useMailChimp(process.env.GATSBY_MAILCHIMP_URL ?? '');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
