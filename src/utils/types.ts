@@ -14,3 +14,11 @@ export type Entries<T> = {
 }[keyof T][];
 
 export type Locale = 'en-US' | 'es-US';
+
+declare global {
+  interface Window {
+    dataLayer: {
+      push: (x: { event: string }) => void;
+    };
+  }
+}
