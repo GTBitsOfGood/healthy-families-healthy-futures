@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   Text,
@@ -44,6 +44,12 @@ function NewsletterBanner({ data }: Props): JSX.Element {
       EMAIL: form.email,
     });
   };
+
+  useEffect(() => {
+    if (status === Status.SUCCESS) {
+      window.dataLayer.push({ event: 'newsletter-signup' });
+    }
+  }, [status]);
 
   const validData =
     validateEmail(form.email) && form.firstName.length > 0 && form.lastName.length > 0;
