@@ -118,7 +118,11 @@ const theme = extendTheme({
           textTransform: 'none',
           px: '19px',
           py: '8px',
+
           _hover: {
+            _disabled: {
+              bg: 'creamsicle.500',
+            },
             bg: 'creamsicle.600',
           },
           _active: {
@@ -156,6 +160,14 @@ const theme = extendTheme({
             _placeholder: {
               color: 'gray.light',
             },
+          },
+        },
+        form: {
+          field: {
+            h: '40px',
+            borderWidth: `1px`,
+            borderColor: 'black',
+            borderRadius: 'none',
           },
         },
       },
