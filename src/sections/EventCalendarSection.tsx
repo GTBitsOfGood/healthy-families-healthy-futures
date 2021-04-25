@@ -22,6 +22,7 @@ import { graphql } from 'gatsby';
 import Calendar from 'src/components/calendar';
 import EventModalCard from 'src/components/EventModalCard';
 import SectionHeader from 'src/components/SectionHeader';
+import { useLocale } from 'src/contexts/LocaleContext';
 import { Event } from 'src/utils/types';
 
 interface Props {
@@ -29,6 +30,7 @@ interface Props {
 }
 
 function EventCalendarSection({ data }: Props): JSX.Element {
+  const { filterLocale } = useLocale();
   const [events, setEvents] = useState<Event[]>([]);
   const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -44,14 +46,32 @@ function EventCalendarSection({ data }: Props): JSX.Element {
         }`,
       );
       const { unparsed } = await res.json();
-      const parsed = unparsed.map((e: { start_time: string; end_time: string }) => ({
-        ...e,
-        start_time: parseISO(e.start_time),
-        end_time: parseISO(e.end_time),
-      }));
+      const parsed = unparsed.map(
+        (e: unknown & { start_time: string; end_time: string; id: string }) => ({
+          ...e,
+          url: `https://www.facebook.com/events/${e.id}`,
+          start_time: parseISO(e.start_time),
+          end_time: parseISO(e.end_time),
+        }),
+      );
       setEvents(parsed);
     })();
   }, [shouldShowFacebookEvents]);
+
+  useEffect(() => {
+    if (shouldShowFacebookEvents) return;
+    const unparsed = filterLocale(data.allContentfulEvent.nodes);
+    const parsed: Event[] = unparsed.map(e => ({
+      id: e.id,
+      description: e.description ?? '',
+      name: e.name ?? '',
+      end_time: parseISO(e.end_time ?? ''),
+      start_time: parseISO(e.start_time ?? ''),
+      url: e.url ?? '',
+      place: { name: e.place ?? '' },
+    }));
+    setEvents(parsed);
+  }, [data.allContentfulEvent.nodes, filterLocale, shouldShowFacebookEvents]);
 
   const openEventModal = (eventsToShow: typeof events) => {
     if (eventsToShow.length > 0) {
@@ -133,6 +153,18 @@ export const fragment = graphql`
   fragment EventCalendarSection on Query {
     contentfulEventSourceConfig {
       getFromFacebook
+    }
+    allContentfulEvent {
+      nodes {
+        node_locale
+        id: contentful_id
+        name
+        description
+        place
+        start_time: startTime
+        end_time: endTime
+        url: link
+      }
     }
   }
 `;

@@ -17,7 +17,7 @@ function EventModalCard({ event }: EventProps): JSX.Element {
       <Text my={3}>{event.description}</Text>
 
       <Button variant="secondary" textAlign="right" ml="auto" mr={0} d="block">
-        <LinkOverlay href={`https://www.facebook.com/events/${event.id}` ?? '#'} isExternal>
+        <LinkOverlay href={event.url} isExternal>
           Learn more <ArrowForwardIcon />
         </LinkOverlay>
       </Button>

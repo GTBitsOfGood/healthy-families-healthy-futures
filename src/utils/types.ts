@@ -18,6 +18,7 @@ export interface Event {
   };
   start_time: Date;
   id: string;
+  url: string;
 }
 
 export type Entries<T> = {
