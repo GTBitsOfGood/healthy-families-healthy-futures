@@ -12,7 +12,7 @@ interface Props extends PageProps {
 
 const DonatePage = ({ data }: Props) => {
   return (
-    <Layout data={data}>
+    <Layout data={data} pageName="Donate">
       <DonateHeader data={data} />
       <DonationDetailSection data={data} />
       <NewsletterBanner data={data} />

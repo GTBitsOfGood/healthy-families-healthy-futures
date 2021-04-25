@@ -19,7 +19,7 @@ function EventsPage(props: Props): JSX.Element {
   const header = findLocale(props.data.allContentfulHeaderSection.nodes);
 
   return (
-    <Layout data={props.data}>
+    <Layout data={props.data} pageName="Events &amp; Classes">
       <BasicBanner data={header} />
       <EventCalendarSection data={props.data} />
       <UpcomingEventsSection />

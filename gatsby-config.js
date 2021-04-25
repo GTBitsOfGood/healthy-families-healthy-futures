@@ -24,6 +24,10 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Healthy Families Healthy Futures',
+    description:
+      'Healthy Families Healthy Futures is dedicated to providing healthy and nutritional information to young children and families',
+    url: 'https://www.healthyfuturesonline.com',
+    image: '/logo.png',
   },
   plugins: [
     {

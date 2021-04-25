@@ -18,7 +18,7 @@ const GetInvolvedPage = ({ data }: Props) => {
   const header = findLocale(data.allContentfulHeaderSection.nodes);
 
   return (
-    <Layout data={data}>
+    <Layout data={data} pageName="Get Involved">
       <BasicBanner data={header} />
       <GetInvolvedSection data={data} />
       <DonateSection data={data} />
