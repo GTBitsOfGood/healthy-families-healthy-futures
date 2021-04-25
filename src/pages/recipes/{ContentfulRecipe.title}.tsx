@@ -30,7 +30,7 @@ function RecipeTemplate(props: Props): JSX.Element {
   const titleTextStyle = useBreakpointValue({ base: 'subheading1', md: 'heading1' });
 
   return (
-    <Layout data={props.data}>
+    <Layout data={props.data} pageName={recipe.title}>
       <Box w={{ base: '89%', md: 'none' }} margin={{ base: 5, md: 10 }}>
         <Link to="/recipes">
           <Button

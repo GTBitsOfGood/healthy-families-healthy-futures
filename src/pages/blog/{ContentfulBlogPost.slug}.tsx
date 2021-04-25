@@ -56,7 +56,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
       : format(dateObj, 'dd/MM/yyyy', { locale: es });
 
   return (
-    <Layout data={props.data}>
+    <Layout data={props.data} pageName={post.title}>
       <Container maxW="740px" px={{ base: '15px', md: 0 }} pt={{ base: '0px', md: '50px' }}>
         <Link to="/blog">
           <Button variant="back" leftIcon={<ChevronLeftIcon />} mb={{ base: '15px', md: '50px' }}>

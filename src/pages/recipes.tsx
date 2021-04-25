@@ -4,7 +4,6 @@ import { Divider, Flex, Grid, GridItem, Heading } from '@chakra-ui/react';
 import slugify from '@sindresorhus/slugify';
 import { graphql, Link, navigate, PageProps } from 'gatsby';
 import { parse, stringify } from 'query-string';
-import { Helmet } from 'react-helmet';
 import Layout from 'src/components/Layout';
 import Pagination from 'src/components/Pagination';
 import RecipeCard from 'src/components/RecipeCard';
@@ -22,7 +21,6 @@ interface Props extends PageProps {
 
 function RecipesIndex(props: Props): JSX.Element {
   const { filterLocale } = useLocale();
-  const siteTitle = props.data.site?.siteMetadata?.title;
 
   const recipes = filterLocale(props.data?.allContentfulRecipe?.nodes);
   const foodTypeTags = filterLocale(props.data?.allContentfulFoodTypeTag?.nodes);
@@ -89,9 +87,7 @@ function RecipesIndex(props: Props): JSX.Element {
   const pageCount = Math.ceil(filteredRecipes.length / recipesPerPage);
 
   return (
-    <Layout data={props.data}>
-      <Helmet title={siteTitle} />
-
+    <Layout data={props.data} pageName="Recipes">
       <Grid templateColumns={{ base: '1fr', md: '250px 1px 1fr' }} mb={10}>
         <GridItem>
           <RecipeSidebar
@@ -152,11 +148,6 @@ export default RecipesIndex;
 
 export const pageQuery = graphql`
   query RecipePage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     ...Layout
     allContentfulRecipe {
       nodes {

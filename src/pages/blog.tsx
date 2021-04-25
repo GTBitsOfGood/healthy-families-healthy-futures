@@ -13,7 +13,7 @@ interface Props extends PageProps {
 
 function BlogIndex({ data }: Props): JSX.Element {
   return (
-    <Layout data={data}>
+    <Layout data={data} pageName="Blog">
       <BlogsBanner data={data} />
       <BlogListSection data={data} />
       <DonateBanner data={data} />

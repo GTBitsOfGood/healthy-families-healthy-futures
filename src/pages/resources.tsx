@@ -19,7 +19,7 @@ function ResourcesPage({ data }: Props): JSX.Element {
   const header = findLocale(data.allContentfulHeaderSection.nodes);
 
   return (
-    <Layout data={data}>
+    <Layout data={data} pageName="Resources">
       <BasicBanner data={header} />
       <LinkDocSection data={data} />
       <MediaGallerySection data={data} />

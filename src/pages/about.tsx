@@ -16,7 +16,7 @@ interface Props extends PageProps {
 
 function AboutPage({ data }: Props): JSX.Element {
   return (
-    <Layout data={data}>
+    <Layout data={data} pageName="About">
       <AboutBanner data={data} />
 
       <OurStorySection data={data} />
