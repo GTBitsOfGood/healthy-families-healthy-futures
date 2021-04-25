@@ -95,7 +95,7 @@ function Footer({ data }: Props): JSX.Element {
       <Link href="https://www.instagram.com/healthy_futures/" isExternal>
         <InstagramIcon w={size} h={size} fill="white" />
       </Link>
-      <Link href="mailto:jrlatour37@gmail.com" isExternal>
+      <Link href="mailto:healthyfamilies37@gmail.com" isExternal>
         <EmailIcon w={size} h={size} fill="white" />
       </Link>
     </>
