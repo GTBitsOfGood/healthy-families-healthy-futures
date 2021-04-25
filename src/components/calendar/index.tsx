@@ -79,21 +79,21 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
 
   return (
     <Box pb={['50px', null, '160px']}>
-      <HStack spacing="40px">
+      <HStack spacing={{ base: '15px', md: '40px' }}>
         <Heading textStyle="heading2" textTransform="uppercase" textAlign="start">
           {monthYear}
         </Heading>
         <HStack spacing="10px">
           <IconButton
             variant="ghost"
-            boxSize="40px"
+            boxSize={{ base: '20px', md: '40px' }}
             aria-label="previous month"
             icon={<ChevronLeftIcon boxSize="20px" />}
             onClick={() => setMonth(currMonth => startOfMonth(sub(currMonth, { days: 1 })))}
           />
           <IconButton
             variant="ghost"
-            boxSize="40px"
+            boxSize={{ base: '20px', md: '40px' }}
             aria-label="next month"
             icon={<ChevronRightIcon boxSize="20px" />}
             onClick={() =>
