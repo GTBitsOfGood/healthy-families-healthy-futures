@@ -16,7 +16,7 @@ const DonateHeader = ({ data }: Props) => {
 
   return (
     <Box
-      minH={[213, null, 510]}
+      minH={[441, null, 510]}
       display="flex"
       flexDirection="column"
       justifyContent="center"
@@ -30,12 +30,12 @@ const DonateHeader = ({ data }: Props) => {
         />
       )}
       <Center zIndex={2}>
-        <Center w="507px" h="354px" bg="white" boxShadow="card" px="50px">
+        <Center w={{ base: '260px', md: '507px' }} h="354px" bg="white" boxShadow="card" px="50px">
           <VStack spacing="18px">
             <Heading
               color="creamsicle.500"
-              fontSize="50px"
-              lineHeight="68px"
+              fontSize={{ base: '36px', md: '50px' }}
+              lineHeight={{ base: '56px', md: '68px' }}
               textTransform="uppercase"
             >
               {banner?.title ?? 'Title Missing'}
@@ -50,6 +50,7 @@ const DonateHeader = ({ data }: Props) => {
                 variant="neutral"
                 textTransform="none"
                 type="submit"
+                fontWeight="500"
               >
                 {banner?.ctaText}
               </Button>
