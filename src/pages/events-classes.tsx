@@ -21,7 +21,7 @@ function EventsPage(props: Props): JSX.Element {
   return (
     <Layout data={props.data}>
       <BasicBanner data={header} />
-      <EventCalendarSection />
+      <EventCalendarSection data={props.data} />
       <UpcomingEventsSection />
       <DonateBanner data={props.data} />
       <NewsletterBanner data={props.data} />
@@ -47,5 +47,6 @@ export const pageQuery = graphql`
     ...Layout
     ...DonateBanner
     ...NewsletterBanner
+    ...EventCalendarSection
   }
 `;

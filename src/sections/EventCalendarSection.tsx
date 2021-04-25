@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import React, { useEffect, useState } from 'react';
 
 import {
   Box,
@@ -12,53 +16,62 @@ import {
   useDisclosure,
   VStack,
 } from '@chakra-ui/react';
-import { format, isSameDay, parse } from 'date-fns';
+import { format, isSameDay } from 'date-fns';
+import { parseISO } from 'date-fns/esm';
+import { graphql } from 'gatsby';
 import Calendar from 'src/components/calendar';
 import EventModalCard from 'src/components/EventModalCard';
 import SectionHeader from 'src/components/SectionHeader';
+import { useLocale } from 'src/contexts/LocaleContext';
+import { Event } from 'src/utils/types';
 
-const TEMP_EVENTS = [
-  {
-    id: 1,
-    title: 'Healthy Cooking Class',
-    eventDate: 'Wednesday, April 17th',
-    link: '#',
-    description:
-      'Spicy jalapeno bacon ipsum dolor amet jowl bresaola cow flank burgdoggen tail pancetta tenderloin corned beef. Landjaeger beef ribs tri-tip biltong andouille cow spare ribs. Ribeye jerky jowl ground round alcatra beef. Sausage biltong shankle, bresaola ribeye bacon pancetta cupim meatball shoulder andouille turkey strip steak salami. Ribeye leberkas prosciutto, pork loin ground round corned beef short ribs landjaeger brisket pork belly. Rump meatloaf salami, prosciutto boudin pork hamburger ground round bresaola frankfurter biltong.',
-  },
-  {
-    id: 2,
-    title: 'Healthy Cooking Class',
-    eventDate: 'Wednesday, April 24th',
-    link: '#',
-    description:
-      'Sausage leberkas tenderloin pancetta andouille short ribs venison pork belly drumstick cow ribeye pastrami. Short loin kielbasa ribeye spare ribs short ribs. Shankle chislic landjaeger shank. Chicken meatloaf hamburger alcatra shank.',
-  },
-  {
-    id: 3,
-    title: 'Healthy Cooking Class 2',
-    eventDate: 'Wednesday, April 24th',
-    link: '#',
-    description:
-      'Bacon ipsum dolor amet meatloaf short ribs shank pork bresaola. Filet mignon frankfurter beef, buffalo pancetta brisket cupim pork chop turkey hamburger capicola chicken cow sausage. Ribeye bresaola burgdoggen beef ribs shank kielbasa chislic chuck tail ham hock pork jowl, pork belly meatball. Short ribs beef ribs turducken tenderloin sausage picanha boudin kielbasa andouille cow.',
-  },
-  {
-    id: 4,
-    title: 'Healthy Cooking Class 3',
-    eventDate: 'Wednesday, April 24th',
-    link: '#',
-    description:
-      'Bacon ipsum dolor amet meatloaf short ribs shank pork bresaola. Filet mignon frankfurter beef, buffalo pancetta brisket cupim pork chop turkey hamburger capicola chicken cow sausage. Ribeye bresaola burgdoggen beef ribs shank kielbasa chislic chuck tail ham hock pork jowl, pork belly meatball. Short ribs beef ribs turducken tenderloin sausage picanha boudin kielbasa andouille cow.',
-  },
-];
+interface Props {
+  data: GatsbyTypes.EventCalendarSectionFragment;
+}
 
-function EventCalendarSection(): JSX.Element {
-  const [selectedEvents, setSelectedEvents] = useState<typeof events>([]);
+function EventCalendarSection({ data }: Props): JSX.Element {
+  const { filterLocale } = useLocale();
+  const [events, setEvents] = useState<Event[]>([]);
+  const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const events = TEMP_EVENTS.map(event => {
-    return { ...event, eventDate: parse(event.eventDate, 'EEEE, MMMM do', new Date()) };
-  });
+  const shouldShowFacebookEvents = data?.contentfulEventSourceConfig?.getFromFacebook ?? false;
+
+  useEffect(() => {
+    if (!shouldShowFacebookEvents) return;
+    void (async () => {
+      const res = await fetch(
+        `https://graph.facebook.com/v10.0/232144604765679/events?access_token=${
+          process.env.FB_PAGE_AUTH_TOKEN ?? ''
+        }`,
+      );
+      const { unparsed } = await res.json();
+      const parsed = unparsed.map(
+        (e: unknown & { start_time: string; end_time: string; id: string }) => ({
+          ...e,
+          url: `https://www.facebook.com/events/${e.id}`,
+          start_time: parseISO(e.start_time),
+          end_time: parseISO(e.end_time),
+        }),
+      );
+      setEvents(parsed);
+    })();
+  }, [shouldShowFacebookEvents]);
+
+  useEffect(() => {
+    if (shouldShowFacebookEvents) return;
+    const unparsed = filterLocale(data.allContentfulEvent.nodes);
+    const parsed: Event[] = unparsed.map(e => ({
+      id: e.id,
+      description: e.description ?? '',
+      name: e.name ?? '',
+      end_time: parseISO(e.end_time ?? ''),
+      start_time: parseISO(e.start_time ?? ''),
+      url: e.url ?? '',
+      place: { name: e.place ?? '' },
+    }));
+    setEvents(parsed);
+  }, [data.allContentfulEvent.nodes, filterLocale, shouldShowFacebookEvents]);
 
   const openEventModal = (eventsToShow: typeof events) => {
     if (eventsToShow.length > 0) {
@@ -68,11 +81,11 @@ function EventCalendarSection(): JSX.Element {
   };
 
   const openEventModalByDate = (selectedDate: Date) => {
-    const eventsOnSelectedDate = events.filter(event => isSameDay(event.eventDate, selectedDate));
+    const eventsOnSelectedDate = events.filter(event => isSameDay(event.start_time, selectedDate));
     openEventModal(eventsOnSelectedDate);
   };
 
-  const openEventModalById = (eventId: number) => {
+  const openEventModalById = (eventId: string) => {
     const matchingEvents = events.filter(event => event.id == eventId);
     openEventModal(matchingEvents);
   };
@@ -93,7 +106,7 @@ function EventCalendarSection(): JSX.Element {
       cursor="pointer"
       w="100%"
     >
-      {e.title} - {format(e.eventDate, 'M/dd/yyyy')}
+      {e.name} - {format(e.start_time, 'M/dd/yyyy')}
     </Box>
   ));
 
@@ -110,7 +123,7 @@ function EventCalendarSection(): JSX.Element {
       >
         <Grid ml={[0, null, '50px']} gridArea="calendar">
           <Calendar
-            eventDates={events.map(event => event.eventDate)}
+            eventDates={events.map(event => event.start_time)}
             onDateClick={openEventModalByDate}
           />
         </Grid>
@@ -135,3 +148,23 @@ function EventCalendarSection(): JSX.Element {
 }
 
 export default EventCalendarSection;
+
+export const fragment = graphql`
+  fragment EventCalendarSection on Query {
+    contentfulEventSourceConfig {
+      getFromFacebook
+    }
+    allContentfulEvent {
+      nodes {
+        node_locale
+        id: contentful_id
+        name
+        description
+        place
+        start_time: startTime
+        end_time: endTime
+        url: link
+      }
+    }
+  }
+`;
