@@ -19,6 +19,7 @@ export interface Event {
   start_time: Date;
   id: string;
   url: string;
+  image?: GatsbyTypes.GatsbyContentfulFluidFragment;
 }
 
 export type Entries<T> = {
