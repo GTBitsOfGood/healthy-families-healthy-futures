@@ -47,7 +47,9 @@ function NewsletterBanner({ data }: Props): JSX.Element {
 
   useEffect(() => {
     if (status === Status.SUCCESS) {
-      window.dataLayer.push({ event: 'newsletter-signup' });
+      if (window.dataLayer) {
+        window.dataLayer.push({ event: 'newsletter-signup' });
+      }
     }
   }, [status]);
 
@@ -149,7 +151,14 @@ function NewsletterBanner({ data }: Props): JSX.Element {
   }
 
   return (
-    <Flex h={332} bg="gray.extralight" justifyContent="space-evenly" alignItems="center">
+    <Flex
+      h={{ base: '297px', md: 332 }}
+      bg="gray.extralight"
+      justifyContent="space-evenly"
+      alignItems="center"
+      flexWrap="wrap"
+      px={{ base: '18px', md: 0 }}
+    >
       <Text color="charcoal" textAlign={'center'} textStyle="heading2">
         {banner?.headline}
       </Text>
