@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Stack, Box, VStack, Text, Button, useTheme } from '@chakra-ui/react';
+import { Stack, Box, VStack, Text, useTheme } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
@@ -14,7 +14,7 @@ const OurFounderSection = ({ data }: Props) => {
   const theme = useTheme();
   const { findLocale } = useLocale();
 
-  const founder = findLocale(data.allContentfulOurFounder.nodes);
+  const founder = findLocale(data.allContentfulOurFounderSection.nodes);
 
   return (
     <Box id="our-founder">
@@ -56,7 +56,6 @@ const OurFounderSection = ({ data }: Props) => {
             </Text>
           </Box>
         </Stack>
-        <Button variant="neutral">{founder?.ctaText}</Button>
       </VStack>
     </Box>
   );
@@ -66,11 +65,9 @@ export default OurFounderSection;
 
 export const fragment = graphql`
   fragment OurFounderSection on Query {
-    allContentfulOurFounder {
+    allContentfulOurFounderSection {
       nodes {
         title
-        ctaLink
-        ctaText
         description {
           description
         }

@@ -15,7 +15,7 @@ interface Props {
 
 function LinkDocSection({ data }: Props): JSX.Element {
   const { findLocale, filterLocale } = useLocale();
-  const section = findLocale(data.allContentfulLinkDocSection.nodes);
+  const section = findLocale(data.allContentfulLinksDocumentsCard.nodes);
   const title = section?.title;
   const body = section?.body?.body;
 
@@ -82,7 +82,7 @@ export default LinkDocSection;
 
 export const fragment = graphql`
   fragment LinkDoc on Query {
-    allContentfulLinkDocSection {
+    allContentfulLinksDocumentsCard {
       nodes {
         title
         body {

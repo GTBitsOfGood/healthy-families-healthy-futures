@@ -13,7 +13,7 @@ interface Props {
 const OurStorySection = ({ data }: Props) => {
   const { findLocale } = useLocale();
 
-  const section = findLocale(data.allContentfulOurStory.nodes);
+  const section = findLocale(data.allContentfulOurStorySection.nodes);
 
   const image = section?.image;
 
@@ -55,7 +55,7 @@ export default OurStorySection;
 
 export const fragment = graphql`
   fragment OurStorySection on Query {
-    allContentfulOurStory {
+    allContentfulOurStorySection {
       nodes {
         title
         body {

@@ -25,6 +25,7 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
   const [logoStyle, setLogoStyle] = useState({
     width: '209px',
     height: '76px',
+    marginTop: '10px',
     transition: 'all 200ms linear',
   });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, LinkBox, LinkOverlay } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import SectionHeader from 'src/components/SectionHeader';
@@ -13,7 +13,7 @@ interface Props {
 const OurSponsorSection = ({ data }: Props) => {
   const { findLocale } = useLocale();
 
-  const info = findLocale(data.allContentfulOurSponsor.nodes);
+  const info = findLocale(data.allContentfulOurSponsorSection.nodes);
 
   return (
     <Box id="our-sponsor" mb="277px">
@@ -33,16 +33,18 @@ const OurSponsorSection = ({ data }: Props) => {
           info.sponsors.map(
             sponsor =>
               sponsor?.image?.fluid != null && (
-                <Box flexBasis="20%" mt="56px" key={sponsor.name}>
-                  <Box boxSize="106px">
-                    <Img
-                      style={{ overflow: 'visible' }}
-                      imgStyle={{ borderRadius: '50%' }}
-                      fluid={sponsor.image.fluid}
-                      alt={sponsor.name ?? ''}
-                    />
-                  </Box>
-                </Box>
+                <LinkBox flexBasis="20%" mt="56px" key={sponsor.name}>
+                  <LinkOverlay href={sponsor.link} isExternal>
+                    <Box boxSize="106px">
+                      <Img
+                        style={{ overflow: 'visible' }}
+                        imgStyle={{ borderRadius: '50%' }}
+                        fluid={sponsor.image.fluid}
+                        alt={sponsor.name ?? ''}
+                      />
+                    </Box>
+                  </LinkOverlay>
+                </LinkBox>
               ),
           )}
       </Flex>
@@ -54,7 +56,7 @@ export default OurSponsorSection;
 
 export const fragment = graphql`
   fragment OurSponsorSection on Query {
-    allContentfulOurSponsor {
+    allContentfulOurSponsorSection {
       nodes {
         title
         sponsors {

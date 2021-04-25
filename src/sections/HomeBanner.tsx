@@ -12,7 +12,7 @@ interface Props {
 const HomeBanner = ({ data }: Props) => {
   const { findLocale } = useLocale();
 
-  const banner = findLocale(data?.allContentfulHomeBanner?.nodes);
+  const banner = findLocale(data?.allContentfulHomeHeader?.nodes);
 
   return (
     <Flex position="relative" h={{ base: 600, md: 785 }} alignItems="center">
@@ -56,7 +56,7 @@ export default HomeBanner;
 
 export const fragment = graphql`
   fragment HomeBanner on Query {
-    allContentfulHomeBanner {
+    allContentfulHomeHeader {
       nodes {
         titleLine1
         titleLine2

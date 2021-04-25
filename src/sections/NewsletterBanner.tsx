@@ -174,7 +174,6 @@ export const fragment = graphql`
     allContentfulNewsletterSection {
       nodes {
         headline
-        ctaLink
         ctaText
         node_locale
       }
