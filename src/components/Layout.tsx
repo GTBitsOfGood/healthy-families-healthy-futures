@@ -33,6 +33,7 @@ function Layout({ data, children, pageName }: Props): JSX.Element {
         {pageName != null ? <title>{pageName}</title> : null}
         <meta name="description" content={metadata?.description ?? ''} />
         <meta name="image" content={image} />
+        <meta name="og:image" content={image} />
         <meta property="og:url" content={url} />
       </Helmet>
       <Header data={data} onHamburgerClick={onOpen} />
