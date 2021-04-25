@@ -1,13 +1,15 @@
 import React from 'react';
 
 import { Box, Text, Grid } from '@chakra-ui/react';
-import { format, add } from 'date-fns';
+import { add } from 'date-fns';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface CalendarHeaderProps {
   startDate: Date;
 }
 
 const CalendarHeader = ({ startDate }: CalendarHeaderProps) => {
+  const { formatLocale } = useLocale();
   const headers = [];
 
   for (let i = 0, day = startDate; i < 7; i++) {
@@ -18,10 +20,10 @@ const CalendarHeader = ({ startDate }: CalendarHeaderProps) => {
         borderBottom="solid"
         borderBottomColor="gray.light"
         borderBottomWidth="thin"
-        key={format(day, 'EEEE')}
+        key={formatLocale(day, 'EEEE')}
       >
         <Text textStyle="heading2" color="gray.dark" textAlign="center">
-          {format(day, 'EEEEE')}
+          {formatLocale(day, 'EEEEE')}
         </Text>
       </Box>,
     );

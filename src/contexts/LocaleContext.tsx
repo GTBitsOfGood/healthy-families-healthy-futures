@@ -1,5 +1,7 @@
 import React, { createContext, useContext } from 'react';
 
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
 import { Locale } from 'src/utils/types';
 import useLocalStorage from 'src/utils/useLocalStorage';
 
@@ -18,6 +20,7 @@ interface LocaleContextType {
    * @returns the first element that matches
    */
   findLocale: <T extends { node_locale: string }>(arr: Readonly<Array<T>>) => T | undefined;
+  formatLocale: typeof format;
 }
 
 // We have to define "default values" here even though they never get used
@@ -35,6 +38,11 @@ const LocaleContext = createContext<LocaleContextType>({
     console.error('findLocale was called without a provider!');
     return arr[0];
   },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  formatLocale: (date, formatString, options) => {
+    console.error('formatLocale was called without a provider!');
+    return '';
+  },
 });
 
 export const useLocale = () => {
@@ -49,9 +57,12 @@ export const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
   const findLocale = <T extends { node_locale: string }>(arr: Readonly<Array<T>>) => {
     return arr.find(d => d.node_locale === locale);
   };
+  const formatLocale: typeof format = (date, formatString, options) => {
+    return format(date, formatString, { locale: locale === 'es-US' ? es : undefined, ...options });
+  };
 
   return (
-    <LocaleContext.Provider value={{ locale, setLocale, filterLocale, findLocale }}>
+    <LocaleContext.Provider value={{ locale, setLocale, filterLocale, findLocale, formatLocale }}>
       {children}
     </LocaleContext.Provider>
   );

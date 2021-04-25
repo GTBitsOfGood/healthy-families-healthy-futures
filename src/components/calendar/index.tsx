@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Box, Grid, Heading, Circle, Text } from '@chakra-ui/react';
-import { format, startOfMonth, endOfMonth, sub, add, isSameMonth, isSameDay } from 'date-fns';
+import { startOfMonth, endOfMonth, sub, add, isSameMonth, isSameDay } from 'date-fns';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 import CalendarHeader from './header';
 
@@ -11,10 +12,12 @@ interface CalendarProps {
 }
 
 const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
-  const currDate = new Date();
-  const monthYear = format(currDate, 'MMMM y');
+  const { formatLocale } = useLocale();
 
-  const firstDay = +format(startOfMonth(currDate), 'i') - 1;
+  const currDate = new Date();
+  const monthYear = formatLocale(currDate, 'MMMM y');
+
+  const firstDay = +formatLocale(startOfMonth(currDate), 'i') - 1;
 
   const startDate = sub(endOfMonth(sub(currDate, { months: 1 })), { days: firstDay });
 
@@ -41,7 +44,7 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
           cursor="pointer"
           onClick={() => onDateClick(new Date(selectDay))}
         >
-          {format(day, 'd')}
+          {formatLocale(day, 'd')}
         </Text>
       );
 
@@ -55,7 +58,7 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          key={format(day, 'yyyy-MM-dd')}
+          key={formatLocale(day, 'yyyy-MM-dd')}
         >
           {eventDates.filter(eventDay => isSameDay(eventDay, day)).length > 0 ? (
             <Circle size="40px" bg="green.500" cursor="pointer">

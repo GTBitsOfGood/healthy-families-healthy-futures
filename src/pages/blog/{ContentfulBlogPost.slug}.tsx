@@ -13,8 +13,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { format, parseISO } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { parseISO } from 'date-fns';
 import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
 import BlogCard from 'src/components/BlogCard';
@@ -29,7 +28,7 @@ interface Props extends PageProps {
 }
 
 function BlogPostTemplate(props: Props): JSX.Element {
-  const { locale, findLocale, filterLocale } = useLocale();
+  const { formatLocale, findLocale, filterLocale } = useLocale();
 
   const post = findLocale(props.data.allContentfulBlogPost.nodes);
   const allPosts = filterLocale(props.data.relatedPosts.nodes);
@@ -50,10 +49,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
 
   const dateObj = parseISO(post?.publishDate ?? '');
 
-  const date =
-    locale === 'en-US'
-      ? format(dateObj, 'MM/dd/yyyy')
-      : format(dateObj, 'dd/MM/yyyy', { locale: es });
+  const date = formatLocale(dateObj, 'MM/dd/yyyy');
 
   return (
     <Layout data={props.data} pageName={post.title}>
