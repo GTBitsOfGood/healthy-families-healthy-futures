@@ -12,7 +12,7 @@ interface Props {
 const AboutBanner = ({ data }: Props) => {
   const { findLocale } = useLocale();
 
-  const banner = findLocale(data.allContentfulAboutBanner.nodes);
+  const banner = findLocale(data.allContentfulAboutHeader.nodes);
   const title = banner?.title;
   const bodyText = banner?.body?.body;
   const mainImage = banner?.image;
@@ -55,7 +55,7 @@ export default AboutBanner;
 
 export const fragment = graphql`
   fragment AboutBanner on Query {
-    allContentfulAboutBanner {
+    allContentfulAboutHeader {
       nodes {
         title
         body {

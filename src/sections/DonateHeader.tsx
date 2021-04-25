@@ -12,7 +12,7 @@ interface Props {
 
 const DonateHeader = ({ data }: Props) => {
   const { findLocale } = useLocale();
-  const banner = findLocale(data.allContentfulDonateBanner.nodes);
+  const banner = findLocale(data.allContentfulDonatePageHeader.nodes);
 
   return (
     <Box
@@ -66,7 +66,7 @@ export default DonateHeader;
 
 export const fragment = graphql`
   fragment DonateHeader on Query {
-    allContentfulDonateBanner {
+    allContentfulDonatePageHeader {
       nodes {
         title
         description
