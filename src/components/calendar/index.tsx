@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Box, Grid, Heading, Circle, Text } from '@chakra-ui/react';
-import { startOfMonth, endOfMonth, sub, add, isSameMonth, isSameDay } from 'date-fns';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { Box, Grid, Heading, Circle, Text, IconButton, HStack } from '@chakra-ui/react';
+import { startOfMonth, endOfMonth, sub, add, isSameMonth, isSameDay, isBefore } from 'date-fns';
 import { useLocale } from 'src/contexts/LocaleContext';
 
 import CalendarHeader from './header';
@@ -13,16 +14,17 @@ interface CalendarProps {
 
 const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
   const { formatLocale } = useLocale();
+  const [month, setMonth] = useState<Date>(startOfMonth(new Date()));
 
-  const currDate = new Date();
-  const monthYear = formatLocale(currDate, 'MMMM y');
+  const monthYear = formatLocale(month, 'MMMM y');
 
-  const firstDay = +formatLocale(startOfMonth(currDate), 'i') - 1;
+  const firstDay = (+formatLocale(month, 'i') - 1) % 7;
 
-  const startDate = sub(endOfMonth(sub(currDate, { months: 1 })), { days: firstDay });
+  const startDate =
+    firstDay != 6 ? sub(endOfMonth(sub(month, { months: 1 })), { days: firstDay }) : month;
 
   let endDate = add(startDate, { days: 6 });
-  while (isSameMonth(currDate, endDate)) {
+  while (isBefore(month, endDate) && isSameMonth(month, endDate)) {
     endDate = add(endDate, { weeks: 1 });
   }
 
@@ -40,7 +42,7 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
         <Text
           textStyle="body1"
           color="gray.dark"
-          opacity={isSameMonth(day, currDate) ? 1 : 0.5}
+          opacity={isSameMonth(day, month) ? 1 : 0.5}
           cursor="pointer"
           onClick={() => onDateClick(new Date(selectDay))}
         >
@@ -77,9 +79,29 @@ const Calendar = ({ eventDates, onDateClick }: CalendarProps) => {
 
   return (
     <Box pb={['50px', null, '160px']}>
-      <Heading textStyle="heading2" mb="24px" textTransform="uppercase" textAlign="start">
-        {monthYear}
-      </Heading>
+      <HStack spacing={{ base: '15px', md: '40px' }}>
+        <Heading textStyle="heading2" textTransform="uppercase" textAlign="start">
+          {monthYear}
+        </Heading>
+        <HStack spacing="10px">
+          <IconButton
+            variant="ghost"
+            boxSize={{ base: '20px', md: '40px' }}
+            aria-label="previous month"
+            icon={<ChevronLeftIcon boxSize="20px" />}
+            onClick={() => setMonth(currMonth => startOfMonth(sub(currMonth, { days: 1 })))}
+          />
+          <IconButton
+            variant="ghost"
+            boxSize={{ base: '20px', md: '40px' }}
+            aria-label="next month"
+            icon={<ChevronRightIcon boxSize="20px" />}
+            onClick={() =>
+              setMonth(currMonth => startOfMonth(add(endOfMonth(currMonth), { days: 1 })))
+            }
+          />
+        </HStack>
+      </HStack>
       <CalendarHeader startDate={startDate} />
       <Grid
         templateColumns="repeat(7, 1fr)"
