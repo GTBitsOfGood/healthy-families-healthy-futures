@@ -4,9 +4,10 @@ import { Button } from '@chakra-ui/button';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Box, Flex, Heading, LinkBox, LinkOverlay, Text, VStack } from '@chakra-ui/layout';
 import { useBreakpointValue } from '@chakra-ui/react';
-import { format, parseISO } from 'date-fns';
+import { parseISO } from 'date-fns';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 interface Props {
   data: GatsbyTypes.BlogCardFragment;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 function BlogCard({ data, altLayout }: Props): JSX.Element {
+  const { formatLocale } = useLocale();
   const slug = data.slug;
 
   const isMobile = useBreakpointValue({ base: true, md: false }) ?? false;
@@ -22,7 +24,7 @@ function BlogCard({ data, altLayout }: Props): JSX.Element {
   const date =
     data.publishDate != null ? (
       <Text textStyle="body1" fontWeight={500}>
-        {format(parseISO(data.publishDate), 'M/dd/yy')}
+        {formatLocale(parseISO(data.publishDate), 'M/dd/yy')}
       </Text>
     ) : null;
   const description = (

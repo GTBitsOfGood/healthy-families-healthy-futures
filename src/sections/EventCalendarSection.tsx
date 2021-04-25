@@ -16,7 +16,7 @@ import {
   useDisclosure,
   VStack,
 } from '@chakra-ui/react';
-import { format, isSameDay } from 'date-fns';
+import { isSameDay } from 'date-fns';
 import { parseISO } from 'date-fns/esm';
 import { graphql } from 'gatsby';
 import Calendar from 'src/components/calendar';
@@ -30,7 +30,7 @@ interface Props {
 }
 
 function EventCalendarSection({ data }: Props): JSX.Element {
-  const { filterLocale } = useLocale();
+  const { formatLocale, filterLocale } = useLocale();
   const [events, setEvents] = useState<Event[]>([]);
   const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -106,7 +106,7 @@ function EventCalendarSection({ data }: Props): JSX.Element {
       cursor="pointer"
       w="100%"
     >
-      {e.name} - {format(e.start_time, 'M/dd/yyyy')}
+      {e.name} - {formatLocale(e.start_time, 'M/dd/yyyy')}
     </Box>
   ));
 

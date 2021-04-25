@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Text, Button, Box, LinkOverlay } from '@chakra-ui/react';
-import { format } from 'date-fns';
+import { useLocale } from 'src/contexts/LocaleContext';
 import { Event } from 'src/utils/types';
 
 interface EventProps {
@@ -10,10 +10,11 @@ interface EventProps {
 }
 
 function EventModalCard({ event }: EventProps): JSX.Element {
+  const { formatLocale } = useLocale();
   return (
     <Box mb={5}>
       <Text textStyle="heading2">{event.name}</Text>
-      <Text textStyle="subheading1">{format(event.start_time, 'EEEE, d MMMM')}</Text>
+      <Text textStyle="subheading1">{formatLocale(event.start_time, 'EEEE, d MMMM')}</Text>
       <Text my={3}>{event.description}</Text>
 
       <Button variant="secondary" textAlign="right" ml="auto" mr={0} d="block">
