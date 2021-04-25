@@ -1,8 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import {
   Box,
@@ -17,8 +13,6 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { isSameDay } from 'date-fns';
-import { parseISO } from 'date-fns/esm';
-import { graphql } from 'gatsby';
 import Calendar from 'src/components/calendar';
 import EventModalCard from 'src/components/EventModalCard';
 import SectionHeader from 'src/components/SectionHeader';
@@ -26,52 +20,13 @@ import { useLocale } from 'src/contexts/LocaleContext';
 import { Event } from 'src/utils/types';
 
 interface Props {
-  data: GatsbyTypes.EventCalendarSectionFragment;
+  events: Event[];
 }
 
-function EventCalendarSection({ data }: Props): JSX.Element {
-  const { formatLocale, filterLocale } = useLocale();
-  const [events, setEvents] = useState<Event[]>([]);
+function EventCalendarSection({ events }: Props): JSX.Element {
+  const { formatLocale } = useLocale();
   const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const shouldShowFacebookEvents = data?.contentfulEventSourceConfig?.getFromFacebook ?? false;
-
-  useEffect(() => {
-    if (!shouldShowFacebookEvents) return;
-    void (async () => {
-      const res = await fetch(
-        `https://graph.facebook.com/v10.0/232144604765679/events?access_token=${
-          process.env.FB_PAGE_AUTH_TOKEN ?? ''
-        }`,
-      );
-      const { unparsed } = await res.json();
-      const parsed = unparsed.map(
-        (e: unknown & { start_time: string; end_time: string; id: string }) => ({
-          ...e,
-          url: `https://www.facebook.com/events/${e.id}`,
-          start_time: parseISO(e.start_time),
-          end_time: parseISO(e.end_time),
-        }),
-      );
-      setEvents(parsed);
-    })();
-  }, [shouldShowFacebookEvents]);
-
-  useEffect(() => {
-    if (shouldShowFacebookEvents) return;
-    const unparsed = filterLocale(data.allContentfulEvent.nodes);
-    const parsed: Event[] = unparsed.map(e => ({
-      id: e.id,
-      description: e.description ?? '',
-      name: e.name ?? '',
-      end_time: parseISO(e.end_time ?? ''),
-      start_time: parseISO(e.start_time ?? ''),
-      url: e.url ?? '',
-      place: { name: e.place ?? '' },
-    }));
-    setEvents(parsed);
-  }, [data.allContentfulEvent.nodes, filterLocale, shouldShowFacebookEvents]);
 
   const openEventModal = (eventsToShow: typeof events) => {
     if (eventsToShow.length > 0) {
@@ -148,23 +103,3 @@ function EventCalendarSection({ data }: Props): JSX.Element {
 }
 
 export default EventCalendarSection;
-
-export const fragment = graphql`
-  fragment EventCalendarSection on Query {
-    contentfulEventSourceConfig {
-      getFromFacebook
-    }
-    allContentfulEvent {
-      nodes {
-        node_locale
-        id: contentful_id
-        name
-        description
-        place
-        start_time: startTime
-        end_time: endTime
-        url: link
-      }
-    }
-  }
-`;

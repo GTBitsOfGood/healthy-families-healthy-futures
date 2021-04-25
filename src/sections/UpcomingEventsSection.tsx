@@ -3,24 +3,13 @@ import React from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import EventCard from 'src/components/EventCard';
 import SectionHeader from 'src/components/SectionHeader';
+import { Event } from 'src/utils/types';
 
-function UpcomingEventsSection(): JSX.Element {
-  // TODO - Retrieve events from Contenful or Facebook
-  const events = [
-    {
-      id: 1,
-      title: 'Healthy Cooking Class',
-      eventDate: 'Wednesday, April 17th',
-      link: '#',
-    },
-    {
-      id: 2,
-      title: 'Healthy Cooking Class',
-      eventDate: 'Wednesday, April 24th',
-      link: '#',
-    },
-  ];
+interface Props {
+  events: Event[];
+}
 
+function UpcomingEventsSection({ events }: Props): JSX.Element {
   return (
     <Box>
       <Box marginBottom={50}>
@@ -28,7 +17,7 @@ function UpcomingEventsSection(): JSX.Element {
       </Box>
       <Flex direction="column" align="center">
         {events.map(event => (
-          <EventCard key={event.id} data={event} />
+          <EventCard key={event.id} event={event} />
         ))}
       </Flex>
     </Box>
