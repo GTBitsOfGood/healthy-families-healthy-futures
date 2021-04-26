@@ -31,6 +31,7 @@ const HomeBanner = ({ data }: Props) => {
         p={8}
         boxShadow="card"
       >
+        <Box>{data?.logo?.fluid != null ? <Img fluid={data.logo.fluid} /> : null}</Box>
         <Heading textStyle="heading1" color="creamsicle.500">
           {banner?.titleLine1}
         </Heading>
@@ -73,6 +74,12 @@ export const fragment = graphql`
         }
         node_locale
       }
+    }
+    logo: contentfulAsset(title: { eq: "Logo" }) {
+      fluid(quality: 100) {
+        ...GatsbyContentfulFluid
+      }
+      description
     }
   }
 `;
