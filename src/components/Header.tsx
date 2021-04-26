@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { Box, Button, Spacer, Flex } from '@chakra-ui/react';
+import { Box, Button, Spacer, Flex, useMediaQuery } from '@chakra-ui/react';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
@@ -13,6 +13,8 @@ interface Props {
 }
 
 function Header({ data, onHamburgerClick }: Props): JSX.Element {
+  const [isPrint] = useMediaQuery(['print']);
+
   const hfhfLogo =
     data.headerImage?.fluid != null ? (
       <Img
@@ -49,37 +51,39 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
 
   return (
     <>
-      <Flex
-        h="55px"
-        w="full"
-        px="40px"
-        wrap="nowrap"
-        flexDir="row"
-        position={{ base: 'static', md: 'sticky' }}
-        top="0px"
-        bg="white"
-        zIndex={10}
-        align="center"
-      >
-        <Link to="/">
-          <Box style={{ ...logoStyle }} display={['none', null, 'block']}>
-            {hfhfLogo}
-          </Box>
-        </Link>
+      {isPrint ? null : (
+        <Flex
+          h="55px"
+          w="full"
+          px="40px"
+          wrap="nowrap"
+          flexDir="row"
+          position={{ base: 'static', md: 'sticky' }}
+          top="0px"
+          bg="white"
+          zIndex={10}
+          align="center"
+        >
+          <Link to="/">
+            <Box style={{ ...logoStyle }} display={['none', null, 'block']}>
+              {hfhfLogo}
+            </Box>
+          </Link>
 
-        <Spacer />
+          <Spacer />
 
-        <Flex align="center" flexDir="row">
-          <NavLink text="Get Involved" link="/get-involved" />
-          <Box ml={5}>
-            <Link to="/donate">
-              <Button type="submit" variant="primary" fontSize="16px">
-                Donate
-              </Button>
-            </Link>
-          </Box>
+          <Flex align="center" flexDir="row">
+            <NavLink text="Get Involved" link="/get-involved" />
+            <Box ml={5}>
+              <Link to="/donate">
+                <Button type="submit" variant="primary" fontSize="16px">
+                  Donate
+                </Button>
+              </Link>
+            </Box>
+          </Flex>
         </Flex>
-      </Flex>
+      )}
 
       <Flex
         wrap="nowrap"
@@ -94,7 +98,7 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
         bg="white"
         zIndex="10"
       >
-        <HamburgerIcon h={6} w={6} color="gray.700" onClick={onHamburgerClick} />
+        {isPrint ? null : <HamburgerIcon h={6} w={6} color="gray.700" onClick={onHamburgerClick} />}
         <Box w="178px" display={['block', null, 'none']} margin="auto">
           <Link to="/">{hfhfLogo}</Link>
         </Box>

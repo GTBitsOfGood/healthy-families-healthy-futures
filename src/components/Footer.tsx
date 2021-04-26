@@ -10,6 +10,7 @@ import {
   Link,
   HStack,
   Select,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import { Link as GatsbyLink, graphql } from 'gatsby';
 import Img from 'gatsby-image';
@@ -23,6 +24,8 @@ interface Props {
 }
 
 function Footer({ data }: Props): JSX.Element {
+  const [isPrint] = useMediaQuery(['print']);
+
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
@@ -120,80 +123,84 @@ function Footer({ data }: Props): JSX.Element {
           </Box>
         </Flex>
 
-        <VStack spacing="15px">
-          <Box>
-            <Button
-              onClick={handleToggle1}
-              variant="unstyled"
-              bg="charcoal"
-              color="creamsicle.500"
-              textStyle="heading1"
-            >
-              ABOUT US {show1 ? '-' : '+'}
-            </Button>
-            <Collapse in={show1} animateOpacity>
-              <VStack>{aboutUsLinks}</VStack>
-            </Collapse>
-          </Box>
+        {isPrint ? null : (
+          <>
+            <VStack spacing="15px">
+              <Box>
+                <Button
+                  onClick={handleToggle1}
+                  variant="unstyled"
+                  bg="charcoal"
+                  color="creamsicle.500"
+                  textStyle="heading1"
+                >
+                  ABOUT US {show1 ? '-' : '+'}
+                </Button>
+                <Collapse in={show1} animateOpacity>
+                  <VStack>{aboutUsLinks}</VStack>
+                </Collapse>
+              </Box>
 
-          <Box>
-            <Button
-              onClick={handleToggle2}
-              variant="unstyled"
-              bg="charcoal"
-              color="creamsicle.500"
-              textStyle="heading1"
-            >
-              GET INVOLVED {show2 ? '-' : '+'}
-            </Button>
-            <Collapse in={show2} animateOpacity>
-              <VStack>{getInvolvedLinks}</VStack>
-            </Collapse>
-          </Box>
+              <Box>
+                <Button
+                  onClick={handleToggle2}
+                  variant="unstyled"
+                  bg="charcoal"
+                  color="creamsicle.500"
+                  textStyle="heading1"
+                >
+                  GET INVOLVED {show2 ? '-' : '+'}
+                </Button>
+                <Collapse in={show2} animateOpacity>
+                  <VStack>{getInvolvedLinks}</VStack>
+                </Collapse>
+              </Box>
 
-          <Box>
-            <Button
-              onClick={handleToggle3}
-              variant="unstyled"
-              bg="charcoal"
-              color="creamsicle.500"
-              textStyle="heading1"
-            >
-              RESOURCES AND BLOG {show3 ? '-' : '+'}
-            </Button>
-            <Collapse in={show3} animateOpacity>
-              <VStack>{resourcesLinks}</VStack>
-            </Collapse>
-          </Box>
+              <Box>
+                <Button
+                  onClick={handleToggle3}
+                  variant="unstyled"
+                  bg="charcoal"
+                  color="creamsicle.500"
+                  textStyle="heading1"
+                >
+                  RESOURCES AND BLOG {show3 ? '-' : '+'}
+                </Button>
+                <Collapse in={show3} animateOpacity>
+                  <VStack>{resourcesLinks}</VStack>
+                </Collapse>
+              </Box>
 
-          <Box>
-            <Button
-              onClick={handleToggle4}
-              variant="unstyled"
-              bg="charcoal"
-              color="creamsicle.500"
-              textStyle="heading1"
-            >
-              LANGUAGE {show4 ? '-' : '+'}
-            </Button>
-            <Collapse in={show4} animateOpacity>
-              <Select
-                variant="unstyled"
-                color="white"
-                sx={{ '>option': { background: 'charcoal' } }}
-                onChange={e => setLocale(e.target.value as Locale)}
-                defaultValue={locale}
-              >
-                <option value="en-US">English</option>
-                <option value="es-US">Español</option>
-              </Select>
-            </Collapse>
-          </Box>
-        </VStack>
+              <Box>
+                <Button
+                  onClick={handleToggle4}
+                  variant="unstyled"
+                  bg="charcoal"
+                  color="creamsicle.500"
+                  textStyle="heading1"
+                >
+                  LANGUAGE {show4 ? '-' : '+'}
+                </Button>
+                <Collapse in={show4} animateOpacity>
+                  <Select
+                    variant="unstyled"
+                    color="white"
+                    sx={{ '>option': { background: 'charcoal' } }}
+                    onChange={e => setLocale(e.target.value as Locale)}
+                    defaultValue={locale}
+                  >
+                    <option value="en-US">English</option>
+                    <option value="es-US">Español</option>
+                  </Select>
+                </Collapse>
+              </Box>
+            </VStack>
 
-        <HStack spacing={5} paddingTop="44px">
-          {socialLinks('40px')}
-        </HStack>
+            <HStack spacing={5} paddingTop="44px">
+              {socialLinks('40px')}
+            </HStack>
+          </>
+        )}
       </VStack>
 
       <Flex display={{ base: 'none', md: 'flex' }} align="center" flexDir="row">

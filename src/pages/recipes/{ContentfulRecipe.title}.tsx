@@ -11,6 +11,7 @@ import {
   Button,
   Grid,
   useBreakpointValue,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
@@ -27,7 +28,11 @@ function RecipeTemplate(props: Props): JSX.Element {
   const contentfulRecipe = props.data.contentfulRecipe;
   const recipe = parseRecipe(contentfulRecipe as GatsbyTypes.ContentfulRecipe);
 
-  const titleTextStyle = useBreakpointValue({ base: 'subheading1', md: 'heading1' });
+  const [isPrint] = useMediaQuery(['print']);
+  const titleTextStyle = useBreakpointValue({
+    base: isPrint ? 'heading1' : 'subheading1',
+    md: 'heading1',
+  });
 
   return (
     <Layout data={props.data} pageName={recipe.title}>
@@ -44,16 +49,19 @@ function RecipeTemplate(props: Props): JSX.Element {
         </Link>
         <Heading
           textStyle={titleTextStyle}
-          textAlign={{ base: 'center', md: 'start' }}
+          textAlign={isPrint ? 'start' : { base: 'center', md: 'start' }}
           marginBottom={5}
         >
           {recipe.title}
         </Heading>
-        <Flex direction={{ base: 'column-reverse', md: 'row' }} justify="space-between">
+        <Flex
+          direction={isPrint ? 'row' : { base: 'column-reverse', md: 'row' }}
+          justify="space-between"
+        >
           <VStack
             align="start"
             spacing={5}
-            marginTop={{ base: 5, md: 0 }}
+            marginTop={isPrint ? 0 : { base: 5, md: 0 }}
             marginRight={{ base: 0, md: 10 }}
           >
             <HStack align="start" spacing={10}>
@@ -70,7 +78,11 @@ function RecipeTemplate(props: Props): JSX.Element {
                 <Text textStyle="body1" fontWeight="bold">
                   Yield
                 </Text>
-                <Text display={{ base: 'none', md: 'flex' }} textStyle="body1" fontWeight="bold">
+                <Text
+                  display={isPrint ? 'flex' : { base: 'none', md: 'flex' }}
+                  textStyle="body1"
+                  fontWeight="bold"
+                >
                   Ingredients
                 </Text>
               </VStack>
@@ -80,14 +92,24 @@ function RecipeTemplate(props: Props): JSX.Element {
                 <Text textStyle="body1">{recipe.prepTime} min</Text>
                 <Text textStyle="body1">{recipe.totalTime} min</Text>
                 <Text textStyle="body1">{recipe.yield}</Text>
-                <Grid display={['none', 'grid']} templateColumns="repeat(2, 1fr)" rowGap={2}>
+                <Grid
+                  display={isPrint ? 'grid' : ['none', null, 'grid']}
+                  templateColumns="repeat(2, 1fr)"
+                  rowGap={2}
+                >
                   {recipe.ingredientGroups.map(group => (
                     <>
-                      <Box>
-                        <Text textStyle="body1" display={{ base: 'inline-block', md: 'none' }}>
+                      <Box className="ingredient-group">
+                        <Text
+                          textStyle="body1"
+                          display={isPrint ? 'none' : { base: 'inline-block', md: 'none' }}
+                        >
                           {group[1]}
                         </Text>{' '}
-                        <Text textStyle="body1" textTransform={{ base: 'lowercase', md: 'none' }}>
+                        <Text
+                          textStyle="body1"
+                          textTransform={isPrint ? 'none' : { base: 'lowercase', md: 'none' }}
+                        >
                           {group[0]}
                         </Text>{' '}
                         {group[2] && (
@@ -97,7 +119,7 @@ function RecipeTemplate(props: Props): JSX.Element {
                         )}
                       </Box>
                       <Box
-                        display={{ base: 'none', md: 'block' }}
+                        display={isPrint ? 'block' : { base: 'none', md: 'block' }}
                         textTransform="lowercase"
                         marginLeft={10}
                       >
@@ -110,7 +132,10 @@ function RecipeTemplate(props: Props): JSX.Element {
             </HStack>
           </VStack>
 
-          <Box w={{ base: 'full', md: '600px' }} h={{ base: 'fit-content', md: '400px' }}>
+          <Box
+            w={{ base: isPrint ? '600px' : 'full', md: '600px' }}
+            h={{ base: 'fit-content', md: '400px' }}
+          >
             {recipe.imageFluid == null ? (
               <Box w="full" h={{ base: '222px', md: 'full' }} bg="gray.light" />
             ) : (
@@ -119,7 +144,7 @@ function RecipeTemplate(props: Props): JSX.Element {
           </Box>
         </Flex>
 
-        <Box display={{ md: 'none' }}>
+        <Box display={isPrint ? 'none' : { md: 'none' }}>
           <Text mt="30px" textStyle="body1" fontWeight="bold">
             Ingredients
           </Text>
@@ -146,15 +171,15 @@ function RecipeTemplate(props: Props): JSX.Element {
           ))}
         </Box>
 
-        <br></br>
+        <br />
         <TitledList title="Prep" listElements={recipe.prepDirections}></TitledList>
-        <br></br>
+        <br />
         <TitledList title="Instructions" listElements={recipe.instructions}></TitledList>
         {recipe.notes?.length > 0 && (
-          <Box>
-            <br></br>
+          <>
+            <br />
             <TitledList title="Notes" listElements={recipe.notes}></TitledList>
-          </Box>
+          </>
         )}
       </Box>
     </Layout>
