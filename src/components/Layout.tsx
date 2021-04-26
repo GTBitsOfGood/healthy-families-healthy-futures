@@ -21,9 +21,11 @@ function Layout({ data, children, pageName }: Props): JSX.Element {
   // Hook to manage side-navigation drawer
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  window.onbeforeprint = () => {
-    window.scrollTo(0, 0);
-  };
+  if (typeof window !== 'undefined') {
+    window.onbeforeprint = () => {
+      window.scrollTo(0, 0);
+    };
+  }
 
   const { pathname } = useLocation();
   const metadata = data?.site?.siteMetadata;
