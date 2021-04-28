@@ -66,7 +66,7 @@ function NewsletterBanner({ data }: Props): JSX.Element {
       rightContent = <Spinner />;
       break;
     case Status.SUCCESS:
-      rightContent = <Text color="green.500">Thanks for signing up!</Text>;
+      rightContent = <Text color="green.500">{banner?.successMessage}</Text>;
       break;
     case Status.ERROR:
     case Status.IDLE:
@@ -77,17 +77,17 @@ function NewsletterBanner({ data }: Props): JSX.Element {
           if (match == null) {
             errorText = (
               <Center>
-                <Text color="red">There was an error. Please try again later.</Text>
+                <Text color="red">{banner?.errorMessage}</Text>
               </Center>
             );
           } else {
             errorText = (
               <Flex flexDir="column" alignItems="center" maxW="400px">
                 <Text textAlign="center" color="red">
-                  This email is already signed up. Click this link to modify your email preferences:
+                  {banner?.alreadySignedUpMessage}
                 </Text>
                 <Link href={match[1]} isExternal>
-                  Click here
+                  {banner?.alreadySignedUpCta}
                 </Link>
               </Flex>
             );
@@ -95,7 +95,7 @@ function NewsletterBanner({ data }: Props): JSX.Element {
         } else {
           errorText = (
             <Center>
-              <Text color="red">There was an error. Please try again later.</Text>
+              <Text color="red">{banner?.errorMessage}</Text>
             </Center>
           );
         }
@@ -106,33 +106,33 @@ function NewsletterBanner({ data }: Props): JSX.Element {
           <Stack>
             <HStack>
               <FormControl isRequired>
-                <FormLabel>First name</FormLabel>
+                <FormLabel>{banner?.firstNameLabel}</FormLabel>
                 <Input
                   variant="form"
                   onChange={handleInputChange}
                   value={form.firstName}
-                  placeholder="First name"
+                  placeholder={banner?.firstNameLabel}
                   name="firstName"
                 />
               </FormControl>
               <FormControl isRequired>
-                <FormLabel>Last name</FormLabel>
+                <FormLabel>{banner?.lastNameLabel}</FormLabel>
                 <Input
                   variant="form"
                   onChange={handleInputChange}
                   value={form.lastName}
-                  placeholder="Last name"
+                  placeholder={banner?.lastNameLabel}
                   name="lastName"
                 />
               </FormControl>
             </HStack>
             <FormControl isRequired>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{banner?.emailLabel}</FormLabel>
               <Input
                 variant="form"
                 onChange={handleInputChange}
                 value={form.email}
-                placeholder="Email"
+                placeholder={banner?.emailLabel}
                 name="email"
               />
             </FormControl>
@@ -176,6 +176,13 @@ export const fragment = graphql`
         headline
         ctaText
         node_locale
+        alreadySignedUpCta
+        alreadySignedUpMessage
+        emailLabel
+        errorMessage
+        firstNameLabel
+        lastNameLabel
+        successMessage
       }
     }
   }

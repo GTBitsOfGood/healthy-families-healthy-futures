@@ -13,14 +13,15 @@ interface Props {
 }
 
 const FeaturedRecipesSection = (props: Props) => {
-  const { filterLocale } = useLocale();
+  const { filterLocale, findLocale } = useLocale();
 
   const recipes = filterLocale(props.data?.allContentfulRecipe?.nodes);
+  const title = findLocale(props.data.allContentfulSectionTitles.nodes)?.featuredRecipes;
 
   return (
     <Box>
       <Box marginBottom={{ base: 10, md: 170 }}>
-        <SectionHeader text="Featured Recipes" textPosition="right" />
+        <SectionHeader text={title ?? 'Featured Recipes'} textPosition="right" />
       </Box>
       {/* recipe cards for mobile version */}
       <Flex display={{ base: 'flex', md: 'none' }} justifyContent="space-evenly">
@@ -92,6 +93,12 @@ export default FeaturedRecipesSection;
 
 export const fragment = graphql`
   fragment FeaturedRecipesSection on Query {
+    allContentfulSectionTitles {
+      nodes {
+        featuredRecipes
+        node_locale
+      }
+    }
     allContentfulRecipe(filter: { featured: { eq: true } }) {
       nodes {
         ...RecipeCard

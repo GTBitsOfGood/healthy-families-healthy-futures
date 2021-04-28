@@ -13,15 +13,16 @@ interface Props {
 }
 
 function MediaGallerySection({ data }: Props): JSX.Element {
-  const { filterLocale } = useLocale();
+  const { filterLocale, findLocale } = useLocale();
 
   const photoCards = filterLocale(data.allContentfulPhotoCard.nodes);
   const videoCards = filterLocale(data.allContentfulVideoCard.nodes);
+  const section = findLocale(data.allContentfulMediaGallerySection.nodes);
 
   return (
     <Box id="media" bg="gray.extralight" pb="100px">
       <Box mb={{ base: '35px', md: '54px' }}>
-        <SectionHeader text="Media Gallery" textPosition="left" />
+        <SectionHeader text={section?.title ?? 'Media Gallery'} textPosition="left" />
       </Box>
       <VStack align={{ base: 'start', md: 'start' }} spacing="45px">
         <Text
@@ -30,7 +31,7 @@ function MediaGallerySection({ data }: Props): JSX.Element {
           pl={{ base: '17px', md: '70px' }}
           textTransform="uppercase"
         >
-          Photos
+          {section?.photosSubtitle}
         </Text>
         <CardList>
           {photoCards.map(card => (
@@ -43,7 +44,7 @@ function MediaGallerySection({ data }: Props): JSX.Element {
           pl={{ base: '17px', md: '70px' }}
           textTransform="uppercase"
         >
-          Videos
+          {section?.videosSubtitle}
         </Text>
         <CardList>
           {videoCards.map(card => (
@@ -59,6 +60,14 @@ export default MediaGallerySection;
 
 export const fragment = graphql`
   fragment MediaGallery on Query {
+    allContentfulMediaGallerySection {
+      nodes {
+        title
+        photosSubtitle
+        videosSubtitle
+        node_locale
+      }
+    }
     allContentfulPhotoCard {
       nodes {
         ...PhotoCard

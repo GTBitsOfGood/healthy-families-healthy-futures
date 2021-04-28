@@ -19,6 +19,8 @@ function EventsPage({ data }: Props): JSX.Element {
   const { findLocale, filterLocale } = useLocale();
 
   const header = findLocale(data.allContentfulHeaderSection.nodes);
+  const calendarTitle = findLocale(data.allContentfulSectionTitles.nodes)?.calendar;
+  const eventTitle = findLocale(data.allContentfulSectionTitles.nodes)?.upcomingEvents;
 
   const [events, setEvents] = useState<Event[]>([]);
 
@@ -66,8 +68,8 @@ function EventsPage({ data }: Props): JSX.Element {
   return (
     <Layout data={data} pageName="Events &amp; Classes">
       <BasicBanner data={header} />
-      <EventCalendarSection events={events} />
-      <UpcomingEventsSection events={events} />
+      <EventCalendarSection title={calendarTitle ?? 'Calendar'} events={events} />
+      <UpcomingEventsSection title={eventTitle ?? 'Upcoming Events'} events={events} />
       <DonateBanner data={data} />
       <NewsletterBanner data={data} />
     </Layout>
@@ -78,6 +80,13 @@ export default EventsPage;
 
 export const pageQuery = graphql`
   query EventsPage {
+    allContentfulSectionTitles {
+      nodes {
+        calendar
+        upcomingEvents
+        node_locale
+      }
+    }
     site {
       siteMetadata {
         title
