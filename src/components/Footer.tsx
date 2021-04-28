@@ -19,86 +19,139 @@ import { Locale } from 'src/utils/types';
 
 import { FacebookIcon, InstagramIcon, EmailIcon } from './Icons';
 
+function FooterMobileLinkGroup({
+  group,
+  toggle,
+  show,
+}: {
+  group: NonNullable<
+    GatsbyTypes.FooterFragment['allContentfulFooter']['nodes'][0]['linkGroups']
+  >[0];
+  toggle: () => void;
+  show: boolean;
+}): JSX.Element {
+  if (group == null) {
+    return <></>;
+  }
+  return (
+    <Box>
+      <Button
+        onClick={toggle}
+        variant="unstyled"
+        bg="charcoal"
+        color="creamsicle.500"
+        textStyle="heading1"
+      >
+        {group.title} {show ? '-' : '+'}
+      </Button>
+      <Collapse in={show} animateOpacity>
+        <VStack>
+          <FooterLinks links={group.links} />
+        </VStack>
+      </Collapse>
+    </Box>
+  );
+}
+
+function FooterWebLinkGroup({
+  group,
+}: {
+  group: NonNullable<
+    GatsbyTypes.FooterFragment['allContentfulFooter']['nodes'][0]['linkGroups']
+  >[0];
+}): JSX.Element {
+  return (
+    <VStack m="22px" spacing="22px">
+      <VStack alignItems="flex-start" spacing="15px">
+        <Heading color="creamsicle.500" textStyle="subheading1">
+          {group?.title}
+        </Heading>
+        <FooterLinks links={group?.links} />
+      </VStack>
+    </VStack>
+  );
+}
+
+function FooterLinks({
+  links,
+}: {
+  links: NonNullable<
+    NonNullable<GatsbyTypes.FooterFragment['allContentfulFooter']['nodes'][0]['linkGroups']>[0]
+  >['links'];
+}): JSX.Element {
+  if (links == null) {
+    return <></>;
+  }
+  return (
+    <>
+      {links.map((link, i) => (
+        <Link key={i} color="white" to={link?.link ?? '#'} textStyle="body3" as={GatsbyLink}>
+          {link?.name}
+        </Link>
+      ))}
+    </>
+  );
+}
+
 interface Props {
   data: GatsbyTypes.FooterFragment;
 }
 
 function Footer({ data }: Props): JSX.Element {
+  const { findLocale } = useLocale();
   const [isPrint] = useMediaQuery(['print']);
 
-  const [show1, setShow1] = useState(false);
-  const [show2, setShow2] = useState(false);
-  const [show3, setShow3] = useState(false);
-  const [show4, setShow4] = useState(false);
-
-  const handleToggle1 = () => setShow1(!show1);
-  const handleToggle2 = () => setShow2(!show2);
-  const handleToggle3 = () => setShow3(!show3);
-  const handleToggle4 = () => setShow4(!show4);
+  const [show, setShow] = useState<Record<number, boolean>>({
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+  });
 
   const { locale, setLocale } = useLocale();
 
+  const footer = findLocale(data.allContentfulFooter.nodes);
+
   const logo =
-    data.footerImage?.fluid != null ? (
+    footer?.image?.fluid != null ? (
       <Img
-        fluid={data.footerImage.fluid}
-        alt={data.footerImage.description}
+        fluid={footer?.image.fluid}
+        alt={footer?.image.description}
         imgStyle={{ objectFit: 'contain' }}
         style={{ maxHeight: `158px` }}
       />
     ) : null;
 
-  const aboutUsLinks = (
-    <>
-      <Link color="white" to="/about#our-story" textStyle="body3" as={GatsbyLink}>
-        Our Story
-      </Link>
-      <Link color="white" to="/about#our-work" textStyle="body3" as={GatsbyLink}>
-        Our Work
-      </Link>
-      <Link color="white" to="/about#our-founder" textStyle="body3" as={GatsbyLink}>
-        Founder
-      </Link>
-    </>
+  const languageSelect = (
+    <Select
+      variant="unstyled"
+      color="white"
+      sx={{ '>option': { background: 'charcoal' } }}
+      onChange={e => setLocale(e.target.value as Locale)}
+      defaultValue={locale}
+    >
+      <option value="en-US">English</option>
+      <option value="es-US">Español</option>
+    </Select>
   );
-  const getInvolvedLinks = (
-    <>
-      <Link color="white" to="/donate" textStyle="body3" as={GatsbyLink}>
-        Donate
-      </Link>
-      <Link color="white" to="/events-classes" textStyle="body3" as={GatsbyLink}>
-        Events/Classes
-      </Link>
-      <Link color="white" to="/contact-us" textStyle="body3" as={GatsbyLink}>
-        Contact Us
-      </Link>
-    </>
-  );
-  const resourcesLinks = (
-    <>
-      <Link color="white" to="/recipes" textStyle="body3" as={GatsbyLink}>
-        Recipes
-      </Link>
-      <Link color="white" to="/blog" textStyle="body3" as={GatsbyLink}>
-        Blog
-      </Link>
-      <Link color="white" to="/resources#links-documents" textStyle="body3" as={GatsbyLink}>
-        Links/Documents
-      </Link>
-      <Link color="white" to="/resources#media" textStyle="body3" as={GatsbyLink}>
-        Media
-      </Link>
-    </>
-  );
+
   const socialLinks = (size: string) => (
     <>
-      <Link href="https://www.facebook.com/healthyfamilieshealthyfutures/" isExternal>
+      <Link
+        href={
+          footer?.socialLinks?.facebook ?? 'https://www.facebook.com/healthyfamilieshealthyfutures/'
+        }
+        isExternal
+      >
         <FacebookIcon w={size} h={size} fill="white" />
       </Link>
-      <Link href="https://www.instagram.com/healthy_futures/" isExternal>
+      <Link
+        href={footer?.socialLinks?.instagram ?? 'https://www.instagram.com/healthy_futures/'}
+        isExternal
+      >
         <InstagramIcon w={size} h={size} fill="white" />
       </Link>
-      <Link href="mailto:healthyfamilies37@gmail.com" isExternal>
+      <Link href={footer?.socialLinks?.email ?? 'mailto:healthyfamilies37@gmail.com'} isExternal>
         <EmailIcon w={size} h={size} fill="white" />
       </Link>
     </>
@@ -126,72 +179,27 @@ function Footer({ data }: Props): JSX.Element {
         {isPrint ? null : (
           <>
             <VStack spacing="15px">
-              <Box>
-                <Button
-                  onClick={handleToggle1}
-                  variant="unstyled"
-                  bg="charcoal"
-                  color="creamsicle.500"
-                  textStyle="heading1"
-                >
-                  ABOUT US {show1 ? '-' : '+'}
-                </Button>
-                <Collapse in={show1} animateOpacity>
-                  <VStack>{aboutUsLinks}</VStack>
-                </Collapse>
-              </Box>
+              {footer?.linkGroups?.map((group, i) => (
+                <FooterMobileLinkGroup
+                  group={group}
+                  show={show[i]}
+                  key={i}
+                  toggle={() => setShow(oldShow => ({ ...oldShow, [i]: !oldShow[i] }))}
+                />
+              ))}
 
               <Box>
                 <Button
-                  onClick={handleToggle2}
+                  onClick={() => setShow(oldShow => ({ ...oldShow, [3]: !oldShow[3] }))}
                   variant="unstyled"
                   bg="charcoal"
                   color="creamsicle.500"
                   textStyle="heading1"
                 >
-                  GET INVOLVED {show2 ? '-' : '+'}
+                  LANGUAGE {show[3] ? '-' : '+'}
                 </Button>
-                <Collapse in={show2} animateOpacity>
-                  <VStack>{getInvolvedLinks}</VStack>
-                </Collapse>
-              </Box>
-
-              <Box>
-                <Button
-                  onClick={handleToggle3}
-                  variant="unstyled"
-                  bg="charcoal"
-                  color="creamsicle.500"
-                  textStyle="heading1"
-                >
-                  RESOURCES AND BLOG {show3 ? '-' : '+'}
-                </Button>
-                <Collapse in={show3} animateOpacity>
-                  <VStack>{resourcesLinks}</VStack>
-                </Collapse>
-              </Box>
-
-              <Box>
-                <Button
-                  onClick={handleToggle4}
-                  variant="unstyled"
-                  bg="charcoal"
-                  color="creamsicle.500"
-                  textStyle="heading1"
-                >
-                  LANGUAGE {show4 ? '-' : '+'}
-                </Button>
-                <Collapse in={show4} animateOpacity>
-                  <Select
-                    variant="unstyled"
-                    color="white"
-                    sx={{ '>option': { background: 'charcoal' } }}
-                    onChange={e => setLocale(e.target.value as Locale)}
-                    defaultValue={locale}
-                  >
-                    <option value="en-US">English</option>
-                    <option value="es-US">Español</option>
-                  </Select>
+                <Collapse in={show[3]} animateOpacity>
+                  {languageSelect}
                 </Collapse>
               </Box>
             </VStack>
@@ -215,32 +223,9 @@ function Footer({ data }: Props): JSX.Element {
         justifyContent="space-evenly"
         alignItems="flex-start"
       >
-        <VStack m="22px" spacing="22px">
-          <VStack alignItems="flex-start" spacing="15px">
-            <Heading color="creamsicle.500" textStyle="subheading1">
-              About Us
-            </Heading>
-            {aboutUsLinks}
-          </VStack>
-        </VStack>
-
-        <VStack m="22px" spacing="22px">
-          <VStack alignItems="flex-start" spacing="15px">
-            <Heading color="creamsicle.500" textStyle="subheading1">
-              Get Involved
-            </Heading>
-            {getInvolvedLinks}
-          </VStack>
-        </VStack>
-
-        <VStack m="22px" spacing="22px">
-          <VStack alignItems="flex-start" spacing="15px">
-            <Heading color="creamsicle.500" textStyle="subheading1">
-              Resources and Blog
-            </Heading>
-            {resourcesLinks}
-          </VStack>
-        </VStack>
+        {footer?.linkGroups?.map((group, i) => (
+          <FooterWebLinkGroup group={group} key={i} />
+        ))}
       </Flex>
 
       <VStack
@@ -251,7 +236,7 @@ function Footer({ data }: Props): JSX.Element {
       >
         <VStack mt="22px" alignItems="flex-start">
           <Heading color="creamsicle.500" textStyle="subheading1">
-            Stay Connected
+            {footer?.socialLinks?.title}
           </Heading>
           <HStack spacing={5}>{socialLinks('32px')}</HStack>
         </VStack>
@@ -260,16 +245,7 @@ function Footer({ data }: Props): JSX.Element {
           <Heading color="creamsicle.500" textStyle="subheading1">
             Language
           </Heading>
-          <Select
-            variant="unstyled"
-            color="white"
-            sx={{ '>option': { background: 'charcoal' } }}
-            onChange={e => setLocale(e.target.value as Locale)}
-            defaultValue={locale}
-          >
-            <option value="en-US">English</option>
-            <option value="es-US">Español</option>
-          </Select>
+          {languageSelect}
         </VStack>
       </VStack>
     </Flex>
@@ -280,11 +256,29 @@ export default Footer;
 
 export const fragment = graphql`
   fragment Footer on Query {
-    footerImage: contentfulAsset(title: { eq: "Logo Transparent" }) {
-      fluid(quality: 100) {
-        ...GatsbyContentfulFluid
+    allContentfulFooter {
+      nodes {
+        node_locale
+        linkGroups {
+          title
+          links {
+            name
+            link
+          }
+        }
+        image {
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid
+          }
+          description
+        }
+        socialLinks {
+          title
+          facebook
+          instagram
+          email
+        }
       }
-      description
     }
   }
 `;
