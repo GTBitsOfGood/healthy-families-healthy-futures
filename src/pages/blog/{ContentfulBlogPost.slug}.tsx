@@ -19,6 +19,7 @@ import Img from 'gatsby-image';
 import BlogCard from 'src/components/BlogCard';
 import { EmailIcon, FacebookIcon, LinkedInIcon } from 'src/components/Icons';
 import { useLocale } from 'src/contexts/LocaleContext';
+import { useMiscText } from 'src/utils/useMiscText';
 
 import Layout from '../../components/Layout';
 import RichText from '../../components/RichText';
@@ -29,6 +30,7 @@ interface Props extends PageProps {
 
 function BlogPostTemplate(props: Props): JSX.Element {
   const { formatLocale, findLocale, filterLocale } = useLocale();
+  const miscText = useMiscText();
 
   const post = findLocale(props.data.allContentfulBlogPost.nodes);
   const allPosts = filterLocale(props.data.relatedPosts.nodes);
@@ -56,7 +58,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
       <Container maxW="740px" px={{ base: '15px', md: 0 }} pt={{ base: '0px', md: '50px' }}>
         <Link to="/blog">
           <Button variant="back" leftIcon={<ChevronLeftIcon />} mb={{ base: '15px', md: '50px' }}>
-            Back to Blog
+            {miscText.backToBlog}
           </Button>
         </Link>
 
@@ -129,7 +131,7 @@ function BlogPostTemplate(props: Props): JSX.Element {
         spacing={{ base: '24px', md: '90px' }}
         mb={{ base: '50px', md: '90px' }}
       >
-        <Heading textStyle="heading2">Check out these other posts</Heading>
+        <Heading textStyle="heading2">{miscText.checkOutTheseOtherPosts}</Heading>
         <Flex justifyContent="space-evenly" w="full" flexWrap="wrap">
           {relatedPosts.map(post => (
             <Box key={post.slug} m="10px">

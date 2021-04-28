@@ -6,6 +6,7 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { NavLink } from 'src/components/Navigation';
+import { useMiscText } from 'src/utils/useMiscText';
 
 interface Props {
   data: GatsbyTypes.HeaderFragment;
@@ -49,6 +50,8 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
     [logoStyle],
   );
 
+  const { donate: donateText } = useMiscText();
+
   return (
     <>
       {isPrint ? null : (
@@ -77,7 +80,7 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
             <Box ml={5}>
               <Link to="/donate">
                 <Button type="submit" variant="primary" fontSize="16px">
-                  Donate
+                  {donateText}
                 </Button>
               </Link>
             </Box>

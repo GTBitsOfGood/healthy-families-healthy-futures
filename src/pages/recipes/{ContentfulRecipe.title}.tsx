@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
+import { useMiscText } from 'src/utils/useMiscText';
 
 import Layout from '../../components/Layout';
 import TitledList from '../../components/TitledList';
@@ -33,6 +34,7 @@ function RecipeTemplate(props: Props): JSX.Element {
     base: isPrint ? 'heading1' : 'subheading1',
     md: 'heading1',
   });
+  const miscText = useMiscText();
 
   return (
     <Layout data={props.data} pageName={recipe.title}>
@@ -44,7 +46,7 @@ function RecipeTemplate(props: Props): JSX.Element {
             leftIcon={<ChevronLeftIcon />}
             marginBottom={10}
           >
-            Back to Recipes
+            {miscText.backToRecipes}
           </Button>
         </Link>
         <Heading
@@ -67,23 +69,23 @@ function RecipeTemplate(props: Props): JSX.Element {
             <HStack align="start" spacing={10}>
               <VStack align="start">
                 <Text textStyle="body1" fontWeight="bold">
-                  Cook Time
+                  {miscText.cookTime}
                 </Text>
                 <Text textStyle="body1" fontWeight="bold">
-                  Prep Time
+                  {miscText.prepTime}
                 </Text>
                 <Text textStyle="body1" fontWeight="bold">
-                  Total Time
+                  {miscText.totalTime}
                 </Text>
                 <Text textStyle="body1" fontWeight="bold">
-                  Yield
+                  {miscText.yield}
                 </Text>
                 <Text
                   display={isPrint ? 'flex' : { base: 'none', md: 'flex' }}
                   textStyle="body1"
                   fontWeight="bold"
                 >
-                  Ingredients
+                  {miscText.ingredients}
                 </Text>
               </VStack>
 
@@ -146,7 +148,7 @@ function RecipeTemplate(props: Props): JSX.Element {
 
         <Box display={isPrint ? 'none' : { md: 'none' }}>
           <Text mt="30px" textStyle="body1" fontWeight="bold">
-            Ingredients
+            {miscText.ingredients}
           </Text>
           {recipe.ingredientGroups.map((group, key) => (
             <Flex key={key}>
@@ -172,13 +174,13 @@ function RecipeTemplate(props: Props): JSX.Element {
         </Box>
 
         <br />
-        <TitledList title="Prep" listElements={recipe.prepDirections}></TitledList>
+        <TitledList title={miscText.prep} listElements={recipe.prepDirections}></TitledList>
         <br />
-        <TitledList title="Instructions" listElements={recipe.instructions}></TitledList>
+        <TitledList title={miscText.instructions} listElements={recipe.instructions}></TitledList>
         {recipe.notes?.length > 0 && (
           <>
             <br />
-            <TitledList title="Notes" listElements={recipe.notes}></TitledList>
+            <TitledList title={miscText.notes} listElements={recipe.notes}></TitledList>
           </>
         )}
       </Box>

@@ -7,6 +7,7 @@ import { graphql, Link } from 'gatsby';
 import RecipeCard from 'src/components/RecipeCard';
 import SectionHeader from 'src/components/SectionHeader';
 import { useLocale } from 'src/contexts/LocaleContext';
+import { useMiscText } from 'src/utils/useMiscText';
 
 interface Props {
   data: GatsbyTypes.FeaturedRecipesSectionFragment;
@@ -17,6 +18,8 @@ const FeaturedRecipesSection = (props: Props) => {
 
   const recipes = filterLocale(props.data?.allContentfulRecipe?.nodes);
   const title = findLocale(props.data.allContentfulSectionTitles.nodes)?.featuredRecipes;
+
+  const miscText = useMiscText();
 
   return (
     <Box>
@@ -39,7 +42,7 @@ const FeaturedRecipesSection = (props: Props) => {
                       variant="secondary"
                       textTransform="none"
                     >
-                      More
+                      {miscText.more}
                     </Button>
                   </Link>
                 </Flex>
@@ -47,7 +50,7 @@ const FeaturedRecipesSection = (props: Props) => {
                   <Flex justifyContent="flex-end" marginTop={10} marginBottom={10}>
                     <Link to="/recipes">
                       <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
-                        View All Recipes
+                        {miscText.viewAllRecipes}
                       </Button>
                     </Link>
                   </Flex>
@@ -68,7 +71,7 @@ const FeaturedRecipesSection = (props: Props) => {
               <Flex justifyContent="flex-end">
                 <Link to={`/recipes/${slugify(String(recipe.title)) ?? ''}`}>
                   <Button rightIcon={<ArrowForwardIcon />} variant="secondary" textTransform="none">
-                    More
+                    {miscText.more}
                   </Button>
                 </Link>
               </Flex>
@@ -76,7 +79,7 @@ const FeaturedRecipesSection = (props: Props) => {
                 <Flex justifyContent="flex-end" marginTop={82} marginBottom={155}>
                   <Link to="/recipes">
                     <Button rightIcon={<ArrowForwardIcon />} variant="secondary" fontSize="16px">
-                      View All Recipes
+                      {miscText.viewAllRecipes}
                     </Button>
                   </Link>
                 </Flex>
