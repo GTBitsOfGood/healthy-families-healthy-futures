@@ -6,14 +6,15 @@ import SectionHeader from 'src/components/SectionHeader';
 import { Event } from 'src/utils/types';
 
 interface Props {
+  title: string;
   events: Event[];
 }
 
-function UpcomingEventsSection({ events }: Props): JSX.Element {
+function UpcomingEventsSection({ title, events }: Props): JSX.Element {
   return (
     <Box>
       <Box marginBottom={50}>
-        <SectionHeader text="Upcoming Events" textPosition="left" />
+        <SectionHeader text={title} textPosition="left" />
       </Box>
       <Flex direction="column" align="center">
         {events.map(event => (

@@ -11,14 +11,16 @@ interface Props {
 }
 
 const GetInvolvedSection = ({ data }: Props) => {
-  const { filterLocale } = useLocale();
+  const { filterLocale, findLocale } = useLocale();
+
   const involvementCards = filterLocale(data?.allContentfulGetInvolvedCard.nodes);
   const variant = useBreakpointValue({ base: 'grid', md: 'flex' });
+  const title = findLocale(data.allContentfulSectionTitles.nodes)?.getInvolved;
 
   return (
     <Box bg="white" pb={20}>
       <Box marginBottom={{ base: 70, md: 100 }}>
-        <SectionHeader text="Ways to get Involved" textPosition="right" />
+        <SectionHeader text={title ?? 'Ways to get Involved'} textPosition="right" />
       </Box>
       <Center>
         {variant === 'flex' ? (
@@ -50,6 +52,12 @@ export default GetInvolvedSection;
 
 export const fragment = graphql`
   fragment GetInvolvedSection on Query {
+    allContentfulSectionTitles {
+      nodes {
+        getInvolved
+        node_locale
+      }
+    }
     allContentfulGetInvolvedCard {
       nodes {
         ...GetInvolvedCard

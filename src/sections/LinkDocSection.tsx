@@ -19,6 +19,8 @@ function LinkDocSection({ data }: Props): JSX.Element {
   const title = section?.title;
   const body = section?.body?.body;
 
+  const sectionTitle = findLocale(data.allContentfulSectionTitles.nodes)?.linksAndDocuments;
+
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
 
@@ -29,7 +31,7 @@ function LinkDocSection({ data }: Props): JSX.Element {
   return (
     <Box id="links-documents" mb={{ base: '73px', md: '160px' }}>
       <Box marginBottom={{ base: '53px', md: '100px' }}>
-        <SectionHeader text="Links &amp; Documents" textPosition="right" />
+        <SectionHeader text={sectionTitle ?? 'Links & Documents'} textPosition="right" />
       </Box>
       <VStack spacing={20} display={{ base: 'none', md: 'flex' }}>
         <Box bgColor="creamsicle.500" w={{ base: '338px', md: '795px' }} p={10} maxW={700}>
@@ -82,6 +84,12 @@ export default LinkDocSection;
 
 export const fragment = graphql`
   fragment LinkDoc on Query {
+    allContentfulSectionTitles {
+      nodes {
+        linksAndDocuments
+        node_locale
+      }
+    }
     allContentfulLinksDocumentsCard {
       nodes {
         title

@@ -21,9 +21,10 @@ import { Event } from 'src/utils/types';
 
 interface Props {
   events: Event[];
+  title: string;
 }
 
-function EventCalendarSection({ events }: Props): JSX.Element {
+function EventCalendarSection({ events, title }: Props): JSX.Element {
   const { formatLocale } = useLocale();
   const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -68,7 +69,7 @@ function EventCalendarSection({ events }: Props): JSX.Element {
   return (
     <Box pb={{ base: '65px', md: 0 }}>
       <Box marginBottom={50}>
-        <SectionHeader text="Calendar" textPosition="right" />
+        <SectionHeader text={title} textPosition="right" />
       </Box>
       <SimpleGrid
         mx="40px"
