@@ -12,18 +12,13 @@ import {
   useStyleConfig,
 } from '@chakra-ui/react';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import { Link as GatsbyLink } from 'gatsby';
+import { graphql, Link as GatsbyLink } from 'gatsby';
 
 interface NavLinkProps {
   link: string;
   text: string;
   size?: 'sm';
   onClick?: () => void;
-}
-
-interface NavigationProps {
-  isDrawerOpen: boolean;
-  onDrawerClose: () => void;
 }
 
 export function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Element {
@@ -36,15 +31,14 @@ export function NavLink({ link, text, size, onClick }: NavLinkProps): JSX.Elemen
   );
 }
 
-function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Element {
-  const navigationItems: { [link: string]: string } = {
-    '/': 'Home',
-    '/about': 'About',
-    '/recipes': 'Recipes',
-    '/events-classes': 'Events & Classes',
-    '/blog': 'Blog',
-    '/resources': 'Resources',
-  };
+interface NavigationProps {
+  isDrawerOpen: boolean;
+  onDrawerClose: () => void;
+  data: GatsbyTypes.NavigationFragment;
+}
+
+function Navigation({ isDrawerOpen, onDrawerClose, data }: NavigationProps): JSX.Element {
+  const links = data.links ?? [];
 
   const [headerStyle, setHeaderStyle] = useState({
     transition: 'all 200ms linear',
@@ -84,8 +78,8 @@ function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Eleme
         style={{ ...headerStyle }}
         zIndex={9}
       >
-        {Object.keys(navigationItems).map(link => {
-          return <NavLink link={link} text={navigationItems[link]} key={link} />;
+        {links.map(link => {
+          return <NavLink link={link?.link ?? ''} text={link?.name ?? ''} key={link?.link ?? ''} />;
         })}
       </Flex>
 
@@ -103,12 +97,12 @@ function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Eleme
             </DrawerHeader>
             <DrawerBody>
               <Flex direction="column">
-                {Object.keys(navigationItems).map(link => {
+                {links.map(link => {
                   return (
                     <NavLink
-                      link={link}
-                      text={navigationItems[link]}
-                      key={link}
+                      link={link?.link ?? ''}
+                      text={link?.name ?? ''}
+                      key={link?.link ?? ''}
                       size="sm"
                       // Close drawer if the user clicks the same link that they are currently in
                       onClick={onDrawerClose}
@@ -125,3 +119,12 @@ function Navigation({ isDrawerOpen, onDrawerClose }: NavigationProps): JSX.Eleme
 }
 
 export default Navigation;
+
+export const fragment = graphql`
+  fragment Navigation on ContentfulNavigation {
+    links {
+      link
+      name
+    }
+  }
+`;

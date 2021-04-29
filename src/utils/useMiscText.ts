@@ -35,6 +35,7 @@ const DEFAULT_STRINGS: MiscStrings = {
   notes: 'Notes',
   recipeSearchNoResults: 'Oh no! No results were found.',
   recipeSearchNoResults2: 'Try using different words or a more general search.',
+  getInvolved: 'Get Involved',
 };
 
 export function useMiscText(): MiscStrings {
@@ -67,6 +68,7 @@ export function useMiscText(): MiscStrings {
           notes
           recipeSearchNoResults
           recipeSearchNoResults2
+          getInvolved
         }
       }
     }

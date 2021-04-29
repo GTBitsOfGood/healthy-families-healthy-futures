@@ -6,6 +6,7 @@ import { Container, useDisclosure } from '@chakra-ui/react';
 import { useLocation } from '@reach/router';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
+import { useLocale } from 'src/contexts/LocaleContext';
 
 import Footer from './Footer';
 import Header from './Header';
@@ -18,6 +19,7 @@ interface Props {
 }
 
 function Layout({ data, children, pageName }: Props): JSX.Element {
+  const { findLocale } = useLocale();
   // Hook to manage side-navigation drawer
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -33,6 +35,8 @@ function Layout({ data, children, pageName }: Props): JSX.Element {
   const image = `${metadata?.url ?? ''}${metadata?.image ?? ''}`;
   const url = `${metadata?.url ?? ''}${pathname}`;
 
+  const navData = findLocale(data.allContentfulNavigation.nodes);
+
   return (
     <Container size="full" maxW="none" p={0}>
       <Helmet defaultTitle={title} titleTemplate={`%s - ${title}`}>
@@ -42,8 +46,12 @@ function Layout({ data, children, pageName }: Props): JSX.Element {
         <meta name="og:image" content={image} />
         <meta property="og:url" content={url} />
       </Helmet>
-      <Header data={data} onHamburgerClick={onOpen} />
-      <Navigation isDrawerOpen={isOpen} onDrawerClose={onClose} />
+      {navData != null ? (
+        <>
+          <Header data={navData} onHamburgerClick={onOpen} />
+          <Navigation data={navData} isDrawerOpen={isOpen} onDrawerClose={onClose} />
+        </>
+      ) : null}
       {children}
       <Footer data={data} />
     </Container>
@@ -62,7 +70,13 @@ export const fragment = graphql`
         image
       }
     }
-    ...Header
+    allContentfulNavigation {
+      nodes {
+        node_locale
+        ...Header
+        ...Navigation
+      }
+    }
     ...Footer
   }
 `;

@@ -14,13 +14,14 @@ interface Props {
 }
 
 function Header({ data, onHamburgerClick }: Props): JSX.Element {
+  const miscText = useMiscText();
   const [isPrint] = useMediaQuery(['print']);
 
   const hfhfLogo =
-    data.headerImage?.fluid != null ? (
+    data.image?.fluid != null ? (
       <Img
-        fluid={data.headerImage.fluid}
-        alt={data.headerImage.description}
+        fluid={data.image.fluid}
+        alt={data.image.description}
         imgStyle={{ objectFit: 'contain' }}
       />
     ) : null;
@@ -76,7 +77,7 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
           <Spacer />
 
           <Flex align="center" flexDir="row">
-            <NavLink text="Get Involved" link="/get-involved" />
+            <NavLink text={miscText.getInvolved} link="/get-involved" />
             <Box ml={5}>
               <Link to="/donate">
                 <Button type="submit" variant="primary" fontSize="16px">
@@ -113,8 +114,8 @@ function Header({ data, onHamburgerClick }: Props): JSX.Element {
 export default Header;
 
 export const fragment = graphql`
-  fragment Header on Query {
-    headerImage: contentfulAsset(title: { eq: "Logo" }) {
+  fragment Header on ContentfulNavigation {
+    image {
       fluid(quality: 100) {
         ...GatsbyContentfulFluid
       }
