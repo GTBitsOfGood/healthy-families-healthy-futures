@@ -8,6 +8,7 @@ import { parseISO } from 'date-fns';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { useLocale } from 'src/contexts/LocaleContext';
+import { useMiscText } from 'src/utils/useMiscText';
 
 interface Props {
   data: GatsbyTypes.BlogCardFragment;
@@ -50,8 +51,14 @@ function BlogCard({ data, altLayout }: Props): JSX.Element {
   const cta = (
     <Flex w="full" justifyContent="flex-end">
       <Link to={`/blog/${slug ?? ''}`}>
-        <Button textStyle="body1" variant="secondary" rightIcon={<ArrowForwardIcon />} px={0}>
-          READ MORE
+        <Button
+          textStyle="body1"
+          variant="secondary"
+          textTransform="uppercase"
+          rightIcon={<ArrowForwardIcon />}
+          px={0}
+        >
+          {useMiscText().readMore}
         </Button>
       </Link>
     </Flex>

@@ -4,6 +4,7 @@ import { Button } from '@chakra-ui/button';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Box, LinkBox, LinkOverlay, Text, VStack } from '@chakra-ui/layout';
 import { graphql } from 'gatsby';
+import { useMiscText } from 'src/utils/useMiscText';
 
 interface Props {
   data: GatsbyTypes.ResourceCardFragment;
@@ -25,7 +26,7 @@ function ResourceCard({ data }: Props): JSX.Element {
           <LinkBox>
             <LinkOverlay href={link ?? '#'} isExternal>
               <Button variant="secondary" rightIcon={<ArrowForwardIcon />}>
-                Check it out
+                {useMiscText().learnMore}
               </Button>
             </LinkOverlay>
           </LinkBox>

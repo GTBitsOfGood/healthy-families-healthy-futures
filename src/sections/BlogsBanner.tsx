@@ -6,6 +6,7 @@ import { Box, Center, Flex, Heading, Text, VStack } from '@chakra-ui/layout';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { useLocale } from 'src/contexts/LocaleContext';
+import { useMiscText } from 'src/utils/useMiscText';
 
 interface Props {
   data: GatsbyTypes.BlogsBannerFragment;
@@ -19,6 +20,8 @@ function BlogsBanner({ data }: Props): JSX.Element {
   const image = featuredBlog?.heroImage?.fluid;
   const description = featuredBlog?.description?.description;
   const slug = featuredBlog?.slug;
+
+  const miscText = useMiscText();
 
   return (
     <Flex
@@ -53,7 +56,7 @@ function BlogsBanner({ data }: Props): JSX.Element {
                 rightIcon={<ArrowForwardIcon />}
                 _hover={{ color: 'black' }}
               >
-                READ MORE
+                {miscText.readMore}
               </Button>
             </Link>
           </Box>

@@ -16,6 +16,7 @@ import { Link as GatsbyLink, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { useLocale } from 'src/contexts/LocaleContext';
 import { Locale } from 'src/utils/types';
+import { useMiscText } from 'src/utils/useMiscText';
 
 import { FacebookIcon, InstagramIcon, EmailIcon } from './Icons';
 
@@ -111,6 +112,7 @@ function Footer({ data }: Props): JSX.Element {
   const { locale, setLocale } = useLocale();
 
   const footer = findLocale(data.allContentfulFooter.nodes);
+  const { language: languageText } = useMiscText();
 
   const logo =
     footer?.image?.fluid != null ? (
@@ -196,7 +198,7 @@ function Footer({ data }: Props): JSX.Element {
                   color="creamsicle.500"
                   textStyle="heading1"
                 >
-                  LANGUAGE {show[3] ? '-' : '+'}
+                  {languageText} {show[3] ? '-' : '+'}
                 </Button>
                 <Collapse in={show[3]} animateOpacity>
                   {languageSelect}
@@ -243,7 +245,7 @@ function Footer({ data }: Props): JSX.Element {
 
         <VStack m="22px" alignItems="flex-start">
           <Heading color="creamsicle.500" textStyle="subheading1">
-            Language
+            {languageText}
           </Heading>
           {languageSelect}
         </VStack>

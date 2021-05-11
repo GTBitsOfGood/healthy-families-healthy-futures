@@ -5,6 +5,7 @@ import { Box, Text, Heading, LinkOverlay, LinkBox } from '@chakra-ui/react';
 import Img from 'gatsby-image';
 import { useLocale } from 'src/contexts/LocaleContext';
 import { Event } from 'src/utils/types';
+import { useMiscText } from 'src/utils/useMiscText';
 
 interface Props {
   event: Event;
@@ -34,7 +35,7 @@ const EventCard = ({ event }: Props) => {
 
         <LinkOverlay href={url} isExternal>
           <Text textStyle="body1" textAlign="right" _hover={{ color: '#65BF73' }}>
-            Learn more <ArrowForwardIcon />
+            {useMiscText().learnMore} <ArrowForwardIcon />
           </Text>
         </LinkOverlay>
       </Box>

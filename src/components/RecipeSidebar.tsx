@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { MdClose, MdSearch } from 'react-icons/md';
 import { RecipeFilters, SelectedRecipeFilters, Tag } from 'src/utils/types';
+import { useMiscText } from 'src/utils/useMiscText';
 import { entries, removeNulls } from 'src/utils/util';
 
 import FilterGroup from './FilterGroup';
@@ -59,7 +60,7 @@ function RecipeSidebar({
           _hover={{ color: 'green.600' }}
           _active={{ color: 'green.700' }}
         >
-          Clear
+          {useMiscText().clear}
         </Button>
       </Flex>
 

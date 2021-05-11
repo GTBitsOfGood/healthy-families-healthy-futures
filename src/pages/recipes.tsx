@@ -11,6 +11,7 @@ import RecipeSidebar from 'src/components/RecipeSidebar';
 import { useLocale } from 'src/contexts/LocaleContext';
 import { initRecipeFilters, filterRecipes } from 'src/utils/filter';
 import { SelectedRecipeFilters } from 'src/utils/types';
+import { useMiscText } from 'src/utils/useMiscText';
 import { entries, keys, removeNulls } from 'src/utils/util';
 
 import { NoSearchIcon } from '../components/Icons';
@@ -30,6 +31,8 @@ function RecipesIndex(props: Props): JSX.Element {
   const recipeFilters = initRecipeFilters(foodTypeTags, ingredientTags, timeListStr);
 
   const queryObj = parse(props.location.search, { arrayFormat: 'comma' });
+
+  const miscText = useMiscText();
 
   const initialFilters = Object.fromEntries(
     keys(recipeFilters).map(category => {
@@ -131,10 +134,10 @@ function RecipesIndex(props: Props): JSX.Element {
             <Flex py="100px" direction="column" align="center">
               <NoSearchIcon h="46px" w="52px" fill="#323232" />
               <Heading fontSize="35px" lineHeight="48px">
-                Oh no! No results were found.
+                {miscText.recipeSearchNoResults}
               </Heading>
               <Heading fontSize="20px" lineHeight="28px" color="#A5A5A5">
-                Try using different words or a more general search.
+                {miscText.recipeSearchNoResults2}
               </Heading>
             </Flex>
           )}

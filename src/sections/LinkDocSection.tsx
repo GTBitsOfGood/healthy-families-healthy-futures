@@ -8,6 +8,7 @@ import { graphql } from 'gatsby';
 import ResourceCard from 'src/components/ResourceCard';
 import SectionHeader from 'src/components/SectionHeader';
 import { useLocale } from 'src/contexts/LocaleContext';
+import { useMiscText } from 'src/utils/useMiscText';
 
 interface Props {
   data: GatsbyTypes.LinkDocFragment;
@@ -27,6 +28,8 @@ function LinkDocSection({ data }: Props): JSX.Element {
   const resourceCards = filterLocale(data.allContentfulResourceCard.nodes);
   const resourceCardsFirstChunk = resourceCards.slice(0, 3);
   const resourceCardsSecChunk = resourceCards.slice(3, resourceCards.length);
+
+  const miscText = useMiscText();
 
   return (
     <Box id="links-documents" mb={{ base: '73px', md: '160px' }}>
@@ -73,7 +76,7 @@ function LinkDocSection({ data }: Props): JSX.Element {
           textStyle="heading1"
           variant="ghost"
         >
-          {show ? 'VIEW LESS' : 'VIEW MORE'}
+          {show ? miscText.viewLess : miscText.viewMore}
         </Button>
       </VStack>
     </Box>

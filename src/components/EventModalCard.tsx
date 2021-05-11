@@ -4,6 +4,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Text, Button, Box, LinkOverlay } from '@chakra-ui/react';
 import { useLocale } from 'src/contexts/LocaleContext';
 import { Event } from 'src/utils/types';
+import { useMiscText } from 'src/utils/useMiscText';
 
 interface EventProps {
   event: Event;
@@ -19,7 +20,7 @@ function EventModalCard({ event }: EventProps): JSX.Element {
 
       <Button variant="secondary" textAlign="right" ml="auto" mr={0} d="block">
         <LinkOverlay href={event.url} isExternal>
-          Learn more <ArrowForwardIcon />
+          {useMiscText().learnMore} <ArrowForwardIcon />
         </LinkOverlay>
       </Button>
     </Box>
