@@ -16,7 +16,7 @@ export function parseRecipe(recipe: GatsbyTypes.ContentfulRecipe) {
   if (ingredients) {
     let currentIndex = 0;
 
-    while (currentIndex < ingredients.length) {
+    while (currentIndex + 1 < ingredients.length) {
       const currentGroup = [];
       const amountIndex = currentIndex + 1;
       const notesIndex = currentIndex + 2;
