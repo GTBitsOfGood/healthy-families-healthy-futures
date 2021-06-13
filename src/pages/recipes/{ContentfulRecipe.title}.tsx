@@ -15,11 +15,11 @@ import {
 } from '@chakra-ui/react';
 import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
+import TitledParagraph from 'src/components/TitledParagraph';
 import { useMiscText } from 'src/utils/useMiscText';
 
 import Layout from '../../components/Layout';
 import TitledList from '../../components/TitledList';
-import TitledParagraph from 'src/components/TitledParagraph';
 import { parseRecipe } from '../../utils/parse';
 
 interface Props extends PageProps {
@@ -224,6 +224,9 @@ export const pageQuery = graphql`
       }
       notes {
         notes
+      }
+      specialDietInformation {
+        specialDietInformation
       }
     }
   }

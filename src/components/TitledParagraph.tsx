@@ -11,7 +11,9 @@ function TitledParagraph({ title, paragraph }: Props): JSX.Element {
   return (
     <VStack align="stretch" spacing={4}>
       <HStack align="center" spacing={4}>
-        <Text textStyle="heading2">{title}</Text>
+        <Text textStyle="heading2" flexShrink={0}>
+          {title}
+        </Text>
         <Divider width="full" borderColor="green.500" />
       </HStack>
       <Box>

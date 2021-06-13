@@ -4,7 +4,7 @@ import { useLocale } from 'src/contexts/LocaleContext';
 import { keys } from './util';
 
 type MaybeMiscStrings = Omit<
-  GatsbyTypes.MiscellaneousTextQuery['allContentfulMiscellaneous']['nodes'][0],
+  GatsbyTypes.MiscellaneousText['allContentfulMiscellaneous']['nodes'][0],
   'node_locale'
 >;
 
