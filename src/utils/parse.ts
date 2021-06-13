@@ -10,6 +10,8 @@ export function parseRecipe(recipe: GatsbyTypes.ContentfulRecipe) {
 
   const notes = recipe?.notes?.notes?.split('\n').map(note => note.slice(2)) ?? [];
 
+  const specialDietInfo = recipe?.specialDietInformation?.specialDietInformation ?? '';
+
   const ingredients = recipe?.ingredients?.ingredients?.split('\n');
   const ingredientGroups = [];
 
@@ -46,5 +48,6 @@ export function parseRecipe(recipe: GatsbyTypes.ContentfulRecipe) {
     prepDirections: prepDirections,
     instructions: instructions,
     notes: notes,
+    specialDietInfo: specialDietInfo,
   };
 }

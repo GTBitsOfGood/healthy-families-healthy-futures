@@ -19,6 +19,7 @@ import { useMiscText } from 'src/utils/useMiscText';
 
 import Layout from '../../components/Layout';
 import TitledList from '../../components/TitledList';
+import TitledParagraph from 'src/components/TitledParagraph';
 import { parseRecipe } from '../../utils/parse';
 
 interface Props extends PageProps {
@@ -181,6 +182,15 @@ function RecipeTemplate(props: Props): JSX.Element {
           <>
             <br />
             <TitledList title={miscText.notes} listElements={recipe.notes}></TitledList>
+          </>
+        )}
+        {recipe.specialDietInfo?.length > 0 && (
+          <>
+            <br />
+            <TitledParagraph
+              title={miscText.specialDietInfo}
+              paragraph={recipe.specialDietInfo}
+            ></TitledParagraph>
           </>
         )}
       </Box>

@@ -33,6 +33,7 @@ const DEFAULT_STRINGS: MiscStrings = {
   prep: 'Prep',
   instructions: 'Instructions',
   notes: 'Notes',
+  specialDietInfo: 'Special Diet Information',
   recipeSearchNoResults: 'Oh no! No results were found.',
   recipeSearchNoResults2: 'Try using different words or a more general search.',
 };
@@ -65,6 +66,7 @@ export function useMiscText(): MiscStrings {
           prep
           instructions
           notes
+          specialDietInfo
           recipeSearchNoResults
           recipeSearchNoResults2
         }
