@@ -69,18 +69,26 @@ function RecipeTemplate(props: Props): JSX.Element {
           >
             <HStack align="start" spacing={10}>
               <VStack align="start">
-                <Text textStyle="body1" fontWeight="bold">
-                  {miscText.cookTime}
-                </Text>
-                <Text textStyle="body1" fontWeight="bold">
-                  {miscText.prepTime}
-                </Text>
-                <Text textStyle="body1" fontWeight="bold">
-                  {miscText.totalTime}
-                </Text>
-                <Text textStyle="body1" fontWeight="bold">
-                  {miscText.yield}
-                </Text>
+                {recipe.cookTime && (
+                  <Text textStyle="body1" fontWeight="bold">
+                    {miscText.cookTime}
+                  </Text>
+                )}
+                {recipe.prepTime && (
+                  <Text textStyle="body1" fontWeight="bold">
+                    {miscText.prepTime}
+                  </Text>
+                )}
+                {recipe.totalTime && (
+                  <Text textStyle="body1" fontWeight="bold">
+                    {miscText.totalTime}
+                  </Text>
+                )}
+                {recipe.yield && (
+                  <Text textStyle="body1" fontWeight="bold">
+                    {miscText.yield}
+                  </Text>
+                )}
                 <Text
                   display={isPrint ? 'flex' : { base: 'none', md: 'flex' }}
                   textStyle="body1"
@@ -91,10 +99,10 @@ function RecipeTemplate(props: Props): JSX.Element {
               </VStack>
 
               <VStack align="start">
-                <Text textStyle="body1">{recipe.cookTime} min</Text>
-                <Text textStyle="body1">{recipe.prepTime} min</Text>
-                <Text textStyle="body1">{recipe.totalTime} min</Text>
-                <Text textStyle="body1">{recipe.yield}</Text>
+                {recipe.cookTime && <Text textStyle="body1">{recipe.cookTime} min</Text>}
+                {recipe.prepTime && <Text textStyle="body1">{recipe.prepTime} min</Text>}
+                {recipe.totalTime && <Text textStyle="body1">{recipe.totalTime} min</Text>}
+                {recipe.yield && <Text textStyle="body1">{recipe.yield}</Text>}
                 <Grid
                   display={isPrint ? 'grid' : ['none', null, 'grid']}
                   templateColumns="repeat(2, 1fr)"
