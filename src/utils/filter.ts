@@ -70,8 +70,9 @@ export function filterRecipes(
     const hasFoodTypes = checkFoodTypes(recipe, selectedFilters[Category.FOOD_TYPE]);
     const hasTime = checkTime(recipe, selectedFilters[Category.TIME]);
     const hasSearch = checkSearch(recipe, searchQuery);
+    const isNotDummy = ignoreDummyRecipe(recipe);
 
-    return hasIngredients && hasFoodTypes && hasTime && hasSearch;
+    return hasIngredients && hasFoodTypes && hasTime && hasSearch && isNotDummy;
   });
 
   return filteredRecipes;
@@ -130,6 +131,17 @@ function checkSearch(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], sea
     recipe.ingredients?.ingredients?.toLowerCase().includes(search) ||
     recipe.description?.description?.toLowerCase().includes(search)
   );
+}
+
+/**
+ * Currently, the gatsby-source-contentful plugin has a limitation
+ * that requires us to have a dummy recipe with every field filled out
+ * on Contentful. For more details, see the README for the plugin below:
+ *
+ * https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-contentful#restrictions-and-limitations
+ */
+function ignoreDummyRecipe(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0]) {
+  return !recipe.title?.toLowerCase().startsWith('dummy recipe');
 }
 
 // Helper function to ensure the time given is within the time range in the form of a strings
