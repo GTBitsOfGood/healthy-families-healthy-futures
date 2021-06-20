@@ -19,22 +19,26 @@ export function initRecipeFilters(
 // Initializes all food type tags with a RecipeFilter object that has options and category title
 function initFoodTypes(foodTypeTags: RecipeQuery['allContentfulFoodTypeTag']['nodes']) {
   return removeNulls(
-    foodTypeTags.map(tag => {
-      if (tag.recipe && tag.tagName && tag.key) {
-        return { key: tag.key, name: tag.tagName };
-      }
-    }),
+    foodTypeTags
+      .map(tag => {
+        if (tag.recipe && tag.tagName && tag.key) {
+          return { key: tag.key, name: tag.tagName };
+        }
+      })
+      .filter(tag => ignoreDummyTag(tag)),
   );
 }
 
 // Initializes all ingredients tags with a RecipeFilter object that has options and category title
 function initIngredients(ingredientTags: RecipeQuery['allContentfulIngredientTag']['nodes']) {
   return removeNulls(
-    ingredientTags.map(tag => {
-      if (tag.recipe && tag.tagName && tag.key) {
-        return { key: tag.key, name: tag.tagName };
-      }
-    }),
+    ingredientTags
+      .map(tag => {
+        if (tag.recipe && tag.tagName && tag.key) {
+          return { key: tag.key, name: tag.tagName };
+        }
+      })
+      .filter(tag => ignoreDummyTag(tag)),
   );
 }
 
@@ -139,9 +143,16 @@ function checkSearch(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0], sea
  * on Contentful. For more details, see the README for the plugin below:
  *
  * https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-contentful#restrictions-and-limitations
+ *
+ * Thus, we must create a few dummy entries & filter them out below. Grr.
  */
+
 function ignoreDummyRecipe(recipe: RecipeQuery['allContentfulRecipe']['nodes'][0]) {
   return !recipe.title?.toLowerCase().startsWith('dummy recipe');
+}
+
+function ignoreDummyTag(tag?: { key: string }) {
+  return tag?.key !== 'dummy';
 }
 
 // Helper function to ensure the time given is within the time range in the form of a strings
