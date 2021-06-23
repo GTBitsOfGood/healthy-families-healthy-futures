@@ -16,6 +16,7 @@ import {
 import { graphql, Link, PageProps } from 'gatsby';
 import Img from 'gatsby-image';
 import TitledParagraph from 'src/components/TitledParagraph';
+import { useLocale } from 'src/contexts/LocaleContext';
 import { useMiscText } from 'src/utils/useMiscText';
 
 import Layout from '../../components/Layout';
@@ -27,7 +28,10 @@ interface Props extends PageProps {
 }
 
 function RecipeTemplate(props: Props): JSX.Element {
+  const { filterLocale } = useLocale();
+
   const contentfulRecipe = props.data.contentfulRecipe;
+  const placeholderImage = filterLocale(props.data.allContentfulRecipePlaceholderImage?.nodes)[0];
   const recipe = parseRecipe(contentfulRecipe as GatsbyTypes.ContentfulRecipe);
 
   const [isPrint] = useMediaQuery(['print']);
@@ -148,7 +152,7 @@ function RecipeTemplate(props: Props): JSX.Element {
             h={{ base: 'fit-content', md: '400px' }}
           >
             {recipe.imageFluid == null ? (
-              <Box w="full" h={{ base: '222px', md: 'full' }} bg="gray.light" />
+              <Img fluid={placeholderImage.placeholderImage?.fluid} alt="Recipe Image" imgStyle={{ objectFit: 'cover' }} />
             ) : (
               <Img fluid={recipe.imageFluid} alt="Recipe Image" imgStyle={{ objectFit: 'cover' }} />
             )}
@@ -182,8 +186,12 @@ function RecipeTemplate(props: Props): JSX.Element {
           ))}
         </Box>
 
-        <br />
-        <TitledList title={miscText.prep} listElements={recipe.prepDirections}></TitledList>
+        {recipe.prepDirections.length > 0 && (
+          <>
+            <br />
+            <TitledList title={miscText.prep} listElements={recipe.prepDirections}></TitledList>
+          </>
+        )}
         <br />
         <TitledList title={miscText.instructions} listElements={recipe.instructions}></TitledList>
         {recipe.notes?.length > 0 && (
@@ -235,6 +243,16 @@ export const pageQuery = graphql`
       }
       specialDietInformation {
         specialDietInformation
+      }
+    }
+    allContentfulRecipePlaceholderImage {
+      nodes {
+        placeholderImage {
+          fluid(maxWidth: 339, maxHeight: 219, resizingBehavior: SCALE) {
+            ...GatsbyContentfulFluid
+          }
+        }
+        node_locale
       }
     }
   }

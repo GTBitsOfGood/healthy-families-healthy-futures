@@ -26,6 +26,7 @@ function RecipesIndex(props: Props): JSX.Element {
   const recipes = filterLocale(props.data?.allContentfulRecipe?.nodes);
   const foodTypeTags = filterLocale(props.data?.allContentfulFoodTypeTag?.nodes);
   const ingredientTags = filterLocale(props.data?.allContentfulIngredientTag?.nodes);
+  const placeholderImage = filterLocale(props.data?.allContentfulRecipePlaceholderImage?.nodes)[0];
   const timeListStr = props.data?.contentfulTimeList?.timeList;
 
   const recipeFilters = initRecipeFilters(foodTypeTags, ingredientTags, timeListStr);
@@ -116,7 +117,7 @@ function RecipesIndex(props: Props): JSX.Element {
                   return (
                     <GridItem key={node.id}>
                       <Link to={`/recipes/${slugify(String(node.title)) ?? ''}`}>
-                        <RecipeCard data={node} />
+                        <RecipeCard data={node} placeholderImage={placeholderImage} />
                       </Link>
                     </GridItem>
                   );
@@ -177,6 +178,16 @@ export const pageQuery = graphql`
         key
         recipe {
           id
+        }
+        node_locale
+      }
+    }
+    allContentfulRecipePlaceholderImage {
+      nodes {
+        placeholderImage {
+          fluid(maxWidth: 339, maxHeight: 219, resizingBehavior: SCALE) {
+            ...GatsbyContentfulFluid
+          }
         }
         node_locale
       }

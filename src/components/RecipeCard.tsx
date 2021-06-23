@@ -7,10 +7,11 @@ import Img from 'gatsby-image';
 
 interface Props {
   data: GatsbyTypes.RecipeCardFragment;
+  placeholderImage: GatsbyTypes.ContentfulRecipePlaceholderImage;
   hideTime?: true;
 }
 
-function RecipeCard({ data, hideTime }: Props): JSX.Element {
+function RecipeCard({ data, hideTime, placeholderImage }: Props): JSX.Element {
   const timeInfo = hideTime == null && (
     <Flex>
       <TimeIcon mt="2px" color="green.500" />
@@ -28,9 +29,9 @@ function RecipeCard({ data, hideTime }: Props): JSX.Element {
         {timeInfo}
       </Flex>
 
-      <Box h={{ base: '179px', md: '219px' }} mb={3}>
+      <Box h={{ base: '179px', md: '219px' }} mb={3} boxShadow={'0px 4px 4px rgba(0, 0, 0, 0.25)'}>
         {data.mainImage?.fluid == null ? (
-          <Box w="full" h="full" bg="lightgray"></Box>
+          <Img alt="" fluid={placeholderImage.placeholderImage?.fluid} />
         ) : (
           <Img alt="" fluid={data.mainImage?.fluid} />
         )}
@@ -43,7 +44,7 @@ function RecipeCard({ data, hideTime }: Props): JSX.Element {
       </Box>
 
       <Text textStyle="body3" fontWeight="semibold">
-        {data.description?.description ?? 'Missing description'}
+        {data.description?.description ?? ''}
       </Text>
     </Box>
   );
